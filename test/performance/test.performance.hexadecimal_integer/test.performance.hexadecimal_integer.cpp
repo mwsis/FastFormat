@@ -9,15 +9,27 @@
 #include <platformstl/performance/performance_counter.hpp>
 
 #include <iostream>
+#include <limits>
 
-#include <limits.h>
 #include <stdio.h>
 
+#ifndef INT_MAX
+# define INT_MAX                                            std::numeric_limits<int>::max()
+#endif
+#ifndef INT_MIN
+# define INT_MIN                                            std::numeric_limits<int>::min()
+#endif
+
+
+
 #ifdef _DEBUG
+
 const size_t NUM_ITERATIONS =   1;
 #else
+
 const size_t NUM_ITERATIONS =   10000000;
 #endif
+
 
 int main()
 {
