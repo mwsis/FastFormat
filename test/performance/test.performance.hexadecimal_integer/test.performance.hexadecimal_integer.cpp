@@ -9,8 +9,8 @@
 #include <platformstl/performance/performance_counter.hpp>
 
 #include <iostream>
-#include <limits>
 
+#include <limits.h>
 #include <stdio.h>
 
 #ifdef _DEBUG

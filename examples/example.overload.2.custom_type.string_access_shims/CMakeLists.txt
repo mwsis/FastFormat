@@ -13,7 +13,9 @@ target_compile_options(example.overload.2.custom_type.string_access_shims PRIVAT
 
         -Wno-deprecated-copy-with-user-provided-copy
     >
-    $<$<CXX_COMPILER_ID:MSVC>: /WX /W4>
+    $<$<CXX_COMPILER_ID:MSVC>:
+        /WX /W4
+    >
 )
 
 

@@ -16,7 +16,9 @@ target_compile_options(test.unit.api.fill_replacements PRIVATE
         -Wno-missing-field-initializers
         # -Wno-string-plus-int
     >
-    $<$<CXX_COMPILER_ID:MSVC>: /WX /W4>
+    $<$<CXX_COMPILER_ID:MSVC>:
+        /WX /W4
+    >
 )
 
 

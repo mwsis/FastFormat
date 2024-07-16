@@ -13,7 +13,9 @@ target_compile_options(example.inserter.integers.WindowsLargeIntegers PRIVATE
 
         -Wno-deprecated-copy-with-user-provided-copy
     >
-    $<$<CXX_COMPILER_ID:MSVC>: /WX /W4>
+    $<$<CXX_COMPILER_ID:MSVC>:
+        /WX /W4
+    >
 )
 
 

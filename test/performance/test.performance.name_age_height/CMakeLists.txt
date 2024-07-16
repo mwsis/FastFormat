@@ -17,7 +17,9 @@ target_compile_options(test.performance.name_age_height PRIVATE
         -Wno-string-plus-int
         -Wno-unused-value
     >
-    $<$<CXX_COMPILER_ID:MSVC>: /WX /W4>
+    $<$<CXX_COMPILER_ID:MSVC>:
+        /WX /W4
+    >
 )
 
 

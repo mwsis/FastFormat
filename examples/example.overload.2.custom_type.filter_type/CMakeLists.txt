@@ -14,7 +14,9 @@ target_compile_options(example.overload.2.custom_type.filter_type PRIVATE
         -Wno-deprecated-declarations
         -Wno-deprecated-copy-with-user-provided-copy
     >
-    $<$<CXX_COMPILER_ID:MSVC>: /WX /W4>
+    $<$<CXX_COMPILER_ID:MSVC>:
+        /WX /W4
+    >
 )
 
 

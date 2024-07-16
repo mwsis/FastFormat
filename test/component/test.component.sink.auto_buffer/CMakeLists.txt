@@ -14,7 +14,9 @@ target_compile_options(test.component.sink.auto_buffer PRIVATE
 
         -Wno-deprecated-copy-with-user-provided-copy
     >
-    $<$<CXX_COMPILER_ID:MSVC>: /WX /W4>
+    $<$<CXX_COMPILER_ID:MSVC>:
+        /WX /W4
+    >
 )
 
 

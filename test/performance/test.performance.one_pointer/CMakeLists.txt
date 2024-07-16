@@ -17,7 +17,9 @@ target_compile_options(test.performance.one_pointer PRIVATE
         -Wno-string-plus-int
         -Wno-unused-value
     >
-    $<$<CXX_COMPILER_ID:MSVC>: /WX /W4>
+    $<$<CXX_COMPILER_ID:MSVC>:
+        /WX /W4
+    >
 )
 
 

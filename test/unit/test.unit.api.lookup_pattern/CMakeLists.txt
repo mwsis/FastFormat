@@ -15,7 +15,9 @@ target_compile_options(test.unit.api.lookup_pattern PRIVATE
         # -Wno-deprecated-copy-with-user-provided-copy
         # -Wno-string-plus-int
     >
-    $<$<CXX_COMPILER_ID:MSVC>: /WX /W4>
+    $<$<CXX_COMPILER_ID:MSVC>:
+        /WX /W4
+    >
 )
 
 

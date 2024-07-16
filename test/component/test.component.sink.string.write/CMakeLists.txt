@@ -14,7 +14,9 @@ target_compile_options(test.component.sink.string.write PRIVATE
 
         -Wno-deprecated-copy-with-user-provided-copy
     >
-    $<$<CXX_COMPILER_ID:MSVC>: /WX /W4>
+    $<$<CXX_COMPILER_ID:MSVC>:
+        /WX /W4
+    >
 )
 
 

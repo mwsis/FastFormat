@@ -16,7 +16,9 @@ target_compile_options(test.performance.api.parse_format PRIVATE
         -Wno-string-plus-int
         -Wno-unused-value
     >
-    $<$<CXX_COMPILER_ID:MSVC>: /WX /W4>
+    $<$<CXX_COMPILER_ID:MSVC>:
+        /WX /W4
+    >
 )
 
 
