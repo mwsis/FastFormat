@@ -67,7 +67,7 @@ namespace std
  */
 
 #if 0
-typedef std::string     string_t;
+typedef std::string                                         string_t;
 #endif /* 0 */
 
 

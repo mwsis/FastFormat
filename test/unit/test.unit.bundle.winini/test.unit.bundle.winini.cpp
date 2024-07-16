@@ -82,6 +82,7 @@ namespace
 } /* anonymous namespace */
 
 
+
 /* ////////////////////////////////////////////////////////////////////// */
 
 int main(int argc, char **argv)
@@ -203,6 +204,7 @@ static void test_1_8()
 
 
 } /* anonymous namespace */
+
 
 
 /* ///////////////////////////// end of file //////////////////////////// */

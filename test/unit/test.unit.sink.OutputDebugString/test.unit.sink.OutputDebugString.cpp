@@ -86,6 +86,7 @@ namespace
 } /* anonymous namespace */
 
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * helper functions
  */
@@ -405,6 +406,7 @@ static void test_1_19()
 
 
 } /* anonymous namespace */
+
 
 
 /* ///////////////////////////// end of file //////////////////////////// */

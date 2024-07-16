@@ -48,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_SINKS_STLSOFT_HPP_FILE_STREAM
 #define FASTFORMAT_INCL_FASTFORMAT_SINKS_STLSOFT_HPP_FILE_STREAM
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -59,6 +60,7 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINKS_STLSOFT_HPP_FILE_STREAM_EDIT     6
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * language
  */
@@ -66,6 +68,7 @@
 #ifndef __cplusplus
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -80,17 +83,19 @@
 
 #include <ios>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * compatibility
  */
 
 #if _STLSOFT_VER < 0x010a0181
 
-# define FASTFORMAT_SINK_STLSOFT_FILE_stream_NS_(x)     stlsoft::x
+# define FASTFORMAT_SINK_STLSOFT_FILE_stream_NS_(x)         stlsoft::x
 #else
 
-# define FASTFORMAT_SINK_STLSOFT_FILE_stream_NS_(x)     platformstl::x
+# define FASTFORMAT_SINK_STLSOFT_FILE_stream_NS_(x)         platformstl::x
 #endif
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -102,6 +107,7 @@ namespace fastformat
 namespace sinks
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * helper functions
@@ -166,8 +172,8 @@ inline F& fmt_slices_(
 }
 
 } /* namespace ximpl_FILE_stream */
-
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * action shims
@@ -204,7 +210,6 @@ fmt_slices(
 {
     return ximpl_FILE_stream::fmt_slices_(sink, flags, cchTotal, numResults, results);
 }
-
 #else /* ? compiler */
 
 template<
@@ -223,8 +228,8 @@ fmt_slices(
 {
     return ximpl_FILE_stream::fmt_slices_(sink, flags, cchTotal, numResults, results);
 }
-
 #endif /* compiler */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -235,7 +240,14 @@ fmt_slices(
 } /* namespace fastformat */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
-/* ////////////////////////////////////////////////////////////////////// */
+
+/* /////////////////////////////////////////////////////////////////////////
+ * inclusion control
+ */
+
+#ifdef STLSOFT_PPF_pragma_once_SUPPORT
+# pragma once
+#endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINKS_STLSOFT_HPP_FILE_STREAM */
 

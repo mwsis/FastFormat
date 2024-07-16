@@ -56,6 +56,7 @@
 # define UNIXSTL_NO_ATOMIC_INTEGER_OPERATIONS_ON_WINDOWS
 #endif
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * compatibility
  */
@@ -67,6 +68,7 @@
 # endif
 #else
 #endif
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes - 1
@@ -91,6 +93,7 @@
 #include <new>
 #include <stdexcept>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -99,6 +102,7 @@
 namespace fastformat
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * types & non-local variables
@@ -153,9 +157,9 @@ namespace
             ff_illformedHandler_info_t      illformedHandler;
             ff_mismatchedHandler_info_t     mismatchedHandler;
         };
-        typedef platformstl::thread_mutex   mx_type_;
+        typedef platformstl::thread_mutex                       mx_type_;
 #else /* ? FASTFORMAT_MT */
-        typedef stlsoft::null_mutex         mx_type_;
+        typedef stlsoft::null_mutex                             mx_type_;
 #endif /* FASTFORMAT_MT */
 
     public: /// Construction
@@ -555,6 +559,7 @@ namespace
 
 } /* anonymous namespace */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -563,4 +568,6 @@ namespace
 } /* namespace fastformat */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

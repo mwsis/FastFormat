@@ -137,6 +137,7 @@ namespace
 } /* anonymous namespace */
 
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * helper functions
  */
@@ -1445,6 +1446,7 @@ static void test_illformed_continue_with_format_as_literal_9()
 
 
 } /* anonymous namespace */
+
 
 
 /* ///////////////////////////// end of file //////////////////////////// */

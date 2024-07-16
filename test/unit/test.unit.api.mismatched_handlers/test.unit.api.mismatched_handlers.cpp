@@ -110,6 +110,7 @@ namespace
 } /* anonymous namespace */
 
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * helper functions
  */
@@ -327,6 +328,7 @@ static void test_11()
 }
 
 } /* anonymous namespace */
+
 
 
 /* ///////////////////////////// end of file //////////////////////////// */

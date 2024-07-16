@@ -55,6 +55,7 @@
 # define UNIXSTL_NO_ATOMIC_INTEGER_OPERATIONS_ON_WINDOWS
 #endif
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * compatibility
  */
@@ -66,6 +67,7 @@
 # endif
 #else
 #endif
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes - 1
@@ -96,17 +98,21 @@
 
 #include <ctype.h>
 
+
 /* /////////////////////////////////////////////////////////////////////////////
  * types
  */
 
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-# define fastformat_strtol_     ::wcstol
-# define fastformat_strchr_     ::wcschr
+
+# define fastformat_strtol_                                 ::wcstol
+# define fastformat_strchr_                                 ::wcschr
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
-# define fastformat_strtol_     ::strtol
-# define fastformat_strchr_     ::strchr
+
+# define fastformat_strtol_                                 ::strtol
+# define fastformat_strchr_                                 ::strchr
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
+
 
 /* /////////////////////////////////////////////////////////////////////////////
  * types
@@ -115,6 +121,7 @@
 namespace
 {
 #if !defined(FASTFORMAT_NO_NAMESPACE)
+
     using fastformat::ff_char_t;
     using fastformat::ff_format_element_t;
     using fastformat::ff_format_element_alignment_t_;
@@ -140,15 +147,17 @@ namespace
         using fastformat::FF_REPLACEMENTCODE_UNREFERENCED_ARGUMENT;
     using fastformat::ff_string_slice_t;
 # ifdef STLSOFT_CF_EXCEPTION_SUPPORT
+
     using fastformat::illformed_format_exception;
     using fastformat::missing_argument_exception;
     using fastformat::unreferenced_argument_exception;
 # endif /* STLSOFT_CF_EXCEPTION_SUPPORT */
 #else
-    typedef fastformat_illformedHandler_t   illformedHandler_t;
-    typedef ff_mismatchedHandler_info_t     mismatchedHandler_info_t;
-    typedef ff_parse_action_t               parse_action_t;
-    typedef ff_string_slice_t               string_slice_t;
+
+    typedef fastformat_illformedHandler_t                   illformedHandler_t;
+    typedef ff_mismatchedHandler_info_t                     mismatchedHandler_info_t;
+    typedef ff_parse_action_t                               parse_action_t;
+    typedef ff_string_slice_t                               string_slice_t;
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
     typedef int unreferenced_argument_flag_t;   // TODO: establish whether using bool is faster; (unlikely)
@@ -184,8 +193,8 @@ namespace
     };
 
     static const ff_char_t ValidFillCharacters[] = FASTFORMAT_LITERAL_STRING("# ");
-
 } /* anonymous namespace */
+
 
 /* /////////////////////////////////////////////////////////////////////////////
  * helper functions
@@ -567,8 +576,8 @@ namespace
 
         return derive_parse_result_(1, 1);
     }
-
 } /* anonymous namespace */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * stock handler functions
@@ -685,8 +694,8 @@ namespace
         // Return to indicate that we're ignoring
         return FF_HANDLERRESPONSE_CONTINUE_PROCESSING;
     }
-
 } /* anonymous namespace */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -696,6 +705,7 @@ namespace
 namespace fastformat
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * helper classes
@@ -942,8 +952,8 @@ namespace
         ff_mismatchedHandler_info_t handlers[4];
         size_t                      numHandlers; // 0 value is sentinel (denoting uninitialised array)
     };
-
 } /* anonymous namespace */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * API functions
@@ -1544,6 +1554,7 @@ FASTFORMAT_CALL(size_t) fastformat_accumulateSliceLengths(
 #endif /* compiler */
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * implementation functions
  */
@@ -1680,6 +1691,7 @@ ff_char_t const* ximpl_core::fastformat_impl_replacements_getHashes(void* token,
     return ctxt->hashes;
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -1688,4 +1700,6 @@ ff_char_t const* ximpl_core::fastformat_impl_replacements_getHashes(void* token,
 } /* namespace fastformat */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

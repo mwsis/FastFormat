@@ -85,7 +85,6 @@ namespace
     static void test_2_18(void);
     static void test_2_19(void);
     static void test_2_20(void);
-
 } /* anonymous namespace */
 
 
@@ -161,7 +160,7 @@ int main(int argc, char **argv)
 
 namespace
 {
-    using   fastformat::ff_char_t;
+    using fastformat::ff_char_t;
 
     typedef std::basic_string<ff_char_t>    string_t;
 
@@ -520,6 +519,7 @@ static void test_2_20()
 
 
 } /* anonymous namespace */
+
 
 
 /* ///////////////////////////// end of file //////////////////////////// */
