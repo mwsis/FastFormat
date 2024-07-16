@@ -1,12 +1,12 @@
-/* /////////////////////////////////////////////////////////////////////////////
+/* /////////////////////////////////////////////////////////////////////////
  * File:        test.scratch.sink.vectored_file.cpp
  *
  * Purpose:     Implementation file for the test.scratch.sink.vectored_file project.
  *
  * Created:     28th October 2006
- * Updated:     6th February 2024
+ * Updated:     16th July 2024
  *
- * ////////////////////////////////////////////////////////////////////////// */
+ * ////////////////////////////////////////////////////////////////////// */
 
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -48,7 +48,7 @@
 #endif /* _MSC_VER) && _DEBUG */
 
 
-/* ////////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////// */
 
 static int main_(int /* argc */, char ** /*argv*/)
 {
@@ -72,7 +72,7 @@ static int main_(int /* argc */, char ** /*argv*/)
 
     fprintf(stdout, "writing to '%s' via raw API (writev())\n", path1.c_str());
     {
-        iovec   vecs[] = 
+        iovec   vecs[] =
         {
                 {   &fragment1[0],  STLSOFT_NUM_ELEMENTS(fragment1) - 1 }   // "FastFormat"
             ,   {   &fragment0[0],  STLSOFT_NUM_ELEMENTS(fragment0) - 1 }   // " "

@@ -4,11 +4,12 @@
  * Purpose:     A FastFormat sink for FILE*.
  *
  * Created:     3rd January 2008
- * Updated:     5th February 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2008-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_FILE
 #define FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_FILE
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_FILE_MAJOR      1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_FILE_MINOR      3
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_FILE_REVISION   7
-# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_FILE_EDIT       33
+# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_FILE_EDIT       36
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -65,6 +68,7 @@
 #ifndef __cplusplus
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -84,6 +88,7 @@
 
 #include <stdio.h>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -94,6 +99,7 @@ namespace fastformat
 namespace sinks
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * classes
@@ -125,6 +131,7 @@ public: // Fields
     FILE* const stream;
 };
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * creator functions
  */
@@ -144,6 +151,7 @@ to_sink(FILE* stm)
 {
     return ff_FILE_sink(stm);
 }
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * action shims
@@ -275,6 +283,7 @@ fmt_slices(
     return sink;
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -285,6 +294,7 @@ using sinks::to_sink;
 } /* namespace fastformat */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -293,8 +303,8 @@ using sinks::to_sink;
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_FILE */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

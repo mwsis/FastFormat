@@ -4,11 +4,12 @@
  * Purpose:     Automatic initialisation of FastFormat library
  *
  * Created:     21st June 2005
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2005-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2005-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,6 +52,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_HPP_INITIALISER
 #define FASTFORMAT_INCL_FASTFORMAT_HPP_INITIALISER
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * feature discrimination
  */
@@ -75,6 +77,7 @@
 #  define FASTFORMAT_INIT_FAILURE_USE_SEH
 # endif /* compiler / OS */
 #endif
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -105,6 +108,7 @@
 namespace fastformat
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * classes
@@ -203,7 +207,7 @@ private:
             LPCTSTR strings[2] = { FASTFORMAT_LITERAL_STRING("process"), message };
             ::ReportEvent(h, EVENTLOG_ERROR_TYPE, 0, 1001, 0, 2, 0, strings, 0);
             ::DeregisterEventSource(h);
-        }        
+        }
     }
 #endif // FASTFORMAT_INIT_FAILURE_REPORT_VIA_WINDOWS_LOGGING
     static void record_init_failure_(int r)
@@ -281,3 +285,4 @@ namespace
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_HPP_INITIALISER */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

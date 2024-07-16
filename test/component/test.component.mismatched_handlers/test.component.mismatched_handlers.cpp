@@ -4,13 +4,14 @@
  * Purpose:     Implementation file for the test.component.mismatched_handlers project.
  *
  * Created:     11th November 2013
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Status:      Wizard-generated
  *
  * License:     (Licensed under the Synesis Software Open License)
  *
- *              Copyright (c) 2013-2017, Synesis Software Pty Ltd.
+ *              Copyright (c) 2019-2024, Synesis Information Systems Pty Ltd.
+ *              Copyright (c) 2013-2019, Synesis Software Pty Ltd.
  *              All rights reserved.
  *
  *              www:        http://www.synesis.com.au/software
@@ -366,3 +367,4 @@ static void test_1_19()
 } /* anonymous namespace */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

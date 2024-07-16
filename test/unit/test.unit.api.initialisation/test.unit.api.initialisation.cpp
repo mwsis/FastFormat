@@ -4,7 +4,7 @@
  * Purpose:     Implementation file for the test.unit.api.initialisation project.
  *
  * Created:     27th May 2008
- * Updated:     6th February 2024
+ * Updated:     16th July 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -34,11 +34,11 @@
 #include <fastformat/test/util/compiler_warnings_suppression.last_include.h>
 
 
-/* /////////////////////////////////////////////////////////////////////////////
+/* /////////////////////////////////////////////////////////////////////////
  * macros and definitions
  */
 
-#define FF_STR      FASTFORMAT_LITERAL_STRING
+#define FF_STR                                              FASTFORMAT_LITERAL_STRING
 
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -123,7 +123,7 @@ namespace
 {
 
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-# define t2m        stlsoft::w2m
+# define t2m                                                stlsoft::w2m
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
 # define t2m(x)     x
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */

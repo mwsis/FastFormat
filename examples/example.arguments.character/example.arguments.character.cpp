@@ -4,7 +4,7 @@
  * Purpose:     Implementation file for the example.arguments.character project.
  *
  * Created:     2nd June 2008
- * Updated:     6th February 2024
+ * Updated:     16th July 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -78,9 +78,9 @@ namespace filters
 static int main_(int /* argc */, char** /*argv*/)
 {
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-# define    stm     std::wcout
+# define    stm                                             std::wcout
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
-# define    stm     std::cout
+# define    stm                                             std::cout
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
 
     const char      c1  =   '~';

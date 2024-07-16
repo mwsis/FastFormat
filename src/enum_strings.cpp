@@ -4,7 +4,7 @@
  * Purpose:     Parse code strings for FastFormat API
  *
  * Created:     11th November 2013
- * Updated:     6th February 2024
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
@@ -227,3 +227,4 @@ FASTFORMAT_CALL(size_t) fastformat_getReplacementCodeStringLength(ff_replacement
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

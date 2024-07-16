@@ -4,7 +4,7 @@
  * Purpose:     Implementation file for the example.overload.2.custom_type.inserter project.
  *
  * Created:     2nd March 2009
- * Updated:     6th February 2024
+ * Updated:     16th July 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -75,7 +75,7 @@ public: /// Member Variables
     _MSC_VER >= 1400
  /* This is legitimate *only* in the case of the behaviour of this code */
 # include <windows.h>
-# define sprintf    wsprintf
+# define sprintf                                            wsprintf
 #endif /* VC++ 8+ */
 
 #include <fastformat/test/util/compiler_warnings_suppression.last_include.h>

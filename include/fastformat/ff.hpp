@@ -6,11 +6,12 @@
  *              namespace to ff.
  *
  * Created:     22nd December 2007
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2007-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2007-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,6 +51,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_HPP_FF
 #define FASTFORMAT_INCL_FASTFORMAT_HPP_FF
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -58,8 +60,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_HPP_FF_MAJOR     1
 # define FASTFORMAT_VER_FASTFORMAT_HPP_FF_MINOR     0
 # define FASTFORMAT_VER_FASTFORMAT_HPP_FF_REVISION  1
-# define FASTFORMAT_VER_FASTFORMAT_HPP_FF_EDIT      8
+# define FASTFORMAT_VER_FASTFORMAT_HPP_FF_EDIT      10
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -69,11 +72,13 @@
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * includes
  */
 
 #include <fastformat/fastformat.hpp>
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -88,3 +93,4 @@ namespace ff = ::fastformat;
 #endif /* FASTFORMAT_INCL_FASTFORMAT_HPP_FF */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

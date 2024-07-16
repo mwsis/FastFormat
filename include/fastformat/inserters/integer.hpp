@@ -4,11 +4,12 @@
  * Purpose:     Inserter functions for integral types
  *
  * Created:     26th May 2009
- * Updated:     5th February 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2009-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2009-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_INTEGER
 #define FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_INTEGER
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_INTEGER_MAJOR      1
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_INTEGER_MINOR      3
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_INTEGER_REVISION   1
-# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_INTEGER_EDIT       27
+# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_INTEGER_EDIT       31
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -91,6 +94,7 @@
 #include <ctype.h>      /* for ::toupper */
 #include <stdlib.h>     /* for abs() */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -101,6 +105,7 @@ namespace fastformat
 namespace inserters
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * implementation
@@ -479,7 +484,7 @@ inline ff_to_i_r_t_ integer_helper_5(
             }
 
             return ff_to_i_r_t_(s, n);
-#else 
+#else
             return hex_integer_helper(value, uppercaseAlpha);
 #endif /* STLSOFT_VER_STLSOFT_CONVERSION_INTEGER_TO_STRING_HPP_INTEGER_TO_HEXADECIMAL_STRING_MAJOR */
         }
@@ -609,6 +614,7 @@ inline ff_to_i_r_t_ integer_helper_hex_3(
 } /* namespace ximpl_integer */
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inserter functions
  */
@@ -644,6 +650,7 @@ inline ximpl_integer::ff_to_i_r_t_ integer(
     return ximpl_integer::integer_helper_3(value, minimumWidth, precision);
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -654,6 +661,7 @@ using ::fastformat::inserters::integer;
 } // namespace fastformat
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -662,8 +670,8 @@ using ::fastformat::inserters::integer;
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_INTEGER */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

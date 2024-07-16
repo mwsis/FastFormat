@@ -4,11 +4,12 @@
  * Purpose:     Inserter functions for character types.
  *
  * Created:     25th November 2010
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2010-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2010-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_CHARACTER
 #define FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_CHARACTER
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_CHARACTER_MAJOR    1
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_CHARACTER_MINOR    0
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_CHARACTER_REVISION 1
-# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_CHARACTER_EDIT     8
+# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_CHARACTER_EDIT     11
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -68,6 +71,7 @@
 // TODO: implement in terms of stlsoft::string_slice, when STLSoft 1.10 released
 //#include <stlsoft/string/string_slice.hpp>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -78,6 +82,7 @@ namespace fastformat
 namespace inserters
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * implementation
@@ -116,6 +121,7 @@ namespace ximpl_character
 }/* namespace ximpl_character */
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inserter functions
  */
@@ -134,6 +140,7 @@ character(
 {
     return ximpl_character::character_state(value);
 }
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * shims
@@ -191,6 +198,7 @@ c_str_len_a(
 {
     return s.length();
 }
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -338,6 +346,7 @@ c_str_len(
 
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -346,8 +355,8 @@ c_str_len(
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_CHARACTER */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

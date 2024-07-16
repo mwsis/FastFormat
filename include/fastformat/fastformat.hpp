@@ -4,11 +4,12 @@
  * Purpose:     FastFormat C++ primary include.
  *
  * Created:     19th September 2006
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2006-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2006-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_HPP_FASTFORMAT
 #define FASTFORMAT_INCL_FASTFORMAT_HPP_FASTFORMAT
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_HPP_FASTFORMAT_MAJOR     2
 # define FASTFORMAT_VER_FASTFORMAT_HPP_FASTFORMAT_MINOR     4
 # define FASTFORMAT_VER_FASTFORMAT_HPP_FASTFORMAT_REVISION  2
-# define FASTFORMAT_VER_FASTFORMAT_HPP_FASTFORMAT_EDIT      49
+# define FASTFORMAT_VER_FASTFORMAT_HPP_FASTFORMAT_EDIT      54
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -65,6 +68,7 @@
 #ifndef __cplusplus
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes - 1
@@ -78,6 +82,7 @@
 #endif /* FASTFORMAT_NO_USE_JIT_CACHE */
 #include <fastformat/internal/stlsoft.h>
 #include <fastformat/quality/contract.h>
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * compatibility
@@ -130,6 +135,7 @@
 # endif /* compiler */
 #endif /* !FASTFORMAT_NO_FILTER_TYPE_CONVERSION_SHIM_SUPPORT */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * includes - 2
  */
@@ -142,7 +148,8 @@
 #include <stlsoft/string/string_traits.hpp>
 #include <stlsoft/string/string_view.hpp>
 
- /* /////////////////////////////////////////////////////////////////////////
+
+/* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
 
@@ -150,6 +157,7 @@
 namespace fastformat
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * types
@@ -169,6 +177,7 @@ struct defs
 
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * creator functions
  */
@@ -186,6 +195,7 @@ to_sink(T& sink)
 {
     return sink;
 }
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * stock sinks
@@ -239,6 +249,7 @@ namespace fastformat
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * conversion shims for implicit filtering
  */
@@ -260,6 +271,7 @@ inline T const& filter_type(T const& t, T const*, C const volatile*)
 #if !defined(FASTFORMAT_NO_NAMESPACE)
 } /* namespace filters */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * stock filtering
@@ -307,6 +319,7 @@ namespace fastformat
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * helper functions
  */
@@ -329,6 +342,7 @@ namespace helpers
 } /* namespace internal */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * API functions
  */
@@ -337,7 +351,7 @@ namespace helpers
  *
  * \ingroup group__application_layer
  *
- * 
+ *
  */
 
 /** \defgroup group__interface_functions__api_format Format API Interface Functions
@@ -435,6 +449,7 @@ inline S& flush(
     return FASTFORMAT_INVOKE_fmt_slices_(sink, flags::ff_flush, 0, 0, NULL);
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * Auto-initialisation
  *
@@ -459,6 +474,7 @@ inline S& flush(
 # endif /* FASTFORMAT_FORCE_AUTO_INIT || !FASTFORMAT_NO_AUTO_INIT */
 #endif /* FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -467,15 +483,15 @@ inline S& flush(
 } /* namespace fastformat */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * Application-layer includes - 2
  */
 
 #ifndef FASTFORMAT_LEAN_AND_MEAN
 
-
-
 #endif /* !FASTFORMAT_LEAN_AND_MEAN */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
@@ -485,8 +501,8 @@ inline S& flush(
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* FASTFORMAT_INCL_FASTFORMAT_HPP_FASTFORMAT */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

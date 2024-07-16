@@ -144,7 +144,7 @@ static void test_1_0()
 
 	STLSOFT_SUPPRESS_UNUSED(instance);
 
-	XTESTS_TEST_PASSED();–
+	XTESTS_TEST_PASSED();
 #endif /* 0 */
 }
 
@@ -239,3 +239,4 @@ static void test_1_19()
 #include <../src/inserters/plural.cpp>
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

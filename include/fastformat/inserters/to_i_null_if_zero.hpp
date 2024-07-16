@@ -4,11 +4,12 @@
  * Purpose:     Nullable inserter functions for integral types
  *
  * Created:     20th February 2010
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2010-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2010-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_TO_I_NULL_IF_ZERO
 #define FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_TO_I_NULL_IF_ZERO
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_TO_I_NULL_IF_ZERO_MAJOR    1
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_TO_I_NULL_IF_ZERO_MINOR    0
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_TO_I_NULL_IF_ZERO_REVISION 3
-# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_TO_I_NULL_IF_ZERO_EDIT     8
+# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_TO_I_NULL_IF_ZERO_EDIT     11
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -69,6 +72,7 @@
 
 #include <fastformat/inserters/to_i.hpp>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -79,6 +83,7 @@ namespace fastformat
 namespace inserters
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * inserter functions
@@ -169,6 +174,7 @@ fastformat::inserters::ximpl_integer::ff_to_i_r_t_ to_i_null_if_0(
     return to_i_null_if_zero(i, nullIfZero);
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -180,6 +186,7 @@ using ::fastformat::inserters::to_i_null_if_0;
 } // namespace fastformat
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -188,8 +195,8 @@ using ::fastformat::inserters::to_i_null_if_0;
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_TO_I_NULL_IF_ZERO */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

@@ -4,11 +4,12 @@
  * Purpose:     A FastFormat sink for Windows' OutputDebugString().
  *
  * Created:     24th February 2009
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2009-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2009-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_OUTPUTDEBUGSTRING
 #define FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_OUTPUTDEBUGSTRING
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_OUTPUTDEBUGSTRING_MAJOR     1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_OUTPUTDEBUGSTRING_MINOR     0
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_OUTPUTDEBUGSTRING_REVISION  3
-# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_OUTPUTDEBUGSTRING_EDIT      9
+# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_OUTPUTDEBUGSTRING_EDIT      12
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -65,6 +68,7 @@
 #ifndef __cplusplus
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -77,6 +81,7 @@
 #include <stlsoft/memory/auto_buffer.hpp>
 
 #include <windows.h>
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -103,6 +108,7 @@ struct OutputDebugString_helper
     }
 };
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * classes
@@ -155,6 +161,7 @@ public:
     }
 };
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * action shims
  */
@@ -169,6 +176,7 @@ inline OutputDebugString_sink& fmt_slices(OutputDebugString_sink& sink, int flag
     return sink.write(flags, cchTotal, numResults, results);
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -178,6 +186,7 @@ inline OutputDebugString_sink& fmt_slices(OutputDebugString_sink& sink, int flag
 } /* namespace fastformat */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -186,8 +195,8 @@ inline OutputDebugString_sink& fmt_slices(OutputDebugString_sink& sink, int flag
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_OUTPUTDEBUGSTRING */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

@@ -4,7 +4,7 @@
  * Purpose:     Implementation file for the test.component.sink.CComBSTR project.
  *
  * Created:     14th September 2010
- * Updated:     6th February 2024
+ * Updated:     16th July 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -146,7 +146,7 @@ namespace
 
     typedef CComBSTR    string_t;
 
-#define FF_STR                              FASTFORMAT_LITERAL_STRING
+#define FF_STR                                              FASTFORMAT_LITERAL_STRING
 
 
 static void test_1_1()

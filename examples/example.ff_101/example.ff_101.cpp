@@ -4,7 +4,7 @@
  * Purpose:     Implementation file for the example.ff_101 project.
  *
  * Created:     2nd June 2008
- * Updated:     6th February 2024
+ * Updated:     16th July 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -229,7 +229,7 @@ static int main_(int /* argc */, char** /*argv*/)
     // Case 6: bad formats(s)
     puts("Case 6");
     //
-    // - 
+    // -
     puts("Case 6.1");
     try
     {

@@ -4,13 +4,14 @@
  * Purpose:     Implementation file for the test.unit.sink.ribbon project.
  *
  * Created:     6th September 2014
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Status:      Wizard-generated
  *
  * License:     (Licensed under the Synesis Software Open License)
  *
- *              Copyright (c) 2008-2017, Synesis Software Pty Ltd.
+ *              Copyright (c) 2019-2024, Synesis Information Systems Pty Ltd.
+ *              Copyright (c) 2008-2019, Synesis Software Pty Ltd.
  *              All rights reserved.
  *
  *              www:        http://www.synesis.com.au/software
@@ -55,12 +56,14 @@
  */
 
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-# define XTESTS_TEST_STRING_EQUAL(x, a)     XTESTS_TEST_WIDE_STRING_EQUAL(FASTFORMAT_LITERAL_STRING(x), a)
+
+# define XTESTS_TEST_STRING_EQUAL(x, a)                     XTESTS_TEST_WIDE_STRING_EQUAL(FASTFORMAT_LITERAL_STRING(x), a)
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
-# define XTESTS_TEST_STRING_EQUAL           XTESTS_TEST_MULTIBYTE_STRING_EQUAL
+
+# define XTESTS_TEST_STRING_EQUAL                           XTESTS_TEST_MULTIBYTE_STRING_EQUAL
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
 
-#define FF_STR                              FASTFORMAT_LITERAL_STRING
+#define FF_STR                                              FASTFORMAT_LITERAL_STRING
 
 /* /////////////////////////////////////////////////////////////////////////
  * forward declarations
@@ -145,7 +148,7 @@ namespace
     using ::xtests::cpp::temp_file;
 
     typedef fastformat::ff_char_t           char_t;
- 
+
     typedef std::basic_string<char_t>       string_t;
 
 
@@ -341,3 +344,4 @@ static void test_1_19()
 } /* anonymous namespace */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

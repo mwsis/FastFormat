@@ -5,13 +5,14 @@ add_executable(test.performance.one_pointer
 
 target_link_libraries(test.performance.one_pointer
     fastformat
-    xTests::xTests.core
+    xTests::core
 )
 
 target_compile_options(test.performance.one_pointer PRIVATE
     $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:
         -Werror -Wall -Wextra -pedantic
 
+        -Wno-deprecated-declarations
         -Wno-deprecated-copy-with-user-provided-copy
         -Wno-string-plus-int
         -Wno-unused-value

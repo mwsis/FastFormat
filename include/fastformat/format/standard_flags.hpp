@@ -4,11 +4,12 @@
  * Purpose:     FastFormat standard format flags.
  *
  * Created:     18th November 2007
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2007-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2007-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_FORMAT_HPP_STANDARD_FLAGS
 #define FASTFORMAT_INCL_FASTFORMAT_FORMAT_HPP_STANDARD_FLAGS
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_FORMAT_HPP_STANDARD_FLAGS_MAJOR     1
 # define FASTFORMAT_VER_FASTFORMAT_FORMAT_HPP_STANDARD_FLAGS_MINOR     0
 # define FASTFORMAT_VER_FASTFORMAT_FORMAT_HPP_STANDARD_FLAGS_REVISION  8
-# define FASTFORMAT_VER_FASTFORMAT_FORMAT_HPP_STANDARD_FLAGS_EDIT      14
+# define FASTFORMAT_VER_FASTFORMAT_FORMAT_HPP_STANDARD_FLAGS_EDIT      17
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -66,6 +69,7 @@
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * includes
  */
@@ -73,6 +77,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_INTERNAL_HPP_STLSOFT
 # include <fastformat/internal/stlsoft.h>   /* for sint16_t */
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_INTERNAL_HPP_STLSOFT */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -82,6 +87,7 @@
 namespace fastformat
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * constants and definitions
@@ -104,6 +110,7 @@ const ::stlsoft::sint16_t   ff_flush    =   0x0002;
 
 } /* namespace flags */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -111,6 +118,7 @@ const ::stlsoft::sint16_t   ff_flush    =   0x0002;
 #if !defined(FASTFORMAT_NO_NAMESPACE)
 } /* namespace fastformat */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
@@ -120,8 +128,8 @@ const ::stlsoft::sint16_t   ff_flush    =   0x0002;
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* FASTFORMAT_INCL_FASTFORMAT_FORMAT_HPP_STANDARD_FLAGS */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

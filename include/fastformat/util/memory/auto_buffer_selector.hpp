@@ -5,11 +5,12 @@
  *              specialisations.
  *
  * Created:     22nd April 2008
- * Updated:     5th February 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2008-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,6 +51,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_UTIL_MEMORY_HPP_AUTO_BUFFER_SELECTOR
 #define FASTFORMAT_INCL_FASTFORMAT_UTIL_MEMORY_HPP_AUTO_BUFFER_SELECTOR
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -58,8 +60,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_UTIL_MEMORY_HPP_AUTO_BUFFER_SELECTOR_MAJOR     2
 # define FASTFORMAT_VER_FASTFORMAT_UTIL_MEMORY_HPP_AUTO_BUFFER_SELECTOR_MINOR     0
 # define FASTFORMAT_VER_FASTFORMAT_UTIL_MEMORY_HPP_AUTO_BUFFER_SELECTOR_REVISION  4
-# define FASTFORMAT_VER_FASTFORMAT_UTIL_MEMORY_HPP_AUTO_BUFFER_SELECTOR_EDIT      19
+# define FASTFORMAT_VER_FASTFORMAT_UTIL_MEMORY_HPP_AUTO_BUFFER_SELECTOR_EDIT      23
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -98,6 +101,7 @@
 # endif /* !STLSOFT_INCL_STLSOFT_MEMORY_HPP_MALLOC_ALLOCATOR */
 #endif /* FASTFORMAT_COMPILER_CF_STD_ALLOCATOR_SYMBOLS_MULTIPLY_DEFINED */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -108,6 +112,7 @@ namespace fastformat
 namespace util
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * classes
@@ -120,8 +125,8 @@ namespace util
  * \ingroup group__utility
  *
  * There are two reasons for this:
- * - Some (older) compilers have to use the old (pre-1.9) form of 
- *   <code>stlsoft::auto_buffer</code>. Using 
+ * - Some (older) compilers have to use the old (pre-1.9) form of
+ *   <code>stlsoft::auto_buffer</code>. Using
  *   fastformat::auto_buffer_selector makes FastFormat code independent of
  *   such compilers' behavioural odities.
  * - Visual C++ 8 & 9 both have  bug that causes them to exhibit a linker
@@ -148,6 +153,7 @@ struct auto_buffer_selector
 #endif /* STLSOFT_AUTO_BUFFER_NEW_FORM */
 };
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -157,6 +163,7 @@ struct auto_buffer_selector
 } /* namespace fastformat */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -165,8 +172,8 @@ struct auto_buffer_selector
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_UTIL_MEMORY_HPP_AUTO_BUFFER_SELECTOR */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

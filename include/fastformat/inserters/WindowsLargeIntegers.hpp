@@ -4,11 +4,12 @@
  * Purpose:     Inserter functions for Windows' large integer types.
  *
  * Created:     13th September 2010
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2010-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2010-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_WINDOWSLARGEINTEGERS
 #define FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_WINDOWSLARGEINTEGERS
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_WINDOWSLARGEINTEGERS_MAJOR     1
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_WINDOWSLARGEINTEGERS_MINOR     0
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_WINDOWSLARGEINTEGERS_REVISION  1
-# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_WINDOWSLARGEINTEGERS_EDIT      4
+# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_WINDOWSLARGEINTEGERS_EDIT      7
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -70,6 +73,7 @@
 # include <fastformat/inserters/LARGE_INTEGER.hpp>
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_LARGE_INTEGER */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -78,8 +82,8 @@
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_WINDOWSLARGEINTEGERS */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

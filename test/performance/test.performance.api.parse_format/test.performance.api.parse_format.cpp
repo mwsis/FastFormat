@@ -4,7 +4,7 @@
  * Purpose:     Implementation file for the test.performance.api.parse_format project.
  *
  * Created:     17th November 2008
- * Updated:     6th February 2024
+ * Updated:     16th July 2024
  * *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -160,7 +160,7 @@ static int main_(int /* argc */, char** /*argv*/)
     platformstl::performance_counter::interval_type tmStringView;
     platformstl::performance_counter::interval_type tmStdString;
 
-    char const* params[] = 
+    char const* params[] =
     {
             "{0}"
         ,   "{1}"
@@ -468,7 +468,7 @@ int main(int argc, char** argv)
 }
 
 /* /////////////////////////////////////////////////////////////////////////
- * function definitions 
+ * function definitions
  */
 
 int FASTFORMAT_CALLCONV ignore_unreferenced_params_handler(
@@ -1164,3 +1164,4 @@ int parse_replacement_std_string(
 }
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

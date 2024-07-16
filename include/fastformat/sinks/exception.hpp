@@ -4,11 +4,12 @@
  * Purpose:     A FastFormat sink for exceptions.
  *
  * Created:     12th November 2012
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2012-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2012-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_EXCEPTION
 #define FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_EXCEPTION
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_EXCEPTION_MAJOR     0
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_EXCEPTION_MINOR     1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_EXCEPTION_REVISION  3
-# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_EXCEPTION_EDIT      5
+# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_EXCEPTION_EDIT      8
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -66,6 +69,7 @@
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * includes
  */
@@ -74,6 +78,7 @@
 
 #include <exception>
 #include <string>
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -85,6 +90,7 @@ namespace fastformat
 namespace sinks
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * classes
@@ -226,6 +232,7 @@ namespace sinks
         return sink;
     }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -235,6 +242,7 @@ namespace sinks
 } /* namespace fastformat */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -243,8 +251,8 @@ namespace sinks
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_EXCEPTION */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

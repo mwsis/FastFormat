@@ -4,11 +4,11 @@
  * Purpose:     Implicit linking for the FastFormat API
  *
  * Created:     30th January 2007
- * Updated:     21st March 2021
+ * Updated:     16th July 2024
  *
  * Home:        http://fastformat.org/
  *
- * Copyright (c) 2019-2021, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2007-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
@@ -46,6 +46,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_H_IMPLICIT_LINK
 #define FASTFORMAT_INCL_FASTFORMAT_H_IMPLICIT_LINK
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -54,8 +55,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_H_IMPLICIT_LINK_MAJOR    1
 # define FASTFORMAT_VER_FASTFORMAT_H_IMPLICIT_LINK_MINOR    6
 # define FASTFORMAT_VER_FASTFORMAT_H_IMPLICIT_LINK_REVISION 2
-# define FASTFORMAT_VER_FASTFORMAT_H_IMPLICIT_LINK_EDIT     23
+# define FASTFORMAT_VER_FASTFORMAT_H_IMPLICIT_LINK_EDIT     25
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -66,6 +68,7 @@
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_H_FASTFORMAT */
 
 #include <platformstl/platformstl.h>
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * implicit linking
@@ -313,3 +316,4 @@
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_H_IMPLICIT_LINK */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

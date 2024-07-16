@@ -4,13 +4,14 @@
  * Purpose:     With-namespace implementation file for the test.unit.shims_and_namespaces project.
  *
  * Created:     11th November 2013
- * Updated:     21st January 2017
+ * Updated:     16th July 2024
  *
  * Status:      Wizard-generated
  *
  * License:     (Licensed under the Synesis Software Open License)
  *
- *              Copyright (c) 2013-2017, Synesis Software Pty Ltd.
+ *              Copyright (c) 2019-2024, Synesis Information Systems Pty Ltd.
+ *              Copyright (c) 2013-2019, Synesis Software Pty Ltd.
  *              All rights reserved.
  *
  *              www:        http://www.synesis.com.au/software
@@ -74,7 +75,7 @@ namespace with_fastformat_namespace
 # define XTESTS_TEST_STRING_EQUAL_N(s1, s2, n)      XTESTS_TEST_MULTIBYTE_STRING_EQUAL_N(s1, s2, n)
 # define XTESTS_TEST_STRING_CONTAIN_APPROX_(s1, s2) XTESTS_TEST_MULTIBYTE_STRING_CONTAIN_APPROX(FASTFORMAT_LITERAL_STRING(s1), s2)
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
-#define FF_STR                                  FASTFORMAT_LITERAL_STRING
+#define FF_STR                                              FASTFORMAT_LITERAL_STRING
 
 #ifndef FASTFORMAT_NO_NAMESPACE
     using fastformat::ff_char_t;
@@ -218,3 +219,4 @@ void test_replacement_code_3()
 } // extern "C++"
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

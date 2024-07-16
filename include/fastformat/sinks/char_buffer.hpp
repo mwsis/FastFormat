@@ -4,11 +4,12 @@
  * Purpose:     A FastFormat sink for fixed length character buffers.
  *
  * Created:     14th April 2008
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2008-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_CHAR_BUFFER
 #define FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_CHAR_BUFFER
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CHAR_BUFFER_MAJOR       1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CHAR_BUFFER_MINOR       2
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CHAR_BUFFER_REVISION    4
-# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CHAR_BUFFER_EDIT        18
+# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CHAR_BUFFER_EDIT        20
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -65,6 +68,7 @@
 #ifndef __cplusplus
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -77,6 +81,7 @@
 
 #include <stdexcept>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -87,6 +92,7 @@ namespace fastformat
 namespace sinks
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * classes
@@ -193,6 +199,7 @@ private: // Not to be implemented
     class_type& operator =(class_type const&);
 };
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * action shims
  */
@@ -206,6 +213,7 @@ inline char_buffer_sink& fmt_slices(char_buffer_sink& sink, int flags, size_t cc
 {
     return sink.write(cchTotal, numResults, results, flags);
 }
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -221,3 +229,4 @@ inline char_buffer_sink& fmt_slices(char_buffer_sink& sink, int flags, size_t cc
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_CHAR_BUFFER */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

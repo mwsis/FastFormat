@@ -5,11 +5,12 @@
  *              multi-threaded.
  *
  * Created:     20th November 2007
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2007-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2007-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -49,6 +50,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_INTERNAL_H_THREADING
 #define FASTFORMAT_INCL_FASTFORMAT_INTERNAL_H_THREADING
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * includes
  */
@@ -57,6 +59,7 @@
 
 #include <platformstl/platformstl.h>
 #include <platformstl/synch/util/features.h>
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -89,3 +92,4 @@
 #endif /* FASTFORMAT_INCL_FASTFORMAT_INTERNAL_H_THREADING */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

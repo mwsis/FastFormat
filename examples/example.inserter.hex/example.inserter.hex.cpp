@@ -4,7 +4,7 @@
  * Purpose:     Implementation file for the example.inserter.hex project.
  *
  * Created:     4th February 2010
- * Updated:     6th February 2024
+ * Updated:     16th July 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -41,14 +41,14 @@ static int main_(int /* argc */, char** /*argv*/)
 {
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
 
-# define    stm     std::wcout
+# define    stm                                             std::wcout
 
     ff::fmtln(stm, L"i={0}; j={1}; k={2};", ff::to_x(123456), ff::to_x(123456, -10), ff::to_x(123456, 10));
     ff::writeln(stm, L"i=", ff::to_x(-123456), L"; j=", ff::to_x(-123456, -10), L"; k=", ff::to_x(-123456, 10), L";");
 
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
 
-# define    stm     std::cout
+# define    stm                                             std::cout
 
     ff::fmtln(stm, "i={0}", ff::to_x(123456));
     ff::fmtln(stm, "i={0}", ff::to_x(123456, 0, 10));

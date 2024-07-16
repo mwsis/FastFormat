@@ -1,12 +1,12 @@
-/* /////////////////////////////////////////////////////////////////////////////
+/* /////////////////////////////////////////////////////////////////////////
  * File:        test.performance.overload.ex.1.cpp
  *
  * Purpose:     Implementation file for the test.performance.overload.ex.1 project.
  *
  * Created:     19th October 2008
- * Updated:     6th February 2024
+ * Updated:     16th July 2024
  *
- * ////////////////////////////////////////////////////////////////////////// */
+ * ////////////////////////////////////////////////////////////////////// */
 
 
 //#define FASTFORMAT_NO_USE_JIT_CACHE
@@ -50,7 +50,7 @@
 # include <stdio.h>
 # include <string.h>
 
-    namespace 
+    namespace
     {
         char    s_realBuffer[1001];
     }
@@ -138,21 +138,21 @@
 #endif /* _MSC_VER) && _DEBUG */
 
 
-/* /////////////////////////////////////////////////////////////////////////////
+/* /////////////////////////////////////////////////////////////////////////
  * macros
  */
 
 #define TX(x)       FASTFORMAT_LITERAL_STRING(x)
 
 
-/* /////////////////////////////////////////////////////////////////////////////
+/* /////////////////////////////////////////////////////////////////////////
  * globals
  */
 
 extern "C" const char PANTHEIOS_FE_PROCESS_IDENTITY[] = "test.performance.overload.ex.1";
 
 
-/* ////////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////// */
 
 static int main_(int argc, char** argv)
 {
@@ -358,7 +358,7 @@ static int main_(int argc, char** argv)
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
                             , forename.c_str(), surname, age, forename.c_str());
 
-            // TODO: handle r < 0 
+            // TODO: handle r < 0
 
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
             std::wstring    s(buff.data(), size_t(r));

@@ -4,7 +4,7 @@
  * Purpose:     FastFormat Core API.
  *
  * Created:     18th September 2006
- * Updated:     6th February 2024
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
@@ -57,7 +57,7 @@
 # define FASTFORMAT_VER_FASTFORMAT_H_FASTFORMAT_MAJOR       1
 # define FASTFORMAT_VER_FASTFORMAT_H_FASTFORMAT_MINOR       26
 # define FASTFORMAT_VER_FASTFORMAT_H_FASTFORMAT_REVISION    5
-# define FASTFORMAT_VER_FASTFORMAT_H_FASTFORMAT_EDIT        114
+# define FASTFORMAT_VER_FASTFORMAT_H_FASTFORMAT_EDIT        117
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
 /** \def FASTFORMAT_VER_MAJOR
@@ -241,9 +241,9 @@ namespace fastformat
 
 #if defined(__cplusplus) || \
     defined(FASTFORMAT_DOCUMENTATION_SKIP_SECTION)
-# define FASTFORMAT_EXTERN_C           extern "C"
+# define FASTFORMAT_EXTERN_C                                extern "C"
 #else /* ? __cplusplus */
-# define FASTFORMAT_EXTERN_C           extern
+# define FASTFORMAT_EXTERN_C                                extern
 #endif /* !__cplusplus */
 
 #if !defined(FASTFORMAT_CALLCONV)
@@ -550,7 +550,6 @@ typedef ff_illformedHandler_info_t      ff_illformed_handler_info_t;
 typedef illformedHandler_info_t         illformed_handler_info_t;
 # endif /* !FASTFORMAT_NO_NAMESPACE */
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
-
 
 
 /* /////////////////////////////////////
@@ -1223,6 +1222,7 @@ namespace internal
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
 #endif /* FASTFORMAT_INCL_FASTFORMAT_H_FASTFORMAT */
+
 
 /* ///////////////////////////// end of file //////////////////////////// */
 

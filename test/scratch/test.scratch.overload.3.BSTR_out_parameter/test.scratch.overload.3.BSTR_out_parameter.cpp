@@ -4,7 +4,7 @@
  * Purpose:     Implementation file for the test.scratch.overload.3.BSTR_out_parameter project.
  *
  * Created:     4th January 2009
- * Updated:     6th February 2024
+ * Updated:     16th July 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -146,7 +146,7 @@ HRESULT get_BSTR_ff(BSTR* bstr2)
 
 HRESULT XXGetFilterEx_(dimension_t dimension, int newIndex, std::string* fg, std::string* fv)
 {
-    *fg = "fg"; // +1 
+    *fg = "fg"; // +1
     *fv = "fv"; // +1
 
     return S_OK;

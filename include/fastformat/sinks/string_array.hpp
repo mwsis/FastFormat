@@ -4,11 +4,12 @@
  * Purpose:     A FastFormat sink for string sequences.
  *
  * Created:     24th December 2007
- * Updated:     5th February 2012
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2007-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2007-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,6 +51,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_STRING_ARRAY
 #define FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_STRING_ARRAY
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -58,8 +60,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_STRING_ARRAY_MAJOR      0
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_STRING_ARRAY_MINOR      0
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_STRING_ARRAY_REVISION   3
-# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_STRING_ARRAY_EDIT       8
+# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_STRING_ARRAY_EDIT       10
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -68,6 +71,7 @@
 #ifndef __cplusplus
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -87,6 +91,7 @@
 
 #include <string>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -97,6 +102,7 @@ namespace fastformat
 namespace sinks
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * classes
@@ -186,6 +192,7 @@ private:
     std::string m_delim;
 };
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * action shims
  */
@@ -199,6 +206,7 @@ inline string_array_sink& fmt_slices(string_array_sink& sink, int flags, size_t 
 {
     return sink.write(numResults, results, flags);
 }
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -214,3 +222,4 @@ inline string_array_sink& fmt_slices(string_array_sink& sink, int flags, size_t 
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_STRING_ARRAY */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

@@ -4,7 +4,7 @@
  * Purpose:     Initialisation code strings for FastFormat API
  *
  * Created:     27th May 2008
- * Updated:     6th February 2024
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
@@ -67,7 +67,7 @@ namespace fastformat
 #ifdef FASTFORMAT_DOCUMENTATION_SKIP_SECTION
 struct InitCodeString
 #else /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
-# define InitCodeString        fastformat_src_util_InitCodeString
+# define InitCodeString                                     fastformat_src_util_InitCodeString
 typedef struct InitCodeString  InitCodeString;
 struct InitCodeString
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
@@ -178,3 +178,4 @@ FASTFORMAT_CALL(size_t) fastformat_getInitCodeStringLength(int code)
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

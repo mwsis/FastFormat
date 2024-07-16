@@ -4,11 +4,12 @@
  * Purpose:     A class that acts as a bit-bucket sink.
  *
  * Created:     3rd December 2008
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2008-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_NULL
 #define FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_NULL
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_NULL_MAJOR      1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_NULL_MINOR      1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_NULL_REVISION   2
-# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_NULL_EDIT       8
+# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_NULL_EDIT       10
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -66,6 +69,7 @@
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * includes
  */
@@ -73,6 +77,7 @@
 #include <fastformat/fastformat.h>
 #include <fastformat/format/standard_flags.hpp>
 #include <fastformat/quality/contract.h>
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -84,6 +89,7 @@ namespace fastformat
 namespace sinks
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * classes
@@ -108,6 +114,7 @@ public: // Construction
         , cchTotal(0u)
     {}
 };
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * action shims
@@ -141,6 +148,7 @@ inline null_sink&
     return sink;
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -155,3 +163,4 @@ inline null_sink&
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_NULL */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

@@ -5,7 +5,7 @@
  *              project.
  *
  * Created:     29th April 2009
- * Updated:     6th February 2024
+ * Updated:     16th July 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -70,9 +70,9 @@ static void setup()
         tels_.push_back(tels[i]);
     }}
 
-#define forenames   forenames_
-#define surnames    surnames_
-#define tels        tels_
+#define forenames                                           forenames_
+#define surnames                                            surnames_
+#define tels                                                tels_
 }
 
 #ifdef FASTFORMAT_PERFTEST_USE_BOOST
@@ -145,7 +145,7 @@ int main()
 
 FILE* FILE_stm = stdout;
 //#define ff_stm    FILE_stm
-#define ff_stm  std::cout
+#define ff_stm                                              std::cout
 
 int output_by_ff()
 {

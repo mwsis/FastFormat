@@ -4,7 +4,7 @@
  * Purpose:     Implementation file for the example.iterators.format_iterator project.
  *
  * Created:     26th March 2010
- * Updated:     6th February 2024
+ * Updated:     16th July 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -56,10 +56,10 @@ static int main_(int /* argc */, char** /*argv*/)
 {
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
   typedef std::wstring            string_t;
-# define    stm                   std::wcout
+# define    stm                                             std::wcout
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
   typedef std::string             string_t;
-# define    stm                   std::cout
+# define    stm                                             std::cout
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
   typedef std::vector<string_t>   strings_t;
 

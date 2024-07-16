@@ -4,7 +4,7 @@
  * Purpose:     Implementation file for the test.scratch.inserter.real project.
  *
  * Created:     1st March 2009
- * Updated:     6th February 2024
+ * Updated:     16th July 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -85,7 +85,7 @@ static int main_(int /* argc */, char** /*argv*/)
         printf("%%5f:    [%5f]\n", values[i]);
         printf("%%5.8f:  [%5.8f]\n", values[i]);
         printf("%%5.4f:  [%5.4f]\n", values[i]);
-    
+
         printf("%%.5f:   [%.5f]\n", values[i]);
     }}
 

@@ -4,11 +4,12 @@
  * Purpose:     A FastFormat sink adaptor for ATL's CComBSTR.
  *
  * Created:     21st November 2008
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2008-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_CCOMBSTR
 #define FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_CCOMBSTR
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CCOMBSTR_MAJOR      1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CCOMBSTR_MINOR      3
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CCOMBSTR_REVISION   1
-# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CCOMBSTR_EDIT       17
+# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CCOMBSTR_EDIT       19
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -65,6 +68,7 @@
 #ifndef __cplusplus
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -78,6 +82,7 @@
 
 #include <atlbase.h>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -88,6 +93,7 @@ namespace fastformat
 namespace sinks
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * action shims
@@ -170,6 +176,7 @@ inline CComBSTR& fmt_slices(CComBSTR& sink, int flags, size_t cchTotal, size_t n
     return sink;
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -184,3 +191,4 @@ inline CComBSTR& fmt_slices(CComBSTR& sink, int flags, size_t cchTotal, size_t n
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_CCOMBSTR */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

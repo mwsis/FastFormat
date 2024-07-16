@@ -4,7 +4,7 @@
  * Purpose:     Inserter function for integral types in locale format.
  *
  * Created:     1st September 2012
- * Updated:     2nd September 2012
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
@@ -47,6 +47,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_LC_I
 #define FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_LC_I
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * Version information
  */
@@ -55,8 +56,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_LC_I_MAJOR     1
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_LC_I_MINOR     0
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_LC_I_REVISION  1
-# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_LC_I_EDIT      1
+# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_LC_I_EDIT      4
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * Includes
@@ -68,6 +70,7 @@
 
 #include <locale.h>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * Namespace
  */
@@ -78,6 +81,7 @@ namespace fastformat
 namespace inserters
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * Inserter functions
@@ -124,6 +128,7 @@ lc_i(
 	return r;
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * Namespace
  */
@@ -134,6 +139,7 @@ using ::fastformat::inserters::lc_i;
 } // namespace fastformat
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * Inclusion
  */
@@ -142,8 +148,8 @@ using ::fastformat::inserters::lc_i;
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_LC_I */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

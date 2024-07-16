@@ -5,7 +5,7 @@ add_executable(test.performance.name_age_height
 
 target_link_libraries(test.performance.name_age_height
     fastformat
-    xTests::xTests.core
+    xTests::core
 )
 
 target_compile_options(test.performance.name_age_height PRIVATE
@@ -13,6 +13,7 @@ target_compile_options(test.performance.name_age_height PRIVATE
         -Werror -Wall -Wextra -pedantic
 
         -Wno-deprecated-copy-with-user-provided-copy
+		-Wno-deprecated-declarations
         -Wno-string-plus-int
         -Wno-unused-value
     >

@@ -4,7 +4,7 @@
  * Purpose:     Implementation file for the test.unit.sink.OutputDebugString project.
  *
  * Created:     28th May 2008
- * Updated:     6th February 2024
+ * Updated:     16th July 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -21,8 +21,8 @@
 void OutputDebugStringA_mock(char const* s);
 void OutputDebugStringW_mock(wchar_t const* s);
 int OutputDebugString_setup(void* );
-#define OutputDebugStringA  OutputDebugStringA_mock
-#define OutputDebugStringW  OutputDebugStringW_mock
+#define OutputDebugStringA                                  OutputDebugStringA_mock
+#define OutputDebugStringW                                  OutputDebugStringW_mock
 
 #include <fastformat/sinks/OutputDebugString.hpp>
 
@@ -47,12 +47,14 @@ int OutputDebugString_setup(void* );
  */
 
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-# define XTESTS_TEST_STRING_EQUAL(x, a)     XTESTS_TEST_WIDE_STRING_EQUAL(FASTFORMAT_LITERAL_STRING(x), a)
+
+# define XTESTS_TEST_STRING_EQUAL(x, a)                     XTESTS_TEST_WIDE_STRING_EQUAL(FASTFORMAT_LITERAL_STRING(x), a)
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
-# define XTESTS_TEST_STRING_EQUAL           XTESTS_TEST_MULTIBYTE_STRING_EQUAL
+
+# define XTESTS_TEST_STRING_EQUAL                           XTESTS_TEST_MULTIBYTE_STRING_EQUAL
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
 
-#define FF_STR                              FASTFORMAT_LITERAL_STRING
+#define FF_STR                                              FASTFORMAT_LITERAL_STRING
 
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -173,7 +175,7 @@ namespace
 static void test_1_0()
 {
     fastformat::sinks::OutputDebugString_sink   sink;
-    const fastformat::string_slice_t            slices[] = 
+    const fastformat::string_slice_t            slices[] =
     {
         {   0,  NULL    },
     };
@@ -189,7 +191,7 @@ static void test_1_0()
 static void test_1_1()
 {
     fastformat::sinks::OutputDebugString_sink   sink;
-    const fastformat::string_slice_t            slices[] = 
+    const fastformat::string_slice_t            slices[] =
     {
         {   1,  FF_STR("a") },
     };
@@ -205,7 +207,7 @@ static void test_1_1()
 static void test_1_2()
 {
     fastformat::sinks::OutputDebugString_sink   sink;
-    const fastformat::string_slice_t            slices[] = 
+    const fastformat::string_slice_t            slices[] =
     {
         {   1,  FF_STR("abcdefghijklmnopqrstuvwxyz")    },
     };
@@ -221,7 +223,7 @@ static void test_1_2()
 static void test_1_3()
 {
     fastformat::sinks::OutputDebugString_sink   sink;
-    const fastformat::string_slice_t            slices[] = 
+    const fastformat::string_slice_t            slices[] =
     {
         {   26, FF_STR("abcdefghijklmnopqrstuvwxyz")    },
     };
@@ -237,7 +239,7 @@ static void test_1_3()
 static void test_1_4()
 {
     fastformat::sinks::OutputDebugString_sink   sink;
-    const fastformat::string_slice_t            slices[] = 
+    const fastformat::string_slice_t            slices[] =
     {
         {   1,  FF_STR("abcdefghijklmnopqrstuvwxyz")        },
         {   25, FF_STR("abcdefghijklmnopqrstuvwxyz") + 1    },
@@ -254,7 +256,7 @@ static void test_1_4()
 static void test_1_5()
 {
     fastformat::sinks::OutputDebugString_sink   sink;
-    const fastformat::string_slice_t            slices[] = 
+    const fastformat::string_slice_t            slices[] =
     {
         {   1,  FF_STR("abcdefghijklmnopqrstuvwxyz")        },
         {   1,  FF_STR("abcdefghijklmnopqrstuvwxyz") + 1    },
@@ -296,7 +298,7 @@ static void test_1_5()
 static void test_1_6()
 {
     fastformat::sinks::OutputDebugString_sink   sink;
-    const fastformat::string_slice_t            slices[] = 
+    const fastformat::string_slice_t            slices[] =
     {
         {   1,  FF_STR("abcdefghijklmnopqrstuvwxyz")        },
         {   0,  NULL                                },

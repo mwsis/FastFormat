@@ -5,7 +5,7 @@
  *              project.
  *
  * Created:     29th April 2009
- * Updated:     6th February 2024
+ * Updated:     16th July 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -387,7 +387,7 @@ void log_connection_iostreams(connection_t const& conn)
 
 FILE* ff_stm = stdout;
 //#define ff_stm    FILE_stm
-#define ff_stm  std::cout
+#define ff_stm                                              std::cout
 
 void log_connection_ff_fmt_1(connection_t const& conn)
 {

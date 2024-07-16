@@ -4,11 +4,12 @@
  * Purpose:     FastFormat API exception classes.
  *
  * Created:     23rd October 2008
- * Updated:     21st January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2008-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_HPP_EXCEPTIONS
 #define FASTFORMAT_INCL_FASTFORMAT_HPP_EXCEPTIONS
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_HPP_EXCEPTIONS_MAJOR     1
 # define FASTFORMAT_VER_FASTFORMAT_HPP_EXCEPTIONS_MINOR     2
 # define FASTFORMAT_VER_FASTFORMAT_HPP_EXCEPTIONS_REVISION  3
-# define FASTFORMAT_VER_FASTFORMAT_HPP_EXCEPTIONS_EDIT      18
+# define FASTFORMAT_VER_FASTFORMAT_HPP_EXCEPTIONS_EDIT      21
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -65,6 +68,7 @@
 #ifndef __cplusplus
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -82,6 +86,7 @@
 #include <stdexcept>
 #include <string>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -90,6 +95,7 @@
 namespace fastformat
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * documenation
@@ -124,6 +130,7 @@ namespace fastformat
                 .
                 . . . sink-specific exception classes
 #endif
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * classes
@@ -524,6 +531,7 @@ protected: // Implementation
             class_type& operator =(class_type const&);
         };
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * implementation
  */
@@ -547,6 +555,7 @@ inline /* virtual */ sink_exception::~sink_exception() STLSOFT_NOEXCEPT /* = 0 *
 
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -554,6 +563,7 @@ inline /* virtual */ sink_exception::~sink_exception() STLSOFT_NOEXCEPT /* = 0 *
 #if !defined(FASTFORMAT_NO_NAMESPACE)
 } /* namespace fastformat */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
@@ -563,8 +573,8 @@ inline /* virtual */ sink_exception::~sink_exception() STLSOFT_NOEXCEPT /* = 0 *
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* FASTFORMAT_INCL_FASTFORMAT_HPP_EXCEPTIONS */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

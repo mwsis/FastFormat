@@ -5,7 +5,7 @@
  *              project.
  *
  * Created:     30th April 2009
- * Updated:     6th February 2024
+ * Updated:     16th July 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -169,7 +169,7 @@ int output_by_streams()
 
 int output_by_iostreams()
 {
-    std::cout 
+    std::cout
         << '['
         << std::setiosflags(std::ios::fixed)
         << std::left
@@ -195,7 +195,7 @@ int output_by_iostreams()
 
 FILE* FILE_stm = stdout;
 //#define ff_stm    FILE_stm
-#define ff_stm  std::cout
+#define ff_stm                                              std::cout
 
 int output_by_ff_fmt_1()
 {

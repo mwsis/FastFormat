@@ -4,7 +4,7 @@
  * Purpose:     Implementation file for the test.unit.inserters.integer project.
  *
  * Created:     11th December 2010
- * Updated:     6th February 2024
+ * Updated:     16th July 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -49,18 +49,20 @@
  */
 
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-# define XTESTS_TEST_STRING_EQUAL_(x, a)    XTESTS_TEST_WIDE_STRING_EQUAL(x, a)
-# define XTESTS_TEST_STRING_EQUAL(x, a)     XTESTS_TEST_WIDE_STRING_EQUAL(FASTFORMAT_LITERAL_STRING(x), a)
-# define std_string                         std::wstring
-# define XTESTS_TEST_FIIS_EXPR_t2s(x)       stlsoft::w2a(x).c_str()
+
+# define XTESTS_TEST_STRING_EQUAL_(x, a)                    XTESTS_TEST_WIDE_STRING_EQUAL(x, a)
+# define XTESTS_TEST_STRING_EQUAL(x, a)                     XTESTS_TEST_WIDE_STRING_EQUAL(FASTFORMAT_LITERAL_STRING(x), a)
+# define std_string                                         std::wstring
+# define XTESTS_TEST_FIIS_EXPR_t2s(x)                       stlsoft::w2a(x).c_str()
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
-# define XTESTS_TEST_STRING_EQUAL_          XTESTS_TEST_MULTIBYTE_STRING_EQUAL
-# define XTESTS_TEST_STRING_EQUAL           XTESTS_TEST_MULTIBYTE_STRING_EQUAL
-# define std_string                         std::string
-# define XTESTS_TEST_FIIS_EXPR_t2s(x)       x
+
+# define XTESTS_TEST_STRING_EQUAL_                          XTESTS_TEST_MULTIBYTE_STRING_EQUAL
+# define XTESTS_TEST_STRING_EQUAL                           XTESTS_TEST_MULTIBYTE_STRING_EQUAL
+# define std_string                                         std::string
+# define XTESTS_TEST_FIIS_EXPR_t2s(x)                       x
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
 
-#define FF_STR                              FASTFORMAT_LITERAL_STRING
+#define FF_STR                                              FASTFORMAT_LITERAL_STRING
 
 
 
@@ -85,7 +87,7 @@
 
 #define XTESTS_TEST_FIIS_EQUAL(expected, actual)    XTESTS_TEST_FIIS_EQUAL_(FF_STR(expected), actual)
 
-    
+
 /* std::string(stlsoft::a2t"" #actual */
 
 

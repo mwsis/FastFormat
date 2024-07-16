@@ -4,7 +4,7 @@
  * Purpose:     Implementation file for the test.unit.sink.c_string project.
  *
  * Created:     28th May 2008
- * Updated:     6th February 2024
+ * Updated:     16th July 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -48,12 +48,14 @@
  */
 
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-# define XTESTS_TEST_STRING_EQUAL(x, a)     XTESTS_TEST_WIDE_STRING_EQUAL(FASTFORMAT_LITERAL_STRING(x), a)
+
+# define XTESTS_TEST_STRING_EQUAL(x, a)                     XTESTS_TEST_WIDE_STRING_EQUAL(FASTFORMAT_LITERAL_STRING(x), a)
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
-# define XTESTS_TEST_STRING_EQUAL           XTESTS_TEST_MULTIBYTE_STRING_EQUAL
+
+# define XTESTS_TEST_STRING_EQUAL                           XTESTS_TEST_MULTIBYTE_STRING_EQUAL
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
 
-#define FF_STR                              FASTFORMAT_LITERAL_STRING
+#define FF_STR                                              FASTFORMAT_LITERAL_STRING
 
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -170,7 +172,7 @@ static void test_1_0()
 {
     ff_char_t                           buff[1] = { '~' };
     c_string_sink                       sink(STLSOFT_NUM_ELEMENTS(buff), &buff[0]);
-    const fastformat::string_slice_t    slices[] = 
+    const fastformat::string_slice_t    slices[] =
     {
         {   0,  NULL    },
     };
@@ -193,7 +195,7 @@ static void test_1_1()
 {
     ff_char_t                           buff[2] = { '~', '\0' };
     c_string_sink                       sink(STLSOFT_NUM_ELEMENTS(buff), &buff[0]);
-    const fastformat::string_slice_t    slices[] = 
+    const fastformat::string_slice_t    slices[] =
     {
         {   1,  FF_STR("a") },
     };
@@ -217,7 +219,7 @@ static void test_1_2()
 {
     ff_char_t                           buff[2] = { '~', '\0' };
     c_string_sink                       sink(STLSOFT_NUM_ELEMENTS(buff), &buff[0]);
-    const fastformat::string_slice_t    slices[] = 
+    const fastformat::string_slice_t    slices[] =
     {
         {   1,  FF_STR("abcdefghijklmnopqrstuvwxyz")    },
     };
@@ -241,7 +243,7 @@ static void test_1_3()
 {
     ff_char_t                           buff[27];
     c_string_sink                       sink(STLSOFT_NUM_ELEMENTS(buff), &buff[0]);
-    const fastformat::string_slice_t    slices[] = 
+    const fastformat::string_slice_t    slices[] =
     {
         {   26, FF_STR("abcdefghijklmnopqrstuvwxyz")    },
     };
@@ -266,7 +268,7 @@ static void test_1_4()
 {
     ff_char_t                           buff[27];
     c_string_sink                       sink(STLSOFT_NUM_ELEMENTS(buff), &buff[0]);
-    const fastformat::string_slice_t    slices[] = 
+    const fastformat::string_slice_t    slices[] =
     {
         {   1,  FF_STR("abcdefghijklmnopqrstuvwxyz")        },
         {   25, FF_STR("abcdefghijklmnopqrstuvwxyz") + 1    },
@@ -292,7 +294,7 @@ static void test_1_5()
 {
     ff_char_t                           buff[27];
     c_string_sink                       sink(STLSOFT_NUM_ELEMENTS(buff), &buff[0]);
-    const fastformat::string_slice_t    slices[] = 
+    const fastformat::string_slice_t    slices[] =
     {
         {   1,  FF_STR("abcdefghijklmnopqrstuvwxyz")        },
         {   1,  FF_STR("abcdefghijklmnopqrstuvwxyz") + 1    },
@@ -343,7 +345,7 @@ static void test_1_6()
 {
     ff_char_t                           buff[27];
     c_string_sink                       sink(STLSOFT_NUM_ELEMENTS(buff), &buff[0]);
-    const fastformat::string_slice_t    slices[] = 
+    const fastformat::string_slice_t    slices[] =
     {
         {   1,  FF_STR("abcdefghijklmnopqrstuvwxyz")        },
         {   0,  NULL                                },
@@ -422,7 +424,7 @@ static void test_1_9()
 static void test_1_10()
 {
     // Both Borland and CodeWarrior seem to think that there's a conversion
-    // from size_t to long somewhere in the invocation of accumulate. 
+    // from size_t to long somewhere in the invocation of accumulate.
 #if !defined(STLSOFT_COMPILER_IS_BORLAND) && \
     !defined(STLSOFT_COMPILER_IS_MWERKS)
 

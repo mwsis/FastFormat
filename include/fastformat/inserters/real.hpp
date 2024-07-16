@@ -4,11 +4,12 @@
  * Purpose:     Inserter functions for floating-point types
  *
  * Created:     1st March 2009
- * Updated:     5th February 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2009-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2009-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_REAL
 #define FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_REAL
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_REAL_MAJOR     1
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_REAL_MINOR     2
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_REAL_REVISION  1
-# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_REAL_EDIT      16
+# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_REAL_EDIT      19
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -78,6 +81,7 @@
 
 #include <stdlib.h> /* for abs() */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -88,6 +92,7 @@ namespace fastformat
 namespace inserters
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * implementation
@@ -358,6 +363,7 @@ inline stlsoft::basic_shim_string<ff_char_t, 64> real_helper_4(
 } /* namespace ximpl_real */
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inserter functions
  */
@@ -433,6 +439,7 @@ inline stlsoft::basic_shim_string<ff_char_t, 64> real(
     return ximpl_real::real_helper_4(value, minimumWidth, decimalPlaces, &type);
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -443,6 +450,7 @@ using ::fastformat::inserters::real;
 } // namespace fastformat
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -451,8 +459,8 @@ using ::fastformat::inserters::real;
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_REAL */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

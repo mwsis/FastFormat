@@ -4,11 +4,12 @@
  * Purpose:     Inserter functions for floating-point types
  *
  * Created:     30th April 2009
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2009-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2009-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_TO_E
 #define FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_TO_E
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,14 +57,16 @@
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_TO_E_MAJOR     1
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_TO_E_MINOR     0
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_TO_E_REVISION  4
-# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_TO_E_EDIT      9
+# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_TO_E_EDIT      13
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
  */
 
 #include <fastformat/inserters/real.hpp>
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -74,6 +78,7 @@ namespace fastformat
 namespace inserters
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * inserter functions
@@ -89,7 +94,7 @@ inline stlsoft::basic_shim_string<ff_char_t, 64> to_e(
     double const&   value
 )
 {
-    return 
+    return
 #if !defined(FASTFORMAT_NO_NAMESPACE)
       ::fastformat::inserters::
 #endif /* !FASTFORMAT_NO_NAMESPACE */
@@ -106,7 +111,7 @@ inline stlsoft::basic_shim_string<ff_char_t, 64> to_E(
     double const&   value
 )
 {
-    return 
+    return
 #if !defined(FASTFORMAT_NO_NAMESPACE)
       ::fastformat::inserters::
 #endif /* !FASTFORMAT_NO_NAMESPACE */
@@ -131,7 +136,7 @@ inline stlsoft::basic_shim_string<ff_char_t, 64> to_e(
 ,   int             decimalPlaces
 )
 {
-    return 
+    return
 #if !defined(FASTFORMAT_NO_NAMESPACE)
       ::fastformat::inserters::
 #endif /* !FASTFORMAT_NO_NAMESPACE */
@@ -156,12 +161,13 @@ inline stlsoft::basic_shim_string<ff_char_t, 64> to_E(
 ,   int             decimalPlaces
 )
 {
-    return 
+    return
 #if !defined(FASTFORMAT_NO_NAMESPACE)
       ::fastformat::inserters::
 #endif /* !FASTFORMAT_NO_NAMESPACE */
         real(value, minimumWidth, decimalPlaces, 'E');
 }
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -174,6 +180,7 @@ using ::fastformat::inserters::to_E;
 } // namespace fastformat
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -182,8 +189,8 @@ using ::fastformat::inserters::to_E;
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_TO_E */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+
