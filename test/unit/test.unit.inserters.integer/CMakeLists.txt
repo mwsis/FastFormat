@@ -13,6 +13,8 @@ target_compile_options(test.unit.inserters.integer PRIVATE
         -Werror -Wall -Wextra -pedantic
     >
     $<$<CXX_COMPILER_ID:GNU>:
+        # TODO: investigate whether this warning is actually ok to ignore
+
         -Wno-stringop-overflow
     >
     $<$<CXX_COMPILER_ID:MSVC>:
