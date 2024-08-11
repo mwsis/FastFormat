@@ -60,34 +60,12 @@ message(NOTICE "Generating CMake build scripts for ${PROJECT_NAME} ${PROJECT_VER
 
 # adhere strictly to C and C++ standards plus extensions. These are actually
 # useless since we do not compile anything; they merely state our intention.
-set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD 17)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS ON) # GNU extensions and POSIX standard
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS ON)
-
-
-# ##########################################################
-# dependencies
-
-
-if(BUILD_TESTING)
-
-	set(xTests_REQUIRED_VERSION_ 0.23)
-
-	find_package(xTests ${xTests_REQUIRED_VERSION_} REQUIRED)
-
-	message("-- CMake package xTests found (version ${xTests_VERSION}; ${xTests_REQUIRED_VERSION_} requested)")
-
-
-	set(STLSoft_REQUIRED_VERSION_ 0.11)
-
-	find_package(STLSoft ${STLSoft_REQUIRED_VERSION_} REQUIRED)
-
-	message("-- CMake package STLSoft found (version ${STLSoft_VERSION}; ${STLSoft_REQUIRED_VERSION_} requested)")
-endif(BUILD_TESTING)
-
 
 
 # ##########################################################
@@ -98,7 +76,53 @@ include(GNUInstallDirs)
 
 
 # ##########################################################
+# dependencies
+
+set(STLSoft_REQUIRED_VERSION_ 0.11)
+
+find_package(STLSoft ${STLSoft_REQUIRED_VERSION_} REQUIRED)
+
+message("-- CMake package STLSoft found (version ${STLSoft_VERSION}; ${STLSoft_REQUIRED_VERSION_} requested)")
+
+
+if(BUILD_TESTING)
+
+	set(xTests_REQUIRED_VERSION_ 0.24)
+
+	find_package(xTests ${xTests_REQUIRED_VERSION_} REQUIRED)
+
+	message("-- CMake package xTests found (version ${xTests_VERSION}; ${xTests_REQUIRED_VERSION_} requested)")
+
+
+	set(shwild_REQUIRED_VERSION_ 0.12)
+
+	find_package(shwild ${shwild_REQUIRED_VERSION_} REQUIRED)
+
+	message("-- CMake package shwild found (version ${shwild_VERSION}; ${shwild_REQUIRED_VERSION_} requested)")
+endif(BUILD_TESTING)
+
+if(BUILD_EXAMPLES OR BUILD_TESTING)
+
+	if(WIN32)
+
+		find_package(MFC)
+
+		if(HAS_MFC)
+
+			message("-- CMake package MFC found (version ${MFC_VERSION})")
+
+			add_definitions(-DHAS_MFC)
+		endif(HAS_MFC)
+	endif(WIN32)
+endif()
+
+# ##########################################################
 # STLSoft
+
+if(DEFINED STLSOFT_INCLUDE_DIR)
+
+	include_directories(${STLSOFT_INCLUDE_DIR})
+endif()
 
 
 # ##########################################################

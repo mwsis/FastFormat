@@ -14,15 +14,6 @@ add_library(fastformat
 	${CORE_SRCS}
 )
 
-include_directories(${CMAKE_SOURCE_DIR}/include)
-
-if (APPLE)
-
-	message("-- -- adding '/usr/local/include' to include-directories for 'src'")
-
-	include_directories("/usr/local/include")
-endif()
-
 if(UNIX)
 
 	add_definitions(-DUNIX)
