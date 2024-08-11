@@ -4,7 +4,7 @@
  * Purpose: Implementation file for the test.scratch.sink.WindowsMessageBox project.
  *
  * Created: 4th January 2009
- * Updated: 11th August 2024
+ * Updated: 12th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -22,7 +22,6 @@
 /* STLSoft Header Files */
 #include <winstl/conversion/char_conversions.hpp>
 #include <winstl/error/error_desc.hpp>
-#include <winstl/string/resource_string.hpp>
 
 /* Windows Header Files */
 #include <windows.h>
@@ -50,9 +49,6 @@ void Display32bitFileSize(HINSTANCE hinst, HWND parent, LPCTSTR fileName)
 
 void Display32bitFileSize_(HINSTANCE hinst, HWND parent, LPCTSTR fileName)
 {
-//    typedef winstl::basic_resource_string<std::string> res_str_t;
-//            ,   res_str_t(hinst, IDS_FMT_MISSING_FILE)
-
     WIN32_FIND_DATA fd;
     HANDLE          h = ::FindFirstFile(fileName, &fd);
 
@@ -63,7 +59,9 @@ void Display32bitFileSize_(HINSTANCE hinst, HWND parent, LPCTSTR fileName)
 
         ff::ignore_unreferenced_arguments_scope scoper;
 
-        ff::fmt(ff::sinks::MessageBox(parent, FASTFORMAT_LITERAL_STRING("Problem"), MB_ICONWARNING)
+        auto s = ff::sinks::MessageBox(parent, FASTFORMAT_LITERAL_STRING("Problem"), MB_ICONWARNING);
+
+        ff::fmt(s
             ,   bundle[IDS_FMT_MISSING_FILE]
             ,   fileName
             ,   err
@@ -76,7 +74,9 @@ void Display32bitFileSize_(HINSTANCE hinst, HWND parent, LPCTSTR fileName)
 
         ff::ignore_unreferenced_arguments_scope scoper;
 
-        ff::fmt(ff::sinks::MessageBox(parent, NULL, MB_ICONWARNING)
+        auto s = ff::sinks::MessageBox(parent, NULL, MB_ICONWARNING);
+
+        ff::fmt(s
             ,   bundle[IDS_FMT_FOUND_FILE]
             ,   fileName
             ,   fd.nFileSizeLow);
@@ -85,7 +85,7 @@ void Display32bitFileSize_(HINSTANCE hinst, HWND parent, LPCTSTR fileName)
     }
 }
 
-BOOL CALLBACK ParentProc(HWND hwnd, UINT code, WPARAM wParam, LPARAM lParam)
+INT_PTR CALLBACK ParentProc(HWND hwnd, UINT code, WPARAM /* wParam */, LPARAM lParam)
 {
     if (WM_INITDIALOG == code)
     {
@@ -109,7 +109,7 @@ void Display32bitFileSize(HINSTANCE hinst, HWND parent, LPCTSTR fileName)
 
 /* ////////////////////////////////////////////////////////////////////// */
 
-static int main_(int argc, char** argv)
+static int main_(int /* argc */, char* argv[])
 {
     const HINSTANCE hinst = ::GetModuleHandleA(argv[0]);
 

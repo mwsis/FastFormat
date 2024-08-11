@@ -38,7 +38,9 @@ static int main_(int /* argc */, char** /*argv*/)
     /* . */
     ff::writeln(std::cout, "a regular output line");
 
-    ff::writeln(ff::sinks::WindowsConsole(FOREGROUND_RED), "a regular output line");
+    auto s = ff::sinks::WindowsConsole(FOREGROUND_RED);
+
+    ff::writeln(s, "a regular output line");
 
     ff::writeln(std::cout, "another regular output line");
 

@@ -4,7 +4,7 @@
  * Purpose: Windows resource bundle.
  *
  * Created: 24th April 2009
- * Updated: 11th August 2024
+ * Updated: 12th August 2024
  *
  * Home:    http://www.fastformat.org/
  *
@@ -56,8 +56,8 @@
 #ifndef FASTFORMAT_DOCUMENTATION_SKIP_SECTION
 # define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_WINDOWS_RESOURCE_BUNDLE_MAJOR    1
 # define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_WINDOWS_RESOURCE_BUNDLE_MINOR    0
-# define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_WINDOWS_RESOURCE_BUNDLE_REVISION 5
-# define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_WINDOWS_RESOURCE_BUNDLE_EDIT     13
+# define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_WINDOWS_RESOURCE_BUNDLE_REVISION 6
+# define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_WINDOWS_RESOURCE_BUNDLE_EDIT     14
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
 
@@ -121,22 +121,22 @@ class windows_resource_bundle
 /// @{
 public:
     /// The character type
-    typedef ff_char_t                       char_type;
+    typedef ff_char_t                                       char_type;
     /// The string type
-    typedef std::basic_string<char_type>    string_type;
+    typedef std::basic_string<char_type>                    string_type;
     /// This type
-    typedef windows_resource_bundle         class_type;
+    typedef windows_resource_bundle                         class_type;
     /// The exception type
     class missing_resource_id_exception
         : public bundle_exception
     {
     public: // Member Types
         /// The parent exception class type
-        typedef bundle_exception                    parent_class_type;
+        typedef bundle_exception                            parent_class_type;
         /// This type
-        typedef missing_resource_id_exception       class_type;
+        typedef missing_resource_id_exception               class_type;
         ///  The string type
-        typedef parent_class_type::string_type      string_type;
+        typedef parent_class_type::string_type              string_type;
 
     public: // Construction
         /** Constructs an exception with the given message
@@ -149,7 +149,7 @@ public:
         )
             : parent_class_type(create_message_(NULL, 0u, id, NULL).c_str())
             , id(id)
-            , code(-1)
+            , code(static_cast<DWORD>(-1))
         {
             FASTFORMAT_COVER_MARK_ENTRY();
         }
@@ -170,8 +170,8 @@ public:
         ,   ff_char_t const*    id
         ,   ff_char_t const*    resourceType
         )
-            : parent_class_type(create_message_(msg, code, reinterpret_cast<int>(id), resourceType).c_str())
-            , id(reinterpret_cast<int>(id))
+            : parent_class_type(create_message_(msg, code, static_cast<int>(reinterpret_cast<INT_PTR>(id)), resourceType).c_str())
+            , id(static_cast<int>(reinterpret_cast<INT_PTR>(id)))
             , code(code)
         {
             FASTFORMAT_COVER_MARK_ENTRY();
@@ -199,7 +199,6 @@ public:
         {
             FASTFORMAT_COVER_MARK_ENTRY();
         }
-
     private:
         /// Not assignment-copyable
         class_type& operator =(class_type const&);
@@ -214,10 +213,10 @@ public:
         static
         multibyte_string_type
         create_message_(
-            char const*         msg
+            char const*      /* msg */
         ,   DWORD               code
         ,   int                 id
-        ,   ff_char_t const*    resourceType
+        ,   ff_char_t const* /* resourceType */
         )
         {
             static const char       string0[]   =   "could not load bundle resource corresponding to identifier ";
@@ -252,12 +251,12 @@ public:
             return message;
         }
     };
-    typedef missing_resource_id_exception   exception_type;
+    typedef missing_resource_id_exception                   exception_type;
 private:
     typedef winstl::basic_resource_string<
         string_type
     ,   stlsoft::throw_exception_policy<exception_type>
-    >                                       resource_string_type_;
+    >                                                       resource_string_type_;
 /// @}
 
 /// \name Construction
@@ -342,7 +341,6 @@ windows_resource_bundle::operator [](
 
     return s2;
 }
-
 #endif /* FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
 

@@ -4,7 +4,7 @@
  * Purpose: Implementation file for the test.scratch.format_iterator project.
  *
  * Created: 20th May 2009
- * Updated: 11th August 2024
+ * Updated: 12th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -28,7 +28,7 @@
 /* UNIXem Header Files */
 #if defined(_WIN32) || \
     defined(_WIN64)
-# include <unixem/unixem.h>
+// # include <unixem/unixem.h>
 #endif /* Win32 || Win64 */
 
 /* Standard C++ Header Files */
