@@ -24,7 +24,10 @@ add_subdirectory(test.unit.sink.c_string)
 add_subdirectory(test.unit.sink.char_buffer)
 if(WIN32)
 
-	add_subdirectory(test.unit.sink.CString)
+	if(HAS_MFC)
+
+		add_subdirectory(test.unit.sink.CString)
+	endif(HAS_MFC)
 endif(WIN32)
 add_subdirectory(test.unit.sink.null)
 add_subdirectory(test.unit.sink.ostream)

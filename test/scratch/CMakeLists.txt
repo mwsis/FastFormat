@@ -18,7 +18,10 @@ add_subdirectory(test.scratch.inserter.integer)
 add_subdirectory(test.scratch.inserter.real)
 if(WIN32)
 
-	add_subdirectory(test.scratch.overload.3.BSTR_out_parameter)
+	if(HAS_MFC)
+
+		add_subdirectory(test.scratch.overload.3.BSTR_out_parameter)
+	endif(HAS_MFC)
 	add_subdirectory(test.scratch.sink.WindowsConsole)
 	add_subdirectory(test.scratch.sink.WindowsMessageBox)
 endif(WIN32)

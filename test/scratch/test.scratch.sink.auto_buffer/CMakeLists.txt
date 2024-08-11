@@ -5,6 +5,7 @@ add_executable(test.scratch.sink.auto_buffer
 
 target_link_libraries(test.scratch.sink.auto_buffer
 	fastformat
+	shwild::core
 	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )

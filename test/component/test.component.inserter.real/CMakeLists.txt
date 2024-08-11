@@ -17,6 +17,8 @@ target_compile_options(test.component.inserter.real PRIVATE
 	>
 	$<$<CXX_COMPILER_ID:MSVC>:
 		/WX /W4
+
+		/wd4459
 	>
 )
 
