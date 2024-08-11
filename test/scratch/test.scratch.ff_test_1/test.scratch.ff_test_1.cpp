@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.scratch.ff_test_1.cpp
+ * File:    test.scratch.ff_test_1.cpp
  *
- * Purpose:     Implementation file for the test.scratch.ff_test_1 project.
+ * Purpose: Implementation file for the test.scratch.ff_test_1 project.
  *
- * Created:     15th September 2006
- * Updated:     6th February 2024
+ * Created: 15th September 2006
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -387,7 +387,7 @@ int main(int argc, char *argv[])
 #endif /* _MSC_VER && _MSC_VER */
 
 #if 0
-    { for(size_t i = 0; i < 0xffffffff; ++i){} }
+    { for (size_t i = 0; i < 0xffffffff; ++i){} }
 #endif /* 0 */
 
     try
@@ -397,7 +397,7 @@ int main(int argc, char *argv[])
         puts("test.scratch.ff_test_1: " STLSOFT_COMPILER_LABEL_STRING);
 #endif /* debug */
 
-        if(fastformat::init() < 0)
+        if (fastformat::init() < 0)
         {
             fprintf(stderr, "Failed to initialise FastFormat\n");
         }
@@ -408,13 +408,13 @@ int main(int argc, char *argv[])
             fastformat::uninit();
         }
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         fprintf(stderr, "Unhandled error: %s\n", x.what());
 
         res = EXIT_FAILURE;
     }
-    catch(...)
+    catch (...)
     {
         fprintf(stderr, "Unhandled unknown error\n");
 

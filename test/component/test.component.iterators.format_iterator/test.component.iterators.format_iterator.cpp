@@ -1,13 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.component.iterators.format_iterator.cpp
+ * File:    test.component.iterators.format_iterator.cpp
  *
- * Purpose:     Implementation file for the test.component.iterators.format_iterator project.
+ * Purpose: Implementation file for the test.component.iterators.format_iterator project.
  *
- * Created:     26th April 2008
- * Updated:     16th July 2024
+ * Created: 26th April 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
-
 
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -133,7 +132,6 @@ namespace
 } /* anonymous namespace */
 
 
-
 /* /////////////////////////////////////////////////////////////////////////
  * main()
  */
@@ -145,7 +143,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.component.iterators.format_iterator", verbosity))
+    if (XTESTS_START_RUNNER("test.component.iterators.format_iterator", verbosity))
     {
         XTESTS_RUN_CASE(test_1_0);
         XTESTS_RUN_CASE(test_1_1);

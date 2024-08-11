@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/bundles/windows_resource_bundle.hpp
+ * File:    fastformat/bundles/windows_resource_bundle.hpp
  *
- * Purpose:     Windows resource bundle.
+ * Purpose: Windows resource bundle.
  *
- * Created:     24th April 2009
- * Updated:     16th July 2024
+ * Created: 24th April 2009
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2009-2019, Matthew Wilson and Synesis Software
@@ -57,7 +57,7 @@
 # define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_WINDOWS_RESOURCE_BUNDLE_MAJOR    1
 # define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_WINDOWS_RESOURCE_BUNDLE_MINOR    0
 # define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_WINDOWS_RESOURCE_BUNDLE_REVISION 5
-# define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_WINDOWS_RESOURCE_BUNDLE_EDIT     12
+# define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_WINDOWS_RESOURCE_BUNDLE_EDIT     13
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
 
@@ -231,7 +231,7 @@ public:
             winstl::error_desc_a    reason(code);
             multibyte_string_type   message;
 
-            if(0 != code)
+            if (0 != code)
             {
                 message.reserve(STLSOFT_NUM_ELEMENTS(string0) + 21 + STLSOFT_NUM_ELEMENTS(string1) + reason.size());
             }
@@ -243,7 +243,7 @@ public:
             message += string0;
             message += num;
 
-            if(0 != code)
+            if (0 != code)
             {
                 message += string1;
                 message += reason;
@@ -332,7 +332,7 @@ windows_resource_bundle::operator [](
     // a. all { instances are to be replaced with {{
     // b. all %D parameters are to be replaced with {D}
 
-    if( 0 == fastformat::util::calculate_number_of_fastformat_replacement_parameters(s2.data(), s2.length()) &&
+    if (0 == fastformat::util::calculate_number_of_fastformat_replacement_parameters(s2.data(), s2.length()) &&
         0 != fastformat::util::calculate_number_of_windows_replacement_parameters(s2.data(), s2.length()))
     {
         s2 = fastformat::util::escape_fastformat_replacement_parameters(s2);

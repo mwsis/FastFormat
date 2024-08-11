@@ -162,7 +162,7 @@ public:
     {
         int r = fastformat_init();
 
-        if(r < 0)
+        if (r < 0)
         {
             // TODO: use SEH to place exitProcess in finally
 #ifdef FASTFORMAT_INIT_FAILURE_USE_SEH
@@ -202,7 +202,7 @@ private:
         // NOTE: to have this displayed properly in the Windows Event Log,
         // users should download and install Pantheios.COM
         HANDLE h = ::RegisterEventSource(NULL, FASTFORMAT_LITERAL_STRING("logging-bailout"));
-        if(NULL != h)
+        if (NULL != h)
         {
             LPCTSTR strings[2] = { FASTFORMAT_LITERAL_STRING("process"), message };
             ::ReportEvent(h, EVENTLOG_ERROR_TYPE, 0, 1001, 0, 2, 0, strings, 0);
@@ -234,7 +234,7 @@ private:
             ff_char_t   message[1024];
             int const   n = fastformat_util_snprintf(&message[0], (sizeof(message) / sizeof(message[0])) - 1, FASTFORMAT_LITERAL_STRING("could not initialise the FastFormat library: %s"), fastformat_getInitCodeString(r));
 
-            if(n < 0)
+            if (n < 0)
             {
                 record_init_failure_Windows_GUI_(FASTFORMAT_LITERAL_STRING("could not initialise the FastFormat library: cause not indicated"));
             }

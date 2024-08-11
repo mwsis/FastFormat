@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.api.crlf_for_platform.cpp
+ * File:    test.unit.api.crlf_for_platform.cpp
  *
- * Purpose:     Implementation file for the test.unit.api.crlf_for_platform project.
+ * Purpose: Implementation file for the test.unit.api.crlf_for_platform project.
  *
- * Created:     27th May 2008
- * Updated:     16th July 2024
+ * Created: 27th May 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -76,7 +76,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.unit.api.crlf_for_platform", verbosity))
+    if (XTESTS_START_RUNNER("test.unit.api.crlf_for_platform", verbosity))
     {
         XTESTS_RUN_CASE(test_1_0);
         XTESTS_RUN_CASE(test_1_1);

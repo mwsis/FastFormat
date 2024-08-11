@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        examples/example.overload.2.custom_type.inserter/example.overload.2.custom_type.inserter.cpp
+ * File:    examples/example.overload.2.custom_type.inserter/example.overload.2.custom_type.inserter.cpp
  *
- * Purpose:     Implementation file for the example.overload.2.custom_type.inserter project.
+ * Purpose: Implementation file for the example.overload.2.custom_type.inserter project.
  *
- * Created:     2nd March 2009
- * Updated:     16th July 2024
+ * Created: 2nd March 2009
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -187,7 +187,7 @@ static int main_(int argc, char** argv)
 {
     char const* bundlePath  =   "superhero.properties";
 
-    if(argc > 1)
+    if (argc > 1)
     {
         bundlePath = argv[1];
     }
@@ -247,11 +247,11 @@ int main(int argc, char** argv)
     {
         return main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         ff::fmtln(std::cerr, "exception: {0}", x);
     }
-    catch(...)
+    catch (...)
     {
         ff::writeln(std::cerr, "unhandled unknown error");
     }

@@ -1,13 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/iterators/format_iterator.hpp
+ * File:    fastformat/iterators/format_iterator.hpp
  *
- * Purpose:     Definition of the fastformat::format_iterator output
- *              iterator.
+ * Purpose: Definition of the fastformat::format_iterator output iterator.
  *
- * Created:     20th May 2009
- * Updated:     16th July 2024
+ * Created: 20th May 2009
+ * Updated: 10th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2009-2019, Matthew Wilson and Synesis Software
@@ -58,7 +57,7 @@
 # define FASTFORMAT_VER_FASTFORMAT_ITERATORS_HPP_FORMAT_ITERATOR_MAJOR      1
 # define FASTFORMAT_VER_FASTFORMAT_ITERATORS_HPP_FORMAT_ITERATOR_MINOR      1
 # define FASTFORMAT_VER_FASTFORMAT_ITERATORS_HPP_FORMAT_ITERATOR_REVISION   6
-# define FASTFORMAT_VER_FASTFORMAT_ITERATORS_HPP_FORMAT_ITERATOR_EDIT       17
+# define FASTFORMAT_VER_FASTFORMAT_ITERATORS_HPP_FORMAT_ITERATOR_EDIT       18
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
 
@@ -254,35 +253,44 @@ private:
     template <typename A>
     void invoke_(A const& value)
     {
-        switch(m_n)
+        switch (m_n)
         {
-            case    0:
-                fmt(*m_sink, m_format, value);
-                break;
-            case    1:
-                fmt(*m_sink, m_format, value, ximpl_format_iterator::ref_helper<A1>::get_ref(*m_arg1));
-                break;
-            case    2:
-                fmt(*m_sink, m_format, value, ximpl_format_iterator::ref_helper<A1>::get_ref(*m_arg1), ximpl_format_iterator::ref_helper<A2>::get_ref(*m_arg2));
-                break;
-            case    3:
-                fmt(*m_sink, m_format, value, ximpl_format_iterator::ref_helper<A1>::get_ref(*m_arg1), ximpl_format_iterator::ref_helper<A2>::get_ref(*m_arg2), ximpl_format_iterator::ref_helper<A3>::get_ref(*m_arg3));
-                break;
-            case    4:
-                fmt(*m_sink, m_format, value, ximpl_format_iterator::ref_helper<A1>::get_ref(*m_arg1), ximpl_format_iterator::ref_helper<A2>::get_ref(*m_arg2), ximpl_format_iterator::ref_helper<A3>::get_ref(*m_arg3), ximpl_format_iterator::ref_helper<A4>::get_ref(*m_arg4));
-                break;
-            case    5:
-                fmt(*m_sink, m_format, value, ximpl_format_iterator::ref_helper<A1>::get_ref(*m_arg1), ximpl_format_iterator::ref_helper<A2>::get_ref(*m_arg2), ximpl_format_iterator::ref_helper<A3>::get_ref(*m_arg3), ximpl_format_iterator::ref_helper<A4>::get_ref(*m_arg4), ximpl_format_iterator::ref_helper<A5>::get_ref(*m_arg5));
-                break;
-            case    6:
-                fmt(*m_sink, m_format, value, ximpl_format_iterator::ref_helper<A1>::get_ref(*m_arg1), ximpl_format_iterator::ref_helper<A2>::get_ref(*m_arg2), ximpl_format_iterator::ref_helper<A3>::get_ref(*m_arg3), ximpl_format_iterator::ref_helper<A4>::get_ref(*m_arg4), ximpl_format_iterator::ref_helper<A5>::get_ref(*m_arg5), ximpl_format_iterator::ref_helper<A6>::get_ref(*m_arg6));
-                break;
-            case    7:
-                fmt(*m_sink, m_format, value, ximpl_format_iterator::ref_helper<A1>::get_ref(*m_arg1), ximpl_format_iterator::ref_helper<A2>::get_ref(*m_arg2), ximpl_format_iterator::ref_helper<A3>::get_ref(*m_arg3), ximpl_format_iterator::ref_helper<A4>::get_ref(*m_arg4), ximpl_format_iterator::ref_helper<A5>::get_ref(*m_arg5), ximpl_format_iterator::ref_helper<A6>::get_ref(*m_arg6), ximpl_format_iterator::ref_helper<A7>::get_ref(*m_arg7));
-                break;
-            case    8:
-                fmt(*m_sink, m_format, value, ximpl_format_iterator::ref_helper<A1>::get_ref(*m_arg1), ximpl_format_iterator::ref_helper<A2>::get_ref(*m_arg2), ximpl_format_iterator::ref_helper<A3>::get_ref(*m_arg3), ximpl_format_iterator::ref_helper<A4>::get_ref(*m_arg4), ximpl_format_iterator::ref_helper<A5>::get_ref(*m_arg5), ximpl_format_iterator::ref_helper<A6>::get_ref(*m_arg6), ximpl_format_iterator::ref_helper<A7>::get_ref(*m_arg7), ximpl_format_iterator::ref_helper<A8>::get_ref(*m_arg8));
-                break;
+        case 0:
+
+            fmt(*m_sink, m_format, value);
+            break;
+        case 1:
+
+            fmt(*m_sink, m_format, value, ximpl_format_iterator::ref_helper<A1>::get_ref(*m_arg1));
+            break;
+        case 2:
+
+            fmt(*m_sink, m_format, value, ximpl_format_iterator::ref_helper<A1>::get_ref(*m_arg1), ximpl_format_iterator::ref_helper<A2>::get_ref(*m_arg2));
+            break;
+        case 3:
+
+            fmt(*m_sink, m_format, value, ximpl_format_iterator::ref_helper<A1>::get_ref(*m_arg1), ximpl_format_iterator::ref_helper<A2>::get_ref(*m_arg2), ximpl_format_iterator::ref_helper<A3>::get_ref(*m_arg3));
+            break;
+        case 4:
+
+            fmt(*m_sink, m_format, value, ximpl_format_iterator::ref_helper<A1>::get_ref(*m_arg1), ximpl_format_iterator::ref_helper<A2>::get_ref(*m_arg2), ximpl_format_iterator::ref_helper<A3>::get_ref(*m_arg3), ximpl_format_iterator::ref_helper<A4>::get_ref(*m_arg4));
+            break;
+        case 5:
+
+            fmt(*m_sink, m_format, value, ximpl_format_iterator::ref_helper<A1>::get_ref(*m_arg1), ximpl_format_iterator::ref_helper<A2>::get_ref(*m_arg2), ximpl_format_iterator::ref_helper<A3>::get_ref(*m_arg3), ximpl_format_iterator::ref_helper<A4>::get_ref(*m_arg4), ximpl_format_iterator::ref_helper<A5>::get_ref(*m_arg5));
+            break;
+        case 6:
+
+            fmt(*m_sink, m_format, value, ximpl_format_iterator::ref_helper<A1>::get_ref(*m_arg1), ximpl_format_iterator::ref_helper<A2>::get_ref(*m_arg2), ximpl_format_iterator::ref_helper<A3>::get_ref(*m_arg3), ximpl_format_iterator::ref_helper<A4>::get_ref(*m_arg4), ximpl_format_iterator::ref_helper<A5>::get_ref(*m_arg5), ximpl_format_iterator::ref_helper<A6>::get_ref(*m_arg6));
+            break;
+        case 7:
+
+            fmt(*m_sink, m_format, value, ximpl_format_iterator::ref_helper<A1>::get_ref(*m_arg1), ximpl_format_iterator::ref_helper<A2>::get_ref(*m_arg2), ximpl_format_iterator::ref_helper<A3>::get_ref(*m_arg3), ximpl_format_iterator::ref_helper<A4>::get_ref(*m_arg4), ximpl_format_iterator::ref_helper<A5>::get_ref(*m_arg5), ximpl_format_iterator::ref_helper<A6>::get_ref(*m_arg6), ximpl_format_iterator::ref_helper<A7>::get_ref(*m_arg7));
+            break;
+        case 8:
+
+            fmt(*m_sink, m_format, value, ximpl_format_iterator::ref_helper<A1>::get_ref(*m_arg1), ximpl_format_iterator::ref_helper<A2>::get_ref(*m_arg2), ximpl_format_iterator::ref_helper<A3>::get_ref(*m_arg3), ximpl_format_iterator::ref_helper<A4>::get_ref(*m_arg4), ximpl_format_iterator::ref_helper<A5>::get_ref(*m_arg5), ximpl_format_iterator::ref_helper<A6>::get_ref(*m_arg6), ximpl_format_iterator::ref_helper<A7>::get_ref(*m_arg7), ximpl_format_iterator::ref_helper<A8>::get_ref(*m_arg8));
+            break;
         }
     }
 

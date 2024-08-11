@@ -1,17 +1,19 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        examples/example.ff_101/example.ff_101.cpp
+ * File:    examples/example.ff_101/example.ff_101.cpp
  *
- * Purpose:     Implementation file for the example.ff_101 project.
+ * Purpose: Implementation file for the example.ff_101 project.
  *
- * Created:     2nd June 2008
- * Updated:     16th July 2024
+ * Created: 2nd June 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
 
-#ifdef _AFXDLL
-# include <afx.h>
-#endif /* _AFXDLL */
+#ifdef HAS_MFC
+# ifdef _AFXDLL
+#  include <afx.h>
+# endif /* _AFXDLL */
+#endif
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -51,7 +53,9 @@ using std::endl;
 #include <stdlib.h>
 
 
-/* ////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////
+ * main()
+ */
 
 static int main_(int /* argc */, char** /*argv*/)
 {
@@ -238,11 +242,11 @@ static int main_(int /* argc */, char** /*argv*/)
 
         fastformat::fmtln(std::cout, "number1: {{{0}}; number2: {", number1, number2);
     }
-    catch(fastformat::illformed_format_exception& x)
+    catch (fastformat::illformed_format_exception& x)
     {
         fastformat::writeln(std::cerr, "error: ", x, "; format=\"", x.format, "\"");
     }
-    catch(std::exception&)
+    catch (std::exception&)
     {
         fastformat::writeln(std::cerr, "Ooops!");
     }
@@ -255,11 +259,11 @@ static int main_(int /* argc */, char** /*argv*/)
 
         fastformat::fmtln(std::cout, "number1: {{{0}}; number2: {1", number1, number2);
     }
-    catch(fastformat::illformed_format_exception& x)
+    catch (fastformat::illformed_format_exception& x)
     {
         fastformat::writeln(std::cerr, "error: ", x, "; format=\"", x.format, "\"");
     }
-    catch(std::exception&)
+    catch (std::exception&)
     {
         fastformat::writeln(std::cerr, "Ooops!");
     }
@@ -272,11 +276,11 @@ static int main_(int /* argc */, char** /*argv*/)
 
         fastformat::fmtln(std::cout, "number1: {{{0}}; number2: {1{", number1, number2);
     }
-    catch(fastformat::illformed_format_exception& x)
+    catch (fastformat::illformed_format_exception& x)
     {
         fastformat::writeln(std::cerr, "error: ", x, "; format=\"", x.format, "\"");
     }
-    catch(std::exception&)
+    catch (std::exception&)
     {
         fastformat::writeln(std::cerr, "Ooops!");
     }
@@ -289,11 +293,11 @@ static int main_(int /* argc */, char** /*argv*/)
 
         fastformat::fmtln(std::cout, "number1: {{{0}}; number2: {1:20-100}", number1, number2);
     }
-    catch(fastformat::illformed_format_exception& x)
+    catch (fastformat::illformed_format_exception& x)
     {
         fastformat::writeln(std::cerr, "error: ", x, "; format=\"", x.format, "\"");
     }
-    catch(std::exception&)
+    catch (std::exception&)
     {
         fastformat::writeln(std::cerr, "Ooops!");
     }
@@ -308,11 +312,11 @@ static int main_(int /* argc */, char** /*argv*/)
 
         STLSOFT_SUPPRESS_UNUSED(number2);
     }
-    catch(fastformat::missing_argument_exception& x)
+    catch (fastformat::missing_argument_exception& x)
     {
         fastformat::fmtln(std::cerr, "error: {0}; arg {1} out of {2}", x, x.firstMismatchedReplacementIndex, x.numArguments);
     }
-    catch(std::exception&)
+    catch (std::exception&)
     {
         fastformat::writeln(std::cerr, "Ooops!");
     }
@@ -326,11 +330,11 @@ static int main_(int /* argc */, char** /*argv*/)
 
         fastformat::fmtln(std::cout, "number1: {{{0}}; number2: 1}", number1, number2);
     }
-    catch(fastformat::unreferenced_argument_exception& x)
+    catch (fastformat::unreferenced_argument_exception& x)
     {
         fastformat::fmtln(std::cerr, "error: {0}; arg {1} out of {2}", x, x.firstMismatchedReplacementIndex, x.numArguments);
     }
-    catch(std::exception&)
+    catch (std::exception&)
     {
         fastformat::writeln(std::cerr, "Ooops!");
     }
@@ -343,11 +347,11 @@ static int main_(int /* argc */, char** /*argv*/)
 
         fastformat::fmtln(std::cout, "number1: {{{0}}; number2: {}1", number1, number2);
     }
-    catch(fastformat::unreferenced_argument_exception& x)
+    catch (fastformat::unreferenced_argument_exception& x)
     {
         fastformat::writeln(std::cerr, "error: ", x);
     }
-    catch(std::exception&)
+    catch (std::exception&)
     {
         fastformat::writeln(std::cerr, "Ooops!");
     }
@@ -367,11 +371,11 @@ int main(int argc, char** argv)
 
         return main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         cerr << "Unhandled error: " << x.what() << endl;
     }
-    catch(...)
+    catch (...)
     {
         cerr << "Unhandled unknown error" << endl;
     }

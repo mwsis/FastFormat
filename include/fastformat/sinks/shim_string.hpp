@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/sinks/shim_string.hpp
+ * File:    fastformat/sinks/shim_string.hpp
  *
- * Purpose:     A FastFormat sink for STLSoft's shim_string class template.
+ * Purpose: A FastFormat sink for STLSoft's shim_string class template.
  *
- * Created:     12th November 2008
- * Updated:     16th July 2024
+ * Created: 12th November 2008
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
@@ -183,7 +183,7 @@ public: // Operations
 
         parent_class_type::buffer_type& buffer = parent_class_type::get_buffer();
 
-        if(buffer.resize(n + 1))
+        if (buffer.resize(n + 1))
         {
             buffer[n] = '\0';
         }
@@ -201,9 +201,9 @@ public: // Operations
 
         parent_class_type::buffer_type& buffer = parent_class_type::get_buffer();
 
-        if(m_len + n + 1 > buffer.size())
+        if (m_len + n + 1 > buffer.size())
         {
-            if(!buffer.resize(m_len + n + 1))
+            if (!buffer.resize(m_len + n + 1))
             {
                 buffer[0] = '\0';
                 m_len = 0;

@@ -1,13 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        src/fmt_spec_defect_handlers.cpp
+ * File:    src/fmt_spec_defect_handlers.cpp
  *
- * Purpose:     Implementation file for FastFormat core API: defect
- *              handlers.
+ * Purpose: Implementation file for FastFormat core API: defect handlers.
  *
- * Created:     26th November 2007
- * Updated:     6th February 2024
+ * Created: 26th November 2007
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2007-2019, Matthew Wilson and Synesis Software
@@ -219,7 +218,7 @@ int ximpl_core::fastformat_impl_handlers_init(void** ptoken)
 
         defectHandlers_context_t* ctxt = new defectHandlers_context_t();
 
-        if(NULL == ctxt)
+        if (NULL == ctxt)
         {
             FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -230,15 +229,15 @@ int ximpl_core::fastformat_impl_handlers_init(void** ptoken)
 
         return 0;
     }
-    catch(std::bad_alloc&)
+    catch (std::bad_alloc&)
     {
         return FASTFORMAT_INIT_RC_OUT_OF_MEMORY;
     }
-    catch(std::exception&)
+    catch (std::exception&)
     {
         return FASTFORMAT_INIT_RC_UNSPECIFIED_EXCEPTION;
     }
-    catch(...)
+    catch (...)
     {
         return FASTFORMAT_INIT_RC_UNSPECIFIED_ERROR;
     }
@@ -405,7 +404,7 @@ namespace
 #ifdef FASTFORMAT_MT
         slot_type_ const* const slot = get_slot_();
 
-        if(NULL != slot)
+        if (NULL != slot)
         {
             return slot->illformedHandler;
         }
@@ -426,13 +425,13 @@ namespace
 #ifdef FASTFORMAT_MT
         slot_type_*                     slot = get_slot_();
 
-        if(NULL == slot)
+        if (NULL == slot)
         {
             FASTFORMAT_COVER_MARK_ENTRY();
 
             slot = static_cast<slot_type_*>(fastformat_malloc(sizeof(slot_type_)));
 
-            if(NULL == slot)
+            if (NULL == slot)
             {
                 FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -497,7 +496,7 @@ namespace
 #ifdef FASTFORMAT_MT
         slot_type_ const* const slot = get_slot_();
 
-        if(NULL != slot)
+        if (NULL != slot)
         {
             return slot->mismatchedHandler;
         }
@@ -518,13 +517,13 @@ namespace
 #ifdef FASTFORMAT_MT
         slot_type_*                     slot = get_slot_();
 
-        if(NULL == slot)
+        if (NULL == slot)
         {
             FASTFORMAT_COVER_MARK_ENTRY();
 
             slot = static_cast<slot_type_*>(fastformat_malloc(sizeof(slot_type_)));
 
-            if(NULL == slot)
+            if (NULL == slot)
             {
                 FASTFORMAT_COVER_MARK_ENTRY();
 

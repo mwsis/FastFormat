@@ -1,13 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.component.format_specification_defect_exceptions.cpp
+ * File:    test.component.format_specification_defect_exceptions.cpp
  *
- * Purpose:     Implementation file for the test.component.format_specification_defect_exceptions project.
+ * Purpose: Implementation file for the test.component.format_specification_defect_exceptions project.
  *
- * Created:     13th April 2010
- * Updated:     16th July 2024
+ * Created: 13th April 2010
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
-
 
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -146,7 +145,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.component.format_specification_defect_exceptions", verbosity))
+    if (XTESTS_START_RUNNER("test.component.format_specification_defect_exceptions", verbosity))
     {
         XTESTS_RUN_CASE_THAT_THROWS(test_illformed_by_missing_closing_curly_brace_1, fastformat::illformed_format_exception);
         XTESTS_RUN_CASE_THAT_THROWS(test_illformed_by_missing_closing_curly_brace_2, fastformat::illformed_format_exception);

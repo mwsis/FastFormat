@@ -1,13 +1,13 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/format/specification_defect_handling/ignore_missing_arguments_scope.hpp
+ * File:    fastformat/format/specification_defect_handling/ignore_missing_arguments_scope.hpp
  *
- * Purpose:     A scoping class that suppresses the reporting of
- *              unreferenced arguments.
+ * Purpose: A scoping class that suppresses the reporting of unreferenced
+ *          arguments.
  *
- * Created:     25th April 2009
- * Updated:     16th July 2024
+ * Created: 25th April 2009
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2009-2019, Matthew Wilson and Synesis Software
@@ -142,7 +142,7 @@ private: // Overrides
     ,   ff_string_slice_t*          /* slice */
     )
     {
-        if(FF_REPLACEMENTCODE_MISSING_ARGUMENT == code)
+        if (FF_REPLACEMENTCODE_MISSING_ARGUMENT == code)
         {
             // Ignore missing argument
             return FF_HANDLERRESPONSE_CONTINUE_PROCESSING;

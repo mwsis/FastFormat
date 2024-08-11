@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        src/memory_pool.cpp
+ * File:    src/memory_pool.cpp
  *
- * Purpose:     Implementation file for FastFormat core API: memory pool.
+ * Purpose: Implementation file for FastFormat core API: memory pool.
  *
- * Created:     1st September 2008
- * Updated:     16th July 2024
+ * Created: 1st September 2008
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
@@ -105,7 +105,7 @@ namespace
             memory_pool_entry_t*  entry = static_cast<memory_pool_entry_t*>(::malloc(cbActual));
 #endif /* VC++ _DEBUG */
 
-            if(NULL != entry)
+            if (NULL != entry)
             {
                 entry->next     =   next;
                 entry->cbEntry  =   cb;
@@ -173,7 +173,7 @@ int ximpl_core::fastformat_impl_memoryPool_init(void** ptoken)
 
         memory_pool_t* ctxt = new memory_pool_t();
 
-        if(NULL == ctxt)
+        if (NULL == ctxt)
         {
             FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -184,15 +184,15 @@ int ximpl_core::fastformat_impl_memoryPool_init(void** ptoken)
 
         return 0;
     }
-    catch(std::bad_alloc&)
+    catch (std::bad_alloc&)
     {
         return FASTFORMAT_INIT_RC_OUT_OF_MEMORY;
     }
-    catch(std::exception&)
+    catch (std::exception&)
     {
         return FASTFORMAT_INIT_RC_UNSPECIFIED_EXCEPTION;
     }
-    catch(...)
+    catch (...)
     {
         return FASTFORMAT_INIT_RC_UNSPECIFIED_ERROR;
     }
@@ -237,7 +237,7 @@ namespace
     memory_pool_t::~memory_pool_t() STLSOFT_NOEXCEPT
     {
         // 0. Deallocate all entries in memory pool
-        { for(memory_pool_entry_t* entry = m_head; NULL != entry; )
+        { for (memory_pool_entry_t* entry = m_head; NULL != entry; )
         {
             void* pv = entry;
 
@@ -274,7 +274,7 @@ namespace
 
         memory_pool_entry_t* entry = memory_pool_entry_t::alloc(cb, m_head);
 
-        if(NULL != entry)
+        if (NULL != entry)
         {
             m_head = entry;
 

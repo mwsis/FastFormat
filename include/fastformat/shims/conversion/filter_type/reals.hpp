@@ -1,13 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/shims/conversion/filter_type/reals.hpp
+ * File:    fastformat/shims/conversion/filter_type/reals.hpp
  *
- * Purpose:     FastFormat argument conversion shim for floating-point
- *              types.
+ * Purpose: FastFormat argument conversion shim for floating-point types.
  *
- * Created:     1st June 2008
- * Updated:     16th July 2024
+ * Created: 1st June 2008
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
@@ -137,7 +136,7 @@ inline stlsoft::basic_shim_string<ff_char_t, 32> filter_type(double value, doubl
 # endif /* FASTFORMAT_USE_WIDE_STRINGS */
 #endif /* "secure" */
 
-    if(n < 0)
+    if (n < 0)
     {
         n = 0;
     }

@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.inserters.integer.cpp
+ * File:    test.unit.inserters.integer.cpp
  *
- * Purpose:     Implementation file for the test.unit.inserters.integer project.
+ * Purpose: Implementation file for the test.unit.inserters.integer project.
  *
- * Created:     11th December 2010
- * Updated:     16th July 2024
+ * Created: 11th December 2010
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -134,7 +134,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.unit.inserters.integer", verbosity))
+    if (XTESTS_START_RUNNER("test.unit.inserters.integer", verbosity))
     {
         XTESTS_RUN_CASE(test_1_0);
         XTESTS_RUN_CASE(test_1_1);
@@ -201,19 +201,19 @@ namespace
         STLSOFT_ASSERT(xtestsComparisonEqual == comp);
         STLSOFT_SUPPRESS_UNUSED(comp);
 
-        if(cchExpected == cchActual)
+        if (cchExpected == cchActual)
         {
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-            if(0 == wcsncmp(expected, actual, cchExpected))
+            if (0 == wcsncmp(expected, actual, cchExpected))
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
-            if(0 == strncmp(expected, actual, cchExpected))
+            if (0 == strncmp(expected, actual, cchExpected))
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
             {
                 equal = true;
             }
         }
 
-        if(equal)
+        if (equal)
         {
             stlsoft_static_cast(void, xtests_testPassed(file, line, function, expr));
         }
@@ -533,7 +533,7 @@ static void test_1_11()
 static void test_1_12()
 {
 #if 0
-    { for(ff_char_t ch = 'a'; ch != 'z'; ++ch)
+    { for (ff_char_t ch = 'a'; ch != 'z'; ++ch)
     {
         ff_char_t sz[2] = { ch, '\0' };
 

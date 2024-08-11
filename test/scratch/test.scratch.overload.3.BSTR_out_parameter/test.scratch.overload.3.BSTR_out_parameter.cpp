@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.scratch.overload.3.BSTR_out_parameter.cpp
+ * File:    test.scratch.overload.3.BSTR_out_parameter.cpp
  *
- * Purpose:     Implementation file for the test.scratch.overload.3.BSTR_out_parameter project.
+ * Purpose: Implementation file for the test.scratch.overload.3.BSTR_out_parameter project.
  *
- * Created:     4th January 2009
- * Updated:     16th July 2024
+ * Created: 4th January 2009
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -13,7 +13,11 @@
  * includes
  */
 
-#include <afx.h>
+#ifdef HAS_MFC
+# ifdef _AFXDLL
+#  include <afx.h>
+# endif /* _AFXDLL */
+#endif
 
 /* FastFormat Header Files */
 #include <fastformat/sinks/CComBSTR.hpp>
@@ -52,7 +56,7 @@ HRESULT get_BSTR_ff(BSTR* bstr2);
 
 /* ////////////////////////////////////////////////////////////////////// */
 
-static int main_(int argc, char** argv)
+static int main_(int /* argc */, char* /* argv*/[])
 {
     BSTR    bstr1;
     BSTR    bstr2;
@@ -62,7 +66,7 @@ static int main_(int argc, char** argv)
     hr1 = get_BSTR_original(&bstr1);
     hr2 = get_BSTR_ff(&bstr2);
 
-    if(0 != ::wcscmp(bstr1, bstr2))
+    if (0 != ::wcscmp(bstr1, bstr2))
     {
         puts("failed");
     }
@@ -95,13 +99,13 @@ int main(int argc, char** argv)
 
         res = main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         std::cerr << "Unhandled error: " << x.what() << std::endl;
 
         res = EXIT_FAILURE;
     }
-    catch(...)
+    catch (...)
     {
         std::cerr << "Unhandled unknown error" << std::endl;
 
@@ -144,7 +148,7 @@ HRESULT get_BSTR_ff(BSTR* bstr2)
 
 #include <atlbase.h>
 
-HRESULT XXGetFilterEx_(dimension_t dimension, int newIndex, std::string* fg, std::string* fv)
+HRESULT XXGetFilterEx_(dimension_t /* dimension */, int /* newIndex */, std::string* fg, std::string* fv)
 {
     *fg = "fg"; // +1
     *fv = "fv"; // +1
@@ -152,7 +156,7 @@ HRESULT XXGetFilterEx_(dimension_t dimension, int newIndex, std::string* fg, std
     return S_OK;
 }
 
-int offset_to_new_index_(int filter, dimension_t dimension, int index)
+int offset_to_new_index_(int /* filter */, dimension_t /* dimension */, int index)
 {
     return index + 1;
 }

@@ -1,13 +1,13 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/format/specification_defect_handling/mismatched_arguments_scope_base.hpp
+ * File:    fastformat/format/specification_defect_handling/mismatched_arguments_scope_base.hpp
  *
- * Purpose:     Base class for scoping classes that customise the behaviour
- *              in response to mismatched arguments.
+ * Purpose: Base class for scoping classes that customise the behaviour in
+ *          response to mismatched arguments.
  *
- * Created:     1st December 2008
- * Updated:     16th July 2024
+ * Created: 1st December 2008
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
@@ -226,12 +226,12 @@ private: // Implementation
 
         handler_response_type hr = pThis->handle(code, numArguments, mismatchedParameterIndex, action, slice);
 
-        if(fastformat::FF_HANDLERRESPONSE_CONTINUE_PROCESSING == hr)
+        if (fastformat::FF_HANDLERRESPONSE_CONTINUE_PROCESSING == hr)
         {
             return hr;
         }
 
-        if(NULL != pThis->m_previous.handler)
+        if (NULL != pThis->m_previous.handler)
         {
             return (*pThis->m_previous.handler)(pThis->m_previous.param, code, numArguments, mismatchedParameterIndex, action, slice, reserved0, reserved1, reserved2, reserved3);
         }

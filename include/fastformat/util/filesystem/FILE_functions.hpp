@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/util/filesystem/FILE_functions.hpp
+ * File:    fastformat/util/filesystem/FILE_functions.hpp
  *
- * Purpose:     Utility functions for using <code>FILE*</code>.
+ * Purpose: Utility functions for using <code>FILE*</code>.
  *
- * Created:     3rd January 2008
- * Updated:     16th July 2024
+ * Created: 3rd January 2008
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
@@ -116,12 +116,12 @@ fopen_or_throw(
     FILE* f;
     int   e = ::fopen_s(&f, fileName, mode);
 
-    if(0 != e)
+    if (0 != e)
     {
 #else // }
     FILE* f = ::fopen(fileName, mode);
 
-    if(NULL == f)
+    if (NULL == f)
     {
 #endif
 

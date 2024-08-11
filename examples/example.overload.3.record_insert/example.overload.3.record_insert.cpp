@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        example.overload.3.record_insert.cpp
+ * File:    example.overload.3.record_insert.cpp
  *
- * Purpose:     Implementation file for the example.overload.3.record_insert project.
+ * Purpose: Implementation file for the example.overload.3.record_insert project.
  *
- * Created:     20th September 2008
- * Updated:     6th February 2024
+ * Created: 20th September 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -165,7 +165,7 @@ std::string BusinessAdapter::insertRecord( const BusinessRecord& r )
 std::string BusinessAdapter::makeSlice(const int val)
 {
     m_slice.str("");
-    if ( val == intNaN )
+    if (val == intNaN)
         m_slice << "0N";
     else
         m_slice << val;
@@ -182,7 +182,7 @@ static stlsoft::basic_shim_string<char, 20> make_shim_string(T const& t)
 static stlsoft::basic_shim_string<char, 20>
  make_slice(const int val)
 {
-    if(intNaN == val)
+    if (intNaN == val)
     {
         return stlsoft::basic_shim_string<char, 20>("0N");
     }
@@ -316,10 +316,10 @@ static int main_(int /* argc */, char** /*argv*/)
     std::string     result_ff_fmt_2;
     std::string     result_ff_write;
 
-    { for(size_t i = 0; i != 2; ++i)
+    { for (size_t i = 0; i != 2; ++i)
     {
         counter.start();
-        { for(size_t i = 0; i != ITERATIONS; ++i)
+        { for (size_t j = 0; j != ITERATIONS; ++j)
         {
             result = adapter.insertRecord(record);
         }}
@@ -327,10 +327,10 @@ static int main_(int /* argc */, char** /*argv*/)
         tm = counter.get_milliseconds();
     }}
 
-    { for(size_t i = 0; i != 2; ++i)
+    { for (size_t i = 0; i != 2; ++i)
     {
         counter.start();
-        { for(size_t i = 0; i != ITERATIONS; ++i)
+        { for (size_t j = 0; j != ITERATIONS; ++j)
         {
             result_ff_fmt_1 = adapter.insertRecord_ff_fmt_1(record);
         }}
@@ -338,10 +338,10 @@ static int main_(int /* argc */, char** /*argv*/)
         tm_ff_fmt_1 = counter.get_milliseconds();
     }}
 
-    { for(size_t i = 0; i != 2; ++i)
+    { for (size_t i = 0; i != 2; ++i)
     {
         counter.start();
-        { for(size_t i = 0; i != ITERATIONS; ++i)
+        { for (size_t j = 0; j != ITERATIONS; ++j)
         {
             result_ff_fmt_2 = adapter.insertRecord_ff_fmt_2(record);
         }}
@@ -349,10 +349,10 @@ static int main_(int /* argc */, char** /*argv*/)
         tm_ff_fmt_2 = counter.get_milliseconds();
     }}
 
-    { for(size_t i = 0; i != 2; ++i)
+    { for (size_t i = 0; i != 2; ++i)
     {
         counter.start();
-        { for(size_t i = 0; i != ITERATIONS; ++i)
+        { for (size_t j = 0; j != ITERATIONS; ++j)
         {
             result_ff_write = adapter.insertRecord_ff_write(record);
         }}
@@ -366,25 +366,25 @@ static int main_(int /* argc */, char** /*argv*/)
     ff::fmtln(std::cerr, "FastFormat.Format(2):\t{0}", tm_ff_fmt_2);
     ff::fmtln(std::cerr, "FastFormat.Write:\t{0}", tm_ff_write);
 
-    if(result_ff_fmt_1 != result)
+    if (result_ff_fmt_1 != result)
     {
         ff::fmtln(std::cout, "source strings do not match\nIOStreams:\n[{0}]\nFastFormat.Format(1):\n[{1}]\n", result, result_ff_fmt_1);
 
-        { for(size_t i = 0; ; ++i)
+        { for (size_t i = 0; ; ++i)
         {
-            if(i == result.size())
+            if (i == result.size())
             {
                 ff::fmtln(std::cout, "result exhausted; len={0}", i);
                 break;
             }
-            else if(i == result_ff_fmt_1.size())
+            else if (i == result_ff_fmt_1.size())
             {
                 ff::fmtln(std::cout, "result_ff_fmt_1 exhausted; len={0}", i);
                 break;
             }
             else
             {
-                if(result[i] != result_ff_fmt_1[i])
+                if (result[i] != result_ff_fmt_1[i])
                 {
                     ff::fmtln(std::cout, "different characters at index {0}", i);
                     break;
@@ -393,25 +393,25 @@ static int main_(int /* argc */, char** /*argv*/)
         }}
     }
 
-    if(result_ff_fmt_2 != result)
+    if (result_ff_fmt_2 != result)
     {
         ff::fmtln(std::cout, "source strings do not match\nIOStreams:\n[{0}]\nFastFormat.Format(2):\n[{1}]\n", result, result_ff_fmt_2);
 
-        { for(size_t i = 0; ; ++i)
+        { for (size_t i = 0; ; ++i)
         {
-            if(i == result.size())
+            if (i == result.size())
             {
                 ff::fmtln(std::cout, "result exhausted; len={0}", i);
                 break;
             }
-            else if(i == result_ff_fmt_2.size())
+            else if (i == result_ff_fmt_2.size())
             {
                 ff::fmtln(std::cout, "result_ff_fmt_2 exhausted; len={0}", i);
                 break;
             }
             else
             {
-                if(result[i] != result_ff_fmt_2[i])
+                if (result[i] != result_ff_fmt_2[i])
                 {
                     ff::fmtln(std::cout, "different characters at index {0}", i);
                     break;
@@ -420,25 +420,25 @@ static int main_(int /* argc */, char** /*argv*/)
         }}
     }
 
-    if(result_ff_write != result)
+    if (result_ff_write != result)
     {
         ff::fmtln(std::cout, "source strings do not match\nIOStreams:\n[{0}]\nFastFormat.Write:\n[{1}]\n", result, result_ff_write);
 
-        { for(size_t i = 0; ; ++i)
+        { for (size_t i = 0; ; ++i)
         {
-            if(i == result.size())
+            if (i == result.size())
             {
                 ff::fmtln(std::cout, "result exhausted; len={0}", i);
                 break;
             }
-            else if(i == result_ff_write.size())
+            else if (i == result_ff_write.size())
             {
                 ff::fmtln(std::cout, "result_ff_write exhausted; len={0}", i);
                 break;
             }
             else
             {
-                if(result[i] != result_ff_write[i])
+                if (result[i] != result_ff_write[i])
                 {
                     ff::fmtln(std::cout, "different characters at index {0}", i);
                     break;
@@ -465,7 +465,7 @@ int main(int argc, char** argv)
 #endif /* _MSC_VER && _MSC_VER */
 
 #if 0
-    { for(size_t i = 0; i < 0xffffffff; ++i){} }
+    { for (size_t i = 0; i < 0xffffffff; ++i){} }
 #endif /* 0 */
 
     try
@@ -476,13 +476,13 @@ int main(int argc, char** argv)
 
         res = main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         std::cerr << "Unexpected exception: " << x.what() << std::endl;
 
         res = EXIT_FAILURE;
     }
-    catch(...)
+    catch (...)
     {
 
         res = EXIT_FAILURE;

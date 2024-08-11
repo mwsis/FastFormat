@@ -1,19 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.component.inserter.plural.cpp
+ * File:    stest.component.inserter.plural.cpp
  *
- * Purpose:     Implementation file for the test.component.inserter.plural project.
+ * Purpose: Implementation file for the test.component.inserter.plural project.
  *
- * Created:     15th November 2014
- * Updated:     10th January 2017
- *
- * Status:      Wizard-generated
- *
- * License:     (Licensed under the Synesis Software Open License)
- *
- *              Copyright (c) 2014-2017, Synesis Software Pty Ltd.
- *              All rights reserved.
- *
- *              www:        http://www.synesis.com.au/software
+ * Created: 15th November 2014
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -85,7 +76,7 @@ int main(int argc, char **argv)
 
 	XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-	if(XTESTS_START_RUNNER_WITH_SETUP_FNS("test.component.inserter.plural", verbosity, setup, teardown, setupParam))
+	if (XTESTS_START_RUNNER_WITH_SETUP_FNS("test.component.inserter.plural", verbosity, setup, teardown, setupParam))
 	{
 		XTESTS_RUN_CASE(test_1_0);
 		XTESTS_RUN_CASE(test_item_1);

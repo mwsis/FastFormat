@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.sink.null.cpp
+ * File:    test.unit.sink.null.cpp
  *
- * Purpose:     Implementation file for the test.unit.sink.null project.
+ * Purpose: Implementation file for the test.unit.sink.null project.
  *
- * Created:     28th May 2008
- * Updated:     16th July 2024
+ * Created: 28th May 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -91,7 +91,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.unit.sink.null", verbosity))
+    if (XTESTS_START_RUNNER("test.unit.sink.null", verbosity))
     {
         XTESTS_RUN_CASE(test_1_0);
         XTESTS_RUN_CASE(test_1_1);

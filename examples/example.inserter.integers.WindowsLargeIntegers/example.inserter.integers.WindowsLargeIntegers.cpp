@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        example.inserter.integers.WindowsLargeIntegers.cpp
+ * File:    example.inserter.integers.WindowsLargeIntegers.cpp
  *
- * Purpose:     Implementation file for the example.inserter.integers.WindowsLargeIntegers project.
+ * Purpose: Implementation file for the example.inserter.integers.WindowsLargeIntegers project.
  *
- * Created:     30th November 2010
- * Updated:     6th February 2024
+ * Created: 30th November 2010
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -75,11 +75,11 @@ int main(int argc, char** argv)
   {
     return main_(argc, argv);
   }
-  catch(std::exception& x)
+  catch (std::exception& x)
   {
     std::cerr << "Unhandled error: " << x.what() << std::endl;
   }
-  catch(...)
+  catch (...)
   {
     std::cerr << "Unhandled unknown error" << std::endl;
   }

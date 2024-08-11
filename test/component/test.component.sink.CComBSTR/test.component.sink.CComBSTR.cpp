@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.component.sink.CComBSTR.cpp
+ * File:    test.component.sink.CComBSTR.cpp
  *
- * Purpose:     Implementation file for the test.component.sink.CComBSTR project.
+ * Purpose: Implementation file for the test.component.sink.CComBSTR project.
  *
- * Created:     14th September 2010
- * Updated:     16th July 2024
+ * Created: 14th September 2010
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -16,8 +16,8 @@
 #include <fastformat/test/util/compiler_warnings_suppression.first_include.h>
 
 /* FastFormat Header Files */
-#include <fastformat/ff.hpp>
 #include <fastformat/sinks/CComBSTR.hpp>
+#include <fastformat/ff.hpp>
 
 /* xTests Header Files */
 #include <xtests/xtests.h>
@@ -58,12 +58,12 @@ namespace
     static void test_1_8();
     static void test_1_9();
     static void test_1_10();
-
 } /* anonymous namespace */
 
 
-
-/* ////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////
+ * main()
+ */
 
 static int main_(int argc, char** argv)
 {
@@ -72,7 +72,7 @@ static int main_(int argc, char** argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.component.sink.CComBSTR", verbosity))
+    if (XTESTS_START_RUNNER("test.component.sink.CComBSTR", verbosity))
     {
         XTESTS_RUN_CASE(test_1_1);
         XTESTS_RUN_CASE(test_1_2);
@@ -108,20 +108,20 @@ int main(int argc, char** argv)
 #endif /* _MSC_VER && _MSC_VER */
 
 #if 0
-    { for(size_t i = 0; i < 0xffffffff; ++i){} }
+    { for (size_t i = 0; i < 0xffffffff; ++i){} }
 #endif /* 0 */
 
     try
     {
         res = main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         fprintf(stderr, "Unhandled error: %s\n", x.what());
 
         res = EXIT_FAILURE;
     }
-    catch(...)
+    catch (...)
     {
         fprintf(stderr, "Unhandled unknown error\n");
 
@@ -137,7 +137,9 @@ int main(int argc, char** argv)
 }
 
 
-/* ////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////
+ * function implementations
+ */
 
 namespace
 {
@@ -262,7 +264,6 @@ static void test_1_10()
 }
 
 } /* anonymous namespace */
-
 
 
 /* ///////////////////////////// end of file //////////////////////////// */

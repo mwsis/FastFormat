@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        examples/example.ff_101.no_namespace/example.ff_101.no_namespace.cpp
+ * File:    examples/example.ff_101.no_namespace/example.ff_101.no_namespace.cpp
  *
- * Purpose:     Implementation file for the example.ff_101.no_namespace project.
+ * Purpose: Implementation file for the example.ff_101.no_namespace project.
  *
- * Created:     2nd June 2008
- * Updated:     6th February 2024
+ * Created: 2nd June 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -13,9 +13,11 @@
 # define FASTFORMAT_NO_NAMESPACE
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
-#ifdef _AFXDLL
-# include <afx.h>
-#endif /* _AFXDLL */
+#ifdef HAS_MFC
+# ifdef _AFXDLL
+#  include <afx.h>
+# endif /* _AFXDLL */
+#endif
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -54,7 +56,9 @@ using std::endl;
 #include <stdlib.h>
 
 
-/* ////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////
+ * main()
+ */
 
 static int main_(int /* argc */, char** /*argv*/)
 {
@@ -236,11 +240,11 @@ int main(int argc, char** argv)
 
         return main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         cerr << "Unhandled error: " << x.what() << endl;
     }
-    catch(...)
+    catch (...)
     {
         cerr << "Unhandled unknown error" << endl;
     }

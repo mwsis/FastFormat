@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/bundles/openrj_bundle.hpp
+ * File:    fastformat/bundles/openrj_bundle.hpp
  *
- * Purpose:     Open-RJ bundle.
+ * Purpose: Open-RJ bundle.
  *
- * Created:     19th September 2006
- * Updated:     16th July 2024
+ * Created: 19th September 2006
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2007-2019, Matthew Wilson and Synesis Software
@@ -57,7 +57,7 @@
 # define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_OPENRJ_BUNDLE_MAJOR      1
 # define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_OPENRJ_BUNDLE_MINOR      0
 # define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_OPENRJ_BUNDLE_REVISION   10
-# define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_OPENRJ_BUNDLE_EDIT       22
+# define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_OPENRJ_BUNDLE_EDIT       23
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
 
@@ -204,7 +204,7 @@ openrj_bundle::open_(
                             |   FORCE_ALL_FIELDS_INTO_1_RECORD
                             ;
 
-    if(ignoreCaseOnLookup & flags)
+    if (ignoreCaseOnLookup & flags)
     {
         orjFlags |= IGNORE_CASE_ON_LOOKUP;
     }
@@ -213,7 +213,7 @@ openrj_bundle::open_(
     ORJRC               rc;
     ORJDatabase const*  database;
 
-    if(treatSourceAsMemory & flags)
+    if (treatSourceAsMemory & flags)
     {
         rc = ORJ_CreateDatabaseFromMemory(source, ::strlen(source), NULL, orjFlags, &database, &error);
     }
@@ -222,7 +222,7 @@ openrj_bundle::open_(
         rc = ORJ_ReadDatabase(source, NULL, orjFlags, &database, &error);
     }
 
-    if(ORJ_RC_SUCCESS != rc)
+    if (ORJ_RC_SUCCESS != rc)
     {
         throw DatabaseException(rc, error);
     }
@@ -245,7 +245,7 @@ openrj_bundle::~openrj_bundle() STLSOFT_NOEXCEPT
     using namespace openrj;
 #endif /* !ORJ_NO_NAMESPACE */
 
-    if(NULL != m_database)
+    if (NULL != m_database)
     {
         ORJ_FreeDatabase(m_database);
     }
@@ -265,7 +265,7 @@ openrj_bundle::operator [](
 
     ORJField const* const field = ORJ_Record_FindFieldByNameA(&m_database->records[0], name, NULL);
 
-    if(NULL == field)
+    if (NULL == field)
     {
         throw std::out_of_range("format string not found");
     }

@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/inserters/to_i_null_if_not.hpp
+ * File:    fastformat/inserters/to_i_null_if_not.hpp
  *
- * Purpose:     Nullable inserter functions for integral types
+ * Purpose: Nullable inserter functions for integral types
  *
- * Created:     20th February 2010
- * Updated:     16th July 2024
+ * Created: 20th February 2010
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2010-2019, Matthew Wilson and Synesis Software
@@ -107,7 +107,7 @@ fastformat::inserters::ximpl_integer::ff_to_i_r_t_ to_i_null_if_not(
 ,   I const& sentinel
 )
 {
-    if(i == sentinel)
+    if (i == sentinel)
     {
         return fastformat::inserters::ximpl_integer::ff_to_i_r_t_(static_cast<ff_char_t const*>(NULL), 0);
     }
@@ -138,7 +138,7 @@ fastformat::inserters::ximpl_integer::ff_to_i_r_t_ to_i_null_if_not(
 ,   int         nullIfSame
 )
 {
-    if( nullIfZero &&
+    if (nullIfZero &&
         i == sentinel)
     {
         return fastformat::inserters::ximpl_integer::ff_to_i_r_t_(static_cast<ff_char_t const*>(NULL), 0);

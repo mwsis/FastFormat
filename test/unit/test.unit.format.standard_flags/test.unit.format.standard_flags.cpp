@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.format.standard_flags.cpp
+ * File:    test.unit.format.standard_flags.cpp
  *
- * Purpose:     Implementation file for the test.unit.format.standard_flags project.
+ * Purpose: Implementation file for the test.unit.format.standard_flags project.
  *
- * Created:     27th May 2008
- * Updated:     16th July 2024
+ * Created: 27th May 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -99,7 +99,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.unit.format.standard_flags", verbosity))
+    if (XTESTS_START_RUNNER("test.unit.format.standard_flags", verbosity))
     {
         XTESTS_RUN_CASE(test_1_0);
         XTESTS_RUN_CASE(test_1_1);
@@ -170,16 +170,16 @@ static void test_1_2()
 
     flags_map_t frequencies;
 
-    { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(flags); ++i)
+    { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(flags); ++i)
     {
         frequencies.push(flags[i].value);
     }}
 
-    { for(flags_map_t::const_iterator i = frequencies.begin(); i != frequencies.end(); ++i)
+    { for (flags_map_t::const_iterator i = frequencies.begin(); i != frequencies.end(); ++i)
     {
         flags_map_t::value_type value = *i;
 
-        if(1 != value.second)
+        if (1 != value.second)
         {
             char msg[100];
 

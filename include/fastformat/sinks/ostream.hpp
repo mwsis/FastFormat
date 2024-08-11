@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/sinks/ostream.hpp
+ * File:    fastformat/sinks/ostream.hpp
  *
- * Purpose:     A FastFormat sink for IOStreams' std::ostream.
+ * Purpose: A FastFormat sink for IOStreams' std::ostream.
  *
- * Created:     19th January 2008
- * Updated:     16th July 2024
+ * Created: 19th January 2008
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
@@ -122,7 +122,7 @@ inline std::basic_ostream<ff_char_t>& fmt_slices(
     stlsoft::auto_buffer<ff_char_t> buff(cchTotal + 1);
 
 #ifndef STLSOFT_CF_THROW_BAD_ALLOC
-    if(!buff.empty())   // May return false when exception-handling not enabled
+    if (!buff.empty())   // May return false when exception-handling not enabled
 #endif /* !STLSOFT_CF_THROW_BAD_ALLOC */
     {
 #if !defined(FASTFORMAT_NO_NAMESPACE)
@@ -131,7 +131,7 @@ inline std::basic_ostream<ff_char_t>& fmt_slices(
 
         concat_slices(buff, numResults, results);
 
-        if(flags::ff_newLine & flags)
+        if (flags::ff_newLine & flags)
         {
             buff[cchTotal] = '\n';
         }
@@ -146,19 +146,19 @@ inline std::basic_ostream<ff_char_t>& fmt_slices(
         // pointer given to write() even when count is 0. Other versions
         // (including 9) don't do this, so we won't bother to catch it
         // otherwise.
-        if(0 != buff.size())
+        if (0 != buff.size())
 #endif /* compiler */
         {
             sink.write(buff.data(), static_cast<std::streamsize>(buff.size()));
         }
 
-        if(flags::ff_flush & flags)
+        if (flags::ff_flush & flags)
         {
             sink.flush();
         }
     }
 
-    if(sink.fail())
+    if (sink.fail())
     {
 #ifdef STLSOFT_CF_EXCEPTION_SUPPORT
         // TODO: Use more-derived exception and capture errno

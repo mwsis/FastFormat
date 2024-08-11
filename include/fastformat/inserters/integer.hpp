@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/inserters/integer.hpp
+ * File:    fastformat/inserters/integer.hpp
  *
- * Purpose:     Inserter functions for integral types
+ * Purpose: Inserter functions for integral types
  *
- * Created:     26th May 2009
- * Updated:     16th July 2024
+ * Created: 26th May 2009
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2009-2019, Matthew Wilson and Synesis Software
@@ -57,7 +57,7 @@
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_INTEGER_MAJOR      1
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_INTEGER_MINOR      3
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_INTEGER_REVISION   1
-# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_INTEGER_EDIT       31
+# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_INTEGER_EDIT       32
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
 
@@ -138,9 +138,9 @@ inline int default_precision_sentinel_()
 
 inline ff_char_t* make_x_upper_(ff_char_t* from, ff_char_t* to)
 {
-    for(; to != from; ++from)
+    for (; to != from; ++from)
     {
-        if('x' == *from)
+        if ('x' == *from)
         {
             *from = 'X';
             break;
@@ -168,11 +168,11 @@ inline ff_to_i_r_t_ integer_helper_2(
 
     result_t    result(20u, '~');
 
-    { for(int i = 0;; )
+    { for (int i = 0;; )
     {
         int n = fastformat_util_snprintf(&result[0], result.size(), fmt, value);
 
-        if(n > int(result.size()))
+        if (n > int(result.size()))
         {
             // An implementation that does it correctly, so just resize
             // to the desired size and go again
@@ -182,9 +182,9 @@ inline ff_to_i_r_t_ integer_helper_2(
             // logic in either case, so leave as is
             result.resize(n);
         }
-        else if(n < 0)
+        else if (n < 0)
         {
-            if(maxRepeats == ++i)
+            if (maxRepeats == ++i)
             {
                 result.clear();
                 break;
@@ -232,7 +232,7 @@ inline ff_to_i_r_t_ integer_helper_2(
     result_t result(64);
 
 #  ifndef STLSOFT_CF_THROW_BAD_ALLOC
-    if(!result.empty())
+    if (!result.empty())
 #  endif /* !STLSOFT_CF_THROW_BAD_ALLOC */
     {
         // Unlike integral types, the string representation of floating
@@ -244,11 +244,11 @@ inline ff_to_i_r_t_ integer_helper_2(
         // indicates error. To handle this, we double the size of the buffer
         // up to four times, at which point we admit defeat.
 
-        { for(int i = 0;; )
+        { for (int i = 0;; )
         {
             int n = fastformat_util_snprintf(result.data(), result.size() - 1, fmt, value);
 
-            if(n > int(result.size()))
+            if (n > int(result.size()))
             {
                 // An implementation that does it correctly, so just resize
                 // to the desired size and go again
@@ -256,15 +256,15 @@ inline ff_to_i_r_t_ integer_helper_2(
                 // This'll only return false when exception-handling is
                 // suppressed, but the code is correct without preprocessor
                 // logic in either case, so leave as is
-                if(!result.resize(n))
+                if (!result.resize(n))
                 {
                     result.truncate(0);
                     break;
                 }
             }
-            else if(n < 0)
+            else if (n < 0)
             {
-                if(maxRepeats == ++i)
+                if (maxRepeats == ++i)
                 {
                     result.truncate(0);
                     break;
@@ -274,7 +274,7 @@ inline ff_to_i_r_t_ integer_helper_2(
                     // This'll only return false when exception-handling is
                     // suppressed, but the code is correct without preprocessor
                     // logic in either case, so leave as is
-                    if(!result.resize(1u + result.size() * 3))
+                    if (!result.resize(1u + result.size() * 3))
                     {
                         result.truncate(0);
                         break;
@@ -308,7 +308,7 @@ inline ff_to_i_r_t_ integer_helper_2(
     result_t::buffer_type&  buffer = result.get_buffer();
 
 #  ifndef STLSOFT_CF_THROW_BAD_ALLOC
-    if(!buffer.empty())
+    if (!buffer.empty())
 #  endif /* !STLSOFT_CF_THROW_BAD_ALLOC */
     {
         // Unlike integral types, the string representation of floating
@@ -320,11 +320,11 @@ inline ff_to_i_r_t_ integer_helper_2(
         // indicates error. To handle this, we double the size of the buffer
         // up to four times, at which point we admit defeat.
 
-        { for(int i = 0;; )
+        { for (int i = 0;; )
         {
             int n = fastformat_util_snprintf(&buffer[0], buffer.size() - 1, fmt, value);
 
-            if(n > int(buffer.size() - 1))
+            if (n > int(buffer.size() - 1))
             {
                 // An implementation that does it correctly, so just resize
                 // to the desired size and go again
@@ -332,15 +332,15 @@ inline ff_to_i_r_t_ integer_helper_2(
                 // This'll only return false when exception-handling is
                 // suppressed, but the code is correct without preprocessor
                 // logic in either case, so leave as is
-                if(!buffer.resize(size_t(n) + 1u))
+                if (!buffer.resize(size_t(n) + 1u))
                 {
                     buffer.resize(1u);
                     break;
                 }
             }
-            else if(n < 0)
+            else if (n < 0)
             {
-                if(maxRepeats == ++i)
+                if (maxRepeats == ++i)
                 {
                     break;
                 }
@@ -349,7 +349,7 @@ inline ff_to_i_r_t_ integer_helper_2(
                     // This'll only return false when exception-handling is
                     // suppressed, but the code is correct without preprocessor
                     // logic in either case, so leave as is
-                    if(!buffer.resize(1u + buffer.size() * 3))
+                    if (!buffer.resize(1u + buffer.size() * 3))
                     {
                         buffer.resize(1u);
                         break;
@@ -399,7 +399,7 @@ inline ff_to_i_r_t_ hex_integer_helper(
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
                     ,   value);
 
-    if(FF_ximpl_REQUIRE_UPPERCASE == uppercaseAlpha)
+    if (FF_ximpl_REQUIRE_UPPERCASE == uppercaseAlpha)
     {
         typedef stlsoft::ctype_traits<ff_char_t> ctype_traits_t;
 
@@ -450,12 +450,12 @@ inline ff_to_i_r_t_ integer_helper_5(
 
     FASTFORMAT_CONTRACT_ENFORCE_PRECONDITION_PARAMS_INTERNAL(10 == base || 16 == base, "base must be 10 (decimal) or 16 (hex)");
 
-    if( default_width_sentinel_() == minimumWidth &&
+    if (default_width_sentinel_() == minimumWidth &&
         precision < 0)
     {
         // no special formatting (width or precision) required
 
-        if(10 == base)
+        if (10 == base)
         {
             ff_char_t           sz[21];
             size_t              n;
@@ -476,7 +476,7 @@ inline ff_to_i_r_t_ integer_helper_5(
             size_t              n;
             ff_char_t const*    s = stlsoft::integer_to_hexadecimal_string(&sz[0], STLSOFT_NUM_ELEMENTS(sz), value, &n);
 
-            if(FF_ximpl_REQUIRE_UPPERCASE == uppercaseAlpha)
+            if (FF_ximpl_REQUIRE_UPPERCASE == uppercaseAlpha)
             {
                 typedef stlsoft::ctype_traits<ff_char_t> ctype_traits_t;
 
@@ -511,7 +511,7 @@ inline ff_to_i_r_t_ integer_helper_5(
         ff_char_t const*    type;
         size_t              typeLen;
 
-        if(10 == base)
+        if (10 == base)
         {
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
             type    =   printf_format_traits_t::decimal_format_w() + 1;
@@ -532,11 +532,11 @@ inline ff_to_i_r_t_ integer_helper_5(
             typeLen =   stlsoft::c_str_len(type);
         }
 
-        if(default_width_sentinel_() == minimumWidth)
+        if (default_width_sentinel_() == minimumWidth)
         {
             minimumWidth = 0;
         }
-        if(precision < 0)
+        if (precision < 0)
         {
             precision = (0 == value) ? 1 : 0;
         }
@@ -558,7 +558,7 @@ inline ff_to_i_r_t_ integer_helper_5(
 
         // 5. type
         ::memcpy(end - (typeLen + 1), type, sizeof(ff_char_t) * typeLen);
-        if(FF_ximpl_REQUIRE_UPPERCASE == uppercaseAlpha)
+        if (FF_ximpl_REQUIRE_UPPERCASE == uppercaseAlpha)
         {
             // Make only the first (should be only) 'x' uppercase
             make_x_upper_(end - (typeLen + 1), end - (typeLen + 1) + typeLen);

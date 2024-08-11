@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.api.accum_slice_lens.cpp
+ * File:    test.unit.api.accum_slice_lens.cpp
  *
- * Purpose:     Implementation file for the test.unit.api.accum_slice_lens project.
+ * Purpose: Implementation file for the test.unit.api.accum_slice_lens project.
  *
- * Created:     27th May 2008
- * Updated:     16th July 2024
+ * Created: 27th May 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -76,7 +76,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.unit.api.accum_slice_lens", verbosity))
+    if (XTESTS_START_RUNNER("test.unit.api.accum_slice_lens", verbosity))
     {
         XTESTS_RUN_CASE(test_1_0);
         XTESTS_RUN_CASE(test_1_1);

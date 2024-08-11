@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.sink.stringstream.cpp
+ * File:    test.unit.sink.stringstream.cpp
  *
- * Purpose:     Implementation file for the test.unit.sink.stringstream project.
+ * Purpose: Implementation file for the test.unit.sink.stringstream project.
  *
- * Created:     31st August 2008
- * Updated:     16th July 2024
+ * Created: 31st August 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -95,7 +95,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.unit.sink.stringstream", verbosity))
+    if (XTESTS_START_RUNNER("test.unit.sink.stringstream", verbosity))
     {
         XTESTS_RUN_CASE(test_1_0);
         XTESTS_RUN_CASE(test_1_1);

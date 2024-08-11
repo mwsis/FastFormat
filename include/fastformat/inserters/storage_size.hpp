@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/inserters/storage_size.hpp
+ * File:    fastformat/inserters/storage_size.hpp
  *
- * Purpose:     Inserter functions for storage sizes.
+ * Purpose: Inserter functions for storage sizes.
  *
- * Created:     16th August 2010
- * Updated:     16th July 2024
+ * Created: 16th August 2010
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2010-2019, Matthew Wilson and Synesis Software
@@ -57,7 +57,7 @@
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_STORAGE_SIZE_MAJOR     1
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_STORAGE_SIZE_MINOR     0
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_STORAGE_SIZE_REVISION  7
-# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_STORAGE_SIZE_EDIT      15
+# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_STORAGE_SIZE_EDIT      16
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
 
@@ -265,25 +265,28 @@ lookup_suffix_(
 
     };
 
-    switch(oom)
+    switch (oom)
     {
-        case  0:
-            *pps = symbols[0];
-            return 1;
-        case     3:
-        case     6:
-        case     9:
-        case    12:
-        case    15:
-        case    18:
-        case    21:
-        case    24:
-            *pps = symbols[oom];
-            return 2;
-        default:
-            STLSOFT_ASSERT(false);
-            *pps = NULL;
-            return 0;
+    case  0:
+
+        *pps = symbols[0];
+        return 1;
+    case  3:
+    case  6:
+    case  9:
+    case 12:
+    case 15:
+    case 18:
+    case 21:
+    case 24:
+
+        *pps = symbols[oom];
+        return 2;
+    default:
+
+        STLSOFT_ASSERT(false);
+        *pps = NULL;
+        return 0;
     }
 }
 
@@ -301,7 +304,7 @@ storage_size_with_suffix_(
     ff_char_t const*    s       =   stlsoft::integer_to_string(&buffer[0], STLSOFT_NUM_ELEMENTS(buffer) - 2u, i, &cch1);
 
     ff_char_t* t = &buffer[0] + STLSOFT_NUM_ELEMENTS(buffer) - (1u + 2u);
-    for(; '\0' != *suffix; ++t, ++suffix)
+    for (; '\0' != *suffix; ++t, ++suffix)
     {
         *t = *suffix;
     }
@@ -332,7 +335,7 @@ storage_size_(
 {
     size_t              oom         =   0;
 
-    for(; i >= 1000; )
+    for (; i >= 1000; )
     {
         i   /=  1000;
         oom +=   3;
@@ -352,7 +355,7 @@ storage_size_(
 {
     size_t              oom         =   0;
 
-    if(i >= 1000)
+    if (i >= 1000)
     {
         i   /=  1000;
         oom +=  3;
@@ -371,7 +374,7 @@ storage_size_(
 {
     size_t              oom         =   0;
 
-    for(; i >= 1000; )
+    for (; i >= 1000; )
     {
         i   /=  1000;
         oom +=   3;
@@ -392,7 +395,7 @@ storage_size_(
 #if 0 ||\
     defined(PLATFORMSTL_ARCH_IS_X86) ||\
     0
-    if(0 == (STLSOFT_GEN_UINT64_SUFFIX(0xFFFFFFFF00000000) & i))
+    if (0 == (STLSOFT_GEN_UINT64_SUFFIX(0xFFFFFFFF00000000) & i))
     {
         return storage_size_(static_cast<stlsoft::uint32_t>(i));
     }
@@ -400,7 +403,7 @@ storage_size_(
 
     size_t              oom         =   0;
 
-    for(; i >= 1000; )
+    for (; i >= 1000; )
     {
         i   /=  1000;
         oom +=   3;

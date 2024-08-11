@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.api.illformed_handlers.cpp
+ * File:    test.unit.api.illformed_handlers.cpp
  *
- * Purpose:     Implementation file for the test.unit.api.illformed_handlers project.
+ * Purpose: Implementation file for the test.unit.api.illformed_handlers project.
  *
- * Created:     27th May 2008
- * Updated:     16th July 2024
+ * Created: 27th May 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -165,7 +165,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if( XTESTS_START_RUNNER_WITH_REPORTER_AND_STREAM_AND_FLAGS_AND_SETUP_FNS(
+    if (XTESTS_START_RUNNER_WITH_REPORTER_AND_STREAM_AND_FLAGS_AND_SETUP_FNS(
             "test.unit.api.illformed_handlers"
         ,   verbosity
         ,   NULL, NULL

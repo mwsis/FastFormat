@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.api.parse_format.cpp
+ * File:    test.unit.api.parse_format.cpp
  *
- * Purpose:     Implementation file for the test.unit.api.parse_format project.
+ * Purpose: Implementation file for the test.unit.api.parse_format project.
  *
- * Created:     27th May 2008
- * Updated:     16th July 2024
+ * Created: 27th May 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -172,7 +172,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if( XTESTS_START_RUNNER_WITH_REPORTER_AND_STREAM_AND_FLAGS_AND_SETUP_FNS(
+    if (XTESTS_START_RUNNER_WITH_REPORTER_AND_STREAM_AND_FLAGS_AND_SETUP_FNS(
             "test.unit.api.parse_format"
         ,   verbosity
         ,   NULL, NULL
@@ -350,7 +350,7 @@ namespace
     ,   int                 /* reserved3 */
     )
     {
-        if(NULL == param)
+        if (NULL == param)
         {
             XTESTS_TEST_FAIL("NULL param passed to handler");
 
@@ -385,7 +385,7 @@ namespace
     ,   int                 /* reserved3 */
     )
     {
-        if(NULL == param)
+        if (NULL == param)
         {
             XTESTS_TEST_FAIL("NULL param passed to handler");
 
@@ -569,7 +569,7 @@ static void test_good_7()
     XTESTS_TEST_INTEGER_EQUAL(0,  replacements[0].index);
     XTESTS_TEST_INTEGER_EQUAL(0,  int(replacements[0].minWidth));
     XTESTS_TEST_INTEGER_EQUAL(-1,  int(replacements[0].maxWidth));
-    { for(size_t i = 0; i != 26; ++i)
+    { for (size_t i = 0; i != 26; ++i)
     {
         XTESTS_TEST_INTEGER_EQUAL(1u,  replacements[2 * i + 1].len);
         XTESTS_TEST_INTEGER_EQUAL(-1, replacements[2 * i + 1].index);
@@ -598,11 +598,11 @@ static void test_good_8()
     XTESTS_TEST_INTEGER_EQUAL(0,  replacements[0].index);
     XTESTS_TEST_INTEGER_EQUAL(0,  int(replacements[0].minWidth));
     XTESTS_TEST_INTEGER_EQUAL(-1,  int(replacements[0].maxWidth));
-    { for(size_t i = 0; i != 26; ++i)
+    { for (size_t i = 0; i != 26; ++i)
     {
         XTESTS_TEST_INTEGER_EQUAL(1u,  replacements[2 * i + 1].len);
         XTESTS_TEST_INTEGER_EQUAL(-1, replacements[2 * i + 1].index);
-        if(i >= 9)
+        if (i >= 9)
         {
             XTESTS_TEST_INTEGER_EQUAL(4u, replacements[2 * i + 2].len);
         }

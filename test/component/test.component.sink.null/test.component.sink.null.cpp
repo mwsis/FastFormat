@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.component.sink.null.cpp
+ * File:    test.component.sink.null.cpp
  *
- * Purpose:     Implementation file for the test.component.sink.null project.
+ * Purpose: Implementation file for the test.component.sink.null project.
  *
- * Created:     10th December 2008
- * Updated:     16th July 2024
+ * Created: 10th December 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -75,7 +75,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.component.sink.null", verbosity))
+    if (XTESTS_START_RUNNER("test.component.sink.null", verbosity))
     {
         XTESTS_RUN_CASE(test_1_0);
         XTESTS_RUN_CASE(test_1_1);
@@ -154,13 +154,13 @@ static void test_1_2()
 {
     fastformat::sinks::null_sink sink;
 
-    { for(char ch = 'a'; ; ++ch)
+    { for (char ch = 'a'; ; ++ch)
     {
         ff_char_t sz[2] = { ff_char_t(ch), ff_char_t('\0') };
 
         ff::write(sink, sz);
 
-        if('z' == ch)
+        if ('z' == ch)
         {
             break;
         }
@@ -200,13 +200,13 @@ static void test_1_7()
 {
     fastformat::sinks::null_sink sink;
 
-    { for(char ch = 'a'; ; ++ch)
+    { for (char ch = 'a'; ; ++ch)
     {
         ff_char_t sz[2] = { ff_char_t(ch), ff_char_t('\0') };
 
         ff::writeln(sink, sz);
 
-        if('z' == ch)
+        if ('z' == ch)
         {
             break;
         }
@@ -248,13 +248,13 @@ static void test_1_12()
     ff_char_t                    sz[2] = { '?', '\0' };
 
 
-    { for(char ch = 'a'; ; ++ch)
+    { for (char ch = 'a'; ; ++ch)
     {
         sz[0] = ch;
 
         ff::fmt(sink, FF_STR("{0}"), sz);
 
-        if('z' == ch)
+        if ('z' == ch)
         {
             break;
         }
@@ -296,13 +296,13 @@ static void test_1_17()
 {
     fastformat::sinks::null_sink sink;
 
-    { for(char ch = 'a'; ; ++ch)
+    { for (char ch = 'a'; ; ++ch)
     {
         ff_char_t sz[2] = { ff_char_t(ch), ff_char_t('\0') };
 
         ff::fmtln(sink, FF_STR("{0}"), sz);
 
-        if('z' == ch)
+        if ('z' == ch)
         {
             break;
         }

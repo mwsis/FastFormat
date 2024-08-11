@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        example.inserter.integers.cpp
+ * File:    example.inserter.integers.cpp
  *
- * Purpose:     Implementation file for the example.inserter.integers project.
+ * Purpose: Implementation file for the example.inserter.integers project.
  *
- * Created:     26th May 2009
- * Updated:     16th July 2024
+ * Created: 26th May 2009
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -68,11 +68,11 @@ int main(int argc, char** argv)
     {
         return main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         cerr << "Unhandled error: " << x.what() << endl;
     }
-    catch(...)
+    catch (...)
     {
         cerr << "Unhandled unknown error" << endl;
     }

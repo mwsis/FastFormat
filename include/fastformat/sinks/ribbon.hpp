@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/sinks/ostream.hpp
+ * File:    fastformat/sinks/ostream.hpp
  *
- * Purpose:     A FastFormat sink for writing width-limited output.
+ * Purpose: A FastFormat sink for writing width-limited output.
  *
- * Created:     21st February 2012
- * Updated:     16th July 2024
+ * Created: 21st February 2012
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2012-2019, Matthew Wilson and Synesis Software
@@ -57,7 +57,7 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINKS_HPP_RIBBON_MAJOR       1
 # define FASTFORMAT_VER_FASTFORMAT_SINKS_HPP_RIBBON_MINOR       0
 # define FASTFORMAT_VER_FASTFORMAT_SINKS_HPP_RIBBON_REVISION    1
-# define FASTFORMAT_VER_FASTFORMAT_SINKS_HPP_RIBBON_EDIT        5
+# define FASTFORMAT_VER_FASTFORMAT_SINKS_HPP_RIBBON_EDIT        6
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
 
@@ -132,7 +132,7 @@ public: // Operations
         size_type   n
     )
     {
-        if(n > m_maxWidth)
+        if (n > m_maxWidth)
         {
             n = m_maxWidth;
         }
@@ -152,16 +152,21 @@ public: // Operations
     ,   size_type           n
     )
     {
-        switch(m_flags)
+        switch (m_flags)
         {
-            default:
-                FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_APPL_LAYER("unexpected flags value");
-            case    ribbon_truncate:
-                append_(p, n);
-                break;
-            case    ribbon_truncate_with_ellispsis:
-                append_with_ellipsis_(p, n);
-                break;
+        default:
+
+            FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_APPL_LAYER("unexpected flags value");
+
+            // fall through
+        case ribbon_truncate:
+
+            append_(p, n);
+            break;
+        case ribbon_truncate_with_ellispsis:
+
+            append_with_ellipsis_(p, n);
+            break;
         }
     }
 
@@ -172,7 +177,7 @@ private: // Implementation
     ,   size_type           n
     )
     {
-        if(n > m_maxWidth)
+        if (n > m_maxWidth)
         {
             n = m_maxWidth;
         }
@@ -188,13 +193,13 @@ private: // Implementation
     {
         static char_type_ const s_ellipsis[4] = { '.', '.', '.', '\0' };
 
-        if(n <= m_maxWidth)
+        if (n <= m_maxWidth)
         {
             m_s.assign(p, n);
         }
         else
         {
-            if(m_maxWidth < 3)
+            if (m_maxWidth < 3)
             {
                 m_s.assign(s_ellipsis, m_maxWidth);
             }

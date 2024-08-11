@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/bundles/properties_bundle.hpp
+ * File:    fastformat/bundles/properties_bundle.hpp
  *
- * Purpose:     .properties file bundle.
+ * Purpose: properties file bundle.
  *
- * Created:     19th September 2006
- * Updated:     16th July 2024
+ * Created: 19th September 2006
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2007-2019, Matthew Wilson and Synesis Software
@@ -57,7 +57,7 @@
 # define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_PROPERTIES_BUNDLE_MAJOR      1
 # define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_PROPERTIES_BUNDLE_MINOR      2
 # define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_PROPERTIES_BUNDLE_REVISION   2
-# define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_PROPERTIES_BUNDLE_EDIT       25
+# define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_PROPERTIES_BUNDLE_EDIT       26
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
 
@@ -210,7 +210,7 @@ private:
         return open_(FASTFORMAT_INVOKE_c_str_ptr_(source));
     }
 
-    static map_init_type_ const open_(char const *name);
+    static map_init_type_ const open_(char const* path);
 /// @}
 
 /// \name Members
@@ -231,34 +231,34 @@ inline
 /* static */
 properties_bundle::map_init_type_ const
 properties_bundle::open_(
-    char const* name
+    char const* path
 )
 {
 # ifdef FASTFORMAT_PROPERTIES_BUNDLE_USE_STLSOFT_1_10_PROPERTIES_FILE
 
-    return name;
+    return path;
 
 # else /* ? FASTFORMAT_PROPERTIES_BUNDLE_USE_STLSOFT_1_10_PROPERTIES_FILE */
 
     std::string     line;
-    std::ifstream   stm(name);
+    std::ifstream   stm(path);
     map_type_       map;
 
-    if(!stm)
+    if (!stm)
     {
 // TODO: Define (and thoroughly unit-test) a FastFormat-specific exception, and use that instead
 
         throw std::runtime_error("properties file not found");
     }
 
-    for(; std::getline(stm, line); )
+    for (; std::getline(stm, line); )
     {
         std::string name;
         std::string value;
 
         stlsoft::trim_all(line);
 
-        if(stlsoft::split(line, '=', name, value))
+        if (stlsoft::split(line, '=', name, value))
         {
             stlsoft::trim_all(name);
             stlsoft::trim_left(value);
@@ -299,7 +299,7 @@ properties_bundle::operator [](
 
     map_type_::const_iterator it = m_properties.find(name);
 
-    if(it == m_properties.end())
+    if (it == m_properties.end())
     {
         throw std::out_of_range("format string not found");
     }

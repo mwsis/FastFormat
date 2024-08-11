@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        examples/example.arguments.void_pointers/example.arguments.void_pointers.cpp
+ * File:    examples/example.arguments.void_pointers/example.arguments.void_pointers.cpp
  *
- * Purpose:     Implementation file for the example.arguments.void_pointers project.
+ * Purpose: Implementation file for the example.arguments.void_pointers project.
  *
- * Created:     2nd June 2008
- * Updated:     6th February 2024
+ * Created: 2nd June 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -80,11 +80,11 @@ int main(int argc, char** argv)
     {
         return main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         cerr << "Unhandled error: " << x.what() << endl;
     }
-    catch(...)
+    catch (...)
     {
         cerr << "Unhandled unknown error" << endl;
     }

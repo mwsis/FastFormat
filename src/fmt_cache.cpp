@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        src/fmt_cache.cpp
+ * File:    src/fmt_cache.cpp
  *
- * Purpose:     Implementation file for FastFormat core API: format cache.
+ * Purpose: Implementation file for FastFormat core API: format cache.
  *
- * Created:     18th September 2006
- * Updated:     16th July 2024
+ * Created: 18th September 2006
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2006-2019, Matthew Wilson and Synesis Software
@@ -197,7 +197,7 @@ namespace
             size_t  lhsLen  =   lhs.size();
             size_t  rhsLen  =   rhs.size();
 
-            if(lhsLen != rhsLen)
+            if (lhsLen != rhsLen)
             {
                 return lhsLen < rhsLen;
             }
@@ -232,9 +232,9 @@ namespace
       defined(PLATFORMSTL_OS_IS_WINDOWS) && \
       (  !defined(STLSOFT_COMPILER_IS_MSVC) || \
          _MSC_VER < 1400)
-                        ,   winstl::processheap_allocator<pattern_t>
+                        ,   winstl::processheap_allocator<std::pair<const pattern_t, record_ptr_type_>>
 #  else /* ? VC++ _DEBUG */
-                        ,   std::allocator<pattern_t>
+                        ,   std::allocator<std::pair<const pattern_t, record_ptr_type_>>
 #  endif /* VC++ _DEBUG */
 # endif /* compiler */
 #endif /* UNIXSTL_OS_IS_MACOSX */
@@ -288,7 +288,7 @@ int ximpl_core::fastformat_impl_formatCache_init(void** ptoken)
 
         format_cache* cache = new format_cache();
 
-        if(NULL == cache)
+        if (NULL == cache)
         {
             FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -299,19 +299,19 @@ int ximpl_core::fastformat_impl_formatCache_init(void** ptoken)
 
         return FASTFORMAT_INIT_RC_SUCCESS;
     }
-    catch(std::bad_alloc&)
+    catch (std::bad_alloc&)
     {
         FASTFORMAT_COVER_MARK_ENTRY();
 
         return FASTFORMAT_INIT_RC_OUT_OF_MEMORY;
     }
-    catch(std::exception&)
+    catch (std::exception&)
     {
         FASTFORMAT_COVER_MARK_ENTRY();
 
         return FASTFORMAT_INIT_RC_UNSPECIFIED_EXCEPTION;
     }
-    catch(...)
+    catch (...)
     {
         FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -343,7 +343,7 @@ unsigned ximpl_core::fastformat_impl_formatCache_lookupPattern(
 
     format_cache* cache = static_cast<format_cache*>(token);
 
-    if(0 == cchPattern)
+    if (0 == cchPattern)
     {
         FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -410,7 +410,7 @@ unsigned format_cache::lookup_pattern_1phase(
     stlsoft::lock_scope<mutex_type_>    lock(m_mx);
     map_type_::const_iterator           it = m_map.find(pattern);
 
-    if(it == m_map.end())
+    if (it == m_map.end())
     {
         FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -506,7 +506,7 @@ unsigned format_cache::lookup_pattern_2phase(
         stlsoft::lock_scope<mutex_type_>    lock(m_mx);
         map_type_::const_iterator           it = m_map.find(pattern);
 
-        if(it != m_map.end())
+        if (it != m_map.end())
         {
             FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -563,7 +563,7 @@ unsigned format_cache::lookup_pattern_2phase(
 
         map_type_::const_iterator           it = m_map.find(pattern);
 
-        if(it != m_map.end())
+        if (it != m_map.end())
         {
             FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -661,7 +661,7 @@ pattern_record_t::pattern_record_t(
         format_element_t*   element =   &this->elements_[0];
         size_t              i       =   0;
 
-        for(; i != numFormatElements; ++i, ++element, ++elements)
+        for (; i != numFormatElements; ++i, ++element, ++elements)
         {
             FASTFORMAT_COVER_MARK_ENTRY();
 

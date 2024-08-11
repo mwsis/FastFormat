@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.inserters.character.cpp
+ * File:    test.unit.inserters.character.cpp
  *
- * Purpose:     Implementation file for the test.unit.inserters.character project.
+ * Purpose: Implementation file for the test.unit.inserters.character project.
  *
- * Created:     11th December 2010
- * Updated:     16th July 2024
+ * Created: 11th December 2010
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -97,7 +97,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.unit.inserters.character", verbosity))
+    if (XTESTS_START_RUNNER("test.unit.inserters.character", verbosity))
     {
         XTESTS_RUN_CASE(test_1_0);
         XTESTS_RUN_CASE(test_1_1);
@@ -149,7 +149,7 @@ static void test_1_0()
 
 static void test_1_1()
 {
-    { for(ff_char_t ch = 'a'; ch != 'z'; ++ch)
+    { for (ff_char_t ch = 'a'; ch != 'z'; ++ch)
     {
         ff_char_t sz[2] = { ch, '\0' };
 

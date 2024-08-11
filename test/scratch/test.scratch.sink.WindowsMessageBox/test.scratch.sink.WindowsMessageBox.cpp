@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.scratch.sink.WindowsMessageBox.cpp
+ * File:    test.scratch.sink.WindowsMessageBox.cpp
  *
- * Purpose:     Implementation file for the test.scratch.sink.WindowsMessageBox project.
+ * Purpose: Implementation file for the test.scratch.sink.WindowsMessageBox project.
  *
- * Created:     4th January 2009
- * Updated:     6th February 2024
+ * Created: 4th January 2009
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -56,7 +56,7 @@ void Display32bitFileSize_(HINSTANCE hinst, HWND parent, LPCTSTR fileName)
     WIN32_FIND_DATA fd;
     HANDLE          h = ::FindFirstFile(fileName, &fd);
 
-    if(INVALID_HANDLE_VALUE == h)
+    if (INVALID_HANDLE_VALUE == h)
     {
         DWORD const                 err = ::GetLastError();
         ff::windows_resource_bundle bundle(hinst);
@@ -87,7 +87,7 @@ void Display32bitFileSize_(HINSTANCE hinst, HWND parent, LPCTSTR fileName)
 
 BOOL CALLBACK ParentProc(HWND hwnd, UINT code, WPARAM wParam, LPARAM lParam)
 {
-    if(WM_INITDIALOG == code)
+    if (WM_INITDIALOG == code)
     {
         LPCTSTR         argv0   =   (LPCTSTR)lParam;
         const HINSTANCE hinst   =   ::GetModuleHandle(argv0);
@@ -143,13 +143,13 @@ int main(int argc, char** argv)
 
         res = main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         std::cerr << "Unhandled error: " << x.what() << std::endl;
 
         res = EXIT_FAILURE;
     }
-    catch(...)
+    catch (...)
     {
         std::cerr << "Unhandled unknown error" << std::endl;
 

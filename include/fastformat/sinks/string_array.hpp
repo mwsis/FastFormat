@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/sinks/string_array.hpp
+ * File:    fastformat/sinks/string_array.hpp
  *
- * Purpose:     A FastFormat sink for string sequences.
+ * Purpose: A FastFormat sink for string sequences.
  *
- * Created:     24th December 2007
- * Updated:     16th July 2024
+ * Created: 24th December 2007
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2007-2019, Matthew Wilson and Synesis Software
@@ -60,7 +60,7 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_STRING_ARRAY_MAJOR      0
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_STRING_ARRAY_MINOR      0
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_STRING_ARRAY_REVISION   3
-# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_STRING_ARRAY_EDIT       10
+# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_STRING_ARRAY_EDIT       11
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
 
@@ -138,18 +138,18 @@ public:
         ff_string_slice_t               crlf = fastformat_getNewlineForPlatform();
 
 #ifdef STLSOFT_CF_THROW_BAD_ALLOC
-        if(!vectors.empty())
+        if (!vectors.empty())
 #endif /* STLSOFT_CF_THROW_BAD_ALLOC */
         {
             STLSOFT_ASSERT(vectors.size() == numResults + 2);
 
-            { for(size_t i = 0; i != vectors.size() - 2; ++i)
+            { for (size_t i = 0; i != vectors.size() - 2; ++i)
             {
                 vectors[i].iov_base =   const_cast<char*>(results[i].ptr);
                 vectors[i].iov_len  =   results[i].len;
             }}
 
-            if(!m_delim.empty())
+            if (!m_delim.empty())
             {
                 vectors[vectors.size() - 2].iov_base    =   const_cast<char*>(m_delim.data());
                 vectors[vectors.size() - 2].iov_len     =   m_delim.size();
@@ -159,7 +159,7 @@ public:
                 vectors.resize(vectors.size() - 1);
             }
 
-            if(flags::ff_newLine & flags)
+            if (flags::ff_newLine & flags)
             {
                 vectors[vectors.size() - 1].iov_base    =   const_cast<char*>(crlf.ptr);
                 vectors[vectors.size() - 1].iov_len     =   crlf.len;
@@ -169,7 +169,7 @@ public:
                 vectors.resize(vectors.size() - 1);
             }
 
-            if(::writev(m_fh, &vectors[0], static_cast<int>(vectors.size())) < 0)
+            if (::writev(m_fh, &vectors[0], static_cast<int>(vectors.size())) < 0)
             {
 #ifdef STLSOFT_CF_EXCEPTION_SUPPORT
                 throw platformstl::platform_exception("failed to write vector payload", errno);
@@ -177,7 +177,7 @@ public:
             }
 
 #if 0
-            if(flags::ff_flush & flags)
+            if (flags::ff_flush & flags)
             {
                 ::flush(m_fh);
             }

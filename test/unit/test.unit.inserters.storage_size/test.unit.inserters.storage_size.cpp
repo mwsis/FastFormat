@@ -1,20 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.inserters.storage_size.cpp
+ * File:    test.unit.inserters.storage_size.cpp
  *
- * Purpose:     Implementation file for the test.unit.inserters.storage_size project.
+ * Purpose: Implementation file for the test.unit.inserters.storage_size project.
  *
- * Created:     23rd July 2015
- * Updated:     16th July 2024
- *
- * Status:      Wizard-generated
- *
- * License:     (Licensed under the Synesis Software Open License)
- *
- *              Copyright (c) 2019-2024, Synesis Information Systems Pty Ltd.
- *              Copyright (c) 2015-2019, Synesis Software Pty Ltd.
- *              All rights reserved.
- *
- *              www:        http://www.synesis.com.au/software
+ * Created: 23rd July 2015
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -103,7 +93,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.unit.inserters.storage_size", verbosity))
+    if (XTESTS_START_RUNNER("test.unit.inserters.storage_size", verbosity))
     {
         XTESTS_RUN_CASE(test_zero);
         XTESTS_RUN_CASE(text_B);
@@ -174,22 +164,22 @@ static void test_zero()
 
 static void text_B()
 {
-    { for(unsigned i = 0; i <= 255; ++i)
+    { for (unsigned i = 0; i <= 255; ++i)
     {
         XTESTS_REQUIRE(XTESTS_TEST_STRING_EQUAL_(itos_suf(i, FASTFORMAT_LITERAL_STRING("B")), fastformat::storage_size(static_cast<uint8_t>(i))));
     }}
 
-    { for(uint16_t i = 0; i != 1000; ++i)
+    { for (uint16_t i = 0; i != 1000; ++i)
     {
         XTESTS_REQUIRE(XTESTS_TEST_STRING_EQUAL_(itos_suf(i, FASTFORMAT_LITERAL_STRING("B")), fastformat::storage_size(i)));
     }}
 
-    { for(uint32_t i = 0; i != 1000; ++i)
+    { for (uint32_t i = 0; i != 1000; ++i)
     {
         XTESTS_REQUIRE(XTESTS_TEST_STRING_EQUAL_(itos_suf(i, FASTFORMAT_LITERAL_STRING("B")), fastformat::storage_size(i)));
     }}
 
-    { for(uint64_t i = 0; i != 1000; ++i)
+    { for (uint64_t i = 0; i != 1000; ++i)
     {
         XTESTS_REQUIRE(XTESTS_TEST_STRING_EQUAL_(itos_suf(i, FASTFORMAT_LITERAL_STRING("B")), fastformat::storage_size(i)));
     }}
@@ -197,12 +187,12 @@ static void text_B()
 
 static void text_KB()
 {
-    { for(uint32_t i = 1000; i != 1000000; ++i)
+    { for (uint32_t i = 1000; i != 1000000; ++i)
     {
         XTESTS_REQUIRE(XTESTS_TEST_STRING_EQUAL_(itos_suf(i / 1000, FASTFORMAT_LITERAL_STRING("kB")), fastformat::storage_size(i)));
     }}
 
-    { for(uint64_t i = 1000; i != 1000000; ++i)
+    { for (uint64_t i = 1000; i != 1000000; ++i)
     {
         XTESTS_REQUIRE(XTESTS_TEST_STRING_EQUAL_(itos_suf(i / 1000, FASTFORMAT_LITERAL_STRING("kB")), fastformat::storage_size(i)));
     }}
@@ -210,12 +200,12 @@ static void text_KB()
 
 static void text_MB()
 {
-    { for(uint32_t i = 1000000; i != 1000000000; i += 1000)
+    { for (uint32_t i = 1000000; i != 1000000000; i += 1000)
     {
         XTESTS_REQUIRE(XTESTS_TEST_STRING_EQUAL_(itos_suf(i / 1000000, FASTFORMAT_LITERAL_STRING("MB")), fastformat::storage_size(i)));
     }}
 
-    { for(uint64_t i = 1000000; i != 1000000000; i += 1000)
+    { for (uint64_t i = 1000000; i != 1000000000; i += 1000)
     {
         XTESTS_REQUIRE(XTESTS_TEST_STRING_EQUAL_(itos_suf(i / 1000000, FASTFORMAT_LITERAL_STRING("MB")), fastformat::storage_size(i)));
     }}
@@ -223,7 +213,7 @@ static void text_MB()
 
 static void text_GB()
 {
-    { for(uint64_t i = 1000000000; i != STLSOFT_GEN_UINT64_SUFFIX(1000000000000); i += 1000000)
+    { for (uint64_t i = 1000000000; i != STLSOFT_GEN_UINT64_SUFFIX(1000000000000); i += 1000000)
     {
         XTESTS_REQUIRE(XTESTS_TEST_STRING_EQUAL_(itos_suf(i / 1000000000, FASTFORMAT_LITERAL_STRING("GB")), fastformat::storage_size(i)));
     }}
@@ -231,7 +221,7 @@ static void text_GB()
 
 static void text_TB()
 {
-    { for(uint64_t i = STLSOFT_GEN_UINT64_SUFFIX(1000000000000); i != STLSOFT_GEN_UINT64_SUFFIX(1000000000000000); i += 1000000000)
+    { for (uint64_t i = STLSOFT_GEN_UINT64_SUFFIX(1000000000000); i != STLSOFT_GEN_UINT64_SUFFIX(1000000000000000); i += 1000000000)
     {
         XTESTS_REQUIRE(XTESTS_TEST_STRING_EQUAL_(itos_suf(i / STLSOFT_GEN_UINT64_SUFFIX(1000000000000), FASTFORMAT_LITERAL_STRING("TB")), fastformat::storage_size(i)));
     }}
@@ -239,7 +229,7 @@ static void text_TB()
 
 static void text_PB()
 {
-    { for(uint64_t i = STLSOFT_GEN_UINT64_SUFFIX(1000000000000000); i != STLSOFT_GEN_UINT64_SUFFIX(1000000000000000000); i += STLSOFT_GEN_UINT64_SUFFIX(1000000000000))
+    { for (uint64_t i = STLSOFT_GEN_UINT64_SUFFIX(1000000000000000); i != STLSOFT_GEN_UINT64_SUFFIX(1000000000000000000); i += STLSOFT_GEN_UINT64_SUFFIX(1000000000000))
     {
         XTESTS_REQUIRE(XTESTS_TEST_STRING_EQUAL_(itos_suf(i / STLSOFT_GEN_UINT64_SUFFIX(1000000000000000), FASTFORMAT_LITERAL_STRING("PB")), fastformat::storage_size(i)));
     }}
@@ -247,7 +237,7 @@ static void text_PB()
 
 static void text_ZB()
 {
-    { for(uint64_t i = STLSOFT_GEN_UINT64_SUFFIX(1000000000000000000); i != STLSOFT_GEN_UINT64_SUFFIX(10000000000000000000); i += STLSOFT_GEN_UINT64_SUFFIX(1000000000000000))
+    { for (uint64_t i = STLSOFT_GEN_UINT64_SUFFIX(1000000000000000000); i != STLSOFT_GEN_UINT64_SUFFIX(10000000000000000000); i += STLSOFT_GEN_UINT64_SUFFIX(1000000000000000))
     {
         XTESTS_REQUIRE(XTESTS_TEST_STRING_EQUAL_(itos_suf(i / STLSOFT_GEN_UINT64_SUFFIX(1000000000000000000), FASTFORMAT_LITERAL_STRING("EB")), fastformat::storage_size(i)));
     }}

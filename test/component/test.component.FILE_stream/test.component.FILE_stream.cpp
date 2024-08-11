@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.component.FILE_stream.cpp
+ * File:    test.component.FILE_stream.cpp
  *
- * Purpose:     Implementation file for the test.component.FILE_stream project.
+ * Purpose: Implementation file for the test.component.FILE_stream project.
  *
- * Created:     3rd January 2008
- * Updated:     16th July 2024
+ * Created: 3rd January 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -82,7 +82,7 @@ int main(int argc, char** argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.component.FILE_stream", verbosity))
+    if (XTESTS_START_RUNNER("test.component.FILE_stream", verbosity))
     {
         XTESTS_RUN_CASE(test_1_1);
         XTESTS_RUN_CASE(test_1_2);

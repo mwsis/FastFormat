@@ -1,11 +1,11 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        example.overload.3.server_log.cpp
+ * File:    example.overload.3.server_log.cpp
  *
- * Purpose:     Implementation file for the example.overload.3.server_log
- *              project.
+ * Purpose: Implementation file for the example.overload.3.server_log
+ *          project.
  *
- * Created:     29th April 2009
- * Updated:     16th July 2024
+ * Created: 29th April 2009
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -76,7 +76,7 @@ int main()
     platformstl::performance_counter::interval_type t_boost     =   0;
 #endif /* FASTFORMAT_PERFTEST_USE_BOOST */
 
-    { for(int WARMUPS = 3; 0 != WARMUPS; --WARMUPS)
+    { for (int WARMUPS = 3; 0 != WARMUPS; --WARMUPS)
     {
 #ifdef _DEBUG
         const int ITERATIONS = 1;
@@ -87,7 +87,7 @@ int main()
 
         puts("Streams:");
         counter.start();
-        { for(int j = 0; j != ITERATIONS; ++j)
+        { for (int j = 0; j != ITERATIONS; ++j)
         {
             log_connection_streams(conn);
         }}
@@ -97,7 +97,7 @@ int main()
 
         puts("IOStreams:");
         counter.start();
-        { for(int j = 0; j != ITERATIONS; ++j)
+        { for (int j = 0; j != ITERATIONS; ++j)
         {
             log_connection_iostreams(conn);
         }}
@@ -107,7 +107,7 @@ int main()
 
         puts("FastFormat.Format (1):");
         counter.start();
-        { for(int j = 0; j != ITERATIONS; ++j)
+        { for (int j = 0; j != ITERATIONS; ++j)
         {
             log_connection_ff_fmt_1(conn);
         }}
@@ -117,7 +117,7 @@ int main()
 
         puts("FastFormat.Format (2):");
         counter.start();
-        { for(int j = 0; j != ITERATIONS; ++j)
+        { for (int j = 0; j != ITERATIONS; ++j)
         {
             log_connection_ff_fmt_2(conn);
         }}
@@ -127,7 +127,7 @@ int main()
 
         puts("FastFormat.Write:");
         counter.start();
-        { for(int j = 0; j != ITERATIONS; ++j)
+        { for (int j = 0; j != ITERATIONS; ++j)
         {
             log_connection_ff_write(conn);
         }}
@@ -138,7 +138,7 @@ int main()
 #ifdef FASTFORMAT_PERFTEST_USE_BOOST
         puts("Boost:");
         counter.start();
-        { for(int j = 0; j != ITERATIONS; ++j)
+        { for (int j = 0; j != ITERATIONS; ++j)
         {
             log_connection_boost(conn);
         }}
@@ -191,7 +191,7 @@ size_t format_in_addr(char (&buff)[16], struct in_addr const* addr)
         ,   int(l >>  8) & 0xff
         ,   int(l >>  0) & 0xff);
 
-    if( n < 0 ||
+    if (n < 0 ||
         n > 15)
     {
         n = 0;

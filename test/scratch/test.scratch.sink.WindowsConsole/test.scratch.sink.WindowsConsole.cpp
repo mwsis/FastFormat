@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.scratch.sink.WindowsConsole.cpp
+ * File:    test.scratch.sink.WindowsConsole.cpp
  *
- * Purpose:     Implementation file for the test.scratch.sink.WindowsConsole project.
+ * Purpose: Implementation file for the test.scratch.sink.WindowsConsole project.
  *
- * Created:     6th January 2011
- * Updated:     6th February 2024
+ * Created: 6th January 2011
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -14,8 +14,8 @@
  */
 
 /* FastFormat Header Files */
-#include <fastformat/ff.hpp>
 #include <fastformat/sinks/WindowsConsole.hpp>
+#include <fastformat/ff.hpp>
 
 /* STLSoft Header Files */
 #include <winstl/error/error_desc.hpp>
@@ -29,7 +29,9 @@
 #include <stdlib.h>
 
 
-/* ////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////
+ * main()
+ */
 
 static int main_(int /* argc */, char** /*argv*/)
 {
@@ -50,11 +52,11 @@ int main(int argc, char** argv)
     {
         return main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         fprintf(stderr, "Unhandled error: %s\n", x.what());
     }
-    catch(...)
+    catch (...)
     {
         fprintf(stderr, "Unhandled unknown error\n");
     }

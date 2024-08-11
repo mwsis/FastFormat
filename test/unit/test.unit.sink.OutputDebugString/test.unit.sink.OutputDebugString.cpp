@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.sink.OutputDebugString.cpp
+ * File:    test.unit.sink.OutputDebugString.cpp
  *
- * Purpose:     Implementation file for the test.unit.sink.OutputDebugString project.
+ * Purpose: Implementation file for the test.unit.sink.OutputDebugString project.
  *
- * Created:     28th May 2008
- * Updated:     16th July 2024
+ * Created: 28th May 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -128,7 +128,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER_WITH_SETUP_FNS("test.unit.sink.OutputDebugString", verbosity, OutputDebugString_setup, NULL, NULL))
+    if (XTESTS_START_RUNNER_WITH_SETUP_FNS("test.unit.sink.OutputDebugString", verbosity, OutputDebugString_setup, NULL, NULL))
     {
         XTESTS_RUN_CASE(test_1_0);
         XTESTS_RUN_CASE(test_1_1);

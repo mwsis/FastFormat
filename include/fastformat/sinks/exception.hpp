@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/sinks/exception.hpp
+ * File:    fastformat/sinks/exception.hpp
  *
- * Purpose:     A FastFormat sink for exceptions.
+ * Purpose: A FastFormat sink for exceptions.
  *
- * Created:     12th November 2012
- * Updated:     16th July 2024
+ * Created: 12th November 2012
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2012-2019, Matthew Wilson and Synesis Software
@@ -57,7 +57,7 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_EXCEPTION_MAJOR     0
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_EXCEPTION_MINOR     1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_EXCEPTION_REVISION  3
-# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_EXCEPTION_EDIT      8
+# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_EXCEPTION_EDIT      9
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
 
@@ -214,17 +214,17 @@ namespace sinks
 
         msg.reserve(cchTotal);
 
-        { for(size_t i = 0; i != numResults; ++i)
+        { for (size_t i = 0; i != numResults; ++i)
         {
             ff_string_slice_t const& slice = results[i];
 
-            if(0u != slice.len) // This test required by 21.3.5.2/6 => 21.3.1/6
+            if (0u != slice.len) // This test required by 21.3.5.2/6 => 21.3.1/6
             {
                 msg.append(slice.ptr, slice.len);
             }
         }}
 
-        if(0 != cchTotal)
+        if (0 != cchTotal)
         {
             sink.throw_with_message(msg.c_str());
         }

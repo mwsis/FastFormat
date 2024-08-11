@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.performance.api.parse_format.cpp
+ * File:    test.performance.api.parse_format.cpp
  *
- * Purpose:     Implementation file for the test.performance.api.parse_format project.
+ * Purpose: Implementation file for the test.performance.api.parse_format project.
  *
- * Created:     17th November 2008
- * Updated:     16th July 2024
+ * Created: 17th November 2008
+ * Updated: 11th August 2024
  * *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -38,6 +38,7 @@
     defined(_DEBUG)
 # include <crtdbg.h>
 #endif /* _MSC_VER) && _DEBUG */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * constants and definitions
@@ -83,6 +84,7 @@ enum
     ,   foundMaxWidth   =   0x04
     ,   foundAlign      =   0x08
 };
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * forward declarations
@@ -150,7 +152,10 @@ int FASTFORMAT_CALLCONV ignore_unreferenced_params_handler(
 
 fastformat::mismatchedHandler_t prev = NULL;
 
-/* ////////////////////////////////////////////////////////////////////// */
+
+/* /////////////////////////////////////////////////////////////////////////
+ * main()
+ */
 
 static int main_(int /* argc */, char** /*argv*/)
 {
@@ -196,7 +201,7 @@ static int main_(int /* argc */, char** /*argv*/)
     int totalRes3 = 0;
     int totalRes4 = 0;
 
-    { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(params); ++i)
+    { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(params); ++i)
     {
         string_view_t   param(params[i]);
 
@@ -236,7 +241,7 @@ static int main_(int /* argc */, char** /*argv*/)
 #else /* ? FF_PRSFMT_USE_SV_PARAM */
         int res4        =   parse_replacement_std_string(param.begin(), param.end(), &index4, &minWidth4, &maxWidth4, &alignment4);
 #endif /* FF_PRSFMT_USE_SV_PARAM */
-        if(res1 < 0)
+        if (res1 < 0)
         {}
         else
         {
@@ -246,7 +251,7 @@ static int main_(int /* argc */, char** /*argv*/)
             (0 == (res1 & foundAlign)) && (alignment1 = -1), true;
         }
 
-        if(res2 < 0)
+        if (res2 < 0)
         {}
         else
         {
@@ -256,7 +261,7 @@ static int main_(int /* argc */, char** /*argv*/)
             (0 == (res2 & foundAlign)) && (alignment2 = -1), true;
         }
 
-        if(res3 < 0)
+        if (res3 < 0)
         {}
         else
         {
@@ -266,7 +271,7 @@ static int main_(int /* argc */, char** /*argv*/)
             (0 == (res3 & foundAlign)) && (alignment3 = -1), true;
         }
 
-        if(res4 < 0)
+        if (res4 < 0)
         {}
         else
         {
@@ -276,12 +281,12 @@ static int main_(int /* argc */, char** /*argv*/)
             (0 == (res4 & foundAlign)) && (alignment4 = -1), true;
         }
 
-        if( -1 == res1 &&
+        if (-1 == res1 &&
             -1 == res2 &&
             -1 == res3 &&
             -1 == res4)
         {}
-        else if(    (   res1 != res2 ||
+        else if (   (   res1 != res2 ||
                         index1 != index2 ||
                         minWidth1 != minWidth2 ||
                         maxWidth1 != maxWidth2 ||
@@ -300,31 +305,31 @@ static int main_(int /* argc */, char** /*argv*/)
         {
             fastformat::fmtln(std::cerr, "\nmismatch when parsing parameter {1}: \"{0}\"", param, i);
 
-            if( res1 != res2 ||
+            if (res1 != res2 ||
                 res1 != res3 ||
                 res1 != res4)
             {
                 fastformat::fmtln(std::cerr, "results do not match: res1={0}, res2={1}, res3={2}, res4={3}", res1, res2, res3, res4);
             }
-            if( index1 != index2 ||
+            if (index1 != index2 ||
                 index1 != index3 ||
                 index1 != index4)
             {
                 fastformat::fmtln(std::cerr, "indexes do not match: index1={0}, index2={1}, index3={2}, index4={3}", index1, index2, index3, index4);
             }
-            if( minWidth1 != minWidth2 ||
+            if (minWidth1 != minWidth2 ||
                 minWidth1 != minWidth3 ||
                 minWidth1 != minWidth4)
             {
                 fastformat::fmtln(std::cerr, "minWidths do not match: minWidth1={0}, minWidth2={1}, minWidth3={2}, minWidth4={3}", minWidth1, minWidth2, minWidth3, minWidth4);
             }
-            if( maxWidth1 != maxWidth2 ||
+            if (maxWidth1 != maxWidth2 ||
                 maxWidth1 != maxWidth3 ||
                 maxWidth1 != maxWidth4)
             {
                 fastformat::fmtln(std::cerr, "maxWidths do not match: maxWidth1={0}, maxWidth2={1}, maxWidth3={2}, maxWidth4={3}", maxWidth1, maxWidth2, maxWidth3, maxWidth4);
             }
-            if( alignment1 != alignment2 ||
+            if (alignment1 != alignment2 ||
                 alignment1 != alignment3 ||
                 alignment1 != alignment4)
             {
@@ -333,7 +338,7 @@ static int main_(int /* argc */, char** /*argv*/)
         }
     }}
 
-    { for(unsigned WARMUPS = 2; 0 != --WARMUPS; )
+    { for (unsigned WARMUPS = 2; 0 != --WARMUPS; )
     {
         int index;
         int minWidth;
@@ -342,9 +347,9 @@ static int main_(int /* argc */, char** /*argv*/)
         int res;
 
         counter.start();
-        { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(params); ++i)
+        { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(params); ++i)
         {
-            { for(unsigned j = 0; j != INCREMENTS; ++j)
+            { for (unsigned j = 0; j != INCREMENTS; ++j)
             {
                 string_view_t   param(params[i]);
 
@@ -359,9 +364,9 @@ static int main_(int /* argc */, char** /*argv*/)
         tmManual = (counter.*pmfn)();
 
         counter.start();
-        { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(params); ++i)
+        { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(params); ++i)
         {
-            { for(unsigned j = 0; j != INCREMENTS; ++j)
+            { for (unsigned j = 0; j != INCREMENTS; ++j)
             {
                 string_view_t   param(params[i]);
 
@@ -376,9 +381,9 @@ static int main_(int /* argc */, char** /*argv*/)
         tmFindNextToken = (counter.*pmfn)();
 
         counter.start();
-        { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(params); ++i)
+        { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(params); ++i)
         {
-            { for(unsigned j = 0; j != INCREMENTS; ++j)
+            { for (unsigned j = 0; j != INCREMENTS; ++j)
             {
                 string_view_t   param(params[i]);
 
@@ -393,9 +398,9 @@ static int main_(int /* argc */, char** /*argv*/)
         tmStringView = (counter.*pmfn)();
 
         counter.start();
-        { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(params); ++i)
+        { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(params); ++i)
         {
-            { for(unsigned j = 0; j != INCREMENTS; ++j)
+            { for (unsigned j = 0; j != INCREMENTS; ++j)
             {
                 string_view_t   param(params[i]);
 
@@ -446,13 +451,13 @@ int main(int argc, char** argv)
     {
         res = main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         fastformat::write(std::cerr, "Unhandled error: ", x) << std::endl;
 
         res = EXIT_FAILURE;
     }
-    catch(...)
+    catch (...)
     {
         std::cerr << "Unhandled unknown error" << std::endl;
 
@@ -466,6 +471,7 @@ int main(int argc, char** argv)
 
     return res;
 }
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * function definitions
@@ -529,48 +535,52 @@ int parse_replacement_raw(
 #endif /* FF_PRSFMT_USE_SV_PARAM */
     int                 number;
 
-    if(p0 == p1)
+    if (p0 == p1)
     {
         return -1; // Empty parameter
     }
 
     // Field 0: index
-    { for(number = 0; p1 != p0; ++p0)
+    { for (number = 0; p1 != p0; ++p0)
     {
         const char ch = *p0;
 
-        switch(ch)
+        switch (ch)
         {
-            default:
-                FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("unexpected character: check switch in main machine loop");
-                break;
-            case    '0':
-            case    '1':
-            case    '2':
-            case    '3':
-            case    '4':
-            case    '5':
-            case    '6':
-            case    '7':
-            case    '8':
-            case    '9':
-                number = 10 * number + (ch - '0');
-                continue;
-            case    ',':
-                if(p0_ == p0)
-                {
-                    return -1; // Empty index
-                }
-                else
-                {
-                    *pindex = number;
-                }
-                break;
-            case    '<':
-            case    '>':
-            case    '^':
-            case    '#':
-                return -1; // Invalid index
+        default:
+
+            FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("unexpected character: check switch in main machine loop");
+            break;
+        case '0':
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+
+            number = 10 * number + (ch - '0');
+            continue;
+        case ',':
+
+            if (p0_ == p0)
+            {
+                return -1; // Empty index
+            }
+            else
+            {
+                *pindex = number;
+            }
+            break;
+        case '<':
+        case '>':
+        case '^':
+        case '#':
+
+            return -1; // Invalid index
         }
 
         FASTFORMAT_CONTRACT_ENFORCE_ASSUMPTION(',' == *p0); // Switch must have been broken on ','
@@ -581,39 +591,43 @@ int parse_replacement_raw(
     res |= foundIndex;
 
     // Field 1: minimum width
-    if(p1 != p0)
+    if (p1 != p0)
     {
         FASTFORMAT_CONTRACT_ENFORCE_ASSUMPTION(',' == *p0); // Switch must have been broken on ','
 
-        { for(number = 0, ++p0; p1 != p0; ++p0)
+        { for (number = 0, ++p0; p1 != p0; ++p0)
         {
             const char ch = *p0;
 
-            switch(ch)
+            switch (ch)
             {
-                default:
-                    FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("unexpected character: check switch in main machine loop");
-                    break;
-                case    '0':
-                case    '1':
-                case    '2':
-                case    '3':
-                case    '4':
-                case    '5':
-                case    '6':
-                case    '7':
-                case    '8':
-                case    '9':
-                    res |= foundMinWidth;
-                    number = 10 * number + (ch - '0');
-                    continue;
-                case    ',':
-                    break;
-                case    '<':
-                case    '>':
-                case    '^':
-                case    '#':
-                    return -1; // Invalid width
+            default:
+
+                FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("unexpected character: check switch in main machine loop");
+                break;
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+
+                res |= foundMinWidth;
+                number = 10 * number + (ch - '0');
+                continue;
+            case ',':
+
+                break;
+            case '<':
+            case '>':
+            case '^':
+            case '#':
+
+                return -1; // Invalid width
             }
 
             FASTFORMAT_CONTRACT_ENFORCE_ASSUMPTION(',' == *p0); // Switch must have been broken on ','
@@ -624,39 +638,43 @@ int parse_replacement_raw(
     }
 
     // Field 2: maximum width
-    if(p1 != p0)
+    if (p1 != p0)
     {
         FASTFORMAT_CONTRACT_ENFORCE_ASSUMPTION(',' == *p0); // Switch must have been broken on ','
 
-        { for(number = 0, ++p0; p1 != p0; ++p0)
+        { for (number = 0, ++p0; p1 != p0; ++p0)
         {
             const char ch = *p0;
 
-            switch(ch)
+            switch (ch)
             {
-                default:
-                    FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("unexpected character: check switch in main machine loop");
-                    break;
-                case    '0':
-                case    '1':
-                case    '2':
-                case    '3':
-                case    '4':
-                case    '5':
-                case    '6':
-                case    '7':
-                case    '8':
-                case    '9':
-                    res |= foundMaxWidth;
-                    number = 10 * number + (ch - '0');
-                    continue;
-                case    ',':
-                    break;
-                case    '<':
-                case    '>':
-                case    '^':
-                case    '#':
-                    return -1; // Invalid width
+            default:
+
+                FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("unexpected character: check switch in main machine loop");
+                break;
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+
+                res |= foundMaxWidth;
+                number = 10 * number + (ch - '0');
+                continue;
+            case ',':
+
+                break;
+            case '<':
+            case '>':
+            case '^':
+            case '#':
+
+                return -1; // Invalid width
             }
 
             FASTFORMAT_CONTRACT_ENFORCE_ASSUMPTION(',' == *p0); // Switch must have been broken on ','
@@ -667,48 +685,54 @@ int parse_replacement_raw(
     }
 
     // Field 3: alignment
-    if(p1 != p0)
+    if (p1 != p0)
     {
         FASTFORMAT_CONTRACT_ENFORCE_ASSUMPTION(',' == *p0); // Switch must have been broken on ','
 
-        { for(++p0; p1 != p0; ++p0)
+        { for (++p0; p1 != p0; ++p0)
         {
             const char ch = *p0;
 
-            if(foundAlign & res)
+            if (foundAlign & res)
             {
                 return -1; // Multiple alignment specifiers
             }
 
-            switch(ch)
+            switch (ch)
             {
-                default:
-                    FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("unexpected character: check switch in main machine loop");
-                    break;
-                case    '<':
-                    *palignment = left;
-                    break;
-                case    '>':
-                    *palignment = right;
-                    break;
-                case    '^':
-                    *palignment = centre;
-                    break;
-                case    '#':
-                    *palignment = hashFill;
-                    break;
-                case    ',':
-                case    '0':
-                case    '1':
-                case    '2':
-                case    '3':
-                case    '4':
-                case    '5':
-                case    '6':
-                case    '7':
-                case    '8':
-                case    '9':
-                    return -1; // Invalid alignment
+            default:
+
+                FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("unexpected character: check switch in main machine loop");
+                break;
+            case '<':
+
+                *palignment = left;
+                break;
+            case '>':
+
+                *palignment = right;
+                break;
+            case '^':
+
+                *palignment = centre;
+                break;
+            case '#':
+
+                *palignment = hashFill;
+                break;
+            case ',':
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+
+                return -1; // Invalid alignment
             }
 
             res |= foundAlign;
@@ -724,29 +748,31 @@ inline long stlsoft_strtol_10(char const* s, char** endptr)
 {
     long result = 0;
 
-    for(;; ++s)
+    for (;; ++s)
     {
         const char ch = *s;
 
-        switch(ch)
+        switch (ch)
         {
-            case    '0':
-            case    '1':
-            case    '2':
-            case    '3':
-            case    '4':
-            case    '5':
-            case    '6':
-            case    '7':
-            case    '8':
-            case    '9':
-                result = 10 * result + (ch - '0');
-                continue;
-            default:
-                break;
+        case '0':
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+
+            result = 10 * result + (ch - '0');
+            continue;
+        default:
+
+            break;
         }
 
-        if(NULL != endptr)
+        if (NULL != endptr)
         {
             *endptr = const_cast<char*>(s);
         }
@@ -796,7 +822,7 @@ int parse_replacement_find_next_token(
 
     // Field 0: index
     stlsoft::find_next_token(p0, p1, end, ',');
-    if(p0 == p1)
+    if (p0 == p1)
     {
         return -1; // Empty parameter
     }
@@ -805,7 +831,7 @@ int parse_replacement_find_next_token(
         char*   endptr;
         long    result = ::strtol(p0, &endptr, 10);
 
-        if(p1 != endptr)
+        if (p1 != endptr)
         {
             return -1;
         }
@@ -817,13 +843,13 @@ int parse_replacement_find_next_token(
 
     // Field 1: minimum width
     stlsoft::find_next_token(p0, p1, end, ',');
-    if( /* p0 != end && */
+    if (/* p0 != end && */
         p1 != p0)
     {
         char*   endptr;
         long    result = ::strtol(p0, &endptr, 10);
 
-        if(p1 != endptr)
+        if (p1 != endptr)
         {
             return -1;
         }
@@ -835,13 +861,13 @@ int parse_replacement_find_next_token(
 
     // Field 1: maximum width
     stlsoft::find_next_token(p0, p1, end, ',');
-    if( /* p0 != end && */
+    if (/* p0 != end && */
         p1 != p0)
     {
         char*   endptr;
         long    result = ::strtol(p0, &endptr, 10);
 
-        if(p1 != endptr)
+        if (p1 != endptr)
         {
             return -1;
         }
@@ -852,30 +878,35 @@ int parse_replacement_find_next_token(
     }
 
     stlsoft::find_next_token(p0, p1, end, ',');
-    if(p1 != p0)
+    if (p1 != p0)
     {
-        if(p1 != p0 + 1)
+        if (p1 != p0 + 1)
         {
             return -1; // Invalid argument
         }
         else
         {
-            switch(p0[0])
+            switch (p0[0])
             {
-                default:
-                    return -1; // Invalid alignment
-                case    '<':
-                    *palignment = left;
-                    break;
-                case    '>':
-                    *palignment = right;
-                    break;
-                case    '^':
-                    *palignment = centre;
-                    break;
-                case    '#':
-                    *palignment = hashFill;
-                    break;
+            default:
+
+                return -1; // Invalid alignment
+            case '<':
+
+                *palignment = left;
+                break;
+            case '>':
+
+                *palignment = right;
+                break;
+            case '^':
+
+                *palignment = centre;
+                break;
+            case '#':
+
+                *palignment = hashFill;
+                break;
             }
 
             res |= foundAlign;
@@ -919,19 +950,19 @@ int parse_replacement_string_view(
     string_view_t   maxWidth;
     string_view_t   alignment;
 
-    if(!stlsoft::split(param, ',', index, qualifiers))
+    if (!stlsoft::split(param, ',', index, qualifiers))
     {
         index = param;
     }
     else
     {
-        if(!stlsoft::split(qualifiers, ',', minWidth, qualifiers2))
+        if (!stlsoft::split(qualifiers, ',', minWidth, qualifiers2))
         {
             minWidth = qualifiers;
         }
         else
         {
-            if(!stlsoft::split(qualifiers2, ',', maxWidth, alignment))
+            if (!stlsoft::split(qualifiers2, ',', maxWidth, alignment))
             {
                 maxWidth = qualifiers2;
             }
@@ -939,7 +970,7 @@ int parse_replacement_string_view(
     }
 
 
-    if(index.empty())
+    if (index.empty())
     {
         return -1;
     }
@@ -948,7 +979,7 @@ int parse_replacement_string_view(
         char*   endptr;
         long    result = ::strtol(index.data(), &endptr, 10);
 
-        if(index.end() != endptr)
+        if (index.end() != endptr)
         {
             return -1;
         }
@@ -958,12 +989,12 @@ int parse_replacement_string_view(
         res |= foundIndex;
     }
 
-    if(!minWidth.empty())
+    if (!minWidth.empty())
     {
         char*   endptr;
         long    result = ::strtol(minWidth.data(), &endptr, 10);
 
-        if(minWidth.end() != endptr)
+        if (minWidth.end() != endptr)
         {
             return -1;
         }
@@ -973,12 +1004,12 @@ int parse_replacement_string_view(
         res |= foundMinWidth;
     }
 
-    if(!maxWidth.empty())
+    if (!maxWidth.empty())
     {
         char*   endptr;
         long    result = ::strtol(maxWidth.data(), &endptr, 10);
 
-        if(maxWidth.end() != endptr)
+        if (maxWidth.end() != endptr)
         {
             return -1;
         }
@@ -988,30 +1019,35 @@ int parse_replacement_string_view(
         res |= foundMaxWidth;
     }
 
-    if(!alignment.empty())
+    if (!alignment.empty())
     {
-        if(1u != alignment.size())
+        if (1u != alignment.size())
         {
             return -1; // Invalid argument
         }
         else
         {
-            switch(alignment[0])
+            switch (alignment[0])
             {
-                default:
-                    return -1; // Invalid alignment
-                case    '<':
-                    *palignment = left;
-                    break;
-                case    '>':
-                    *palignment = right;
-                    break;
-                case    '^':
-                    *palignment = centre;
-                    break;
-                case    '#':
-                    *palignment = hashFill;
-                    break;
+            default:
+
+                return -1; // Invalid alignment
+            case '<':
+
+                *palignment = left;
+                break;
+            case '>':
+
+                *palignment = right;
+                break;
+            case '^':
+
+                *palignment = centre;
+                break;
+            case '#':
+
+                *palignment = hashFill;
+                break;
             }
 
             res |= foundAlign;
@@ -1056,19 +1092,19 @@ int parse_replacement_std_string(
     std::string     maxWidth;
     std::string     alignment;
 
-    if(!stlsoft::split(param, ',', index, qualifiers))
+    if (!stlsoft::split(param, ',', index, qualifiers))
     {
         index = param;
     }
     else
     {
-        if(!stlsoft::split(qualifiers, ',', minWidth, qualifiers2))
+        if (!stlsoft::split(qualifiers, ',', minWidth, qualifiers2))
         {
             minWidth = qualifiers;
         }
         else
         {
-            if(!stlsoft::split(qualifiers2, ',', maxWidth, alignment))
+            if (!stlsoft::split(qualifiers2, ',', maxWidth, alignment))
             {
                 maxWidth = qualifiers2;
             }
@@ -1076,7 +1112,7 @@ int parse_replacement_std_string(
     }
 
 
-    if(index.empty())
+    if (index.empty())
     {
         return -1;
     }
@@ -1087,7 +1123,7 @@ int parse_replacement_std_string(
         char const* const   end     =   begin + index.size();
         long                result  =   ::strtol(begin, &endptr, 10);
 
-        if(end != endptr)
+        if (end != endptr)
         {
             return -1;
         }
@@ -1097,14 +1133,14 @@ int parse_replacement_std_string(
         res |= foundIndex;
     }
 
-    if(!minWidth.empty())
+    if (!minWidth.empty())
     {
         char*               endptr;
         char const* const   begin   =   minWidth.c_str();
         char const* const   end     =   begin + minWidth.size();
         long                result  =   ::strtol(begin, &endptr, 10);
 
-        if(end != endptr)
+        if (end != endptr)
         {
             return -1;
         }
@@ -1114,14 +1150,14 @@ int parse_replacement_std_string(
         res |= foundMinWidth;
     }
 
-    if(!maxWidth.empty())
+    if (!maxWidth.empty())
     {
         char*               endptr;
         char const* const   begin   =   maxWidth.c_str();
         char const* const   end     =   begin + maxWidth.size();
         long                result  =   ::strtol(begin, &endptr, 10);
 
-        if(end != endptr)
+        if (end != endptr)
         {
             return -1;
         }
@@ -1131,37 +1167,44 @@ int parse_replacement_std_string(
         res |= foundMaxWidth;
     }
 
-    if(!alignment.empty())
+    if (!alignment.empty())
     {
-        if(1u != alignment.size())
+        if (1u != alignment.size())
         {
             return -1; // Invalid argument
         }
         else
         {
-            switch(alignment[0])
+            switch (alignment[0])
             {
-                default:
-                    return -1; // Invalid alignment
-                case    '<':
-                    *palignment = left;
-                    break;
-                case    '>':
-                    *palignment = right;
-                    break;
-                case    '^':
-                    *palignment = centre;
-                    break;
-                case    '#':
-                    *palignment = hashFill;
-                    break;
+            default:
+
+                return -1; // Invalid alignment
+            case '<':
+
+                *palignment = left;
+                break;
+            case '>':
+
+                *palignment = right;
+                break;
+            case '^':
+
+                *palignment = centre;
+                break;
+            case '#':
+
+                *palignment = hashFill;
+                break;
             }
+
             res |= foundAlign;
         }
     }
 
     return res;
 }
+
 
 /* ///////////////////////////// end of file //////////////////////////// */
 

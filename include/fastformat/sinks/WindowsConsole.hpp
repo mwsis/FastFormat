@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/sinks/WindowsConsole.hpp
+ * File:    fastformat/sinks/WindowsConsole.hpp
  *
- * Purpose:     A FastFormat sink for coloured output via Windows' console.
+ * Purpose: A FastFormat sink for coloured output via Windows' console.
  *
- * Created:     6th January 2011
- * Updated:     16th July 2024
+ * Created: 6th January 2011
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2011-2019, Matthew Wilson and Synesis Software
@@ -137,7 +137,7 @@ public:
         stlsoft::auto_buffer<ff_char_t> text(cchTotal + 1u + 2u);
 
 #ifndef STLSOFT_CF_THROW_BAD_ALLOC
-        if(text.empty())
+        if (text.empty())
         {
         }
         else
@@ -145,7 +145,7 @@ public:
         {
             concat_slices(text, numResults, results);
 
-            if(flags::ff_newLine & flags)
+            if (flags::ff_newLine & flags)
             {
                 const ff_string_slice_t crlf = fastformat_getNewlineForPlatform();
 

@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.bundle.winini.cpp
+ * File:    test.unit.bundle.winini.cpp
  *
- * Purpose:     Implementation file for the test.unit.bundle.winini project.
+ * Purpose: Implementation file for the test.unit.bundle.winini project.
  *
- * Created:     12th April 2008
- * Updated:     16th July 2024
+ * Created: 12th April 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -96,12 +96,12 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.unit.bundle.winini", verbosity))
+    if (XTESTS_START_RUNNER("test.unit.bundle.winini", verbosity))
     {
         // Prepare the ini file
         FILE*   stm = ::fopen(WININI_UNITTEST_FILE_NAME_, "w");
 
-        if(NULL == stm)
+        if (NULL == stm)
         {
             retCode = EXIT_FAILURE;
         }

@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.inserters.integer.cpp
+ * File:    test.unit.inserters.integer.cpp
  *
- * Purpose:     Implementation file for the test.unit.inserters.integer project.
+ * Purpose: Implementation file for the test.unit.inserters.integer project.
  *
- * Created:     11th December 2010
- * Updated:     16th July 2024
+ * Created: 11th December 2010
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -99,7 +99,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.unit.inserters.integer", verbosity))
+    if (XTESTS_START_RUNNER("test.unit.inserters.integer", verbosity))
     {
         XTESTS_RUN_CASE(test_1_0);
         XTESTS_RUN_CASE(test_1_1);

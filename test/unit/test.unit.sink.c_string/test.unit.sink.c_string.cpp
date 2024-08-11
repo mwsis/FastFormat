@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.sink.c_string.cpp
+ * File:    test.unit.sink.c_string.cpp
  *
- * Purpose:     Implementation file for the test.unit.sink.c_string project.
+ * Purpose: Implementation file for the test.unit.sink.c_string project.
  *
- * Created:     28th May 2008
- * Updated:     16th July 2024
+ * Created: 28th May 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -89,7 +89,6 @@ namespace
 } /* anonymous namespace */
 
 
-
 /* /////////////////////////////////////////////////////////////////////////
  * main()
  */
@@ -101,7 +100,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.unit.sink.c_string", verbosity))
+    if (XTESTS_START_RUNNER("test.unit.sink.c_string", verbosity))
     {
         XTESTS_RUN_CASE(test_1_0);
         XTESTS_RUN_CASE(test_1_1);
@@ -431,10 +430,10 @@ static void test_1_10()
     ff_char_t    buff[1024];
 
     // For all buffer sizes ...
-    { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(buff); ++i)
+    { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(buff); ++i)
     {
         // For all slices ...
-        { for(size_t j = 0; j != STLSOFT_NUM_ELEMENTS(s_slices); ++j)
+        { for (size_t j = 0; j != STLSOFT_NUM_ELEMENTS(s_slices); ++j)
         {
             const size_t cchTotal = std::accumulate(stlsoft::member_selector(s_slices, &string_slice_t::len)
                                                 ,   stlsoft::member_selector(s_slices, &string_slice_t::len) + j
@@ -446,7 +445,7 @@ static void test_1_10()
 
                 fastformat::sinks::fmt_slices(sink, 0, cchTotal, j, s_slices);
 
-                if(cchTotal > i)
+                if (cchTotal > i)
                 {
                     XTESTS_TEST_FAIL("char_buff_sink() failed to detect insufficient space");
                 }
@@ -455,9 +454,9 @@ static void test_1_10()
                     XTESTS_TEST_INTEGER_EQUAL(0, ::memcmp(s_source, buff, cchTotal * sizeof(ff_char_t)));
                 }
             }
-            catch(std::out_of_range&)
+            catch (std::out_of_range&)
             {
-                if(cchTotal >= i)
+                if (cchTotal >= i)
                 {
                     XTESTS_TEST_PASSED();
                 }

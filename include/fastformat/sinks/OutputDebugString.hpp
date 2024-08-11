@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/sinks/OutputDebugString.hpp
+ * File:    fastformat/sinks/OutputDebugString.hpp
  *
- * Purpose:     A FastFormat sink for Windows' OutputDebugString().
+ * Purpose: A FastFormat sink for Windows' OutputDebugString().
  *
- * Created:     24th February 2009
- * Updated:     16th July 2024
+ * Created: 24th February 2009
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2009-2019, Matthew Wilson and Synesis Software
@@ -137,7 +137,7 @@ public:
         stlsoft::auto_buffer<ff_char_t> buff(1 + cchTotal + ((flags::ff_newLine & flags) ? newLine.len : 0));
 
 #ifndef STLSOFT_CF_THROW_BAD_ALLOC
-        if(!buff.empty())
+        if (!buff.empty())
 #endif /* !STLSOFT_CF_THROW_BAD_ALLOC */
         {
 #if !defined(FASTFORMAT_NO_NAMESPACE)
@@ -146,7 +146,7 @@ public:
 
             concat_slices(buff, numResults, results);
 
-            if(flags::ff_newLine & flags)
+            if (flags::ff_newLine & flags)
             {
                 ::memcpy(&buff[cchTotal], newLine.ptr, sizeof(ff_char_t) * newLine.len);
 

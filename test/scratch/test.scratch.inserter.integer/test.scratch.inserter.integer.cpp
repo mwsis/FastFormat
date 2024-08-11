@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.scratch.inserter.integer.cpp
+ * File:    test.scratch.inserter.integer.cpp
  *
- * Purpose:     Implementation file for the test.scratch.inserter.integer project.
+ * Purpose: Implementation file for the test.scratch.inserter.integer project.
  *
- * Created:     1st March 2009
- * Updated:     6th February 2024
+ * Created: 1st March 2009
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -25,7 +25,7 @@
 /* UNIXem Header Files */
 #if defined(_WIN32) || \
     defined(_WIN64)
-# include <unixem/unixem.h>
+// # include <unixem/unixem.h>
 #endif /* Win32 || Win64 */
 
 /* Standard C++ Header Files */
@@ -71,7 +71,7 @@ static int main_(int /* argc */, char** /*argv*/)
         ,   INT_MAX
     };
 
-    { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(values); ++i)
+    { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(values); ++i)
     {
         const int value = values[i];
 
@@ -147,13 +147,13 @@ int main(int argc, char** argv)
 
         res = main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         std::cerr << "Unhandled error: " << x.what() << std::endl;
 
         res = EXIT_FAILURE;
     }
-    catch(...)
+    catch (...)
     {
         std::cerr << "Unhandled unknown error" << std::endl;
 

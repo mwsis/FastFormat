@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/sinks/null.hpp
+ * File:    fastformat/sinks/null.hpp
  *
- * Purpose:     A class that acts as a bit-bucket sink.
+ * Purpose: A class that acts as a bit-bucket sink.
  *
- * Created:     3rd December 2008
- * Updated:     16th July 2024
+ * Created: 3rd December 2008
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
@@ -133,7 +133,7 @@ inline null_sink&
 ,   ff_string_slice_t const*    results
 )
 {
-    if(NULL == results)
+    if (NULL == results)
     {
         FASTFORMAT_CONTRACT_ENFORCE_PRECONDITION_PARAMS_INTERNAL(0u == cchTotal, "Cannot have non-zero size if the results array pointer is null");
         FASTFORMAT_CONTRACT_ENFORCE_PRECONDITION_PARAMS_INTERNAL(0u == numResults, "Cannot have non-zero array elements if the results array pointer is null");

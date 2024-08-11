@@ -1,20 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.shims_and_namespaces.without_either_namespace.cpp
+ * File:    test.unit.shims_and_namespaces.without_either_namespace.cpp
  *
- * Purpose:     Without-namespace implementation file for the test.unit.shims_and_namespaces project.
+ * Purpose: Without-namespace implementation file for the test.unit.shims_and_namespaces project.
  *
- * Created:     11th November 2013
- * Updated:     16th July 2024
- *
- * Status:      Wizard-generated
- *
- * License:     (Licensed under the Synesis Software Open License)
- *
- *              Copyright (c) 2019-2024, Synesis Information Systems Pty Ltd.
- *              Copyright (c) 2013-2019, Synesis Software Pty Ltd.
- *              All rights reserved.
- *
- *              www:        http://www.synesis.com.au/software
+ * Created: 11th November 2013
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -146,7 +136,7 @@ void test_parse_code_1()
         ,   FF_PARSECODE_INVALIDINDEX
     };
 
-    { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(parseCodes); ++i)
+    { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(parseCodes); ++i)
     {
         ff_parse_code_t const   code    =   parseCodes[i];
         ff_char_t const* const  ptr     =   fastformat_getParseCodeString(code);
@@ -188,7 +178,7 @@ void test_replacement_code_1()
         ,   FF_REPLACEMENTCODE_UNREFERENCED_ARGUMENT
     };
 
-    { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(replacementCodes); ++i)
+    { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(replacementCodes); ++i)
     {
         ff_replacement_code_t const code    =   replacementCodes[i];
         ff_char_t const* const      ptr     =   fastformat_getReplacementCodeString(code);

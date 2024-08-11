@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.bundle.util.cpp
+ * File:    test.unit.bundle.util.cpp
  *
- * Purpose:     Implementation file for the test.unit.bundle.util project.
+ * Purpose: Implementation file for the test.unit.bundle.util project.
  *
- * Created:     30th November 2016
- * Updated:     16th July 2024
+ * Created: 30th November 2016
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -131,7 +131,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.unit.bundle.util", verbosity))
+    if (XTESTS_START_RUNNER("test.unit.bundle.util", verbosity))
     {
         XTESTS_RUN_CASE(calculate_number_of_windows_replacement_parameters_1);
         XTESTS_RUN_CASE(calculate_number_of_windows_replacement_parameters_2);

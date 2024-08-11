@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.api.initialisation.cpp
+ * File:    test.unit.api.initialisation.cpp
  *
- * Purpose:     Implementation file for the test.unit.api.initialisation project.
+ * Purpose: Implementation file for the test.unit.api.initialisation project.
  *
- * Created:     27th May 2008
- * Updated:     16th July 2024
+ * Created: 27th May 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -84,7 +84,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.unit.api.initialisation", verbosity))
+    if (XTESTS_START_RUNNER("test.unit.api.initialisation", verbosity))
     {
         XTESTS_RUN_CASE(test_1_0);
         XTESTS_RUN_CASE(test_1_1);
@@ -133,7 +133,7 @@ static void test_1_0()
 {
     int res = fastformat::init();
 
-    if(res < 0)
+    if (res < 0)
     {
         fastformat::ff_char_t const*    qualifier = fastformat::getInitCodeString(res);
 
@@ -149,11 +149,11 @@ static void test_1_0()
 
 static void test_1_1()
 {
-    { for(size_t i = 0u; i != 100000u; ++i)
+    { for (size_t i = 0u; i != 100000u; ++i)
     {
         int res = fastformat::init();
 
-        if(res < 0)
+        if (res < 0)
         {
             fastformat::ff_char_t const* qualifier = fastformat::getInitCodeString(res);
 

@@ -1,13 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.component.inserter.hex.cpp
+ * File:    test.component.inserter.hex.cpp
  *
- * Purpose:     Implementation file for the test.component.inserter.hex project.
+ * Purpose: Implementation file for the test.component.inserter.hex project.
  *
- * Created:     16th January 2010
- * Updated:     16th July 2024
+ * Created: 16th January 2010
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
-
 
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -99,7 +98,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.component.inserter.hex", verbosity))
+    if (XTESTS_START_RUNNER("test.component.inserter.hex", verbosity))
     {
         XTESTS_RUN_CASE(test_1_0);
         XTESTS_RUN_CASE(test_1_1);
@@ -178,7 +177,6 @@ namespace
 
 #define FF_STR                                              FASTFORMAT_LITERAL_STRING
 
-    static string_t crlf(ff::getNewlineForPlatform().ptr, ff::getNewlineForPlatform().len);
 
 static void test_1_0()
 {

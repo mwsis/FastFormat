@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.api.lookup_pattern.cpp
+ * File:    test.unit.api.lookup_pattern.cpp
  *
- * Purpose:     Implementation file for the test.unit.api.lookup_pattern project.
+ * Purpose: Implementation file for the test.unit.api.lookup_pattern project.
  *
- * Created:     27th May 2008
- * Updated:     16th July 2024
+ * Created: 27th May 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -104,7 +104,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.unit.api.lookup_pattern", verbosity))
+    if (XTESTS_START_RUNNER("test.unit.api.lookup_pattern", verbosity))
     {
         XTESTS_RUN_CASE(test_1_0);
         XTESTS_RUN_CASE(test_1_1);
@@ -151,7 +151,7 @@ static void test_1_0()
 {
     int res = fastformat::init();
 
-    if(res < 0)
+    if (res < 0)
     {
         XTESTS_TEST_FAIL_WITH_QUALIFIER("FastFormat API failed to initialise", t2m(fastformat::getInitCodeString(res)));
     }
@@ -182,7 +182,7 @@ static void test_1_1()
 {
     int res = fastformat::init();
 
-    if(res < 0)
+    if (res < 0)
     {
         XTESTS_TEST_FAIL_WITH_QUALIFIER("FastFormat API failed to initialise", t2m(fastformat::getInitCodeString(res)));
     }
@@ -217,7 +217,7 @@ static void test_1_2()
 {
     int res = fastformat::init();
 
-    if(res < 0)
+    if (res < 0)
     {
         XTESTS_TEST_FAIL_WITH_QUALIFIER("FastFormat API failed to initialise", t2m(fastformat::getInitCodeString(res)));
     }
@@ -272,7 +272,7 @@ static void test_1_3()
 {
     int res = fastformat::init();
 
-    if(res < 0)
+    if (res < 0)
     {
         XTESTS_TEST_FAIL_WITH_QUALIFIER("FastFormat API failed to initialise", t2m(fastformat::getInitCodeString(res)));
     }

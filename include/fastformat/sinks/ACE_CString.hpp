@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/sinks/ACE_CString.hpp
+ * File:    fastformat/sinks/ACE_CString.hpp
  *
- * Purpose:     A FastFormat sink adaptor for ACE's ACE_CString.
+ * Purpose: A FastFormat sink adaptor for ACE's ACE_CString.
  *
- * Created:     2nd January 2009
- * Updated:     16th July 2024
+ * Created: 2nd January 2009
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2009-2019, Matthew Wilson and Synesis Software
@@ -109,12 +109,12 @@ inline ACE_CString& fmt_slices(ACE_CString& sink, int flags, size_t cchTotal, si
     using ::fastformat::util::concat_slices;
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
-    if( 0 != cchTotal ||
+    if (0 != cchTotal ||
         0 != flags)
     {
         const ff_string_slice_t crlf = fastformat_getNewlineForPlatform();
 
-        if(flags::ff_newLine & flags)
+        if (flags::ff_newLine & flags)
         {
             cchTotal += crlf.len;
         }
@@ -136,7 +136,7 @@ inline ACE_CString& fmt_slices(ACE_CString& sink, int flags, size_t cchTotal, si
         stlsoft::auto_buffer<ff_char_t> buff(1 + cchTotal);
 
         concat_slices(buff, numResults, results);
-        if(flags::ff_newLine & flags)
+        if (flags::ff_newLine & flags)
         {
             ::memcpy(&buff[0] + (cchTotal - crlf.len), crlf.ptr, crlf.len * sizeof(ff_char_t));
         }

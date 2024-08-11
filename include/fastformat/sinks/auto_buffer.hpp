@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/sinks/auto_buffer.hpp
+ * File:    fastformat/sinks/auto_buffer.hpp
  *
- * Purpose:     A FastFormat sink for STLSoft's auto_buffer class template.
+ * Purpose: A FastFormat sink for STLSoft's auto_buffer class template.
  *
- * Created:     21st April 2008
- * Updated:     16th July 2024
+ * Created: 21st April 2008
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
@@ -173,13 +173,13 @@ inline stlsoft::auto_buffer<ff_char_t>& fmt_slices(
     const size_t            initialSize = sink.size();
 
     // do the resize
-    if(sink.resize(initialSize + cchTotal + 1 + 2)) // Check for alloc failure, even though will never return false when exception-handling support is on
+    if (sink.resize(initialSize + cchTotal + 1 + 2)) // Check for alloc failure, even though will never return false when exception-handling support is on
     {
         size_t currentSize = initialSize;
 
         // first we check for a current trailing nul character
 
-        if( 0 != currentSize &&
+        if (0 != currentSize &&
             '\0' == sink[currentSize - 1])
         {
             --currentSize;
@@ -189,7 +189,7 @@ inline stlsoft::auto_buffer<ff_char_t>& fmt_slices(
 
         ff_char_t* p = sink.data() + currentSize;
 
-        { for(size_t i = 0; i < numResults; ++i)
+        { for (size_t i = 0; i < numResults; ++i)
         {
             ff_string_slice_t const& slice = results[i];
 
@@ -199,7 +199,7 @@ inline stlsoft::auto_buffer<ff_char_t>& fmt_slices(
 
         // then append the new line, if required
 
-        if(flags::ff_newLine & flags)
+        if (flags::ff_newLine & flags)
         {
             const ff_string_slice_t crlf = fastformat_getNewlineForPlatform();
 

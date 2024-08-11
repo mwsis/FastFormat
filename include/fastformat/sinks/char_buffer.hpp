@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/sinks/char_buffer.hpp
+ * File:    fastformat/sinks/char_buffer.hpp
  *
- * Purpose:     A FastFormat sink for fixed length character buffers.
+ * Purpose: A FastFormat sink for fixed length character buffers.
  *
- * Created:     14th April 2008
- * Updated:     16th July 2024
+ * Created: 14th April 2008
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
@@ -57,7 +57,7 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CHAR_BUFFER_MAJOR       1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CHAR_BUFFER_MINOR       2
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CHAR_BUFFER_REVISION    4
-# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CHAR_BUFFER_EDIT        20
+# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CHAR_BUFFER_EDIT        22
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
 
@@ -153,7 +153,7 @@ public: // Operations
                                                     +   ((flags::ff_newLine & flags) ? crlf.len : 0)
                                                     ;
 
-        if(requiredSize > capacity())
+        if (requiredSize > capacity())
         {
             throw std::out_of_range("character buffer sink capacity exceeded");
         }
@@ -163,7 +163,7 @@ public: // Operations
 
             // next we concatenate all the slices
 
-            { for(size_type i = 0; i < numResults; ++i)
+            { for (size_type i = 0; i < numResults; ++i)
             {
                 ff_string_slice_t const& slice = results[i];
 
@@ -175,7 +175,7 @@ public: // Operations
 
             // then append the new line, if required
 
-            if(flags::ff_newLine & flags)
+            if (flags::ff_newLine & flags)
             {
                 ::memcpy(p, crlf.ptr, crlf.len * sizeof(char_type));
                 p += crlf.len;

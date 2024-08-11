@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        examples/example.overload.2.custom_type.filter_type/example.overload.2.custom_type.filter_type.cpp
+ * File:    examples/example.overload.2.custom_type.filter_type/example.overload.2.custom_type.filter_type.cpp
  *
- * Purpose:     Implementation file for the example.overload.2.custom_type.filter_type project.
+ * Purpose: Implementation file for the example.overload.2.custom_type.filter_type project.
  *
- * Created:     2nd March 2009
- * Updated:     6th February 2024
+ * Created: 2nd March 2009
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -159,11 +159,11 @@ int main(int argc, char** argv)
     {
         return main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         ff::fmtln(std::cerr, "exception: {0}", x);
     }
-    catch(...)
+    catch (...)
     {
         ff::writeln(std::cerr, "unhandled unknown error");
     }

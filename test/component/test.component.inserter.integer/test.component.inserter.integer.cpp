@@ -1,13 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.component.inserter.integer.cpp
+ * File:    test.component.inserter.integer.cpp
  *
- * Purpose:     Implementation file for the test.component.inserter.integer project.
+ * Purpose: Implementation file for the test.component.inserter.integer project.
  *
- * Created:     26th April 2008
- * Updated:     16th July 2024
+ * Created: 26th April 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
-
 
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -163,7 +162,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.component.inserter.integer", verbosity))
+    if (XTESTS_START_RUNNER("test.component.inserter.integer", verbosity))
     {
         XTESTS_RUN_CASE(test_1_0);
         XTESTS_RUN_CASE(test_1_1);
@@ -365,7 +364,7 @@ static void test_1_3()
 
 static void test_1_4()
 {
-    { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(values); ++i)
+    { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(values); ++i)
     {
         const int value = values[i];
 
@@ -388,7 +387,7 @@ static void test_1_4()
 
 static void test_1_5()
 {
-    { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(values); ++i)
+    { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(values); ++i)
     {
         const int value = values[i];
 
@@ -409,7 +408,7 @@ static void test_1_5()
 
 static void test_1_6()
 {
-    { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(values); ++i)
+    { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(values); ++i)
     {
         const int value = values[i];
 
@@ -430,7 +429,7 @@ static void test_1_6()
 
 static void test_1_7()
 {
-    { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(values); ++i)
+    { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(values); ++i)
     {
         const int value = values[i];
 
@@ -448,7 +447,7 @@ static void test_1_7()
 
 static void test_1_8()
 {
-    { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(values); ++i)
+    { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(values); ++i)
     {
         const int value = values[i];
 
@@ -469,13 +468,13 @@ static void test_1_9()
 {
     // Write each value into a variety of widths and precisions
 
-    { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(values); ++i)
+    { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(values); ++i)
     {
         const int value = values[i];
 
-        { for(int width = 1; width != 40; ++width)
+        { for (int width = 1; width != 40; ++width)
         {
-            { for(int precision = width; precision != 40 + 1; ++precision)
+            { for (int precision = width; precision != 40 + 1; ++precision)
             {
                 std::basic_string<ff_char_t>    sink;
                 ff_char_t                       fmt[21];
@@ -497,7 +496,7 @@ static void test_1_9()
                 XTESTS_TEST_INTEGER_GREATER_OR_EQUAL(plain.size(), sink.size());
                 XTESTS_TEST_INTEGER_GREATER_OR_EQUAL(size_t(width), sink.size());
                 XTESTS_TEST_INTEGER_GREATER_OR_EQUAL(size_t(precision), sink.size());
-                if(value < 0 && size_t(precision) >= plain.size())
+                if (value < 0 && size_t(precision) >= plain.size())
                 {
                     // In this case the leading zeros AND the - sign will push it one over
 

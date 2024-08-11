@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/sinks/stringstream.hpp
+ * File:    fastformat/sinks/stringstream.hpp
  *
- * Purpose:     A FastFormat sink for IOStreams' std::stringstream.
+ * Purpose: A FastFormat sink for IOStreams' std::stringstream.
  *
- * Created:     19th January 2008
- * Updated:     16th July 2024
+ * Created: 19th January 2008
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
@@ -57,7 +57,7 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_STRINGSTREAM_MAJOR      1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_STRINGSTREAM_MINOR      3
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_STRINGSTREAM_REVISION   1
-# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_STRINGSTREAM_EDIT       15
+# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_STRINGSTREAM_EDIT       17
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
 
@@ -113,34 +113,40 @@ fmt_slices(
 ,   ff_string_slice_t const*            results
 )
 {
-    { for(size_t i = 0; i < numResults; ++i)
+    { for (size_t i = 0; i < numResults; ++i)
     {
         ff_string_slice_t const &slice = results[i];
 
-        if(0 != slice.len)
+        if (0 != slice.len)
         {
             sink.write(slice.ptr, static_cast<std::streamsize>(slice.len));
         }
     }}
 
-    switch((0 != (flags::ff_newLine & flags)) + 2 * (0 != (flags::ff_flush & flags)))
+    switch ((0 != (flags::ff_newLine & flags)) + 2 * (0 != (flags::ff_flush & flags)))
     {
-        default:
-            FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_APPL_LAYER("impossible flags combination permutation");
-        case    0:  // Do nothing
-            break;
-        case    1:  // New line only
-            sink.write(FASTFORMAT_LITERAL_STRING("\n"), 1);
-            break;
-        case    2:  // Flush only
-            sink.flush();
-            break;
-        case    3:  // New line and flush
-            sink << std::endl;
-            break;
+    default:
+        FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_APPL_LAYER("impossible flags combination permutation");
+
+        // fall through
+    case 0:  // Do nothing
+
+        break;
+    case 1:  // New line only
+
+        sink.write(FASTFORMAT_LITERAL_STRING("\n"), 1);
+        break;
+    case 2:  // Flush only
+
+        sink.flush();
+        break;
+    case 3:  // New line and flush
+
+        sink << std::endl;
+        break;
     }
 
-    if(sink.fail())
+    if (sink.fail())
     {
 #ifdef STLSOFT_CF_EXCEPTION_SUPPORT
         // TODO: Use more-derived exception and capture errno

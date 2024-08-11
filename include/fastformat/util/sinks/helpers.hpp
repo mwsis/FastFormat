@@ -130,7 +130,7 @@ inline size_t concat_slices(B& buff, size_t numResults, ff_string_slice_t const*
     ff_char_t*  p       =   &buff[0];
     size_t      total   =   0;
 
-    { for(size_t i = 0; i != numResults; ++i, ++results)
+    { for (size_t i = 0; i != numResults; ++i, ++results)
     {
         FASTFORMAT_CONTRACT_ENFORCE_PRECONDITION_STATE_INTERNAL(total + results->len <= buff.size(), "insufficient space in buffer to write the results");
 
@@ -164,7 +164,7 @@ inline size_t concat_slices(size_t cchBuff, ff_char_t* buff, size_t numResults, 
     ff_char_t*  p       =   &buff[0];
     size_t      total   =   0;
 
-    { for(size_t i = 0; i != numResults; ++i, ++results)
+    { for (size_t i = 0; i != numResults; ++i, ++results)
     {
         FASTFORMAT_CONTRACT_ENFORCE_PRECONDITION_STATE_INTERNAL(total + results->len <= cchBuff, "insufficient space in buffer to write the results");
 

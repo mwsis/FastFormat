@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        examples/example.arguments.character/example.arguments.character.cpp
+ * File:    examples/example.arguments.character/example.arguments.character.cpp
  *
- * Purpose:     Implementation file for the example.arguments.character project.
+ * Purpose: Implementation file for the example.arguments.character project.
  *
- * Created:     2nd June 2008
- * Updated:     16th July 2024
+ * Created: 2nd June 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -104,11 +104,11 @@ int main(int argc, char** argv)
     {
         return main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         cerr << "Unhandled error: " << x.what() << endl;
     }
-    catch(...)
+    catch (...)
     {
         cerr << "Unhandled unknown error" << endl;
     }

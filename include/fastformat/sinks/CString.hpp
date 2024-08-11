@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/sinks/CString.hpp
+ * File:    fastformat/sinks/CString.hpp
  *
- * Purpose:     A FastFormat sink adaptor for MFC's CString.
+ * Purpose: A FastFormat sink adaptor for MFC's CString.
  *
- * Created:     2nd June 2008
- * Updated:     16th July 2024
+ * Created: 2nd June 2008
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
@@ -57,7 +57,7 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CSTRING_MAJOR      1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CSTRING_MINOR      2
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CSTRING_REVISION   4
-# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CSTRING_EDIT       17
+# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CSTRING_EDIT       18
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
 
@@ -115,7 +115,7 @@ inline CString& fmt_slices(CString& sink, int flags, size_t cchTotal, size_t num
 
         const ff_string_slice_t crlf = fastformat_getNewlineForPlatform();
 
-        if(flags::ff_newLine & flags)
+        if (flags::ff_newLine & flags)
         {
             cchTotal += crlf.len;
         }
@@ -126,14 +126,14 @@ inline CString& fmt_slices(CString& sink, int flags, size_t cchTotal, size_t num
 
         n += buff.original_length();
 
-        if(flags::ff_newLine & flags)
+        if (flags::ff_newLine & flags)
         {
             ::memcpy(base + n, crlf.ptr, crlf.len * sizeof(ff_char_t));
             n += crlf.len;
         }
         base[n] = '\0';
     }
-    catch(CMemoryException* px)
+    catch (CMemoryException* px)
     {
         px->Delete();
 
