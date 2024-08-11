@@ -5,6 +5,7 @@ add_executable(example.overload.3.floatingpoint_columns
 
 target_link_libraries(example.overload.3.floatingpoint_columns
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 )
 
 target_compile_options(example.overload.3.floatingpoint_columns PRIVATE

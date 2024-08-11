@@ -5,6 +5,7 @@ add_executable(example.sink.c_string
 
 target_link_libraries(example.sink.c_string
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 )
 
 target_compile_options(example.sink.c_string PRIVATE

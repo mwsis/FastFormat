@@ -5,6 +5,7 @@ add_executable(example.ff_101
 
 target_link_libraries(example.ff_101
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 )
 
 target_compile_options(example.ff_101 PRIVATE

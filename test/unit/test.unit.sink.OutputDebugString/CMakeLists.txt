@@ -5,6 +5,7 @@ add_executable(test.unit.sink.OutputDebugString
 
 target_link_libraries(test.unit.sink.OutputDebugString
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )
 

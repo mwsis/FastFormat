@@ -5,6 +5,7 @@ add_executable(example.overload.2.custom_type.inserter
 
 target_link_libraries(example.overload.2.custom_type.inserter
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 )
 
 target_compile_options(example.overload.2.custom_type.inserter PRIVATE

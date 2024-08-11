@@ -5,6 +5,7 @@ add_executable(example.arguments.character
 
 target_link_libraries(example.arguments.character
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 )
 
 target_compile_options(example.arguments.character PRIVATE

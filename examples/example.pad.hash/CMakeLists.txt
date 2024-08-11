@@ -5,6 +5,7 @@ add_executable(example.pad.hash
 
 target_link_libraries(example.pad.hash
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 )
 
 target_compile_options(example.pad.hash PRIVATE

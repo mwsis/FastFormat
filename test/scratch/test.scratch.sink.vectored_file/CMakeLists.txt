@@ -5,6 +5,7 @@ add_executable(test.scratch.sink.vectored_file
 
 target_link_libraries(test.scratch.sink.vectored_file
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )
 

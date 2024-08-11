@@ -5,6 +5,7 @@ add_executable(example.inserter.reals
 
 target_link_libraries(example.inserter.reals
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 )
 
 target_compile_options(example.inserter.reals PRIVATE

@@ -5,6 +5,7 @@ add_executable(test.unit.inserters.character
 
 target_link_libraries(test.unit.inserters.character
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )
 

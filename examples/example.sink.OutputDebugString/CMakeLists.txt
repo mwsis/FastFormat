@@ -5,6 +5,7 @@ add_executable(example.sink.OutputDebugString
 
 target_link_libraries(example.sink.OutputDebugString
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 )
 
 target_compile_options(example.sink.OutputDebugString PRIVATE

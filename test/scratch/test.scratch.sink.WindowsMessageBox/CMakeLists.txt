@@ -5,6 +5,7 @@ add_executable(test.scratch.sink.WindowsMessageBox
 
 target_link_libraries(test.scratch.sink.WindowsMessageBox
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )
 

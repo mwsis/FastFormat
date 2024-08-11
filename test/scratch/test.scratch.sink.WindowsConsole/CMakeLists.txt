@@ -5,6 +5,7 @@ add_executable(test.scratch.sink.WindowsConsole
 
 target_link_libraries(test.scratch.sink.WindowsConsole
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )
 

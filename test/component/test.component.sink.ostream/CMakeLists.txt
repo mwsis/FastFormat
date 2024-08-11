@@ -5,6 +5,7 @@ add_executable(test.component.sink.ostream
 
 target_link_libraries(test.component.sink.ostream
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )
 

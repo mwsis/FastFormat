@@ -5,6 +5,7 @@ add_executable(example.memory.1
 
 target_link_libraries(example.memory.1
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 )
 
 target_compile_options(example.memory.1 PRIVATE

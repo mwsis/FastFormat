@@ -5,6 +5,7 @@ add_executable(test.performance.scenario1
 
 target_link_libraries(test.performance.scenario1
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )
 

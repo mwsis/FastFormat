@@ -5,6 +5,7 @@ add_executable(test.unit.format.standard_flags
 
 target_link_libraries(test.unit.format.standard_flags
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )
 

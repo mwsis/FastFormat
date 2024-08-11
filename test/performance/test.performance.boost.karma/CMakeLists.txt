@@ -5,6 +5,7 @@ add_executable(test.performance.boost.karma
 
 target_link_libraries(test.performance.boost.karma
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )
 

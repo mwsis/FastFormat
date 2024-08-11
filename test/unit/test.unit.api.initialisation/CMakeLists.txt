@@ -5,6 +5,7 @@ add_executable(test.unit.api.initialisation
 
 target_link_libraries(test.unit.api.initialisation
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )
 

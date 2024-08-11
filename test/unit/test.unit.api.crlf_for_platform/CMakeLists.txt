@@ -5,6 +5,7 @@ add_executable(test.unit.api.crlf_for_platform
 
 target_link_libraries(test.unit.api.crlf_for_platform
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )
 

@@ -5,6 +5,7 @@ add_executable(test.component.sink.CComBSTR
 
 target_link_libraries(test.component.sink.CComBSTR
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )
 

@@ -5,6 +5,7 @@ add_executable(test.scratch.ff_test_1
 
 target_link_libraries(test.scratch.ff_test_1
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )
 

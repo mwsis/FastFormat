@@ -5,6 +5,7 @@ add_executable(test.performance.one_pointer
 
 target_link_libraries(test.performance.one_pointer
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )
 

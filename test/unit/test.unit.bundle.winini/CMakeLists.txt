@@ -5,6 +5,7 @@ add_executable(test.unit.bundle.winini
 
 target_link_libraries(test.unit.bundle.winini
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )
 

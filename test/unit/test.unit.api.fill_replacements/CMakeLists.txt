@@ -5,6 +5,7 @@ add_executable(test.unit.api.fill_replacements
 
 target_link_libraries(test.unit.api.fill_replacements
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )
 

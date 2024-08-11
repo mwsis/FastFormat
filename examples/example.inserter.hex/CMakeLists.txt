@@ -5,6 +5,7 @@ add_executable(example.inserter.hex
 
 target_link_libraries(example.inserter.hex
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 )
 
 target_compile_options(example.inserter.hex PRIVATE

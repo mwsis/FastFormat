@@ -5,6 +5,7 @@ add_executable(example.iterators.format_iterator
 
 target_link_libraries(example.iterators.format_iterator
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 )
 
 target_compile_options(example.iterators.format_iterator PRIVATE

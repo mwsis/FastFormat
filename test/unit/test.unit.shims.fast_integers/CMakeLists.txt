@@ -5,6 +5,7 @@ add_executable(test.unit.shims.fast_integers
 
 target_link_libraries(test.unit.shims.fast_integers
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )
 

@@ -5,6 +5,7 @@ add_executable(example.inserter.integers
 
 target_link_libraries(example.inserter.integers
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 )
 
 target_compile_options(example.inserter.integers PRIVATE

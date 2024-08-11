@@ -5,6 +5,7 @@ add_executable(test.performance.name_age_height
 
 target_link_libraries(test.performance.name_age_height
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )
 

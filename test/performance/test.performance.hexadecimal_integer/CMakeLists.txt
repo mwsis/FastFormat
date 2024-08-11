@@ -5,6 +5,7 @@ add_executable(test.performance.hexadecimal_integer
 
 target_link_libraries(test.performance.hexadecimal_integer
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )
 

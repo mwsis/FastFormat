@@ -5,6 +5,7 @@ add_executable(test.unit.api.mismatched_handlers
 
 target_link_libraries(test.unit.api.mismatched_handlers
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )
 

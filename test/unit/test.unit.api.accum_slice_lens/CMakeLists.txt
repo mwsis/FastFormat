@@ -5,6 +5,7 @@ add_executable(test.unit.api.accum_slice_lens
 
 target_link_libraries(test.unit.api.accum_slice_lens
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )
 

@@ -56,6 +56,11 @@ target_include_directories(fastformat PUBLIC
 	$<INSTALL_INTERFACE:include>
 )
 
+target_link_libraries(fastformat
+	PRIVATE
+		$<$<BOOL:${STLSoft_FOUND}>:STLSoft::STLSoft>
+)
+
 target_compile_options(fastformat PRIVATE
 	$<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:
 		-Werror -Wall -Wextra -pedantic

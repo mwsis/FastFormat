@@ -5,6 +5,7 @@ add_executable(test.scratch.sinks.shim_string
 
 target_link_libraries(test.scratch.sinks.shim_string
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )
 

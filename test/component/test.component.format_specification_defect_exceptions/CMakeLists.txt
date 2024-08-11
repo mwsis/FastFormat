@@ -5,6 +5,7 @@ add_executable(test.component.format_specification_defect_exceptions
 
 target_link_libraries(test.component.format_specification_defect_exceptions
 	fastformat
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 	xTests::core
 )
 
