@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/sinks/stlsoft/FILE_stream.hpp
+ * File:    fastformat/sinks/stlsoft/FILE_stream.hpp
  *
- * Purpose:     A FastFormat sink for STLSoft's stlsoft::FILE_stream.
+ * Purpose: A FastFormat sink for STLSoft's stlsoft::FILE_stream.
  *
- * Created:     19th July 2010
- * Updated:     6th February 2024
+ * Created: 19th July 2010
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2010-2019, Matthew Wilson and Synesis Software
@@ -48,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_SINKS_STLSOFT_HPP_FILE_STREAM
 #define FASTFORMAT_INCL_FASTFORMAT_SINKS_STLSOFT_HPP_FILE_STREAM
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -56,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINKS_STLSOFT_HPP_FILE_STREAM_MAJOR    1
 # define FASTFORMAT_VER_FASTFORMAT_SINKS_STLSOFT_HPP_FILE_STREAM_MINOR    0
 # define FASTFORMAT_VER_FASTFORMAT_SINKS_STLSOFT_HPP_FILE_STREAM_REVISION 3
-# define FASTFORMAT_VER_FASTFORMAT_SINKS_STLSOFT_HPP_FILE_STREAM_EDIT     6
+# define FASTFORMAT_VER_FASTFORMAT_SINKS_STLSOFT_HPP_FILE_STREAM_EDIT     8
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -66,6 +68,7 @@
 #ifndef __cplusplus
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -80,17 +83,19 @@
 
 #include <ios>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * compatibility
  */
 
 #if _STLSOFT_VER < 0x010a0181
 
-# define FASTFORMAT_SINK_STLSOFT_FILE_stream_NS_(x)     stlsoft::x
+# define FASTFORMAT_SINK_STLSOFT_FILE_stream_NS_(x)         stlsoft::x
 #else
 
-# define FASTFORMAT_SINK_STLSOFT_FILE_stream_NS_(x)     platformstl::x
+# define FASTFORMAT_SINK_STLSOFT_FILE_stream_NS_(x)         platformstl::x
 #endif
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -102,6 +107,7 @@ namespace fastformat
 namespace sinks
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * helper functions
@@ -124,7 +130,7 @@ inline F& fmt_slices_(
     stlsoft::auto_buffer<ff_char_t> buff(cchTotal + 1);
 
 #ifndef STLSOFT_CF_THROW_BAD_ALLOC
-    if(!buff.empty())   // May return false when exception-handling not enabled
+    if (!buff.empty())   // May return false when exception-handling not enabled
 #endif /* !STLSOFT_CF_THROW_BAD_ALLOC */
     {
 #if !defined(FASTFORMAT_NO_NAMESPACE)
@@ -133,7 +139,7 @@ inline F& fmt_slices_(
 
         concat_slices(buff, numResults, results);
 
-        if(flags::ff_newLine & flags)
+        if (flags::ff_newLine & flags)
         {
             buff[cchTotal] = '\n';
         }
@@ -150,13 +156,13 @@ inline F& fmt_slices_(
         // pointer given to write() even when count is 0. Other versions
         // (including 9) don't do this, so we won't bother to catch it
         // otherwise.
-        if(0 != buff.size())
+        if (0 != buff.size())
 #endif /* compiler */
         {
             sink.write(buff.data(), static_cast<std::streamsize>(buff.size()));
         }
 
-        if(flags::ff_flush & flags)
+        if (flags::ff_flush & flags)
         {
             sink.flush();
         }
@@ -166,8 +172,8 @@ inline F& fmt_slices_(
 }
 
 } /* namespace ximpl_FILE_stream */
-
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * action shims
@@ -204,7 +210,6 @@ fmt_slices(
 {
     return ximpl_FILE_stream::fmt_slices_(sink, flags, cchTotal, numResults, results);
 }
-
 #else /* ? compiler */
 
 template<
@@ -223,8 +228,8 @@ fmt_slices(
 {
     return ximpl_FILE_stream::fmt_slices_(sink, flags, cchTotal, numResults, results);
 }
-
 #endif /* compiler */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -235,9 +240,17 @@ fmt_slices(
 } /* namespace fastformat */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
-/* ////////////////////////////////////////////////////////////////////// */
+
+/* /////////////////////////////////////////////////////////////////////////
+ * inclusion control
+ */
+
+#ifdef STLSOFT_PPF_pragma_once_SUPPORT
+# pragma once
+#endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINKS_STLSOFT_HPP_FILE_STREAM */
+
 
 /* ///////////////////////////// end of file //////////////////////////// */
 

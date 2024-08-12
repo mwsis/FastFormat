@@ -4,11 +4,12 @@
  * Purpose:     snprintf() utility functions.
  *
  * Created:     1st June 2008
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2008-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_UTIL_STRING_H_SNPRINTF
 #define FASTFORMAT_INCL_FASTFORMAT_UTIL_STRING_H_SNPRINTF
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_UTIL_STRING_H_SNPRINTF_MAJOR     1
 # define FASTFORMAT_VER_FASTFORMAT_UTIL_STRING_H_SNPRINTF_MINOR     3
 # define FASTFORMAT_VER_FASTFORMAT_UTIL_STRING_H_SNPRINTF_REVISION  4
-# define FASTFORMAT_VER_FASTFORMAT_UTIL_STRING_H_SNPRINTF_EDIT      15
+# define FASTFORMAT_VER_FASTFORMAT_UTIL_STRING_H_SNPRINTF_EDIT      18
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -71,6 +74,7 @@
 # include <stdarg.h>
 #endif /* !FASTFORMAT_INCL_H_STDARG */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -81,6 +85,7 @@ namespace fastformat
 namespace util
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * API
@@ -148,6 +153,7 @@ FASTFORMAT_CALL(int) fastformat_util_vsnprintf_a(
 );
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * C++ Functions
  */
@@ -193,6 +199,7 @@ snprintf(
 # endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 #endif /* __cplusplus */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -207,6 +214,7 @@ using ::fastformat::util::fastformat_util_vsnprintf_a;
 } /* namespace fastformat */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -215,8 +223,8 @@ using ::fastformat::util::fastformat_util_vsnprintf_a;
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_UTIL_STRING_H_SNPRINTF */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

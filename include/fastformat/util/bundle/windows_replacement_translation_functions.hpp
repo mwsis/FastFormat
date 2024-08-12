@@ -1,15 +1,16 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/util/bundle/windows_replacement_translation_functions.hpp
+ * File:    fastformat/util/bundle/windows_replacement_translation_functions.hpp
  *
- * Purpose:     Functions to assist with translation between Windows and
- *              FastFormat replacement parameters.
+ * Purpose: Functions to assist with translation between Windows and
+ *          FastFormat replacement parameters.
  *
- * Created:     24th April 2009
- * Updated:     10th January 2017
+ * Created: 24th April 2009
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
- * Copyright (c) 2009-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2009-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -49,6 +50,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_UTIL_BUNDLE_HPP_WINDOWS_REPLACEMENT_TRANSLATION_FUNCTIONS
 #define FASTFORMAT_INCL_FASTFORMAT_UTIL_BUNDLE_HPP_WINDOWS_REPLACEMENT_TRANSLATION_FUNCTIONS
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -57,8 +59,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_UTIL_BUNDLE_HPP_WINDOWS_REPLACEMENT_TRANSLATION_FUNCTIONS_MAJOR      1
 # define FASTFORMAT_VER_FASTFORMAT_UTIL_BUNDLE_HPP_WINDOWS_REPLACEMENT_TRANSLATION_FUNCTIONS_MINOR      0
 # define FASTFORMAT_VER_FASTFORMAT_UTIL_BUNDLE_HPP_WINDOWS_REPLACEMENT_TRANSLATION_FUNCTIONS_REVISION   3
-# define FASTFORMAT_VER_FASTFORMAT_UTIL_BUNDLE_HPP_WINDOWS_REPLACEMENT_TRANSLATION_FUNCTIONS_EDIT       8
+# define FASTFORMAT_VER_FASTFORMAT_UTIL_BUNDLE_HPP_WINDOWS_REPLACEMENT_TRANSLATION_FUNCTIONS_EDIT       11
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -68,6 +71,7 @@
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * includes
  */
@@ -75,6 +79,7 @@
 #include <fastformat/fastformat.h>
 #include <fastformat/quality/contract.h>
 #include <fastformat/util/string/snprintf.h>
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -86,6 +91,7 @@ namespace fastformat
 namespace util
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * functions
@@ -114,31 +120,35 @@ calculate_number_of_windows_replacement_parameters(
     ff_char_t const*    end     =   str + len;
     size_t              n       =   0;
 
-    for(; begin != end; ++begin)
+    for (; begin != end; ++begin)
     {
-        switch(*begin)
+        switch (*begin)
         {
-            case    '%':
-                state = (normal == state) ? percent : normal;
-                break;
-            case    '0':
-            case    '1':
-            case    '2':
-            case    '3':
-            case    '4':
-            case    '5':
-            case    '6':
-            case    '7':
-            case    '8':
-            case    '9':
-                if(percent == state)
-                {
-                    ++n;
-                }
-                // fall through
-            default:
-                state = normal;
-                break;
+        case '%':
+
+            state = (normal == state) ? percent : normal;
+            break;
+        case '0':
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+
+            if (percent == state)
+            {
+                ++n;
+            }
+
+            // fall through
+        default:
+
+            state = normal;
+            break;
         }
     }
 
@@ -168,31 +178,35 @@ calculate_number_of_fastformat_replacement_parameters(
     ff_char_t const*    end     =   str + len;
     size_t              n       =   0;
 
-    for(; begin != end; ++begin)
+    for (; begin != end; ++begin)
     {
-        switch(*begin)
+        switch (*begin)
         {
-            case    '{':
-                state = (normal == state) ? replacement : normal;
-                break;
-            case    '0':
-            case    '1':
-            case    '2':
-            case    '3':
-            case    '4':
-            case    '5':
-            case    '6':
-            case    '7':
-            case    '8':
-            case    '9':
-                if(replacement == state)
-                {
-                    ++n;
-                }
-                // fall through
-            default:
-                state = normal;
-                break;
+        case '{':
+
+            state = (normal == state) ? replacement : normal;
+            break;
+        case '0':
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+
+            if (replacement == state)
+            {
+                ++n;
+            }
+
+            // fall through
+        default:
+
+            state = normal;
+            break;
         }
     }
 
@@ -220,26 +234,26 @@ change_windows_replacement_parameters_to_fastformat(
 
     str2.reserve(str.size() + 10);
 
-    { for(iter_t begin = str.begin(); begin != str.end(); ++begin)
+    { for (iter_t begin = str.begin(); begin != str.end(); ++begin)
     {
         bool isNumber = false;
 
-        switch(*begin)
+        switch (*begin)
         {
-            case    '0':
-            case    '1':
-            case    '2':
-            case    '3':
-            case    '4':
-            case    '5':
-            case    '6':
-            case    '7':
-            case    '8':
-            case    '9':
-                isNumber = true;
+        case '0':
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+            isNumber = true;
         }
 
-        if( number == state &&
+        if (number == state &&
             !isNumber)
         {
             ff_char_t   parameter[32];
@@ -249,7 +263,7 @@ change_windows_replacement_parameters_to_fastformat(
 
             state = normal;
 
-            if('%' == *begin)
+            if ('%' == *begin)
             {
                 goto found_percent;
             }
@@ -258,59 +272,70 @@ change_windows_replacement_parameters_to_fastformat(
         }
         else
         {
-            switch(*begin)
+            switch (*begin)
             {
-                case    '%':
+            case '%':
+
 found_percent:
-                    switch(state)
-                    {
-                        default:
-                        case    number:
-                            FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("unexpected state");
-                        case    normal:
-                            state = percent;
-                            break;
-                        case    percent:
-                            state = normal;
-                            str2.append(1, '%');
-                            break;
-                    }
-                    break;
-                case    '0':
-                case    '1':
-                case    '2':
-                case    '3':
-                case    '4':
-                case    '5':
-                case    '6':
-                case    '7':
-                case    '8':
-                case    '9':
-                    switch(state)
-                    {
-                        default:
-                            FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("unexpected state");
-                        case    normal:
-                            str2.append(1, *begin);
-                            break;
-                        case    percent:
-                            state = number;
-                            index = (*begin - '0');
-                            break;
-                        case    number:
-                            index = (10 * index) + (*begin - '0');
-                            break;
-                    }
-                    break;
+                switch (state)
+                {
                 default:
+                case number:
+
+                    FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("unexpected state");
+                case normal:
+
+                    state = percent;
+                    break;
+                case percent:
+
                     state = normal;
+                    str2.append(1, '%');
+                    break;
+                }
+                break;
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+
+                switch (state)
+                {
+                default:
+                    FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("unexpected state");
+
+                    // fall through
+                case normal:
+
                     str2.append(1, *begin);
                     break;
+                case percent:
+
+                    state = number;
+                    index = (*begin - '0');
+                    break;
+                case number:
+
+                    index = (10 * index) + (*begin - '0');
+                    break;
+                }
+                break;
+            default:
+
+                state = normal;
+                str2.append(1, *begin);
+                break;
             }
         }
     }}
 
-    if(number == state)
+    if (number == state)
 	{
         ff_char_t   parameter[32];
         int         cch = fastformat_util_snprintf(&parameter[0], STLSOFT_NUM_ELEMENTS(parameter), FASTFORMAT_LITERAL_STRING("{%d}"), index - 1);
@@ -337,21 +362,24 @@ escape_fastformat_replacement_parameters(
 
     str2.reserve(str.size() + 10);
 
-    { for(iter_t begin = str.begin(); begin != str.end(); ++begin)
+    { for (iter_t begin = str.begin(); begin != str.end(); ++begin)
     {
-        switch(*begin)
+        switch (*begin)
         {
-            case    '{':
-                str2.append(1, '{');
-                // fall through
-            default:
-                str2.append(1, *begin);
-                break;
+        case '{':
+
+            str2.append(1, '{');
+            // fall through
+        default:
+
+            str2.append(1, *begin);
+            break;
         }
     }}
 
     return str2;
 }
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -367,3 +395,4 @@ escape_fastformat_replacement_parameters(
 #endif /* FASTFORMAT_INCL_FASTFORMAT_UTIL_BUNDLE_HPP_WINDOWS_REPLACEMENT_TRANSLATION_FUNCTIONS */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

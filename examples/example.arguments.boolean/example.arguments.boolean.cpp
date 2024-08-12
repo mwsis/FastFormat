@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        examples/example.arguments.boolean/example.arguments.boolean.cpp
+ * File:    examples/example.arguments.boolean/example.arguments.boolean.cpp
  *
- * Purpose:     Implementation file for the example.arguments.boolean project.
+ * Purpose: Implementation file for the example.arguments.boolean project.
  *
- * Created:     2nd June 2008
- * Updated:     6th February 2024
+ * Created: 2nd June 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -47,9 +47,9 @@ using std::endl;
 static int main_(int /* argc */, char** /*argv*/)
 {
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-# define    stm     std::wcout
+# define    stm                                             std::wcout
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
-# define    stm     std::cout
+# define    stm                                             std::cout
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
 
     const bool  True    =   true;
@@ -70,11 +70,11 @@ int main(int argc, char** argv)
     {
         return main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         cerr << "Unhandled error: " << x.what() << endl;
     }
-    catch(...)
+    catch (...)
     {
         cerr << "Unhandled unknown error" << endl;
     }

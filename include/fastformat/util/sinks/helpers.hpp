@@ -5,11 +5,12 @@
  *              library.
  *
  * Created:     19th December 2007
- * Updated:     5th February 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2007-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2007-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -49,6 +50,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_UTIL_SINKS_HPP_HELPERS
 #define FASTFORMAT_INCL_FASTFORMAT_UTIL_SINKS_HPP_HELPERS
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -57,8 +59,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_UTIL_SINKS_HPP_HELPERS_MAJOR     1
 # define FASTFORMAT_VER_FASTFORMAT_UTIL_SINKS_HPP_HELPERS_MINOR     2
 # define FASTFORMAT_VER_FASTFORMAT_UTIL_SINKS_HPP_HELPERS_REVISION  1
-# define FASTFORMAT_VER_FASTFORMAT_UTIL_SINKS_HPP_HELPERS_EDIT      16
+# define FASTFORMAT_VER_FASTFORMAT_UTIL_SINKS_HPP_HELPERS_EDIT      18
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -67,6 +70,7 @@
 #ifndef __cplusplus
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -85,6 +89,7 @@
 
 #include <string>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -95,6 +100,7 @@ namespace fastformat
 namespace util
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * functions
@@ -124,7 +130,7 @@ inline size_t concat_slices(B& buff, size_t numResults, ff_string_slice_t const*
     ff_char_t*  p       =   &buff[0];
     size_t      total   =   0;
 
-    { for(size_t i = 0; i != numResults; ++i, ++results)
+    { for (size_t i = 0; i != numResults; ++i, ++results)
     {
         FASTFORMAT_CONTRACT_ENFORCE_PRECONDITION_STATE_INTERNAL(total + results->len <= buff.size(), "insufficient space in buffer to write the results");
 
@@ -158,7 +164,7 @@ inline size_t concat_slices(size_t cchBuff, ff_char_t* buff, size_t numResults, 
     ff_char_t*  p       =   &buff[0];
     size_t      total   =   0;
 
-    { for(size_t i = 0; i != numResults; ++i, ++results)
+    { for (size_t i = 0; i != numResults; ++i, ++results)
     {
         FASTFORMAT_CONTRACT_ENFORCE_PRECONDITION_STATE_INTERNAL(total + results->len <= cchBuff, "insufficient space in buffer to write the results");
 
@@ -172,6 +178,7 @@ inline size_t concat_slices(size_t cchBuff, ff_char_t* buff, size_t numResults, 
 
     return total;
 }
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -187,3 +194,4 @@ inline size_t concat_slices(size_t cchBuff, ff_char_t* buff, size_t numResults, 
 #endif /* FASTFORMAT_INCL_FASTFORMAT_UTIL_SINKS_HPP_HELPERS */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

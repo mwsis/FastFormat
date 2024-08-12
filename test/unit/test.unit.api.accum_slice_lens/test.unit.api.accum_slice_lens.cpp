@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.api.accum_slice_lens.cpp
+ * File:    test.unit.api.accum_slice_lens.cpp
  *
- * Purpose:     Implementation file for the test.unit.api.accum_slice_lens project.
+ * Purpose: Implementation file for the test.unit.api.accum_slice_lens project.
  *
- * Created:     27th May 2008
- * Updated:     6th February 2024
+ * Created: 27th May 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -64,6 +64,7 @@ namespace
 } /* anonymous namespace */
 
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * main()
  */
@@ -75,7 +76,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.unit.api.accum_slice_lens", verbosity))
+    if (XTESTS_START_RUNNER("test.unit.api.accum_slice_lens", verbosity))
     {
         XTESTS_RUN_CASE(test_1_0);
         XTESTS_RUN_CASE(test_1_1);
@@ -114,7 +115,7 @@ int main(int argc, char **argv)
 namespace
 {
 
-#define FF_STR  FASTFORMAT_LITERAL_STRING
+#define FF_STR                                              FASTFORMAT_LITERAL_STRING
 
     using fastformat::fastformat_accumulateSliceLengths;
 
@@ -128,7 +129,7 @@ static void test_1_0()
 
 static void test_1_1()
 {
-    fastformat::string_slice_t  slices[] = 
+    fastformat::string_slice_t  slices[] =
     {
         {   0, NULL }
     };
@@ -140,7 +141,7 @@ static void test_1_1()
 
 static void test_1_2()
 {
-    fastformat::string_slice_t  slices[] = 
+    fastformat::string_slice_t  slices[] =
     {
         {   0, FF_STR("abc") }
     };
@@ -152,7 +153,7 @@ static void test_1_2()
 
 static void test_1_3()
 {
-    fastformat::string_slice_t  slices[] = 
+    fastformat::string_slice_t  slices[] =
     {
         {   1, FF_STR("abc") }
     };
@@ -164,7 +165,7 @@ static void test_1_3()
 
 static void test_1_4()
 {
-    fastformat::string_slice_t  slices[] = 
+    fastformat::string_slice_t  slices[] =
     {
         {   3, FF_STR("abc") }
     };
@@ -176,7 +177,7 @@ static void test_1_4()
 
 static void test_1_5()
 {
-    fastformat::string_slice_t  slices[] = 
+    fastformat::string_slice_t  slices[] =
     {
             {   1, FF_STR("a")  }
         ,   {   2, FF_STR("bc") }
@@ -189,7 +190,7 @@ static void test_1_5()
 
 static void test_1_6()
 {
-    fastformat::string_slice_t  slices[] = 
+    fastformat::string_slice_t  slices[] =
     {
             {   1, FF_STR("a")  }
         ,   {   0, FF_STR("bc") }
@@ -255,6 +256,7 @@ static void test_1_19()
 
 
 } /* anonymous namespace */
+
 
 
 /* ///////////////////////////// end of file //////////////////////////// */

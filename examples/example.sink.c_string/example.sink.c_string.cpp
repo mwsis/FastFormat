@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        examples/example.sink.c_string/example.sink.c_string.cpp
+ * File:    examples/example.sink.c_string/example.sink.c_string.cpp
  *
- * Purpose:     Implementation file for the example.sink.c_string project.
+ * Purpose: Implementation file for the example.sink.c_string project.
  *
- * Created:     17th May 2009
- * Updated:     6th February 2024
+ * Created: 17th May 2009
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -89,7 +89,7 @@ static int main_(int /* argc */, char** /* argv */)
 
         STLSOFT_MESSAGE_ASSERT("should never get here", 0);
     }
-    catch(std::out_of_range& /* x */)
+    catch (std::out_of_range& /* x */)
     {
         // ... here!
     }
@@ -105,11 +105,11 @@ int main(int argc, char** argv)
     {
         return main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         fprintf(stderr, "exception: %s\n", x.what());
     }
-    catch(...)
+    catch (...)
     {
         fprintf(stderr, "unhandled unknown error");
     }

@@ -5,11 +5,12 @@
  *              list.
  *
  * Created:     3rd February 2008
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2008-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -49,6 +50,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_TEST_UTIL_H_COMPILER_WARNINGS_SUPPRESSION_LAST_INCLUDE
 #define FASTFORMAT_INCL_FASTFORMAT_TEST_UTIL_H_COMPILER_WARNINGS_SUPPRESSION_LAST_INCLUDE
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -57,8 +59,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_TEST_UTIL_H_COMPILER_WARNINGS_SUPPRESSION_LAST_INCLUDE_MAJOR     1
 # define FASTFORMAT_VER_FASTFORMAT_TEST_UTIL_H_COMPILER_WARNINGS_SUPPRESSION_LAST_INCLUDE_MINOR     0
 # define FASTFORMAT_VER_FASTFORMAT_TEST_UTIL_H_COMPILER_WARNINGS_SUPPRESSION_LAST_INCLUDE_REVISION  1
-# define FASTFORMAT_VER_FASTFORMAT_TEST_UTIL_H_COMPILER_WARNINGS_SUPPRESSION_LAST_INCLUDE_EDIT      6
+# define FASTFORMAT_VER_FASTFORMAT_TEST_UTIL_H_COMPILER_WARNINGS_SUPPRESSION_LAST_INCLUDE_EDIT      8
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -67,6 +70,7 @@
 #ifndef STLSOFT_INCL_STLSOFT_H_STLSOFT
 # error This file cannot be included unless fastformat/test/util/compiler_warnings_suppression.first_include.h has already been included
 #endif /* !STLSOFT_INCL_STLSOFT_H_STLSOFT */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * warning suppressions
@@ -89,3 +93,4 @@
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_TEST_UTIL_H_COMPILER_WARNINGS_SUPPRESSION_LAST_INCLUDE */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

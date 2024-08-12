@@ -1,13 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.scratch.format_defects.cpp
+ * File:    test.scratch.format_defects.cpp
  *
- * Purpose:     Implementation file for the test.scratch.format_defects project.
+ * Purpose: Implementation file for the test.scratch.format_defects project.
  *
- * Created:     1st June 2008
- * Updated:     6th February 2024
+ * Created: 1st June 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
-
 
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -51,7 +50,7 @@ static int main_(int /* argc */, char** /*argv*/)
     {
         fastformat::fmtln(std::cout, "{0,", 10);
     }
-    catch(fastformat::format_parsing_exception& x)
+    catch (fastformat::format_parsing_exception& x)
     {
         fprintf(
                 stdout
@@ -62,7 +61,7 @@ static int main_(int /* argc */, char** /*argv*/)
             ,   stlsoft::c_str_ptr_a(x.code)
             );
     }
-    catch(fastformat::mismatched_replacements_exception& x)
+    catch (fastformat::mismatched_replacements_exception& x)
     {
         fprintf(
                 stdout
@@ -74,7 +73,7 @@ static int main_(int /* argc */, char** /*argv*/)
             ,   stlsoft::c_str_ptr_a(x.code)
             );
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         fprintf(
                 stdout
@@ -88,7 +87,7 @@ static int main_(int /* argc */, char** /*argv*/)
     {
         fastformat::fmtln(std::cout, "format string with no replacements", 10, 200);
     }
-    catch(fastformat::format_parsing_exception& x)
+    catch (fastformat::format_parsing_exception& x)
     {
         fprintf(
                 stdout
@@ -99,7 +98,7 @@ static int main_(int /* argc */, char** /*argv*/)
             ,   stlsoft::c_str_ptr_a(x.code)
             );
     }
-    catch(fastformat::mismatched_replacements_exception& x)
+    catch (fastformat::mismatched_replacements_exception& x)
     {
         fprintf(
                 stdout
@@ -111,7 +110,7 @@ static int main_(int /* argc */, char** /*argv*/)
             ,   stlsoft::c_str_ptr_a(x.code)
             );
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         fprintf(
                 stdout
@@ -127,7 +126,7 @@ static int main_(int /* argc */, char** /*argv*/)
 
         fastformat::fmtln(std::cout, "format string with no replacements", 10, 200);
     }
-    catch(fastformat::format_parsing_exception& x)
+    catch (fastformat::format_parsing_exception& x)
     {
         fprintf(
                 stdout
@@ -138,7 +137,7 @@ static int main_(int /* argc */, char** /*argv*/)
             ,   stlsoft::c_str_ptr_a(x.code)
             );
     }
-    catch(fastformat::mismatched_replacements_exception& x)
+    catch (fastformat::mismatched_replacements_exception& x)
     {
         fprintf(
                 stdout
@@ -150,7 +149,7 @@ static int main_(int /* argc */, char** /*argv*/)
             ,   stlsoft::c_str_ptr_a(x.code)
             );
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         fprintf(
                 stdout
@@ -164,7 +163,7 @@ static int main_(int /* argc */, char** /*argv*/)
     {
         fastformat::fmtln(std::cout, "{0,,,}{1,,,}", 10, 200);
     }
-    catch(fastformat::format_parsing_exception& x)
+    catch (fastformat::format_parsing_exception& x)
     {
         fprintf(
                 stdout
@@ -175,7 +174,7 @@ static int main_(int /* argc */, char** /*argv*/)
             ,   stlsoft::c_str_ptr_a(x.code)
             );
     }
-    catch(fastformat::mismatched_replacements_exception& x)
+    catch (fastformat::mismatched_replacements_exception& x)
     {
         fprintf(
                 stdout
@@ -187,7 +186,7 @@ static int main_(int /* argc */, char** /*argv*/)
             ,   stlsoft::c_str_ptr_a(x.code)
             );
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         fprintf(
                 stdout
@@ -207,7 +206,7 @@ static int main_(int /* argc */, char** /*argv*/)
 
         STLSOFT_ASSERT("format string with insufficient arguments: #1=10; #2=" == str);
     }
-    catch(fastformat::format_parsing_exception& x)
+    catch (fastformat::format_parsing_exception& x)
     {
         fprintf(
                 stdout
@@ -218,7 +217,7 @@ static int main_(int /* argc */, char** /*argv*/)
             ,   stlsoft::c_str_ptr_a(x.code)
             );
     }
-    catch(fastformat::mismatched_replacements_exception& x)
+    catch (fastformat::mismatched_replacements_exception& x)
     {
         fprintf(
                 stdout
@@ -230,7 +229,7 @@ static int main_(int /* argc */, char** /*argv*/)
             ,   stlsoft::c_str_ptr_a(x.code)
             );
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         fprintf(
                 stdout
@@ -258,20 +257,20 @@ int main(int argc, char** argv)
 #endif /* _MSC_VER && _MSC_VER */
 
 #if 0
-    { for(size_t i = 0; i < 0xffffffff; ++i){} }
+    { for (size_t i = 0; i < 0xffffffff; ++i){} }
 #endif /* 0 */
 
     try
     {
         res = main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         fprintf(stderr, "Unhandled error: %s\n", x.what());
 
         res = EXIT_FAILURE;
     }
-    catch(...)
+    catch (...)
     {
         fprintf(stderr, "Unhandled unknown error\n");
 

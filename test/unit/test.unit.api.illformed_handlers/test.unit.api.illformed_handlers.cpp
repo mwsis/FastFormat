@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.api.illformed_handlers.cpp
+ * File:    test.unit.api.illformed_handlers.cpp
  *
- * Purpose:     Implementation file for the test.unit.api.illformed_handlers project.
+ * Purpose: Implementation file for the test.unit.api.illformed_handlers project.
  *
- * Created:     27th May 2008
- * Updated:     6th February 2024
+ * Created: 27th May 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -35,23 +35,25 @@
 #include <fastformat/test/util/compiler_warnings_suppression.last_include.h>
 
 
-/* /////////////////////////////////////////////////////////////////////////////
+/* /////////////////////////////////////////////////////////////////////////
  * macros and definitions
  */
 
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-# define XTESTS_TEST_STRING_EQUAL(x, a)     XTESTS_TEST_WIDE_STRING_EQUAL(x, a)
+
+# define XTESTS_TEST_STRING_EQUAL(x, a)                     XTESTS_TEST_WIDE_STRING_EQUAL(x, a)
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
-# define XTESTS_TEST_STRING_EQUAL           XTESTS_TEST_MULTIBYTE_STRING_EQUAL
+
+# define XTESTS_TEST_STRING_EQUAL                           XTESTS_TEST_MULTIBYTE_STRING_EQUAL
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
 
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-# define t2m        stlsoft::w2m
+# define t2m                                                stlsoft::w2m
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
-# define t2m(x)     x
+# define t2m(x)                                             x
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
 
-#define FF_STR                              FASTFORMAT_LITERAL_STRING
+#define FF_STR                                              FASTFORMAT_LITERAL_STRING
 
 
 #ifndef XTESTS_TEST_FN_POINTER_EQUAL
@@ -131,6 +133,7 @@ namespace
 } /* anonymous namespace */
 
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * helper functions
  */
@@ -162,7 +165,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if( XTESTS_START_RUNNER_WITH_REPORTER_AND_STREAM_AND_FLAGS_AND_SETUP_FNS(
+    if (XTESTS_START_RUNNER_WITH_REPORTER_AND_STREAM_AND_FLAGS_AND_SETUP_FNS(
             "test.unit.api.illformed_handlers"
         ,   verbosity
         ,   NULL, NULL
@@ -344,6 +347,7 @@ static void test_11()
 }
 
 } /* anonymous namespace */
+
 
 
 /* ///////////////////////////// end of file //////////////////////////// */

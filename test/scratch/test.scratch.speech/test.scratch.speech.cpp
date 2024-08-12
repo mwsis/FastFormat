@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.scratch.speech.cpp
+ * File:    test.scratch.speech.cpp
  *
- * Purpose:     Implementation file for the test.scratch.speech project.
+ * Purpose: Implementation file for the test.scratch.speech project.
  *
- * Created:     27th November 2007
- * Updated:     6th February 2024
+ * Created: 27th November 2007
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -43,7 +43,7 @@
 #endif /* _MSC_VER) && _DEBUG */
 
 
-/* /////////////////////////////////////////////////////////////////////////////
+/* /////////////////////////////////////////////////////////////////////////
  * macros and definitions
  */
 
@@ -94,7 +94,7 @@ static int main_(int /* argc */, char** /*argv*/)
 #endif /* FASTFORMAT_USE_VOLE */
 
 #ifdef FASTFORMAT_USE_VOLE
-    { for(long rate = 0; 5 != rate; ++rate)
+    { for (long rate = 0; 5 != rate; ++rate)
     {
         speaker.put_property(L"Rate", rate * 2);
 #endif /* FASTFORMAT_USE_VOLE */
@@ -134,13 +134,13 @@ int main(int argc, char** argv)
     {
         res = main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         fprintf(stderr, "Unhandled error: %s\n", x.what());
 
         res = EXIT_FAILURE;
     }
-    catch(...)
+    catch (...)
     {
         fprintf(stderr, "Unhandled unknown error\n");
 

@@ -1,15 +1,16 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/format/specification_defect_handling/mismatched_arguments_scope_base.hpp
+ * File:    fastformat/format/specification_defect_handling/mismatched_arguments_scope_base.hpp
  *
- * Purpose:     Base class for scoping classes that customise the behaviour
- *              in response to mismatched arguments.
+ * Purpose: Base class for scoping classes that customise the behaviour in
+ *          response to mismatched arguments.
  *
- * Created:     1st December 2008
- * Updated:     10th January 2017
+ * Created: 1st December 2008
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
- * Copyright (c) 2008-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -49,6 +50,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_FORMAT_SPECIFICATION_DEFECT_HANDLING_HPP_MISMATCHED_ARGUMENTS_SCOPE_BASE
 #define FASTFORMAT_INCL_FASTFORMAT_FORMAT_SPECIFICATION_DEFECT_HANDLING_HPP_MISMATCHED_ARGUMENTS_SCOPE_BASE
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -57,8 +59,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_FORMAT_SPECIFICATION_DEFECT_HANDLING_HPP_MISMATCHED_ARGUMENTS_SCOPE_BASE_MAJOR       1
 # define FASTFORMAT_VER_FASTFORMAT_FORMAT_SPECIFICATION_DEFECT_HANDLING_HPP_MISMATCHED_ARGUMENTS_SCOPE_BASE_MINOR       2
 # define FASTFORMAT_VER_FASTFORMAT_FORMAT_SPECIFICATION_DEFECT_HANDLING_HPP_MISMATCHED_ARGUMENTS_SCOPE_BASE_REVISION    1
-# define FASTFORMAT_VER_FASTFORMAT_FORMAT_SPECIFICATION_DEFECT_HANDLING_HPP_MISMATCHED_ARGUMENTS_SCOPE_BASE_EDIT        13
+# define FASTFORMAT_VER_FASTFORMAT_FORMAT_SPECIFICATION_DEFECT_HANDLING_HPP_MISMATCHED_ARGUMENTS_SCOPE_BASE_EDIT        16
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -68,12 +71,14 @@
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * includes
  */
 
 #include <fastformat/fastformat.h>
 #include <fastformat/quality/contract.h>
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -83,6 +88,7 @@
 namespace fastformat
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * helpers
@@ -125,6 +131,7 @@ protected:
 }/* namespace ximpl_mismatched_arguments_scope_base */
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * classes
  */
@@ -161,7 +168,7 @@ public:
     /** Restores the thread/process mismatched handler to the function
      * registered prior to the construction of this instance
      *
-     * \warning The system behaviour is undefined if the thread/process 
+     * \warning The system behaviour is undefined if the thread/process
      *   mismatch handler is modified during the lifetime of this instance
      */
     virtual ~mismatched_arguments_scope_base() ss_noexcept_k
@@ -219,12 +226,12 @@ private: // Implementation
 
         handler_response_type hr = pThis->handle(code, numArguments, mismatchedParameterIndex, action, slice);
 
-        if(fastformat::FF_HANDLERRESPONSE_CONTINUE_PROCESSING == hr)
+        if (fastformat::FF_HANDLERRESPONSE_CONTINUE_PROCESSING == hr)
         {
             return hr;
         }
 
-        if(NULL != pThis->m_previous.handler)
+        if (NULL != pThis->m_previous.handler)
         {
             return (*pThis->m_previous.handler)(pThis->m_previous.param, code, numArguments, mismatchedParameterIndex, action, slice, reserved0, reserved1, reserved2, reserved3);
         }
@@ -236,6 +243,7 @@ protected: // Fields
     // A (very) rare use case for protected member data, when using (private) implementation inheritance
     ff_mismatchedHandler_info_t const   m_previous; //!< Previous handler, for chaining
 };
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -250,3 +258,4 @@ protected: // Fields
 #endif /* FASTFORMAT_INCL_FASTFORMAT_FORMAT_SPECIFICATION_DEFECT_HANDLING_HPP_MISMATCHED_ARGUMENTS_SCOPE_BASE */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

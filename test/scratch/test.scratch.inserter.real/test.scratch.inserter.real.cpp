@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.scratch.inserter.real.cpp
+ * File:    test.scratch.inserter.real.cpp
  *
- * Purpose:     Implementation file for the test.scratch.inserter.real project.
+ * Purpose: Implementation file for the test.scratch.inserter.real project.
  *
- * Created:     1st March 2009
- * Updated:     6th February 2024
+ * Created: 1st March 2009
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -27,7 +27,7 @@
 /* UNIXem Header Files */
 #if defined(_WIN32) || \
     defined(_WIN64)
-# include <unixem/unixem.h>
+// # include <unixem/unixem.h>
 #endif /* Win32 || Win64 */
 
 /* Standard C++ Header Files */
@@ -51,7 +51,9 @@
 #endif /* _MSC_VER) && _DEBUG */
 
 
-/* ////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////
+ * main()
+ */
 
 static int main_(int /* argc */, char** /*argv*/)
 {
@@ -66,7 +68,7 @@ static int main_(int /* argc */, char** /*argv*/)
         ,   +12.34e+5
     };
 
-    { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(values); ++i)
+    { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(values); ++i)
     {
         puts("");
         printf("%%f:     [%f]\n", values[i]);
@@ -85,13 +87,13 @@ static int main_(int /* argc */, char** /*argv*/)
         printf("%%5f:    [%5f]\n", values[i]);
         printf("%%5.8f:  [%5.8f]\n", values[i]);
         printf("%%5.4f:  [%5.4f]\n", values[i]);
-    
+
         printf("%%.5f:   [%.5f]\n", values[i]);
     }}
 
 //    printf("[%-14.3f%-14.3f]\n", 12345.12345, 12345.12345); // => [12345.123     12345.123     ]
 
-    { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(values); ++i)
+    { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(values); ++i)
     {
         const double    value = values[i];
 
@@ -153,13 +155,13 @@ int main(int argc, char** argv)
 
         res = main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         std::cerr << "Unhandled error: " << x.what() << std::endl;
 
         res = EXIT_FAILURE;
     }
-    catch(...)
+    catch (...)
     {
         std::cerr << "Unhandled unknown error" << std::endl;
 

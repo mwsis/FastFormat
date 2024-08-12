@@ -5,11 +5,12 @@
  *              IOStreams' std::ostream and the standard header <iostream>.
  *
  * Created:     17th January 2011
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2008-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -50,6 +51,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_IOSTREAM
 #define FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_IOSTREAM
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -58,8 +60,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_IOSTREAM_MAJOR      1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_IOSTREAM_MINOR      0
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_IOSTREAM_REVISION   1
-# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_IOSTREAM_EDIT       4
+# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_IOSTREAM_EDIT       6
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -68,6 +71,7 @@
 #ifndef __cplusplus
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -83,3 +87,4 @@
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_IOSTREAM */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

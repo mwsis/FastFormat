@@ -1,14 +1,15 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/util/filesystem/FILE_functions.hpp
+ * File:    fastformat/util/filesystem/FILE_functions.hpp
  *
- * Purpose:     Utility functions for using <code>FILE*</code>.
+ * Purpose: Utility functions for using <code>FILE*</code>.
  *
- * Created:     3rd January 2008
- * Updated:     22nd January 2017
+ * Created: 3rd January 2008
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
- * Copyright (c) 2008-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_UTIL_FILESYSTEM_HPP_FILE_FUNCTIONS
 #define FASTFORMAT_INCL_FASTFORMAT_UTIL_FILESYSTEM_HPP_FILE_FUNCTIONS
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_UTIL_FILESYSTEM_HPP_FILE_FUNCTIONS_MAJOR     1
 # define FASTFORMAT_VER_FASTFORMAT_UTIL_FILESYSTEM_HPP_FILE_FUNCTIONS_MINOR     0
 # define FASTFORMAT_VER_FASTFORMAT_UTIL_FILESYSTEM_HPP_FILE_FUNCTIONS_REVISION  3
-# define FASTFORMAT_VER_FASTFORMAT_UTIL_FILESYSTEM_HPP_FILE_FUNCTIONS_EDIT      3
+# define FASTFORMAT_VER_FASTFORMAT_UTIL_FILESYSTEM_HPP_FILE_FUNCTIONS_EDIT      6
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -84,6 +87,7 @@
 
 #include <errno.h>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -94,6 +98,7 @@ namespace fastformat
 namespace util
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * functions
@@ -111,12 +116,12 @@ fopen_or_throw(
     FILE* f;
     int   e = ::fopen_s(&f, fileName, mode);
 
-    if(0 != e)
+    if (0 != e)
     {
 #else // }
     FILE* f = ::fopen(fileName, mode);
 
-    if(NULL == f)
+    if (NULL == f)
     {
 #endif
 
@@ -137,6 +142,7 @@ fopen_or_throw(
     return f;
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -146,6 +152,7 @@ fopen_or_throw(
 } /* namespace fastformat */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -154,8 +161,8 @@ fopen_or_throw(
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_UTIL_FILESYSTEM_HPP_FILE_FUNCTIONS */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

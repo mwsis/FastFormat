@@ -1,5 +1,4 @@
 
-
 #include <fastformat/ff.hpp>
 #include <fastformat/inserters/to_i.hpp>
 #include <fastformat/inserters/to_x.hpp>
@@ -28,11 +27,11 @@ int main()
     ff::fmtln(std::cout, "_STLSOFT_VER={0}", ff::to_x(_STLSOFT_VER));
 
     {
-        { for(int WARMUPS = 2; 0 != WARMUPS--; )
+        { for (int WARMUPS = 2; 0 != WARMUPS--; )
         {
             counter.start();
 
-            { for(size_t i = 0; i != NUM_ITERATIONS; ++i)
+            { for (size_t i = 0; i != NUM_ITERATIONS; ++i)
             {
                 char                        sz[21];
                 ff::sinks::char_buffer_sink sink(sz);
@@ -48,10 +47,14 @@ int main()
         ff::fmtln(std::cout, "{0} incremental numbers in {1}us", NUM_ITERATIONS, counter.get_microseconds());
     }
 
-    if(std::numeric_limits<unsigned>::max() == x)
+    if (std::numeric_limits<unsigned>::max() == x)
     {
         fputs("", stdin);
     }
 
     return 0;
 }
+
+
+/* ///////////////////////////// end of file //////////////////////////// */
+

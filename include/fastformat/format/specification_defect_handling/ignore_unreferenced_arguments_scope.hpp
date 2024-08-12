@@ -1,15 +1,16 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/format/specification_defect_handling/ignore_unreferenced_arguments_scope.hpp
+ * File:    fastformat/format/specification_defect_handling/ignore_unreferenced_arguments_scope.hpp
  *
- * Purpose:     A scoping class that suppresses the reporting of
- *              unreferenced arguments.
+ * Purpose: A scoping class that suppresses the reporting of unreferenced
+ *          arguments.
  *
- * Created:     1st December 2008
- * Updated:     10th January 2017
+ * Created: 1st December 2008
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
- * Copyright (c) 2008-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -49,6 +50,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_FORMAT_SPECIFICATION_DEFECT_HANDLING_HPP_IGNORE_UNREFERENCED_ARGUMENTS_SCOPE
 #define FASTFORMAT_INCL_FASTFORMAT_FORMAT_SPECIFICATION_DEFECT_HANDLING_HPP_IGNORE_UNREFERENCED_ARGUMENTS_SCOPE
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -57,8 +59,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_FORMAT_SPECIFICATION_DEFECT_HANDLING_HPP_IGNORE_UNREFERENCED_ARGUMENTS_SCOPE_MAJOR       1
 # define FASTFORMAT_VER_FASTFORMAT_FORMAT_SPECIFICATION_DEFECT_HANDLING_HPP_IGNORE_UNREFERENCED_ARGUMENTS_SCOPE_MINOR       2
 # define FASTFORMAT_VER_FASTFORMAT_FORMAT_SPECIFICATION_DEFECT_HANDLING_HPP_IGNORE_UNREFERENCED_ARGUMENTS_SCOPE_REVISION    3
-# define FASTFORMAT_VER_FASTFORMAT_FORMAT_SPECIFICATION_DEFECT_HANDLING_HPP_IGNORE_UNREFERENCED_ARGUMENTS_SCOPE_EDIT        10
+# define FASTFORMAT_VER_FASTFORMAT_FORMAT_SPECIFICATION_DEFECT_HANDLING_HPP_IGNORE_UNREFERENCED_ARGUMENTS_SCOPE_EDIT        13
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -67,6 +70,7 @@
 #ifndef __cplusplus
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -79,6 +83,7 @@
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_FORMAT_SPECIFICATION_DEFECT_HANDLING_HPP_MISMATCHED_ARGUMENTS_SCOPE_BASE */
 #include <fastformat/quality/contract.h>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -87,6 +92,7 @@
 namespace fastformat
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * classes
@@ -109,7 +115,7 @@ public: // Member Types
 public: // Construction
     /** Causes the thread/process mismatched handler to be set to a function
      * that ignores the
-     * <code>FF_REPLACEMENTCODE_UNREFERENCED_ARGUMENT</code> code 
+     * <code>FF_REPLACEMENTCODE_UNREFERENCED_ARGUMENT</code> code
      * for all parameter indexes and
      * passes all others to the previously-registered handler
      */
@@ -119,7 +125,7 @@ public: // Construction
     {}
     /** Causes the thread/process mismatched handler to be set to a function
      * that ignores the
-     * <code>FF_REPLACEMENTCODE_UNREFERENCED_ARGUMENT</code> code 
+     * <code>FF_REPLACEMENTCODE_UNREFERENCED_ARGUMENT</code> code
      * for all parameter indexes equal or subsequent to the given index and
      * passes all others to the previously-registered handler.
      *
@@ -133,7 +139,7 @@ public: // Construction
     /** Restores the thread/process mismatched handler to the function
      * registered prior to the construction of this instance
      *
-     * \warning The system behaviour is undefined if the thread/process 
+     * \warning The system behaviour is undefined if the thread/process
      *   mismatch handler is modified during the lifetime of this instance
      */
     ~ignore_unreferenced_arguments_scope() ss_noexcept_k
@@ -151,9 +157,9 @@ private: // Overrides
     ,   ff_string_slice_t*          /* slice */
     )
     {
-        if(FF_REPLACEMENTCODE_UNREFERENCED_ARGUMENT == code)
+        if (FF_REPLACEMENTCODE_UNREFERENCED_ARGUMENT == code)
         {
-            if(int(m_lowestIndexToIgnore) <= mismatchedParameterIndex)
+            if (int(m_lowestIndexToIgnore) <= mismatchedParameterIndex)
             {
                 // Ignore unreferenced argument
                 return FF_HANDLERRESPONSE_CONTINUE_PROCESSING;
@@ -169,6 +175,7 @@ private: // Fields
     unsigned const  m_lowestIndexToIgnore;
 };
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -182,3 +189,4 @@ private: // Fields
 #endif /* FASTFORMAT_INCL_FASTFORMAT_FORMAT_SPECIFICATION_DEFECT_HANDLING_HPP_IGNORE_UNREFERENCED_ARGUMENTS_SCOPE */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

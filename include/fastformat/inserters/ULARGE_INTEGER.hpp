@@ -4,11 +4,12 @@
  * Purpose:     Inserter functions for Windows' ULARGE_INTEGER type.
  *
  * Created:     24th November 2010
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2010-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2010-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_ULARGE_INTEGER
 #define FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_ULARGE_INTEGER
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,14 +57,16 @@
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_ULARGE_INTEGER_MAJOR     1
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_ULARGE_INTEGER_MINOR     0
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_ULARGE_INTEGER_REVISION  3
-# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_ULARGE_INTEGER_EDIT      7
+# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_ULARGE_INTEGER_EDIT      10
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
  */
 
 #include <fastformat/inserters/to_i.hpp>
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -74,6 +78,7 @@ namespace fastformat
 namespace inserters
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * inserter functions
@@ -141,6 +146,7 @@ to_i(
 
 #endif /* compiler */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -151,6 +157,7 @@ using ::fastformat::inserters::to_i;
 } // namespace fastformat
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -159,8 +166,8 @@ using ::fastformat::inserters::to_i;
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_ULARGE_INTEGER */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

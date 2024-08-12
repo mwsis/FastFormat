@@ -1,14 +1,15 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/sinks/auto_buffer.hpp
+ * File:    fastformat/sinks/auto_buffer.hpp
  *
- * Purpose:     A FastFormat sink for STLSoft's auto_buffer class template.
+ * Purpose: A FastFormat sink for STLSoft's auto_buffer class template.
  *
- * Created:     21st April 2008
- * Updated:     10th January 2017
+ * Created: 21st April 2008
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
- * Copyright (c) 2008-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_AUTO_BUFFER
 #define FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_AUTO_BUFFER
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_AUTO_BUFFER_SINK_MAJOR      1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_AUTO_BUFFER_SINK_MINOR      1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_AUTO_BUFFER_SINK_REVISION   2
-# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_AUTO_BUFFER_SINK_EDIT       18
+# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_AUTO_BUFFER_SINK_EDIT       21
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -65,6 +68,7 @@
 #ifndef __cplusplus
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -77,6 +81,7 @@
 
 #include <fastformat/util/memory/auto_buffer_selector.hpp>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * compatibility
  */
@@ -87,6 +92,7 @@
 #  define FASTFORMAT_AUTO_BUFFER_SINK_ONLY_SIMPLE_FORM_SUPPORT
 # endif /* !FASTFORMAT_NO_IMPLICIT_ACTION_SHIMS */
 #endif /* compiler */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -99,9 +105,11 @@ namespace sinks
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * classes
  */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * action shims
@@ -165,13 +173,13 @@ inline stlsoft::auto_buffer<ff_char_t>& fmt_slices(
     const size_t            initialSize = sink.size();
 
     // do the resize
-    if(sink.resize(initialSize + cchTotal + 1 + 2)) // Check for alloc failure, even though will never return false when exception-handling support is on
+    if (sink.resize(initialSize + cchTotal + 1 + 2)) // Check for alloc failure, even though will never return false when exception-handling support is on
     {
         size_t currentSize = initialSize;
 
         // first we check for a current trailing nul character
 
-        if( 0 != currentSize && 
+        if (0 != currentSize &&
             '\0' == sink[currentSize - 1])
         {
             --currentSize;
@@ -181,7 +189,7 @@ inline stlsoft::auto_buffer<ff_char_t>& fmt_slices(
 
         ff_char_t* p = sink.data() + currentSize;
 
-        { for(size_t i = 0; i < numResults; ++i)
+        { for (size_t i = 0; i < numResults; ++i)
         {
             ff_string_slice_t const& slice = results[i];
 
@@ -191,7 +199,7 @@ inline stlsoft::auto_buffer<ff_char_t>& fmt_slices(
 
         // then append the new line, if required
 
-        if(flags::ff_newLine & flags)
+        if (flags::ff_newLine & flags)
         {
             const ff_string_slice_t crlf = fastformat_getNewlineForPlatform();
 
@@ -214,6 +222,7 @@ inline stlsoft::auto_buffer<ff_char_t>& fmt_slices(
     return sink;
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -228,3 +237,4 @@ inline stlsoft::auto_buffer<ff_char_t>& fmt_slices(
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_AUTO_BUFFER */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

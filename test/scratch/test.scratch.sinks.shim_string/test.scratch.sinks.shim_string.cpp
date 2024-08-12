@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.scratch.sinks.shim_string.cpp
+ * File:    test.scratch.sinks.shim_string.cpp
  *
- * Purpose:     Implementation file for the test.scratch.sinks.shim_string project.
+ * Purpose: Implementation file for the test.scratch.sinks.shim_string project.
  *
- * Created:     12th November 2008
- * Updated:     6th February 2024
+ * Created: 12th November 2008
+ * Updated: 12th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -26,7 +26,7 @@
 /* UNIXem Header Files */
 #if defined(_WIN32) || \
     defined(_WIN64)
-# include <unixem/unixem.h>
+// # include <unixem/unixem.h>
 #endif /* Win32 || Win64 */
 
 /* Standard C++ Header Files */
@@ -103,7 +103,7 @@ int main(int argc, char** argv)
 #endif /* _MSC_VER && _MSC_VER */
 
 #if 0
-    { for(size_t i = 0; i < 0xffffffff; ++i){} }
+    { for (size_t i = 0; i < 0xffffffff; ++i){} }
 #endif /* 0 */
 
     try
@@ -115,13 +115,13 @@ int main(int argc, char** argv)
 
         res = main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         std::cerr << "Unhandled error: " << x.what() << std::endl;
 
         res = EXIT_FAILURE;
     }
-    catch(...)
+    catch (...)
     {
         std::cerr << "Unhandled unknown error" << std::endl;
 

@@ -1,14 +1,15 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/sinks/ostream.hpp
+ * File:    fastformat/sinks/ostream.hpp
  *
- * Purpose:     A FastFormat sink for IOStreams' std::ostream.
+ * Purpose: A FastFormat sink for IOStreams' std::ostream.
  *
- * Created:     19th January 2008
- * Updated:     10th January 2017
+ * Created: 19th January 2008
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
- * Copyright (c) 2008-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_OSTREAM
 #define FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_OSTREAM
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_OSTREAM_MAJOR       1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_OSTREAM_MINOR       2
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_OSTREAM_REVISION    2
-# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_OSTREAM_EDIT        28
+# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_OSTREAM_EDIT        30
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -65,6 +68,7 @@
 #ifndef __cplusplus
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -78,6 +82,7 @@
 
 #include <ostream>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -88,6 +93,7 @@ namespace fastformat
 namespace sinks
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * action shims
@@ -116,7 +122,7 @@ inline std::basic_ostream<ff_char_t>& fmt_slices(
     stlsoft::auto_buffer<ff_char_t> buff(cchTotal + 1);
 
 #ifndef STLSOFT_CF_THROW_BAD_ALLOC
-    if(!buff.empty())   // May return false when exception-handling not enabled
+    if (!buff.empty())   // May return false when exception-handling not enabled
 #endif /* !STLSOFT_CF_THROW_BAD_ALLOC */
     {
 #if !defined(FASTFORMAT_NO_NAMESPACE)
@@ -125,7 +131,7 @@ inline std::basic_ostream<ff_char_t>& fmt_slices(
 
         concat_slices(buff, numResults, results);
 
-        if(flags::ff_newLine & flags)
+        if (flags::ff_newLine & flags)
         {
             buff[cchTotal] = '\n';
         }
@@ -140,19 +146,19 @@ inline std::basic_ostream<ff_char_t>& fmt_slices(
         // pointer given to write() even when count is 0. Other versions
         // (including 9) don't do this, so we won't bother to catch it
         // otherwise.
-        if(0 != buff.size())
+        if (0 != buff.size())
 #endif /* compiler */
         {
             sink.write(buff.data(), static_cast<std::streamsize>(buff.size()));
         }
 
-        if(flags::ff_flush & flags)
+        if (flags::ff_flush & flags)
         {
             sink.flush();
         }
     }
 
-    if(sink.fail())
+    if (sink.fail())
     {
 #ifdef STLSOFT_CF_EXCEPTION_SUPPORT
         // TODO: Use more-derived exception and capture errno
@@ -162,6 +168,7 @@ inline std::basic_ostream<ff_char_t>& fmt_slices(
 
     return sink;
 }
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -177,3 +184,4 @@ inline std::basic_ostream<ff_char_t>& fmt_slices(
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_OSTREAM */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

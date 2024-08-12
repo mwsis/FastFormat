@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        examples/example.arguments.reals/example.arguments.reals.cpp
+ * File:    examples/example.arguments.reals/example.arguments.reals.cpp
  *
- * Purpose:     Implementation file for the example.arguments.reals project.
+ * Purpose: Implementation file for the example.arguments.reals project.
  *
- * Created:     2nd June 2008
- * Updated:     6th February 2024
+ * Created: 2nd June 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -71,7 +71,7 @@ static int main_(int argc, char** /*argv*/)
 
 #ifndef FASTFORMAT_DOCUMENTATION_SKIP_SECTION
     // This code just to ensure widestring compatibility for integral types
-    if(0 == argc)
+    if (0 == argc)
     {
         const int       i   =   -123;
 
@@ -92,11 +92,11 @@ int main(int argc, char** argv)
     {
         return main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         cerr << "Unhandled error: " << x.what() << endl;
     }
-    catch(...)
+    catch (...)
     {
         cerr << "Unhandled unknown error" << endl;
     }

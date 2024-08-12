@@ -1,18 +1,19 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/shims/action/fmt_slices/generic_string.hpp
+ * File:    fastformat/shims/action/fmt_slices/generic_string.hpp
  *
- * Purpose:     FastFormat formatting action shim for generic string types.
+ * Purpose: FastFormat formatting action shim for generic string types.
  *
- * Created:     19th September 2006
- * Updated:     22nd January 2017
+ * Created: 19th September 2006
+ * Updated: 11th August 2024
  *
- * Thanks:      To Ric Parkin for pointing out the ramifications of 
- *              21.3.5.2/6 and 21.3.1/6 before I change the definition of
- *              c_str_data[_a|_w] to allow NULL to be returned.
+ * Thanks:  To Ric Parkin for pointing out the ramifications of 21.3.5.2/6
+ *          and 21.3.1/6 before I change the definition of c_str_data[_a|_w]
+ *          to allow NULL to be returned.
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
- * Copyright (c) 2006-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2006-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,6 +52,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_SHIMS_ACTION_FMT_SLICES_HPP_GENERIC_STRING
 #define FASTFORMAT_INCL_FASTFORMAT_SHIMS_ACTION_FMT_SLICES_HPP_GENERIC_STRING
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -59,8 +61,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_SHIMS_ACTION_FMT_SLICES_HPP_GENERIC_STRING_MAJOR     3
 # define FASTFORMAT_VER_FASTFORMAT_SHIMS_ACTION_FMT_SLICES_HPP_GENERIC_STRING_MINOR     2
 # define FASTFORMAT_VER_FASTFORMAT_SHIMS_ACTION_FMT_SLICES_HPP_GENERIC_STRING_REVISION  3
-# define FASTFORMAT_VER_FASTFORMAT_SHIMS_ACTION_FMT_SLICES_HPP_GENERIC_STRING_EDIT      25
+# define FASTFORMAT_VER_FASTFORMAT_SHIMS_ACTION_FMT_SLICES_HPP_GENERIC_STRING_EDIT      31
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -70,6 +73,7 @@
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * includes
  */
@@ -78,6 +82,7 @@
 #include <fastformat/internal/stlsoft.h>
 #include <fastformat/quality/contract.h>
 #include <fastformat/format/standard_flags.hpp>
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -90,11 +95,12 @@ namespace sinks
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * overloadable functions
  */
 
-/** Action shim for generic string types 
+/** Action shim for generic string types
  *
  * \remarks Users are encouraged to overload this function (which is an
  *   <i>Action Shim</i>; see "Breaking Up The Monolith") in order to make
@@ -119,17 +125,17 @@ fmt_slices(
 {
     sink.reserve(sink.size() + cchTotal + 2);  // Ask for two more, in case need CR (&LF)
 
-    { for(size_t i = 0; i != numResults; ++i)
+    { for (size_t i = 0; i != numResults; ++i)
     {
         ff_string_slice_t const& slice = results[i];
 
-        if(0u != slice.len) // This test required by 21.3.5.2/6 => 21.3.1/6
+        if (0u != slice.len) // This test required by 21.3.5.2/6 => 21.3.1/6
         {
             sink.append(slice.ptr, slice.len);
         }
     }}
 
-    if(flags::ff_newLine & flags)
+    if (flags::ff_newLine & flags)
     {
         const ff_string_slice_t crlf = fastformat_getNewlineForPlatform();
 
@@ -138,6 +144,7 @@ fmt_slices(
 
     return sink;
 }
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -148,6 +155,7 @@ fmt_slices(
 } /* namespace fastformat */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -156,8 +164,8 @@ fmt_slices(
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SHIMS_ACTION_FMT_SLICES_HPP_GENERIC_STRING */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

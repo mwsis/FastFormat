@@ -1,19 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.shims_and_namespaces.main.cpp
+ * File:    test.unit.shims_and_namespaces.main.cpp
  *
- * Purpose:     Main implementation file for the test.unit.shims_and_namespaces project.
+ * Purpose: Main implementation file for the test.unit.shims_and_namespaces project.
  *
- * Created:     11th November 2013
- * Updated:     10th January 2017
- *
- * Status:      Wizard-generated
- *
- * License:     (Licensed under the Synesis Software Open License)
- *
- *              Copyright (c) 2013-2017, Synesis Software Pty Ltd.
- *              All rights reserved.
- *
- *              www:        http://www.synesis.com.au/software
+ * Created: 11th November 2013
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -124,7 +115,7 @@ int main(int argc, char **argv)
                                 |   xtests::c::xtestsReportOnlyNonEmptyCases
                                 ;
 
-    if(XTESTS_START_RUNNER_WITH_FLAGS("test.unit.shims_and_namespaces", verbosity, executionFlags))
+    if (XTESTS_START_RUNNER_WITH_FLAGS("test.unit.shims_and_namespaces", verbosity, executionFlags))
     {
         // with_fastformat_namespace
 
@@ -192,3 +183,4 @@ int main(int argc, char **argv)
 }
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

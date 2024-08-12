@@ -5,11 +5,12 @@
  *              FastFormat core and API.
  *
  * Created:     12th April 2008
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2008-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -49,6 +50,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_QUALITY_H_CONTRACT
 #define FASTFORMAT_INCL_FASTFORMAT_QUALITY_H_CONTRACT
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -57,8 +59,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_QUALITY_H_CONTRACT_MAJOR     1
 # define FASTFORMAT_VER_FASTFORMAT_QUALITY_H_CONTRACT_MINOR     3
 # define FASTFORMAT_VER_FASTFORMAT_QUALITY_H_CONTRACT_REVISION  2
-# define FASTFORMAT_VER_FASTFORMAT_QUALITY_H_CONTRACT_EDIT      16
+# define FASTFORMAT_VER_FASTFORMAT_QUALITY_H_CONTRACT_EDIT      19
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -77,6 +80,7 @@
 #  include <fastformat/internal/stlsoft.h>
 # endif /* !FASTFORMAT_INCL_FASTFORMAT_INTERNAL_HPP_STLSOFT */
 #endif /* contract */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * helper macros
@@ -140,6 +144,7 @@ inline void FASTFORMAT_TYPECHECK_MSG_(...)
 # endif /* FASTFORMAT_QA_DO_MSG_TYPECHECK */
 
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * enforcements
@@ -270,19 +275,19 @@ inline void FASTFORMAT_TYPECHECK_MSG_(...)
 #elif defined(FASTFORMAT_QA_USE_XCONTRACT)
 
 # ifndef FASTFORMAT_CONTRACT_LEVEL_INTERNAL
-#  define FASTFORMAT_CONTRACT_LEVEL_INTERNAL        (51)
+#  define FASTFORMAT_CONTRACT_LEVEL_INTERNAL                (51)
 # endif /* !FASTFORMAT_CONTRACT_LEVEL_INTERNAL */
 
 # ifndef FASTFORMAT_CONTRACT_LEVEL_API
-#  define FASTFORMAT_CONTRACT_LEVEL_API             (53)
+#  define FASTFORMAT_CONTRACT_LEVEL_API                     (53)
 # endif /* !FASTFORMAT_CONTRACT_LEVEL_API */
 
 # ifndef FASTFORMAT_CONTRACT_LEVEL_APPL_LAYER
-#  define FASTFORMAT_CONTRACT_LEVEL_APPL_LAYER      (55)
+#  define FASTFORMAT_CONTRACT_LEVEL_APPL_LAYER              (55)
 # endif /* !FASTFORMAT_CONTRACT_LEVEL_APPL_LAYER */
 
 # ifndef FASTFORMAT_CONTRACT_LEVEL_APPL_DEF
-#  define FASTFORMAT_CONTRACT_LEVEL_APPL_DEF        (57)
+#  define FASTFORMAT_CONTRACT_LEVEL_APPL_DEF                (57)
 # endif /* !FASTFORMAT_CONTRACT_LEVEL_APPL_DEF */
 
 # define FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL(msg)              XCONTRACT_ENFORCE_CONDITION_TYPE_LEVEL_(XCONTRACT_NS_QUAL(xContract_unexpectedCondition), FASTFORMAT_CONTRACT_LEVEL_INTERNAL, NULL, FASTFORMAT_TYPECHECK_MSG_(msg))
@@ -658,3 +663,4 @@ inline void FASTFORMAT_TYPECHECK_MSG_(...)
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_QUALITY_H_CONTRACT */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

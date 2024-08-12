@@ -1,12 +1,12 @@
-/* /////////////////////////////////////////////////////////////////////////////
- * File:        test.scratch.FILE.cpp
+/* /////////////////////////////////////////////////////////////////////////
+ * File:    test.scratch.FILE.cpp
  *
- * Purpose:     Implementation file for the test.scratch.FILE project.
+ * Purpose: Implementation file for the test.scratch.FILE project.
  *
- * Created:     24th September 2006
- * Updated:     6th February 2024
+ * Created: 24th September 2006
+ * Updated: 11th August 2024
  *
- * ////////////////////////////////////////////////////////////////////////// */
+ * ////////////////////////////////////////////////////////////////////// */
 
 #if defined(_DEBUG) && \
     defined(WIN32) && \
@@ -65,7 +65,7 @@
 #include <stdlib.h>
 
 
-/* /////////////////////////////////////////////////////////////////////////////
+/* /////////////////////////////////////////////////////////////////////////
  * Character-encoding compatibility
  */
 
@@ -78,14 +78,14 @@
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
 
 
-/* /////////////////////////////////////////////////////////////////////////////
+/* /////////////////////////////////////////////////////////////////////////
  * macros and definitions
  */
 
 #define FF_STR      FASTFORMAT_LITERAL_STRING
 
 
-/* ////////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////// */
 
 static int main_(int /* argc */, char** /* argv */)
 {
@@ -131,7 +131,7 @@ static int main_(int /* argc */, char** /* argv */)
             , FF_STR("Param #1: {0}; param #2: {1}; param #1 again: {0}"), FF_STR("abc"), FF_STR("def"));
         puts("");
     }
-    catch(ff::sink_output_exception& x)
+    catch (ff::sink_output_exception& x)
     {
         FILE* file = stderr;
 
@@ -351,7 +351,7 @@ static int main_(int /* argc */, char** /* argv */)
 int main(int argc, char** argv)
 {
 #if 0
-    { for(size_t i = 0; i < 0xffffffff; ++i){} }
+    { for (size_t i = 0; i < 0xffffffff; ++i){} }
 #endif /* 0 */
 
     try
@@ -363,11 +363,11 @@ int main(int argc, char** argv)
 
         return main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         fprintf(stderr, "Unhandled error: %s\n", x.what());
     }
-    catch(...)
+    catch (...)
     {
         fprintf(stderr, "Unhandled unknown error\n");
     }

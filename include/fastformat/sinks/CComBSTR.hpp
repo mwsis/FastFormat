@@ -1,14 +1,15 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/sinks/CComBSTR.hpp
+ * File:    fastformat/sinks/CComBSTR.hpp
  *
- * Purpose:     A FastFormat sink adaptor for ATL's CComBSTR.
+ * Purpose: A FastFormat sink adaptor for ATL's CComBSTR.
  *
- * Created:     21st November 2008
- * Updated:     10th January 2017
+ * Created: 21st November 2008
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
- * Copyright (c) 2008-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_CCOMBSTR
 #define FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_CCOMBSTR
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CCOMBSTR_MAJOR      1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CCOMBSTR_MINOR      3
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CCOMBSTR_REVISION   1
-# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CCOMBSTR_EDIT       17
+# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_CCOMBSTR_EDIT       20
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -65,6 +68,7 @@
 #ifndef __cplusplus
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -78,6 +82,7 @@
 
 #include <atlbase.h>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -88,6 +93,7 @@ namespace fastformat
 namespace sinks
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * action shims
@@ -100,7 +106,7 @@ namespace sinks
  */
 inline CComBSTR& fmt_slices(CComBSTR& sink, int flags, size_t cchTotal, size_t numResults, ff_string_slice_t const* results)
 {
-    if( 0 != cchTotal ||
+    if (0 != cchTotal ||
         0 != flags)
     {
 #if !defined(FASTFORMAT_NO_NAMESPACE)
@@ -109,12 +115,12 @@ inline CComBSTR& fmt_slices(CComBSTR& sink, int flags, size_t cchTotal, size_t n
 
         const ff_string_slice_t crlf = fastformat_getNewlineForPlatform();
 
-        if(flags::ff_newLine & flags)
+        if (flags::ff_newLine & flags)
         {
             cchTotal += crlf.len;
         }
 
-        if(0u != cchTotal)
+        if (0u != cchTotal)
         {
             stlsoft::auto_buffer<ff_char_t> buff(1 + cchTotal);
 
@@ -125,7 +131,7 @@ inline CComBSTR& fmt_slices(CComBSTR& sink, int flags, size_t cchTotal, size_t n
             const unsigned int  newLen  =   len + static_cast<unsigned int>(cchTotal);
             CComBSTR            newSink(newLen);
 
-            if(newLen != newSink.Length())
+            if (newLen != newSink.Length())
             {
                 throw std::bad_alloc();
             }
@@ -142,7 +148,7 @@ inline CComBSTR& fmt_slices(CComBSTR& sink, int flags, size_t cchTotal, size_t n
 
                 int r = ::MultiByteToWideChar(0, 0, buff.data(), int(cchTotal), &newSink.m_str[0] + len, int(cchTotal));
 
-                if(0 == r)
+                if (0 == r)
                 {
                     //DWORD e = ::GetLastError();
 
@@ -152,9 +158,9 @@ inline CComBSTR& fmt_slices(CComBSTR& sink, int flags, size_t cchTotal, size_t n
 
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
 
-                if(flags::ff_newLine & flags)
+                if (flags::ff_newLine & flags)
                 {
-                    { for(size_t i = 0; i != crlf.len; ++i)
+                    { for (size_t i = 0; i != crlf.len; ++i)
                     {
                         newSink.m_str[newLen - crlf.len + i] = crlf.ptr[i];
                     }}
@@ -170,6 +176,7 @@ inline CComBSTR& fmt_slices(CComBSTR& sink, int flags, size_t cchTotal, size_t n
     return sink;
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -184,3 +191,4 @@ inline CComBSTR& fmt_slices(CComBSTR& sink, int flags, size_t cchTotal, size_t n
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_CCOMBSTR */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

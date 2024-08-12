@@ -1,12 +1,12 @@
-/* /////////////////////////////////////////////////////////////////////////////
- * File:        test.performance.scenario1.cpp
+/* /////////////////////////////////////////////////////////////////////////
+ * File:    test.performance.scenario1.cpp
  *
- * Purpose:     Implementation file for the test.performance.scenario1 project.
+ * Purpose: Implementation file for the test.performance.scenario1 project.
  *
- * Created:     19th September 2006
- * Updated:     6th February 2024
+ * Created: 19th September 2006
+ * Updated: 11th August 2024
  *
- * ////////////////////////////////////////////////////////////////////////// */
+ * ////////////////////////////////////////////////////////////////////// */
 
 
 //#define FASTFORMAT_NO_USE_JIT_CACHE
@@ -50,7 +50,7 @@
 # include <stdio.h>
 # include <string.h>
 
-    namespace 
+    namespace
     {
         char    s_realBuffer[1001];
     }
@@ -61,7 +61,7 @@
         {
             int n = ::snprintf(&s_realBuffer[0], STLSOFT_NUM_ELEMENTS(s_realBuffer) - 1, "%G", d);
 
-            if(n < 0)
+            if (n < 0)
             {
                 n = STLSOFT_NUM_ELEMENTS(s_realBuffer) - 1;
             }
@@ -138,21 +138,21 @@
 #endif /* _MSC_VER) && _DEBUG */
 
 
-/* /////////////////////////////////////////////////////////////////////////////
+/* /////////////////////////////////////////////////////////////////////////
  * macros
  */
 
 #define TX(x)       FASTFORMAT_LITERAL_STRING(x)
 
 
-/* /////////////////////////////////////////////////////////////////////////////
+/* /////////////////////////////////////////////////////////////////////////
  * globals
  */
 
 extern "C" const char PANTHEIOS_FE_PROCESS_IDENTITY[] = "test.performance.scenario1";
 
 
-/* /////////////////////////////////////////////////////////////////////////////
+/* /////////////////////////////////////////////////////////////////////////
  * types
  */
 
@@ -162,7 +162,7 @@ extern "C" const char PANTHEIOS_FE_PROCESS_IDENTITY[] = "test.performance.scenar
 //#define PERF_TEST_USE_4_PARAMS_3_STR_1_INT
 
 
-/* ////////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////// */
 
 static int main_(int argc, char** argv)
 {
@@ -211,11 +211,11 @@ static int main_(int argc, char** argv)
 
     // IOStreams
 
-    { for(unsigned j = 0; j < WARMUPS; ++j)
+    { for (unsigned j = 0; j < WARMUPS; ++j)
     {
         length = 0;
         counter.start();
-        { for(unsigned i = 0; i < ITERATIONS; ++i)
+        { for (unsigned i = 0; i < ITERATIONS; ++i)
         {
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
             std::wstringstream   ss;
@@ -247,7 +247,7 @@ static int main_(int argc, char** argv)
 
         tm_IOStreams = counter.get_microseconds();
 
-        if( verbosity >= 3 &&
+        if (verbosity >= 3 &&
             j == WARMUPS - 1)
         {
             ::fprintf(stdout, "IOStreams:  %lu\t(%lu)\n", (unsigned long)tm_IOStreams, (unsigned long)length);
@@ -258,11 +258,11 @@ static int main_(int argc, char** argv)
 #ifdef FASTFORMAT_PERFTEST_USE_BOOST
     // Boost.Format
 
-    { for(unsigned j = 0; j < WARMUPS; ++j)
+    { for (unsigned j = 0; j < WARMUPS; ++j)
     {
         length = 0;
         counter.start();
-        { for(unsigned i = 0; i < ITERATIONS; ++i)
+        { for (unsigned i = 0; i < ITERATIONS; ++i)
         {
 #if defined(PERF_TEST_USE_4_PARAMS_3_STR_1_INT)
             std::string s = boost::str( boost::format("The first param '%1%', and the second '%2%', and the first again '%1%'. Then the third '%3%'. Finally, the last '%4%'") % arg0 % arg1 % arg2 % arg3);
@@ -282,7 +282,7 @@ static int main_(int argc, char** argv)
 
         tm_Boost = counter.get_microseconds();
 
-        if( verbosity >= 3 &&
+        if (verbosity >= 3 &&
             j == WARMUPS - 1)
         {
             ::fprintf(stdout, "Boost.Format: %lu\t(%lu)\n", (unsigned long)tm_Boost, (unsigned long)length);
@@ -294,11 +294,11 @@ static int main_(int argc, char** argv)
 #ifdef FASTFORMAT_PERFTEST_USE_LOKI
     // Loki.SafeFormat
 
-    { for(unsigned j = 0; j < WARMUPS; ++j)
+    { for (unsigned j = 0; j < WARMUPS; ++j)
     {
         length = 0;
         counter.start();
-        { for(unsigned i = 0; i < ITERATIONS; ++i)
+        { for (unsigned i = 0; i < ITERATIONS; ++i)
         {
             std::string s;
 
@@ -320,7 +320,7 @@ static int main_(int argc, char** argv)
 
         tm_Loki = counter.get_microseconds();
 
-        if( verbosity >= 3 &&
+        if (verbosity >= 3 &&
             j == WARMUPS - 1)
         {
             ::fprintf(stdout, "Loki.SafeFormat: %lu\t(%lu)\n", (unsigned long)tm_Loki, (unsigned long)length);
@@ -332,11 +332,11 @@ static int main_(int argc, char** argv)
 #ifdef FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_CSTRING
     // CString::Format()
 
-    { for(unsigned j = 0; j < WARMUPS; ++j)
+    { for (unsigned j = 0; j < WARMUPS; ++j)
     {
         length = 0;
         counter.start();
-        { for(unsigned i = 0; i < ITERATIONS; ++i)
+        { for (unsigned i = 0; i < ITERATIONS; ++i)
         {
             CString s;
 
@@ -361,7 +361,7 @@ static int main_(int argc, char** argv)
 
         tm_CString_Format = counter.get_microseconds();
 
-        if( verbosity >= 3 &&
+        if (verbosity >= 3 &&
             j == WARMUPS - 1)
         {
             ::fprintf(stdout, "CString::Format(): %lu\t(%lu)\n", (unsigned long)tm_CString_Format, (unsigned long)length);
@@ -372,11 +372,11 @@ static int main_(int argc, char** argv)
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_CSTRING */
     // sprintf()
 
-    { for(unsigned j = 0; j < WARMUPS; ++j)
+    { for (unsigned j = 0; j < WARMUPS; ++j)
     {
         length = 0;
         counter.start();
-        { for(unsigned i = 0; i < ITERATIONS; ++i)
+        { for (unsigned i = 0; i < ITERATIONS; ++i)
         {
             char    sz[1001];
 #if defined(PERF_TEST_USE_4_PARAMS_3_STR_1_INT)
@@ -402,7 +402,7 @@ static int main_(int argc, char** argv)
 
         tm_Streams = counter.get_microseconds();
 
-        if( verbosity >= 3 &&
+        if (verbosity >= 3 &&
             j == WARMUPS - 1)
         {
             ::fprintf(stdout, "sprintf():  %lu\t(%lu)\n", (unsigned long)tm_Streams, (unsigned long)length);
@@ -412,11 +412,11 @@ static int main_(int argc, char** argv)
 
     // FastFormat.Format
 
-    { for(unsigned j = 0; j < WARMUPS; ++j)
+    { for (unsigned j = 0; j < WARMUPS; ++j)
     {
         length = 0;
         counter.start();
-        { for(unsigned i = 0; i < ITERATIONS; ++i)
+        { for (unsigned i = 0; i < ITERATIONS; ++i)
         {
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
             std::wstring    s;
@@ -445,7 +445,7 @@ static int main_(int argc, char** argv)
 
         tm_FF_Format = counter.get_microseconds();
 
-        if( verbosity >= 3 &&
+        if (verbosity >= 3 &&
             j == WARMUPS - 1)
         {
             ::fprintf(stdout, "FastFormat.Format: %lu\t(%lu)\n", (unsigned long)tm_FF_Format, (unsigned long)length);
@@ -455,11 +455,11 @@ static int main_(int argc, char** argv)
 
     // FastFormat.Write
 
-    { for(unsigned j = 0; j < WARMUPS; ++j)
+    { for (unsigned j = 0; j < WARMUPS; ++j)
     {
         length = 0;
         counter.start();
-        { for(unsigned i = 0; i < ITERATIONS; ++i)
+        { for (unsigned i = 0; i < ITERATIONS; ++i)
         {
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
             std::wstring    s;
@@ -485,7 +485,7 @@ static int main_(int argc, char** argv)
 
         tm_FF_Write = counter.get_microseconds();
 
-        if( verbosity >= 3 &&
+        if (verbosity >= 3 &&
             j == WARMUPS - 1)
         {
             ::fprintf(stdout, "FastFormat.Write: %lu\t(%lu)\n", (unsigned long)tm_FF_Write, (unsigned long)length);
@@ -499,103 +499,107 @@ static int main_(int argc, char** argv)
 
     fastformat::ignore_unreferenced_arguments_scope scoper;
 
-    switch(verbosity)
+    switch (verbosity)
     {
-        case    0:
-            // no output
-            break;
-        case    1:
-            fmt1 = "";
-            fmt1 += "S:FF.F:\t{0}";
-            fmt1 += "\tIOS:FF.F:\t{1}";
-            fmt1 += "\tFF.W:FF.F:\t{3}";
+    case 0:
+
+        // no output
+        break;
+    case 1:
+
+        fmt1 = "";
+        fmt1 += "S:FF.F:\t{0}";
+        fmt1 += "\tIOS:FF.F:\t{1}";
+        fmt1 += "\tFF.W:FF.F:\t{3}";
 #ifdef FASTFORMAT_PERFTEST_USE_BOOST
-            fmt1 += "\tB.F:FF.F:\t{4}";
+        fmt1 += "\tB.F:FF.F:\t{4}";
 #endif /* FASTFORMAT_PERFTEST_USE_BOOST */
 #ifdef FASTFORMAT_PERFTEST_USE_LOKI
-            fmt1 += "\tL.SF:FF.F:\t{5}";
+        fmt1 += "\tL.SF:FF.F:\t{5}";
 #endif /* FASTFORMAT_PERFTEST_USE_LOKI */
 #ifdef FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_CSTRING
-            fmt1 += "\tMFC.F:FF.F:\t{2}";
+        fmt1 += "\tMFC.F:FF.F:\t{2}";
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_CSTRING */
-            fastformat::fmtln(  std::cout, fmt1
-                            ,   double(tm_Streams) / double(tm_FF_Format)
-                            ,   double(tm_IOStreams) / double(tm_FF_Format)
-                            ,   double(tm_CString_Format) / double(tm_FF_Format)
-                            ,   double(tm_FF_Write) / double(tm_FF_Format)
-                            ,   double(tm_Boost) / double(tm_FF_Format)
-                            ,   double(tm_Loki) / double(tm_FF_Format));
-            fmt1 = "";
-            fmt1 += "S:FF.W:\t{0}";
-            fmt1 += "\tIOS:FF.W:\t{1}";
-            fmt1 += "\tFF.F:FF.W:\t{2}";
+        fastformat::fmtln(  std::cout, fmt1
+                        ,   double(tm_Streams) / double(tm_FF_Format)
+                        ,   double(tm_IOStreams) / double(tm_FF_Format)
+                        ,   double(tm_CString_Format) / double(tm_FF_Format)
+                        ,   double(tm_FF_Write) / double(tm_FF_Format)
+                        ,   double(tm_Boost) / double(tm_FF_Format)
+                        ,   double(tm_Loki) / double(tm_FF_Format));
+        fmt1 = "";
+        fmt1 += "S:FF.W:\t{0}";
+        fmt1 += "\tIOS:FF.W:\t{1}";
+        fmt1 += "\tFF.F:FF.W:\t{2}";
 #ifdef FASTFORMAT_PERFTEST_USE_BOOST
-            fmt1 += "\tB.F:FF.W:\t{3}";
+        fmt1 += "\tB.F:FF.W:\t{3}";
 #endif /* FASTFORMAT_PERFTEST_USE_BOOST */
 #ifdef FASTFORMAT_PERFTEST_USE_LOKI
-            fmt1 += "\tL.SF:FF.W:\t{3}";
+        fmt1 += "\tL.SF:FF.W:\t{3}";
 #endif /* FASTFORMAT_PERFTEST_USE_LOKI */
 #ifdef FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_CSTRING
-            fmt1 += "\tMFC.F:FF.W:\t{4}";
+        fmt1 += "\tMFC.F:FF.W:\t{4}";
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_CSTRING */
-            fastformat::fmtln(  std::cout, fmt1
-                            ,   double(tm_Streams) / double(tm_FF_Write)
-                            ,   double(tm_IOStreams) / double(tm_FF_Write)
-                            ,   double(tm_CString_Format) / double(tm_FF_Write)
-                            ,   double(tm_FF_Format) / double(tm_FF_Write)
-                            ,   double(tm_Boost) / double(tm_FF_Write)
-                            ,   double(tm_Loki) / double(tm_FF_Write));
-            break;
-        case    2:
-            fastformat::fmtln(std::cout, "{0}\tFastFormat.Format\tFastFormat.Write", TestId);
-            fastformat::fmtln(std::cout, "Streams\t{0}\t{1}", double(tm_Streams) / double(tm_FF_Format), double(tm_Streams) / double(tm_FF_Write));
-            fastformat::fmtln(std::cout, "IOStreams\t{0}\t{1}", double(tm_IOStreams) / double(tm_FF_Format), double(tm_IOStreams) / double(tm_FF_Write));
+        fastformat::fmtln(  std::cout, fmt1
+                        ,   double(tm_Streams) / double(tm_FF_Write)
+                        ,   double(tm_IOStreams) / double(tm_FF_Write)
+                        ,   double(tm_CString_Format) / double(tm_FF_Write)
+                        ,   double(tm_FF_Format) / double(tm_FF_Write)
+                        ,   double(tm_Boost) / double(tm_FF_Write)
+                        ,   double(tm_Loki) / double(tm_FF_Write));
+        break;
+    case 2:
+
+        fastformat::fmtln(std::cout, "{0}\tFastFormat.Format\tFastFormat.Write", TestId);
+        fastformat::fmtln(std::cout, "Streams\t{0}\t{1}", double(tm_Streams) / double(tm_FF_Format), double(tm_Streams) / double(tm_FF_Write));
+        fastformat::fmtln(std::cout, "IOStreams\t{0}\t{1}", double(tm_IOStreams) / double(tm_FF_Format), double(tm_IOStreams) / double(tm_FF_Write));
 #ifdef FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_CSTRING
-            fastformat::fmtln(std::cout, "CString::Format\t{0}\t{1}", double(tm_CString_Format) / double(tm_FF_Format), double(tm_CString_Format) / double(tm_FF_Write));
+        fastformat::fmtln(std::cout, "CString::Format\t{0}\t{1}", double(tm_CString_Format) / double(tm_FF_Format), double(tm_CString_Format) / double(tm_FF_Write));
 #else /* ? FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_CSTRING */
-            fastformat::writeln(std::cout, "");
+        fastformat::writeln(std::cout, "");
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_CSTRING */
 #ifdef FASTFORMAT_PERFTEST_USE_BOOST
-            fastformat::fmtln(std::cout, "Boost.Format\t{0}\t{1}", double(tm_Boost) / double(tm_FF_Format), double(tm_Boost) / double(tm_FF_Write));
+        fastformat::fmtln(std::cout, "Boost.Format\t{0}\t{1}", double(tm_Boost) / double(tm_FF_Format), double(tm_Boost) / double(tm_FF_Write));
 #else /* ? FASTFORMAT_PERFTEST_USE_BOOST */
-            fastformat::writeln(std::cout, "");
+        fastformat::writeln(std::cout, "");
 #endif /* FASTFORMAT_PERFTEST_USE_BOOST */
 #ifdef FASTFORMAT_PERFTEST_USE_LOKI
-            fastformat::fmtln(std::cout, "Loki.SafeFormat\t{0}\t{1}", double(tm_Loki) / double(tm_FF_Format), double(tm_Loki) / double(tm_FF_Write));
+        fastformat::fmtln(std::cout, "Loki.SafeFormat\t{0}\t{1}", double(tm_Loki) / double(tm_FF_Format), double(tm_Loki) / double(tm_FF_Write));
 #else /* ? FASTFORMAT_PERFTEST_USE_LOKI */
-            fastformat::writeln(std::cout, "");
+        fastformat::writeln(std::cout, "");
 #endif /* FASTFORMAT_PERFTEST_USE_LOKI */
-            fastformat::fmtln(std::cout, "FastFormat.Format\t{0}\t{1}", "", double(tm_FF_Format) / double(tm_FF_Write));
-            fastformat::fmtln(std::cout, "FastFormat.Write\t{0}\t{1}", double(tm_FF_Write) / double(tm_FF_Format), "");
-            break;
-        case    3:
-            ::puts("");
-            ::fprintf(stdout, "sprintf():FastFormat.Format:         \t%2.04g\n", double(tm_Streams) / double(tm_FF_Format));
-            ::fprintf(stdout, "IOStreams:FastFormat.Format:         \t%2.04g\n", double(tm_IOStreams) / double(tm_FF_Format));
+        fastformat::fmtln(std::cout, "FastFormat.Format\t{0}\t{1}", "", double(tm_FF_Format) / double(tm_FF_Write));
+        fastformat::fmtln(std::cout, "FastFormat.Write\t{0}\t{1}", double(tm_FF_Write) / double(tm_FF_Format), "");
+        break;
+    case 3:
+
+        ::puts("");
+        ::fprintf(stdout, "sprintf():FastFormat.Format:         \t%2.04g\n", double(tm_Streams) / double(tm_FF_Format));
+        ::fprintf(stdout, "IOStreams:FastFormat.Format:         \t%2.04g\n", double(tm_IOStreams) / double(tm_FF_Format));
 #ifdef FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_CSTRING
-            ::fprintf(stdout, "CString::Format():FastFormat.Format: \t%2.04g\n", double(tm_CString_Format) / double(tm_FF_Format));
+        ::fprintf(stdout, "CString::Format():FastFormat.Format: \t%2.04g\n", double(tm_CString_Format) / double(tm_FF_Format));
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_CSTRING */
 #ifdef FASTFORMAT_PERFTEST_USE_BOOST
-            ::fprintf(stdout, "Boost.Format:FastFormat.Format:      \t%2.04g\n", double(tm_Boost) / double(tm_FF_Format));
+        ::fprintf(stdout, "Boost.Format:FastFormat.Format:      \t%2.04g\n", double(tm_Boost) / double(tm_FF_Format));
 #endif /* FASTFORMAT_PERFTEST_USE_BOOST */
 #ifdef FASTFORMAT_PERFTEST_USE_LOKI
-            ::fprintf(stdout, "Loki.SafeFormat:FastFormat.Format:   \t%2.04g\n", double(tm_Loki) / double(tm_FF_Format));
+        ::fprintf(stdout, "Loki.SafeFormat:FastFormat.Format:   \t%2.04g\n", double(tm_Loki) / double(tm_FF_Format));
 #endif /* FASTFORMAT_PERFTEST_USE_LOKI */
-            ::puts("");
-            ::fprintf(stdout, "sprintf():FastFormat.Write:          \t%2.04g\n", double(tm_Streams) / double(tm_FF_Write));
-            ::fprintf(stdout, "IOStreams:FastFormat.Write:          \t%2.04g\n", double(tm_IOStreams) / double(tm_FF_Write));
+        ::puts("");
+        ::fprintf(stdout, "sprintf():FastFormat.Write:          \t%2.04g\n", double(tm_Streams) / double(tm_FF_Write));
+        ::fprintf(stdout, "IOStreams:FastFormat.Write:          \t%2.04g\n", double(tm_IOStreams) / double(tm_FF_Write));
 #ifdef FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_CSTRING
-            ::fprintf(stdout, "CString::Format():FastFormat.Write:  \t%2.04g\n", double(tm_CString_Format) / double(tm_FF_Write));
+        ::fprintf(stdout, "CString::Format():FastFormat.Write:  \t%2.04g\n", double(tm_CString_Format) / double(tm_FF_Write));
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_CSTRING */
 #ifdef FASTFORMAT_PERFTEST_USE_BOOST
-            ::fprintf(stdout, "Boost.Format:FastFormat.Write:       \t%2.04g\n", double(tm_Boost) / double(tm_FF_Write));
+        ::fprintf(stdout, "Boost.Format:FastFormat.Write:       \t%2.04g\n", double(tm_Boost) / double(tm_FF_Write));
 #endif /* FASTFORMAT_PERFTEST_USE_BOOST */
 #ifdef FASTFORMAT_PERFTEST_USE_LOKI
-            ::fprintf(stdout, "Loki.SafeFormat:FastFormat.Write:    \t%2.04g\n", double(tm_Loki) / double(tm_FF_Write));
+        ::fprintf(stdout, "Loki.SafeFormat:FastFormat.Write:    \t%2.04g\n", double(tm_Loki) / double(tm_FF_Write));
 #endif /* FASTFORMAT_PERFTEST_USE_LOKI */
-            ::fprintf(stdout, "\n");
-            ::fprintf(stdout, "FastFormat.Format:FastFormat.Write:  \t%2.04g\n", double(tm_FF_Format) / double(tm_FF_Write));
-            break;
+        ::fprintf(stdout, "\n");
+        ::fprintf(stdout, "FastFormat.Format:FastFormat.Write:  \t%2.04g\n", double(tm_FF_Format) / double(tm_FF_Write));
+        break;
     }
 
     return EXIT_SUCCESS;
@@ -616,7 +620,7 @@ int main(int argc, char *argv[])
 #endif /* _MSC_VER && _MSC_VER */
 
 #if 0
-    { for(size_t i = 0; i < 0xffffffff; ++i){} }
+    { for (size_t i = 0; i < 0xffffffff; ++i){} }
 #endif /* 0 */
 
     try
@@ -626,7 +630,7 @@ int main(int argc, char *argv[])
         puts("test.performance.scenario1: " STLSOFT_COMPILER_LABEL_STRING);
 #endif /* debug */
 
-        if(fastformat::init() < 0)
+        if (fastformat::init() < 0)
         {
             fprintf(stderr, "Failed to initialise FastFormat\n");
 
@@ -639,13 +643,13 @@ int main(int argc, char *argv[])
             fastformat::uninit();
         }
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         fprintf(stderr, "Unhandled error: %s\n", x.what());
 
         res = EXIT_FAILURE;
     }
-    catch(...)
+    catch (...)
     {
         fprintf(stderr, "Unhandled unknown error\n");
 

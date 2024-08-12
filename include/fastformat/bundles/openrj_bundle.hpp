@@ -1,14 +1,15 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/bundles/openrj_bundle.hpp
+ * File:    fastformat/bundles/openrj_bundle.hpp
  *
- * Purpose:     Open-RJ bundle.
+ * Purpose: Open-RJ bundle.
  *
- * Created:     19th September 2006
- * Updated:     10th January 2017
+ * Created: 19th September 2006
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
- * Copyright (c) 2007-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2007-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_BUNDLES_HPP_OPENRJ_BUNDLE
 #define FASTFORMAT_INCL_FASTFORMAT_BUNDLES_HPP_OPENRJ_BUNDLE
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_OPENRJ_BUNDLE_MAJOR      1
 # define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_OPENRJ_BUNDLE_MINOR      0
 # define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_OPENRJ_BUNDLE_REVISION   10
-# define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_OPENRJ_BUNDLE_EDIT       18
+# define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_OPENRJ_BUNDLE_EDIT       23
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -65,6 +68,7 @@
 #ifndef __cplusplus
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -84,6 +88,7 @@
 /* C++ Standard header files */
 #include <stdexcept>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -92,6 +97,7 @@
 namespace fastformat
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * classes
@@ -172,6 +178,7 @@ private:
 /// @}
 };
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * implementation
  */
@@ -197,7 +204,7 @@ openrj_bundle::open_(
                             |   FORCE_ALL_FIELDS_INTO_1_RECORD
                             ;
 
-    if(ignoreCaseOnLookup & flags)
+    if (ignoreCaseOnLookup & flags)
     {
         orjFlags |= IGNORE_CASE_ON_LOOKUP;
     }
@@ -206,7 +213,7 @@ openrj_bundle::open_(
     ORJRC               rc;
     ORJDatabase const*  database;
 
-    if(treatSourceAsMemory & flags)
+    if (treatSourceAsMemory & flags)
     {
         rc = ORJ_CreateDatabaseFromMemory(source, ::strlen(source), NULL, orjFlags, &database, &error);
     }
@@ -215,7 +222,7 @@ openrj_bundle::open_(
         rc = ORJ_ReadDatabase(source, NULL, orjFlags, &database, &error);
     }
 
-    if(ORJ_RC_SUCCESS != rc)
+    if (ORJ_RC_SUCCESS != rc)
     {
         throw DatabaseException(rc, error);
     }
@@ -238,7 +245,7 @@ openrj_bundle::~openrj_bundle() STLSOFT_NOEXCEPT
     using namespace openrj;
 #endif /* !ORJ_NO_NAMESPACE */
 
-    if(NULL != m_database)
+    if (NULL != m_database)
     {
         ORJ_FreeDatabase(m_database);
     }
@@ -258,7 +265,7 @@ openrj_bundle::operator [](
 
     ORJField const* const field = ORJ_Record_FindFieldByNameA(&m_database->records[0], name, NULL);
 
-    if(NULL == field)
+    if (NULL == field)
     {
         throw std::out_of_range("format string not found");
     }
@@ -268,6 +275,7 @@ openrj_bundle::operator [](
 
 #endif /* FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -276,8 +284,17 @@ openrj_bundle::operator [](
 } /* namespace fastformat */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
-/* ////////////////////////////////////////////////////////////////////////// */
+
+/* /////////////////////////////////////////////////////////////////////////
+ * inclusion control
+ */
+
+#ifdef STLSOFT_PPF_pragma_once_SUPPORT
+# pragma once
+#endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
 #endif /* FASTFORMAT_INCL_FASTFORMAT_BUNDLES_HPP_OPENRJ_BUNDLE */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

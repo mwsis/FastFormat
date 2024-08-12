@@ -1,14 +1,15 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/sinks/vectored_file.hpp
+ * File:    fastformat/sinks/vectored_file.hpp
  *
- * Purpose:     A FastFormat sink for the UNIX writev() vector I/O function.
+ * Purpose: A FastFormat sink for the UNIX writev() vector I/O function.
  *
- * Created:     24th November 2007
- * Updated:     5th February 2012
+ * Created: 24th November 2007
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
- * Copyright (c) 2007-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2007-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_VECTORED_FILE
 #define FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_VECTORED_FILE
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_VECTORED_FILE_MAJOR     1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_VECTORED_FILE_MINOR     1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_VECTORED_FILE_REVISION  3
-# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_VECTORED_FILE_EDIT      24
+# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_VECTORED_FILE_EDIT      28
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -65,6 +68,7 @@
 #ifndef __cplusplus
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -85,6 +89,7 @@
 #include <string>
 #include <sys/uio.h>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -95,6 +100,7 @@ namespace fastformat
 namespace sinks
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * classes
@@ -129,18 +135,18 @@ public:
         stlsoft::auto_buffer<iovec>     vectors(numResults + 2);
 
 #ifdef STLSOFT_CF_THROW_BAD_ALLOC
-        if(!vectors.empty())
+        if (!vectors.empty())
 #endif /* STLSOFT_CF_THROW_BAD_ALLOC */
         {
             FASTFORMAT_CONTRACT_ENFORCE_PRECONDITION_PARAMS_APPL_LAYER(vectors.size() == numResults + 2, "vec array must be equal to 2 + the number of results");
 
-            { for(size_t i = 0; i != vectors.size() - 2; ++i)
+            { for (size_t i = 0; i != vectors.size() - 2; ++i)
             {
                 vectors[i].iov_base =   const_cast<char*>(results[i].ptr);
                 vectors[i].iov_len  =   results[i].len;
             }}
 
-            if(!m_delim.empty())
+            if (!m_delim.empty())
             {
                 vectors[vectors.size() - 2].iov_base    =   const_cast<char*>(m_delim.data());
                 vectors[vectors.size() - 2].iov_len     =   m_delim.size();
@@ -150,7 +156,7 @@ public:
                 vectors.resize(vectors.size() - 1);
             }
 
-            if(flags::ff_newLine & flags)
+            if (flags::ff_newLine & flags)
             {
                 const ff_string_slice_t crlf = fastformat_getNewlineForPlatform();
 
@@ -162,7 +168,7 @@ public:
                 vectors.resize(vectors.size() - 1);
             }
 
-            if(::writev(m_fh, &vectors[0], static_cast<int>(vectors.size())) < 0)
+            if (::writev(m_fh, &vectors[0], static_cast<int>(vectors.size())) < 0)
             {
 #ifdef STLSOFT_CF_EXCEPTION_SUPPORT
                 throw platformstl::platform_exception("failed to write vectored payload", errno);
@@ -170,7 +176,7 @@ public:
             }
 
 #if 0
-            if(flags::ff_flush & flags)
+            if (flags::ff_flush & flags)
             {
                 ::flush(m_fh);
             }
@@ -185,6 +191,7 @@ private:
     std::string m_delim;
 };
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * action shims
  */
@@ -197,6 +204,7 @@ inline vectored_file_sink& fmt_slices(vectored_file_sink& sink, int flags, size_
     return sink.write(numResults, results, flags);
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -206,6 +214,7 @@ inline vectored_file_sink& fmt_slices(vectored_file_sink& sink, int flags, size_
 } /* namespace fastformat */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -214,8 +223,8 @@ inline vectored_file_sink& fmt_slices(vectored_file_sink& sink, int flags, size_
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_VECTORED_FILE */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

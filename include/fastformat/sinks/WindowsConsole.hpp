@@ -1,14 +1,15 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/sinks/WindowsConsole.hpp
+ * File:    fastformat/sinks/WindowsConsole.hpp
  *
- * Purpose:     A FastFormat sink for coloured output via Windows' console.
+ * Purpose: A FastFormat sink for coloured output via Windows' console.
  *
- * Created:     6th January 2011
- * Updated:     10th January 2017
+ * Created: 6th January 2011
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
- * Copyright (c) 2011-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2011-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_WINDOWSCONSOLE
 #define FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_WINDOWSCONSOLE
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_WINDOWSCONSOLE_MAJOR    1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_WINDOWSCONSOLE_MINOR    0
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_WINDOWSCONSOLE_REVISION 2
-# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_WINDOWSCONSOLE_EDIT     5
+# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_WINDOWSCONSOLE_EDIT     8
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -65,6 +68,7 @@
 #ifndef __cplusplus
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -83,6 +87,7 @@
 
 #include <windows.h>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -93,6 +98,7 @@ namespace fastformat
 namespace sinks
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * classes
@@ -131,7 +137,7 @@ public:
         stlsoft::auto_buffer<ff_char_t> text(cchTotal + 1u + 2u);
 
 #ifndef STLSOFT_CF_THROW_BAD_ALLOC
-        if(text.empty())
+        if (text.empty())
         {
         }
         else
@@ -139,7 +145,7 @@ public:
         {
             concat_slices(text, numResults, results);
 
-            if(flags::ff_newLine & flags)
+            if (flags::ff_newLine & flags)
             {
                 const ff_string_slice_t crlf = fastformat_getNewlineForPlatform();
 
@@ -183,6 +189,7 @@ private:
     WORD const      m_textAttributes;
 };
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * creator functions
  */
@@ -205,6 +212,7 @@ inline WindowsConsole_sink WindowsConsole(WORD textAttributes)
     return WindowsConsole_sink(::GetStdHandle(STD_OUTPUT_HANDLE), textAttributes);
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * action shims
  */
@@ -220,6 +228,7 @@ inline WindowsConsole_sink& fmt_slices(WindowsConsole_sink& sink, int flags, siz
     return sink.write(flags, cchTotal, numResults, results);
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -229,6 +238,7 @@ inline WindowsConsole_sink& fmt_slices(WindowsConsole_sink& sink, int flags, siz
 } /* namespace fastformat */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -237,8 +247,8 @@ inline WindowsConsole_sink& fmt_slices(WindowsConsole_sink& sink, int flags, siz
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_WINDOWSCONSOLE */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        src/api.cpp
+ * File:    src/api.cpp
  *
- * Purpose:     Implementation file for FastFormat core API: API init.
+ * Purpose: Implementation file for FastFormat core API: API init.
  *
- * Created:     20th November 2007
- * Updated:     6th February 2024
+ * Created: 20th November 2007
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2007-2019, Matthew Wilson and Synesis Software
@@ -209,7 +209,7 @@ namespace
     // 1. Memory Pool
         int res = ximpl_core::fastformat_impl_memoryPool_init(&s_stateMemoryPool);
 
-        if(res >= 0)
+        if (res >= 0)
         {
             FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -218,7 +218,7 @@ namespace
     // 2. Format Cache
             res = ximpl_core::fastformat_impl_formatCache_init(&s_stateFormatCache);
 
-            if(res >= 0)
+            if (res >= 0)
             {
                 FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -227,7 +227,7 @@ namespace
     // 3. Replacements
                 res = ximpl_core::fastformat_impl_replacements_init(&s_stateReplacements);
 
-                if(res >= 0)
+                if (res >= 0)
                 {
                     FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -236,7 +236,7 @@ namespace
     // 4. Defect Handlers
                     res = ximpl_core::fastformat_impl_handlers_init(&s_stateDefectHandlers);
 
-                    if(res >= 0)
+                    if (res >= 0)
                     {
                         FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -316,7 +316,7 @@ FASTFORMAT_CALL(int) fastformat_init()
 
     FASTFORMAT_CONTRACT_ENFORCE_GLOBAL_INVARIANT_API(!s_isInitialising, "can only have one thread through the initialisation sequence");
 
-    if(1 == ++s_apiInit)
+    if (1 == ++s_apiInit)
     {
         FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -334,9 +334,9 @@ FASTFORMAT_CALL(int) fastformat_init()
     FASTFORMAT_CONTRACT_ENFORCE_GLOBAL_INVARIANT_API(!s_isInitialising, "can only have one thread through the initialisation sequence");
 
 # ifdef FASTFORMAT_MT
-    if(NULL == s_pmxApi)
+    if (NULL == s_pmxApi)
 # else /* ? FASTFORMAT_MT */
-    if(0 == s_apiInit)
+    if (0 == s_apiInit)
 # endif /* FASTFORMAT_MT */
     {
         FASTFORMAT_COVER_MARK_ENTRY();
@@ -353,7 +353,7 @@ FASTFORMAT_CALL(int) fastformat_init()
 # ifdef FASTFORMAT_MT
             s_pmxApi = new(&s_mx1_.bytes[0]) ::platformstl::thread_mutex(false);
 
-            if(NULL == s_pmxApi)
+            if (NULL == s_pmxApi)
             {
                 FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -370,7 +370,7 @@ FASTFORMAT_CALL(int) fastformat_init()
 
                 s_init = fastformat_init_onetime();
 
-                if(s_init < 0)
+                if (s_init < 0)
                 {
                     FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -393,12 +393,12 @@ FASTFORMAT_CALL(int) fastformat_init()
 
 # ifdef STLSOFT_CF_EXCEPTION_SUPPORT
         }
-        catch(...)
+        catch (...)
         {
             FASTFORMAT_COVER_MARK_ENTRY();
 
 # ifdef FASTFORMAT_MT
-            if(NULL != s_pmxApi)
+            if (NULL != s_pmxApi)
             {
                 FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -451,7 +451,7 @@ FASTFORMAT_CALL(void) fastformat_uninit()
     stlsoft::lock_scope<platformstl::spin_mutex>    lock(mx);
 # endif /* FASTFORMAT_MT */
 
-    if(0 == --s_apiInit)
+    if (0 == --s_apiInit)
     {
         FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -473,7 +473,7 @@ FASTFORMAT_CALL(void) fastformat_uninit()
         stlsoft::lock_scope< ::platformstl::thread_mutex>  lock(*s_pmxApi);
 # endif /* FASTFORMAT_MT */
 
-        if(0 == --s_apiInit)
+        if (0 == --s_apiInit)
         {
             FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -481,7 +481,7 @@ FASTFORMAT_CALL(void) fastformat_uninit()
         }
     }
 
-    if(bLast)
+    if (bLast)
     {
         FASTFORMAT_COVER_MARK_ENTRY();
 

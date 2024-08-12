@@ -4,11 +4,12 @@
  * Purpose:     FastFormat Core API C++ utilities and overloads.
  *
  * Created:     18th September 2006
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2006-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2006-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -51,6 +52,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_INTERNAL_H_FASTFORMAT_Cplusplus
 #define FASTFORMAT_INCL_FASTFORMAT_INTERNAL_H_FASTFORMAT_Cplusplus
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -59,8 +61,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_INTERNAL_H_FASTFORMAT_Cplusplus_MAJOR    2
 # define FASTFORMAT_VER_FASTFORMAT_INTERNAL_H_FASTFORMAT_Cplusplus_MINOR    0
 # define FASTFORMAT_VER_FASTFORMAT_INTERNAL_H_FASTFORMAT_Cplusplus_REVISION 1
-# define FASTFORMAT_VER_FASTFORMAT_INTERNAL_H_FASTFORMAT_Cplusplus_EDIT     103
+# define FASTFORMAT_VER_FASTFORMAT_INTERNAL_H_FASTFORMAT_Cplusplus_EDIT     106
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -72,6 +75,7 @@
 #ifdef FASTFORMAT_NO_NAMESPACE
 # error This file cannot be included when FastFormat namespace support is suppressed
 #endif
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * C++ API Functions
@@ -194,6 +198,7 @@ inline string_slice_t getNewlineForPlatform()
     return fastformat_getNewlineForPlatform();
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -202,8 +207,8 @@ inline string_slice_t getNewlineForPlatform()
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* FASTFORMAT_INCL_FASTFORMAT_INTERNAL_H_FASTFORMAT_Cplusplus */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

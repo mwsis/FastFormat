@@ -4,11 +4,12 @@
  * Purpose:     Inserter functions for character types.
  *
  * Created:     7th December 2010
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2010-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2010-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_CH
 #define FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_CH
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_CH_MAJOR     1
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_CH_MINOR     0
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_CH_REVISION  1
-# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_CH_EDIT      4
+# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_CH_EDIT      7
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -64,6 +67,7 @@
 
 #include <fastformat/fastformat.h>
 #include <fastformat/inserters/character.hpp>
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -75,6 +79,7 @@ namespace fastformat
 namespace inserters
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * types
@@ -93,6 +98,7 @@ inline ximpl_character::character_state ch(
     return character(value);
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -103,6 +109,7 @@ using ::fastformat::inserters::ch;
 } // namespace fastformat
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -111,8 +118,8 @@ using ::fastformat::inserters::ch;
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_CH */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

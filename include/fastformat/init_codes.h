@@ -4,11 +4,12 @@
  * Purpose:     Initialisation codes.
  *
  * Created:     27th May 2008
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.include.org/
  *
- * Copyright (c) 2008-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -49,6 +50,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_H_ERROR_CODES
 #define FASTFORMAT_INCL_FASTFORMAT_H_ERROR_CODES
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -57,8 +59,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_H_ERROR_CODES_MAJOR      1
 # define FASTFORMAT_VER_FASTFORMAT_H_ERROR_CODES_MINOR      0
 # define FASTFORMAT_VER_FASTFORMAT_H_ERROR_CODES_REVISION   1
-# define FASTFORMAT_VER_FASTFORMAT_H_ERROR_CODES_EDIT       7
+# define FASTFORMAT_VER_FASTFORMAT_H_ERROR_CODES_EDIT       10
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -67,6 +70,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_H_FASTFORMAT
 # include <include/include.h>
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_H_FASTFORMAT */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * documentation
@@ -79,6 +83,7 @@
  * Status codes for use by the implementors of the various sub-systems.
  */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * status codes
  */
@@ -89,7 +94,7 @@
  *
  * \ingroup group__status_codes
  */
-#define FASTFORMAT_INIT_RC_SUCCESS                       (0)
+#define FASTFORMAT_INIT_RC_SUCCESS                          (0)
 
 /** \def FASTFORMAT_INIT_RC_OUT_OF_MEMORY
  *
@@ -97,7 +102,7 @@
  *
  * \ingroup group__status_codes
  */
-#define FASTFORMAT_INIT_RC_OUT_OF_MEMORY                 (-1)
+#define FASTFORMAT_INIT_RC_OUT_OF_MEMORY                    (-1)
 
 /** \def FASTFORMAT_INIT_RC_UNSPECIFIED_EXCEPTION
  *
@@ -105,7 +110,7 @@
  *
  * \ingroup group__status_codes
  */
-#define FASTFORMAT_INIT_RC_UNSPECIFIED_EXCEPTION         (-2)
+#define FASTFORMAT_INIT_RC_UNSPECIFIED_EXCEPTION            (-2)
 
 /** \def FASTFORMAT_INIT_RC_UNKNOWN_ERROR
  *
@@ -113,7 +118,7 @@
  *
  * \ingroup group__status_codes
  */
-#define FASTFORMAT_INIT_RC_UNKNOWN_ERROR                 (-3)
+#define FASTFORMAT_INIT_RC_UNKNOWN_ERROR                    (-3)
 
 /** \def FASTFORMAT_INIT_RC_UNSPECIFIED_ERROR
  *
@@ -121,7 +126,7 @@
  *
  * \ingroup group__status_codes
  */
-#define FASTFORMAT_INIT_RC_UNSPECIFIED_ERROR             (-4)
+#define FASTFORMAT_INIT_RC_UNSPECIFIED_ERROR                (-4)
 
 /** \def FASTFORMAT_INIT_RC_NOT_IMPLEMENTED
  *
@@ -129,7 +134,7 @@
  *
  * \ingroup group__status_codes
  */
-#define FASTFORMAT_INIT_RC_NOT_IMPLEMENTED               (-5)
+#define FASTFORMAT_INIT_RC_NOT_IMPLEMENTED                  (-5)
 
 /** \def FASTFORMAT_INIT_RC_CANNOT_CREATE_TSS_INDEX
  *
@@ -138,7 +143,7 @@
  *
  * \ingroup group__status_codes
  */
-#define FASTFORMAT_INIT_RC_CANNOT_CREATE_TSS_INDEX       (-6)
+#define FASTFORMAT_INIT_RC_CANNOT_CREATE_TSS_INDEX          (-6)
 
 /** \def FASTFORMAT_INIT_RC_CANNOT_CREATE_THREAD
  *
@@ -147,10 +152,11 @@
  *
  * \ingroup group__status_codes
  */
-#define FASTFORMAT_INIT_RC_CANNOT_CREATE_THREAD          (-7)
+#define FASTFORMAT_INIT_RC_CANNOT_CREATE_THREAD             (-7)
 
 /* ////////////////////////////////////////////////////////////////////// */
 
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_H_ERROR_CODES */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

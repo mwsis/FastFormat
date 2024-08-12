@@ -1,19 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.shims_and_namespaces.with_namespace.cpp
+ * File:    test.unit.shims_and_namespaces.with_namespace.cpp
  *
- * Purpose:     With-namespace implementation file for the test.unit.shims_and_namespaces project.
+ * Purpose: With-namespace implementation file for the test.unit.shims_and_namespaces project.
  *
- * Created:     11th November 2013
- * Updated:     21st January 2017
- *
- * Status:      Wizard-generated
- *
- * License:     (Licensed under the Synesis Software Open License)
- *
- *              Copyright (c) 2013-2017, Synesis Software Pty Ltd.
- *              All rights reserved.
- *
- *              www:        http://www.synesis.com.au/software
+ * Created: 11th November 2013
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -74,7 +65,7 @@ namespace with_fastformat_namespace
 # define XTESTS_TEST_STRING_EQUAL_N(s1, s2, n)      XTESTS_TEST_MULTIBYTE_STRING_EQUAL_N(s1, s2, n)
 # define XTESTS_TEST_STRING_CONTAIN_APPROX_(s1, s2) XTESTS_TEST_MULTIBYTE_STRING_CONTAIN_APPROX(FASTFORMAT_LITERAL_STRING(s1), s2)
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
-#define FF_STR                                  FASTFORMAT_LITERAL_STRING
+#define FF_STR                                              FASTFORMAT_LITERAL_STRING
 
 #ifndef FASTFORMAT_NO_NAMESPACE
     using fastformat::ff_char_t;
@@ -138,7 +129,7 @@ void test_parse_code_1()
         ,   FF_PARSECODE_INVALIDINDEX
     };
 
-    { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(parseCodes); ++i)
+    { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(parseCodes); ++i)
     {
         ff_parse_code_t const   code    =   parseCodes[i];
         ff_char_t const* const  ptr     =   fastformat_getParseCodeString(code);
@@ -180,7 +171,7 @@ void test_replacement_code_1()
         ,   FF_REPLACEMENTCODE_UNREFERENCED_ARGUMENT
     };
 
-    { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(replacementCodes); ++i)
+    { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(replacementCodes); ++i)
     {
         ff_replacement_code_t const code    =   replacementCodes[i];
         ff_char_t const* const      ptr     =   fastformat_getReplacementCodeString(code);
@@ -218,3 +209,4 @@ void test_replacement_code_3()
 } // extern "C++"
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

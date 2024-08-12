@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.bundle.winini.cpp
+ * File:    test.unit.bundle.winini.cpp
  *
- * Purpose:     Implementation file for the test.unit.bundle.winini project.
+ * Purpose: Implementation file for the test.unit.bundle.winini project.
  *
- * Created:     12th April 2008
- * Updated:     6th February 2024
+ * Created: 12th April 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -40,23 +40,27 @@
 #include <fastformat/test/util/compiler_warnings_suppression.last_include.h>
 
 
-/* /////////////////////////////////////////////////////////////////////////////
+/* /////////////////////////////////////////////////////////////////////////
  * macros and definitions
  */
 
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-# define XTESTS_TEST_STRING_EQUAL(x, a)     XTESTS_TEST_WIDE_STRING_EQUAL(FASTFORMAT_LITERAL_STRING(x), a)
+
+# define XTESTS_TEST_STRING_EQUAL(x, a)                     XTESTS_TEST_WIDE_STRING_EQUAL(FASTFORMAT_LITERAL_STRING(x), a)
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
-# define XTESTS_TEST_STRING_EQUAL           XTESTS_TEST_MULTIBYTE_STRING_EQUAL
+
+# define XTESTS_TEST_STRING_EQUAL                           XTESTS_TEST_MULTIBYTE_STRING_EQUAL
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
 
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-# define t2m        stlsoft::w2m
+
+# define t2m                                                stlsoft::w2m
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
-# define t2m(x)     x
+
+# define t2m(x)                                             x
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
 
-#define FF_STR(x)                           FASTFORMAT_LITERAL_STRING(x)
+#define FF_STR(x)                                           FASTFORMAT_LITERAL_STRING(x)
 
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -67,7 +71,7 @@ namespace
 {
     using   fastformat::ff_char_t;
 
-#define WININI_UNITTEST_FILE_NAME_          "./test.unit.bundle.winini.ini"
+#define WININI_UNITTEST_FILE_NAME_                          "./test.unit.bundle.winini.ini"
     static const ff_char_t   WININI_UNITTEST_FILE_NAME[] = FF_STR(WININI_UNITTEST_FILE_NAME_);
 
     static void test_1_1();
@@ -82,6 +86,7 @@ namespace
 } /* anonymous namespace */
 
 
+
 /* ////////////////////////////////////////////////////////////////////// */
 
 int main(int argc, char **argv)
@@ -91,12 +96,12 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.unit.bundle.winini", verbosity))
+    if (XTESTS_START_RUNNER("test.unit.bundle.winini", verbosity))
     {
         // Prepare the ini file
         FILE*   stm = ::fopen(WININI_UNITTEST_FILE_NAME_, "w");
 
-        if(NULL == stm)
+        if (NULL == stm)
         {
             retCode = EXIT_FAILURE;
         }
@@ -203,6 +208,7 @@ static void test_1_8()
 
 
 } /* anonymous namespace */
+
 
 
 /* ///////////////////////////// end of file //////////////////////////// */

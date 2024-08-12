@@ -1,13 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.component.inserter.real.cpp
+ * File:    test.component.inserter.real.cpp
  *
- * Purpose:     Implementation file for the test.component.inserter.real project.
+ * Purpose: Implementation file for the test.component.inserter.real project.
  *
- * Created:     26th April 2008
- * Updated:     6th February 2024
+ * Created: 26th April 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
-
 
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -143,7 +142,6 @@ namespace
     static void test_3_20(void);
     static void test_3_28(void);
     static void test_3_29(void);
-
 } /* anonymous namespace */
 
 
@@ -249,10 +247,10 @@ int main(int argc, char **argv)
     fprintf(stderr, "%%-189.172g: [%-189.172g]\n", 12345.67);
     fprintf(stderr, "\n");
 
-    if(argc > 0)    return EXIT_SUCCESS;
+    if (argc > 0)    return EXIT_SUCCESS;
 #endif /* 0 */
 
-    if(XTESTS_START_RUNNER("test.component.inserter.real", verbosity))
+    if (XTESTS_START_RUNNER("test.component.inserter.real", verbosity))
     {
         XTESTS_RUN_CASE(test_1_0);
         XTESTS_RUN_CASE(test_1_1);
@@ -353,16 +351,18 @@ namespace
     typedef std::basic_string<ff_char_t>    string_t;
 
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-# define XTESTS_TEST_STRING_EQUAL(x, a)         XTESTS_TEST_WIDE_STRING_EQUAL(FASTFORMAT_LITERAL_STRING(x), a)
-# define XTESTS_TEST_STRING_EQUAL_N(x, a, n)    XTESTS_TEST_WIDE_STRING_EQUAL_N(FASTFORMAT_LITERAL_STRING(x), a, n)
-# define XTESTS_TEST_STRING_CONTAIN(x, a)       XTESTS_TEST_WIDE_STRING_CONTAIN(FASTFORMAT_LITERAL_STRING(x), a)
+
+# define XTESTS_TEST_STRING_EQUAL(x, a)                     XTESTS_TEST_WIDE_STRING_EQUAL(FASTFORMAT_LITERAL_STRING(x), a)
+# define XTESTS_TEST_STRING_EQUAL_N(x, a, n)                XTESTS_TEST_WIDE_STRING_EQUAL_N(FASTFORMAT_LITERAL_STRING(x), a, n)
+# define XTESTS_TEST_STRING_CONTAIN(x, a)                   XTESTS_TEST_WIDE_STRING_CONTAIN(FASTFORMAT_LITERAL_STRING(x), a)
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
-# define XTESTS_TEST_STRING_EQUAL               XTESTS_TEST_MULTIBYTE_STRING_EQUAL
-# define XTESTS_TEST_STRING_EQUAL_N             XTESTS_TEST_MULTIBYTE_STRING_EQUAL_N
-# define XTESTS_TEST_STRING_CONTAIN             XTESTS_TEST_MULTIBYTE_STRING_CONTAIN
+
+# define XTESTS_TEST_STRING_EQUAL                           XTESTS_TEST_MULTIBYTE_STRING_EQUAL
+# define XTESTS_TEST_STRING_EQUAL_N                         XTESTS_TEST_MULTIBYTE_STRING_EQUAL_N
+# define XTESTS_TEST_STRING_CONTAIN                         XTESTS_TEST_MULTIBYTE_STRING_CONTAIN
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
 
-#define FF_STR                                  FASTFORMAT_LITERAL_STRING
+#define FF_STR                                              FASTFORMAT_LITERAL_STRING
 
     inline double str_to_double(ff_char_t const* s)
     {
@@ -375,7 +375,7 @@ namespace
         result = ::strtod(s, &endptr);
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
 
-        if( NULL == endptr ||
+        if (NULL == endptr ||
             '\0' != *endptr)
         {
             result = HUGE_VAL;
@@ -395,24 +395,26 @@ namespace
 
         STLSOFT_SUPPRESS_UNUSED(prev2); // Silly old Borland
 
-        { for(size_t i = 0; i != len; ++i)
+        { for (size_t i = 0; i != len; ++i)
         {
             const ff_char_t ch = s[i];
 
-            if('0' == ch)
+            if ('0' == ch)
             {
-                switch(prev1)
+                switch (prev1)
                 {
-                    case    '-':
-                    case    '+':
-                        break;
-                    default:
-                        prev2 = prev1;
-                        prev1 = ch;
-                        result.append(1u, ch);
+                case '-':
+                case '+':
 
-                        STLSOFT_SUPPRESS_UNUSED(prev2); // Silly old Borland
-                        break;
+                    break;
+                default:
+
+                    prev2 = prev1;
+                    prev1 = ch;
+                    result.append(1u, ch);
+
+                    STLSOFT_SUPPRESS_UNUSED(prev2); // Silly old Borland
+                    break;
                 }
             }
             else

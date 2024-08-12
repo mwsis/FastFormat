@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.scratch.format_iterator.cpp
+ * File:    test.scratch.format_iterator.cpp
  *
- * Purpose:     Implementation file for the test.scratch.format_iterator project.
+ * Purpose: Implementation file for the test.scratch.format_iterator project.
  *
- * Created:     20th May 2009
- * Updated:     6th February 2024
+ * Created: 20th May 2009
+ * Updated: 12th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -28,7 +28,7 @@
 /* UNIXem Header Files */
 #if defined(_WIN32) || \
     defined(_WIN64)
-# include <unixem/unixem.h>
+// # include <unixem/unixem.h>
 #endif /* Win32 || Win64 */
 
 /* Standard C++ Header Files */
@@ -51,8 +51,8 @@
  * types
  */
 
-typedef std::string             string_t;
-typedef std::vector<string_t>   strings_t;
+typedef std::string                                         string_t;
+typedef std::vector<string_t>                               strings_t;
 
 
 /* ////////////////////////////////////////////////////////////////////// */
@@ -143,7 +143,7 @@ int main(int argc, char** argv)
 #endif /* _MSC_VER && _MSC_VER */
 
 #if 0
-    { for(size_t i = 0; i < 0xffffffff; ++i){} }
+    { for (size_t i = 0; i < 0xffffffff; ++i){} }
 #endif /* 0 */
 
     try
@@ -155,13 +155,13 @@ int main(int argc, char** argv)
 
         res = main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         std::cerr << "Unhandled error: " << x.what() << std::endl;
 
         res = EXIT_FAILURE;
     }
-    catch(...)
+    catch (...)
     {
         std::cerr << "Unhandled unknown error" << std::endl;
 

@@ -1,14 +1,15 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/shims/conversion/filter_type/bool.hpp
+ * File:    fastformat/shims/conversion/filter_type/bool.hpp
  *
- * Purpose:     FastFormat argument conversion shim for bool type.
+ * Purpose: FastFormat argument conversion shim for bool type.
  *
- * Created:     2nd June 2008
- * Updated:     10th January 2017
+ * Created: 2nd June 2008
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
- * Copyright (c) 2008-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_SHIMS_CONVERSION_FILTER_TYPE_HPP_BOOL
 #define FASTFORMAT_INCL_FASTFORMAT_SHIMS_CONVERSION_FILTER_TYPE_HPP_BOOL
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_SHIMS_CONVERSION_FILTER_TYPE_HPP_BOOL_MAJOR      1
 # define FASTFORMAT_VER_FASTFORMAT_SHIMS_CONVERSION_FILTER_TYPE_HPP_BOOL_MINOR      0
 # define FASTFORMAT_VER_FASTFORMAT_SHIMS_CONVERSION_FILTER_TYPE_HPP_BOOL_REVISION   3
-# define FASTFORMAT_VER_FASTFORMAT_SHIMS_CONVERSION_FILTER_TYPE_HPP_BOOL_EDIT       8
+# define FASTFORMAT_VER_FASTFORMAT_SHIMS_CONVERSION_FILTER_TYPE_HPP_BOOL_EDIT       12
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -66,6 +69,7 @@
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * includes
  */
@@ -73,6 +77,7 @@
 #include <fastformat/fastformat.h>
 #include <fastformat/internal/stlsoft.h>
 #include <fastformat/quality/contract.h>
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -84,6 +89,7 @@ namespace fastformat
 namespace filters
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * helpers
@@ -102,7 +108,7 @@ namespace ximpl_bool
  * bool
  */
 
-/** Filtering conversion shim function for implicitly adapting 
+/** Filtering conversion shim function for implicitly adapting
  *  <code>bool</code> format arguments.
  */
 #if 0
@@ -118,7 +124,7 @@ namespace ximpl_bool
         // The following implementation is valid only because the string
         // literals go into the program data section, and are available
         // throughout the lifetime of the process.
-        if(value)
+        if (value)
         {
             result.len  =   4;
             result.ptr  =   FASTFORMAT_LITERAL_STRING("True");
@@ -133,6 +139,7 @@ namespace ximpl_bool
     }
 #endif /* 0 */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -142,6 +149,7 @@ namespace ximpl_bool
 } /* namespace fastformat */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -150,8 +158,8 @@ namespace ximpl_bool
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SHIMS_CONVERSION_FILTER_TYPE_HPP_BOOL */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

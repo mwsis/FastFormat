@@ -5,11 +5,12 @@
  *              constants
  *
  * Created:     6th November 2008
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2008-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -53,11 +54,13 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_INTERNAL_H_FORMAT_ELEMENT
 #define FASTFORMAT_INCL_FASTFORMAT_INTERNAL_H_FORMAT_ELEMENT
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * includes
  */
 
 #include <fastformat/fastformat.h>
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -68,16 +71,18 @@ namespace fastformat
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * constants and definitions
  */
 
 #ifndef FASTFORMAT_DOCUMENTATION_SKIP_SECTION
 
-#define FASTFORMAT_INTERNAL_FORMAT_ELEMENT_INDEX_LITERAL_       (-1)
-#define FASTFORMAT_INTERNAL_FORMAT_ELEMENT_INDEX_INVALID_       (-2)
+#define FASTFORMAT_INTERNAL_FORMAT_ELEMENT_INDEX_LITERAL_   (-1)
+#define FASTFORMAT_INTERNAL_FORMAT_ELEMENT_INDEX_INVALID_   (-2)
 
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * types
@@ -142,6 +147,7 @@ struct ff_format_element_t
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
 };
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -155,3 +161,4 @@ struct ff_format_element_t
 #endif /* FASTFORMAT_INCL_FASTFORMAT_INTERNAL_H_FORMAT_ELEMENT */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

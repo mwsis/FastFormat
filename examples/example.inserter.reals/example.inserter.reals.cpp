@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        example.inserter.reals.cpp
+ * File:    example.inserter.reals.cpp
  *
- * Purpose:     Implementation file for the example.inserter.reals project.
+ * Purpose: Implementation file for the example.inserter.reals project.
  *
- * Created:     2nd June 2008
- * Updated:     6th February 2024
+ * Created: 2nd June 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -43,14 +43,14 @@ static int main_(int /* argc */, char** /*argv*/)
 {
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
 
-# define    stm     std::wcout
+# define    stm                                             std::wcout
 
     ff::fmtln(stm, L"e={0}; f={1}; g={2}", ff::to_e(+12345.6789), ff::to_f(+12345.6789), ff::to_g(+12345.6789));
     ff::writeln(stm, L"e=", ff::to_e(-12345.6789), L"; f=", ff::to_f(-12345.6789), L"; g=", ff::to_g(-12345.6789));
 
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
 
-# define    stm     std::cout
+# define    stm                                             std::cout
 
     ff::fmtln(stm, "e={0}; f={1}; g={2}", ff::to_e(+12345.6789), ff::to_f(+12345.6789), ff::to_g(+12345.6789));
     ff::writeln(stm, "e=", ff::to_e(-12345.6789), "; f=", ff::to_f(-12345.6789), "; g=", ff::to_g(-12345.6789));
@@ -66,11 +66,11 @@ int main(int argc, char** argv)
     {
         return main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         cerr << "Unhandled error: " << x.what() << endl;
     }
-    catch(...)
+    catch (...)
     {
         cerr << "Unhandled unknown error" << endl;
     }

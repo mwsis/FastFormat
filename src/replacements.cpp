@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        src/replacements.cpp
+ * File:    src/replacements.cpp
  *
- * Purpose:     Implementation file for FastFormat core API: replacements.
+ * Purpose: Implementation file for FastFormat core API: replacements.
  *
- * Created:     18th September 2006
- * Updated:     6th February 2024
+ * Created: 18th September 2006
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2006-2019, Matthew Wilson and Synesis Software
@@ -55,6 +55,7 @@
 # define UNIXSTL_NO_ATOMIC_INTEGER_OPERATIONS_ON_WINDOWS
 #endif
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * compatibility
  */
@@ -66,6 +67,7 @@
 # endif
 #else
 #endif
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes - 1
@@ -96,25 +98,30 @@
 
 #include <ctype.h>
 
-/* /////////////////////////////////////////////////////////////////////////////
+
+/* /////////////////////////////////////////////////////////////////////////
  * types
  */
 
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-# define fastformat_strtol_     ::wcstol
-# define fastformat_strchr_     ::wcschr
+
+# define fastformat_strtol_                                 ::wcstol
+# define fastformat_strchr_                                 ::wcschr
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
-# define fastformat_strtol_     ::strtol
-# define fastformat_strchr_     ::strchr
+
+# define fastformat_strtol_                                 ::strtol
+# define fastformat_strchr_                                 ::strchr
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
 
-/* /////////////////////////////////////////////////////////////////////////////
+
+/* /////////////////////////////////////////////////////////////////////////
  * types
  */
 
 namespace
 {
 #if !defined(FASTFORMAT_NO_NAMESPACE)
+
     using fastformat::ff_char_t;
     using fastformat::ff_format_element_t;
     using fastformat::ff_format_element_alignment_t_;
@@ -140,15 +147,17 @@ namespace
         using fastformat::FF_REPLACEMENTCODE_UNREFERENCED_ARGUMENT;
     using fastformat::ff_string_slice_t;
 # ifdef STLSOFT_CF_EXCEPTION_SUPPORT
+
     using fastformat::illformed_format_exception;
     using fastformat::missing_argument_exception;
     using fastformat::unreferenced_argument_exception;
 # endif /* STLSOFT_CF_EXCEPTION_SUPPORT */
 #else
-    typedef fastformat_illformedHandler_t   illformedHandler_t;
-    typedef ff_mismatchedHandler_info_t     mismatchedHandler_info_t;
-    typedef ff_parse_action_t               parse_action_t;
-    typedef ff_string_slice_t               string_slice_t;
+
+    typedef fastformat_illformedHandler_t                   illformedHandler_t;
+    typedef ff_mismatchedHandler_info_t                     mismatchedHandler_info_t;
+    typedef ff_parse_action_t                               parse_action_t;
+    typedef ff_string_slice_t                               string_slice_t;
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
     typedef int unreferenced_argument_flag_t;   // TODO: establish whether using bool is faster; (unlikely)
@@ -184,10 +193,10 @@ namespace
     };
 
     static const ff_char_t ValidFillCharacters[] = FASTFORMAT_LITERAL_STRING("# ");
-
 } /* anonymous namespace */
 
-/* /////////////////////////////////////////////////////////////////////////////
+
+/* /////////////////////////////////////////////////////////////////////////
  * helper functions
  */
 
@@ -243,26 +252,26 @@ namespace
 
         // TODO: flesh out with more parse codes
 
-        switch(index)
+        switch (index)
         {
-            case    FF_ILLFORMED_EMPTY_PARAMETER_:
-                break;
-            case    FF_ILLFORMED_INVALID_INDEX_:
-                break;
-            case    FF_ILLFORMED_INVALID_MIN_WIDTH_:
-                break;
-            case    FF_ILLFORMED_INVALID_MAX_WIDTH_:
-                break;
-            case    FF_ILLFORMED_INVALID_ALIGN_CHAR_:
-                break;
-            case    FF_ILLFORMED_INVALID_FILL_CHAR_:
-                break;
-            case    FF_ILLFORMED_INVALID_ALIGN_FIELD_:
-                break;
-            case    FF_ILLFORMED_SURPLUS_FIELD_:
-                break;
-            default:
-                break;
+        case FF_ILLFORMED_EMPTY_PARAMETER_:
+            break;
+        case FF_ILLFORMED_INVALID_INDEX_:
+            break;
+        case FF_ILLFORMED_INVALID_MIN_WIDTH_:
+            break;
+        case FF_ILLFORMED_INVALID_MAX_WIDTH_:
+            break;
+        case FF_ILLFORMED_INVALID_ALIGN_CHAR_:
+            break;
+        case FF_ILLFORMED_INVALID_FILL_CHAR_:
+            break;
+        case FF_ILLFORMED_INVALID_ALIGN_FIELD_:
+            break;
+        case FF_ILLFORMED_SURPLUS_FIELD_:
+            break;
+        default:
+            break;
         }
 
         return FF_PARSECODE_INVALIDINDEX;
@@ -321,7 +330,7 @@ namespace
 
         // Field 0: index
         stlsoft::find_next_token(p0, p1, end, FASTFORMAT_LITERAL_CHARACTER(','));
-        if(p0 == p1)
+        if (p0 == p1)
         {
             return FF_ILLFORMED_EMPTY_PARAMETER_; // Empty parameter
         }
@@ -330,14 +339,14 @@ namespace
             ff_char_t*  endptr;
             long        result = strtol_dec_(p0, &endptr);
 
-            if(p1 != endptr)
+            if (p1 != endptr)
             {
                 return FF_ILLFORMED_INVALID_INDEX_;
             }
 
             formatElement->index = int(result);
 
-            if(formatElement->index < 0)
+            if (formatElement->index < 0)
             {
                 return FF_ILLFORMED_INVALID_INDEX_;
             }
@@ -345,23 +354,23 @@ namespace
             res |= foundIndex;
         }
 
-        if(end != p1)
+        if (end != p1)
         {
             // Field 1: minimum width
             stlsoft::find_next_token(p0, p1, end, FASTFORMAT_LITERAL_CHARACTER(','));
-            if(p1 != p0)
+            if (p1 != p0)
             {
                 ff_char_t*  endptr;
                 long        result = strtol_dec_(p0, &endptr);
 
-                if(p1 != endptr)
+                if (p1 != endptr)
                 {
                     return FF_ILLFORMED_INVALID_MIN_WIDTH_;
                 }
 
                 formatElement->minWidth = short(result);
 
-                if(formatElement->minWidth < 0)
+                if (formatElement->minWidth < 0)
                 {
                     return FF_ILLFORMED_INVALID_MIN_WIDTH_;
                 }
@@ -371,19 +380,19 @@ namespace
 
             // Field 2: maximum width
             stlsoft::find_next_token(p0, p1, end, FASTFORMAT_LITERAL_CHARACTER(','));
-            if(p1 != p0)
+            if (p1 != p0)
             {
                 ff_char_t*  endptr;
                 long        result = strtol_dec_(p0, &endptr);
 
-                if(p1 != endptr)
+                if (p1 != endptr)
                 {
                     return FF_ILLFORMED_INVALID_MAX_WIDTH_;
                 }
 
                 formatElement->maxWidth = short(result);
 
-                if(formatElement->maxWidth < 0)
+                if (formatElement->maxWidth < 0)
                 {
                     return FF_ILLFORMED_INVALID_MAX_WIDTH_;
                 }
@@ -392,24 +401,28 @@ namespace
             }
 
             stlsoft::find_next_token(p0, p1, end, FASTFORMAT_LITERAL_CHARACTER(','));
-            if(p1 != p0)
+            if (p1 != p0)
             {
                 // Field 3: alignment
-                if(p1 != p0)
+                if (p1 != p0)
                 {
-                    switch(p0[0])
+                    switch (p0[0])
                     {
-                        default:
-                            return FF_ILLFORMED_INVALID_ALIGN_CHAR_; // Invalid alignment
-                        case    '<':
-                            formatElement->alignment = FASTFORMAT_ALIGNMENT_LEFT;
-                            break;
-                        case    '>':
-                            formatElement->alignment = FASTFORMAT_ALIGNMENT_RIGHT;
-                            break;
-                        case    '^':
-                            formatElement->alignment = FASTFORMAT_ALIGNMENT_CENTRE;
-                            break;
+                    default:
+
+                        return FF_ILLFORMED_INVALID_ALIGN_CHAR_; // Invalid alignment
+                    case '<':
+
+                        formatElement->alignment = FASTFORMAT_ALIGNMENT_LEFT;
+                        break;
+                    case '>':
+
+                        formatElement->alignment = FASTFORMAT_ALIGNMENT_RIGHT;
+                        break;
+                    case '^':
+
+                        formatElement->alignment = FASTFORMAT_ALIGNMENT_CENTRE;
+                        break;
                     }
 
                     res |= foundAlign;
@@ -417,9 +430,9 @@ namespace
                 }
 
                 // Field 4: fill
-                if(p1 != p0)
+                if (p1 != p0)
                 {
-                    if(NULL == fastformat_strchr_(ValidFillCharacters, 0[p0]))
+                    if (NULL == fastformat_strchr_(ValidFillCharacters, 0[p0]))
                     {
                         return FF_ILLFORMED_INVALID_FILL_CHAR_;
                     }
@@ -430,13 +443,13 @@ namespace
                 }
             }
 
-            if(p1 != p0)
+            if (p1 != p0)
             {
                 return FF_ILLFORMED_INVALID_ALIGN_FIELD_; // Invalid argument
             }
         }
 
-        if(p1 != end)
+        if (p1 != end)
         {
             return FF_ILLFORMED_SURPLUS_FIELD_;
         }
@@ -470,7 +483,7 @@ namespace
 
         int res = parse_replacement_find_next_token_(p0, p1, &element);
 
-        if(res < 0)
+        if (res < 0)
         {
             return res;
         }
@@ -490,23 +503,23 @@ namespace
             // Field 3: alignment
             //
             // NOTE: Have to do alignment before minWidth
-            if(0 == (res & foundAlign))
+            if (0 == (res & foundAlign))
             {
                 element.alignment = FASTFORMAT_ALIGNMENT_NONE;
             }
 
             // Field 1: minimum width
 
-            if(0 == (res & foundMinWidth))
+            if (0 == (res & foundMinWidth))
             {
                 element.minWidth = 0;
             }
 
-            if(0 != element.minWidth)
+            if (0 != element.minWidth)
             {
                 ++numRes;
 
-                if(FASTFORMAT_ALIGNMENT_CENTRE == element.alignment)
+                if (FASTFORMAT_ALIGNMENT_CENTRE == element.alignment)
                 {
                     ++numRes;
                 }
@@ -514,13 +527,13 @@ namespace
 
             // Field 2: maximum width
 
-            if(0 == (res & foundMaxWidth))
+            if (0 == (res & foundMaxWidth))
             {
                 element.maxWidth = -1;
             }
 
             // Field 4: fill
-            if(0 == (res & foundFill))
+            if (0 == (res & foundFill))
             {
                 element.fill = ' ';
             }
@@ -547,28 +560,31 @@ namespace
 
         FASTFORMAT_COVER_MARK_ENTRY();
 
-        switch(illformedAction)
+        switch (illformedAction)
         {
-            default:
-                FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("invalid value for illformed format action");
-                // fall through
-            case    FF_PARSEACTION_REPLACE_FORMAT_WITH_BLANK:
-                FASTFORMAT_COVER_MARK_ENTRY();
+        default:
+            FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("invalid value for illformed format action");
 
-                formatElements[0].len   =   0;
-                break;
+            // fall through
+        case FF_PARSEACTION_REPLACE_FORMAT_WITH_BLANK:
 
-            case    FF_PARSEACTION_TREAT_FORMAT_AS_LITERAL:
-                FASTFORMAT_COVER_MARK_ENTRY();
+            FASTFORMAT_COVER_MARK_ENTRY();
 
-                formatElements[0].len   =   cchFmt;
-                break;
+            formatElements[0].len   =   0;
+            break;
+
+        case FF_PARSEACTION_TREAT_FORMAT_AS_LITERAL:
+
+            FASTFORMAT_COVER_MARK_ENTRY();
+
+            formatElements[0].len   =   cchFmt;
+            break;
         }
 
         return derive_parse_result_(1, 1);
     }
-
 } /* anonymous namespace */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * stock handler functions
@@ -594,18 +610,22 @@ namespace
 
         FASTFORMAT_COVER_MARK_ENTRY();
 
-        switch(code)
+        switch (code)
         {
-            default:
-                FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("unknown parse code");
-                break;
-            case    FF_PARSECODE_SUCCESS:
-                FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("handler invoked with success parse code");
-                break;
-            case    FF_PARSECODE_INCOMPLETEREPLACEMENT:
-                throw illformed_format_exception("ill-formed format: incomplete replacement", code, format.ptr, format.len);
-            case    FF_PARSECODE_INVALIDINDEX:
-                throw illformed_format_exception("ill-formed format: invalid index", code, format.ptr, format.len);
+        default:
+
+            FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("unknown parse code");
+            break;
+        case FF_PARSECODE_SUCCESS:
+
+            FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("handler invoked with success parse code");
+            break;
+        case FF_PARSECODE_INCOMPLETEREPLACEMENT:
+
+            throw illformed_format_exception("ill-formed format: incomplete replacement", code, format.ptr, format.len);
+        case FF_PARSECODE_INVALIDINDEX:
+
+            throw illformed_format_exception("ill-formed format: invalid index", code, format.ptr, format.len);
         }
 
         // Moot return
@@ -628,18 +648,22 @@ namespace
     {
         // Simplistic factory for exceptions
 
-        switch(code)
+        switch (code)
         {
-            default:
-                FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("unknown parse code");
-                break;
-            case    FF_REPLACEMENTCODE_SUCCESS:
-                // This is ignored. This code is passed to indicate completion of the statement
-                break;
-            case    FF_REPLACEMENTCODE_MISSING_ARGUMENT:
-                throw missing_argument_exception("a required argument is missing from the argument list", code, int(numArguments), mismatchedParameterIndex);
-            case    FF_REPLACEMENTCODE_UNREFERENCED_ARGUMENT:
-                throw unreferenced_argument_exception("an argument was unreferenced in the format", code, int(numArguments), mismatchedParameterIndex);
+        default:
+
+            FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("unknown parse code");
+            break;
+        case FF_REPLACEMENTCODE_SUCCESS:
+
+            // This is ignored. This code is passed to indicate completion of the statement
+            break;
+        case FF_REPLACEMENTCODE_MISSING_ARGUMENT:
+
+            throw missing_argument_exception("a required argument is missing from the argument list", code, int(numArguments), mismatchedParameterIndex);
+        case FF_REPLACEMENTCODE_UNREFERENCED_ARGUMENT:
+
+            throw unreferenced_argument_exception("an argument was unreferenced in the format", code, int(numArguments), mismatchedParameterIndex);
         }
 
         // Moot return
@@ -685,8 +709,8 @@ namespace
         // Return to indicate that we're ignoring
         return FF_HANDLERRESPONSE_CONTINUE_PROCESSING;
     }
-
 } /* anonymous namespace */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -696,6 +720,7 @@ namespace
 namespace fastformat
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * helper classes
@@ -748,7 +773,7 @@ namespace
             ff_illformedHandler_info_t const* const end     =   &handlers[0] + STLSOFT_NUM_ELEMENTS(handlers);
             ff_illformedHandler_info_t const* const begin   =   end - numHandlers;
 
-            { for(ff_illformedHandler_info_t const* it = begin; it != end; ++it)
+            { for (ff_illformedHandler_info_t const* it = begin; it != end; ++it)
             {
                 ff_handler_response_t const hr = (*(*it).handler)(
                                                         (*it).param
@@ -762,7 +787,7 @@ namespace
                                                     ,   reserved3
                                                     );
 
-                if(FF_HANDLERRESPONSE_CONTINUE_PROCESSING == hr)
+                if (FF_HANDLERRESPONSE_CONTINUE_PROCESSING == hr)
                 {
                     return hr;
                 }
@@ -776,7 +801,7 @@ namespace
     private: // Implementation
         void prepare_()
         {
-            if(0 == numHandlers)
+            if (0 == numHandlers)
             {
                 // first invocation, so initialise with all available handlers
 
@@ -787,24 +812,24 @@ namespace
                 ++numHandlers;
 
                 handlers[stockHandlerIndex] = fastformat_getProcessIllformedHandler();
-                if(NULL != handlers[stockHandlerIndex].handler)
+                if (NULL != handlers[stockHandlerIndex].handler)
                 {
                     --stockHandlerIndex;
                     ++numHandlers;
                 }
 
                 handlers[stockHandlerIndex] = fastformat_getThreadIllformedHandler();
-                if(NULL != handlers[stockHandlerIndex].handler)
+                if (NULL != handlers[stockHandlerIndex].handler)
                 {
                     --stockHandlerIndex;
                     ++numHandlers;
                 }
 
-                if(0 != stockHandlerIndex)
+                if (0 != stockHandlerIndex)
                 {
                     handlers[stockHandlerIndex] = handlers[0];
                 }
-                if(NULL != handlers[stockHandlerIndex].handler)
+                if (NULL != handlers[stockHandlerIndex].handler)
                 {
                     --stockHandlerIndex;
                     ++numHandlers;
@@ -819,7 +844,7 @@ namespace
                 ff_illformedHandler_info_t const* const end     =   &handlers[0] + STLSOFT_NUM_ELEMENTS(handlers);
                 ff_illformedHandler_info_t const* const begin   =   end - numHandlers;
 
-                for(ff_illformedHandler_info_t const* it = begin; it != end; ++it)
+                for (ff_illformedHandler_info_t const* it = begin; it != end; ++it)
             {
                 FASTFORMAT_CONTRACT_ENFORCE_ASSUMPTION(NULL != (*it).handler);
             }}
@@ -864,17 +889,17 @@ namespace
 
             ff_mismatchedHandler_info_t const* const end     =   &handlers[0] + STLSOFT_NUM_ELEMENTS(handlers);
             ff_mismatchedHandler_info_t const* const begin   =   end - numHandlers;
-            { for(ff_mismatchedHandler_info_t const* it = begin; it != end; ++it)
+            { for (ff_mismatchedHandler_info_t const* it = begin; it != end; ++it)
             {
                 ff_handler_response_t const hr = (*(*it).handler)((*it).param, code, numArguments, mismatchedParameterIndex, missingArgumentAction, slice, reserved0, reserved1, reserved2, reserved3);
 
-                if(FF_HANDLERRESPONSE_CONTINUE_PROCESSING == hr)
+                if (FF_HANDLERRESPONSE_CONTINUE_PROCESSING == hr)
                 {
                     return hr;
                 }
             }}
 
-            if(FF_REPLACEMENTCODE_SUCCESS == code)
+            if (FF_REPLACEMENTCODE_SUCCESS == code)
             {
                 return FF_HANDLERRESPONSE_NEXT_HANDLER;
             }
@@ -889,7 +914,7 @@ namespace
     private: // Implementation
         void prepare_()
         {
-            if(0 == numHandlers)
+            if (0 == numHandlers)
             {
                 // first invocation, so initialise with all available handlers
 
@@ -900,24 +925,24 @@ namespace
                 ++numHandlers;
 
                 handlers[stockHandlerIndex] = fastformat_getProcessMismatchedHandler();
-                if(NULL != handlers[stockHandlerIndex].handler)
+                if (NULL != handlers[stockHandlerIndex].handler)
                 {
                     --stockHandlerIndex;
                     ++numHandlers;
                 }
 
                 handlers[stockHandlerIndex] = fastformat_getThreadMismatchedHandler();
-                if(NULL != handlers[stockHandlerIndex].handler)
+                if (NULL != handlers[stockHandlerIndex].handler)
                 {
                     --stockHandlerIndex;
                     ++numHandlers;
                 }
 
-                if(0 != stockHandlerIndex)
+                if (0 != stockHandlerIndex)
                 {
                     handlers[stockHandlerIndex] = handlers[0];
                 }
-                if(NULL != handlers[stockHandlerIndex].handler)
+                if (NULL != handlers[stockHandlerIndex].handler)
                 {
                     --stockHandlerIndex;
                     ++numHandlers;
@@ -931,7 +956,7 @@ namespace
             {
                 ff_mismatchedHandler_info_t const* const end     =   &handlers[0] + STLSOFT_NUM_ELEMENTS(handlers);
                 ff_mismatchedHandler_info_t const* const begin   =   end - numHandlers;
-                for(ff_mismatchedHandler_info_t const* it = begin; it != end; ++it)
+                for (ff_mismatchedHandler_info_t const* it = begin; it != end; ++it)
             {
                 FASTFORMAT_CONTRACT_ENFORCE_ASSUMPTION(NULL != (*it).handler);
             }}
@@ -942,8 +967,8 @@ namespace
         ff_mismatchedHandler_info_t handlers[4];
         size_t                      numHandlers; // 0 value is sentinel (denoting uninitialised array)
     };
-
 } /* anonymous namespace */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * API functions
@@ -1013,191 +1038,203 @@ FASTFORMAT_CALL(unsigned) fastformat_parseFormat(
     ff_char_t const* const  end     =   p0 + cchFmt;
     state_t                 state   =   literal;
 
-    { for(; p1 != end; ++p1)
+    { for (; p1 != end; ++p1)
     {
         FASTFORMAT_COVER_MARK_ENTRY();
 
-        switch(state)
+        switch (state)
         {
-            default:
-                FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("Invalid parse state");
-                // fall through
-            case    literal:
-                FASTFORMAT_COVER_MARK_ENTRY();
+        default:
 
-                // The only transition here is to '{'; '}' is handled later
-                switch(*p1)
-                {
-                    case    '{': // to be matched later by '}'
-                        state = openCurly;
-                        break;
-                    default:
-                        break;
-                }
+            FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("Invalid parse state");
+
+            // fall through
+        case literal:
+
+            FASTFORMAT_COVER_MARK_ENTRY();
+
+            // The only transition here is to '{'; '}' is handled later
+            switch (*p1)
+            {
+            case '{': // to be matched later by '}'
+
+                state = openCurly;
                 break;
-            case    openCurly:
+            default:
+
+                break;
+            }
+            break;
+        case openCurly:
+
+            FASTFORMAT_COVER_MARK_ENTRY();
+
+            if (p1 != p0 + 1) // Only create a slice if not-empty, i.e. if there was a literal between two replacements
+            {
                 FASTFORMAT_COVER_MARK_ENTRY();
 
-                if(p1 != p0 + 1) // Only create a slice if not-empty, i.e. if there was a literal between two replacements
+                FASTFORMAT_CONTRACT_ENFORCE_PRECONDITION_PARAMS_API(num < numFormatElements, "insufficient replacement storage provided to fastformat_parseFormat(); recode using fastformat_calculateNumberOfRequiredReplacements()");
+
+                formatElements[num].ptr   =   p0;
+                formatElements[num].len   =   static_cast<size_t>((p1 - p0) - 1);
+                formatElements[num].index =   FASTFORMAT_INTERNAL_FORMAT_ELEMENT_INDEX_LITERAL_;
+
+                p0 = p1 - 1;
+
+                ++num;
+                ++numRes;
+            }
+
+            switch (*p1)
+            {
+            case '{': // escaping; not required for '}'
+
+                FASTFORMAT_COVER_MARK_ENTRY();
+
+                FASTFORMAT_CONTRACT_ENFORCE_PRECONDITION_PARAMS_API(num < numFormatElements, "insufficient replacement storage provided to fastformat_parseFormat(); recode using fastformat_calculateNumberOfRequiredReplacements()");
+
+                formatElements[num].ptr   =   p1;
+                formatElements[num].len   =   1;
+                formatElements[num].index =   FASTFORMAT_INTERNAL_FORMAT_ELEMENT_INDEX_LITERAL_;
+
+                p0 = p1 + 1;
+
+                ++num;
+                ++numRes;
+
+                state = literal;
+                break;
+            default:
+
+                FASTFORMAT_COVER_MARK_ENTRY();
+
+                state = parameter;
+                break;
+            }
+
+            // Must either go back to LITERAL or to PARAMETER
+            FASTFORMAT_CONTRACT_ENFORCE_ASSUMPTION((literal == state || parameter == state));
+
+            break;
+        case parameter:
+
+            FASTFORMAT_COVER_MARK_ENTRY();
+
+            switch (*p1)
+            {
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+            case ',':
+            case '-':
+            case '<':
+            case '>':
+            case '^':
+            case '#':
+            case ' ':
+
+                FASTFORMAT_COVER_MARK_ENTRY();
+                break;
+            case '}': // Matching earlier '{'
+
+                FASTFORMAT_COVER_MARK_ENTRY();
+
+                state = literal;
+
+                FASTFORMAT_CONTRACT_ENFORCE_PRECONDITION_PARAMS_API(num < numFormatElements, "insufficient replacement storage provided to fastformat_parseFormat(); recode using fastformat_calculateNumberOfRequiredReplacements()");
+
+                {
+                int const parameterIndex = parse_parameter_(p0, p1, formatElements, num, numRes);
+
+                if (parameterIndex < 0)
                 {
                     FASTFORMAT_COVER_MARK_ENTRY();
 
-                    FASTFORMAT_CONTRACT_ENFORCE_PRECONDITION_PARAMS_API(num < numFormatElements, "insufficient replacement storage provided to fastformat_parseFormat(); recode using fastformat_calculateNumberOfRequiredReplacements()");
+                    ff_parse_code_t const       code            =   code_from_index_(parameterIndex);
+                    ff_string_slice_t const     format          =   { cchFmt, fmt };
+                    size_t const                defectLen       =   static_cast<size_t>((p1 + 1) - p0);
+                    ff_string_slice_t const     defect          =   { defectLen, p0 };
+                    ff_parse_action_t           illformedAction =   ff_parse_action_t();
 
-                    formatElements[num].ptr   =   p0;
-                    formatElements[num].len   =   static_cast<size_t>((p1 - p0) - 1);
-                    formatElements[num].index =   FASTFORMAT_INTERNAL_FORMAT_ELEMENT_INDEX_LITERAL_;
+                    ff_handler_response_t const hr              =   handlers.invoke(
+                                                                            code
+                                                                        ,   format
+                                                                        ,   defect
+                                                                        ,   &illformedAction
+                                                                        );
 
-                    p0 = p1 - 1;
+                    FASTFORMAT_COVER_MARK_ENTRY();
 
-                    ++num;
-                    ++numRes;
-                }
-                switch(*p1)
-                {
-                    case    '{': // escaping; not required for '}'
-                        FASTFORMAT_COVER_MARK_ENTRY();
+                    FASTFORMAT_CONTRACT_ENFORCE_POSTCONDITION_RETURN_API(FF_HANDLERRESPONSE_CONTINUE_PROCESSING == hr, "cannot reach her with FF_HANDLERRESPONSE_NEXT_HANDLER because the default handler will throw an exception");
+                    STLSOFT_SUPPRESS_UNUSED(hr);
 
-                        FASTFORMAT_CONTRACT_ENFORCE_PRECONDITION_PARAMS_API(num < numFormatElements, "insufficient replacement storage provided to fastformat_parseFormat(); recode using fastformat_calculateNumberOfRequiredReplacements()");
+                    return process_illformed_action_(fmt, cchFmt, formatElements, numFormatElements, illformedAction);
+                }}
 
-                        formatElements[num].ptr   =   p1;
-                        formatElements[num].len   =   1;
-                        formatElements[num].index =   FASTFORMAT_INTERNAL_FORMAT_ELEMENT_INDEX_LITERAL_;
-
-                        p0 = p1 + 1;
-
-                        ++num;
-                        ++numRes;
-
-                        state = literal;
-                        break;
-                    default:
-                        FASTFORMAT_COVER_MARK_ENTRY();
-
-                        state = parameter;
-                        break;
-                }
-
-                // Must either go back to LITERAL or to PARAMETER
-                FASTFORMAT_CONTRACT_ENFORCE_ASSUMPTION((literal == state || parameter == state));
-
-                break;
-            case    parameter:
                 FASTFORMAT_COVER_MARK_ENTRY();
 
-                switch(*p1)
-                {
-                    case    '0':
-                    case    '1':
-                    case    '2':
-                    case    '3':
-                    case    '4':
-                    case    '5':
-                    case    '6':
-                    case    '7':
-                    case    '8':
-                    case    '9':
-                    case    ',':
-                    case    '-':
-                    case    '<':
-                    case    '>':
-                    case    '^':
-                    case    '#':
-                    case    ' ':
-                        FASTFORMAT_COVER_MARK_ENTRY();
-                        break;
-                    case    '}': // Matching earlier '{'
-                        FASTFORMAT_COVER_MARK_ENTRY();
+                p0 = p1 + 1;
 
-                        state = literal;
+                FASTFORMAT_CONTRACT_ENFORCE_PRECONDITION_PARAMS_API(num <= numFormatElements, "insufficient replacement storage provided to fastformat_parseFormat(); recode using fastformat_calculateNumberOfRequiredReplacements()");
 
-                        FASTFORMAT_CONTRACT_ENFORCE_PRECONDITION_PARAMS_API(num < numFormatElements, "insufficient replacement storage provided to fastformat_parseFormat(); recode using fastformat_calculateNumberOfRequiredReplacements()");
-
-                        {
-                        int const parameterIndex = parse_parameter_(p0, p1, formatElements, num, numRes);
-
-                        if(parameterIndex < 0)
-                        {
-                            FASTFORMAT_COVER_MARK_ENTRY();
-
-                            ff_parse_code_t const       code            =   code_from_index_(parameterIndex);
-                            ff_string_slice_t const     format          =   { cchFmt, fmt };
-                            size_t const                defectLen       =   static_cast<size_t>((p1 + 1) - p0);
-                            ff_string_slice_t const     defect          =   { defectLen, p0 };
-                            ff_parse_action_t           illformedAction =   ff_parse_action_t();
-
-                            ff_handler_response_t const hr              =   handlers.invoke(
-                                                                                    code
-                                                                                ,   format
-                                                                                ,   defect
-                                                                                ,   &illformedAction
-                                                                                );
-
-                            FASTFORMAT_COVER_MARK_ENTRY();
-
-                            FASTFORMAT_CONTRACT_ENFORCE_POSTCONDITION_RETURN_API(FF_HANDLERRESPONSE_CONTINUE_PROCESSING == hr, "cannot reach her with FF_HANDLERRESPONSE_NEXT_HANDLER because the default handler will throw an exception");
-                            STLSOFT_SUPPRESS_UNUSED(hr);
-
-                            return process_illformed_action_(fmt, cchFmt, formatElements, numFormatElements, illformedAction);
-                        }}
-
-                        FASTFORMAT_COVER_MARK_ENTRY();
-
-                        p0 = p1 + 1;
-
-                        FASTFORMAT_CONTRACT_ENFORCE_PRECONDITION_PARAMS_API(num <= numFormatElements, "insufficient replacement storage provided to fastformat_parseFormat(); recode using fastformat_calculateNumberOfRequiredReplacements()");
-
-                        break;
-                    default:
-                        FASTFORMAT_COVER_MARK_ENTRY();
-
-                        // Handle "malformed"
-
-                        size_t  len = 2; // TODO: find '}' in [p1, end), and use that distance; assume '{'
-
-                        { for(ff_char_t const* p2 = p1; end != p2; ++p2)
-                        {
-                            FASTFORMAT_COVER_MARK_ENTRY();
-
-                            if('}' == *p2) // '{'
-                            {
-                                FASTFORMAT_COVER_MARK_ENTRY();
-
-                                len = size_t(p2 - p0) + 2;
-                                break;
-                            }
-                        }}
-
-                        FASTFORMAT_COVER_MARK_ENTRY();
-
-                        ff_parse_code_t const       code            =   FF_PARSECODE_INVALIDINDEX;
-                        ff_string_slice_t const     format          =   { cchFmt, fmt };
-                        ff_string_slice_t const     defect          =   { len, p0 };
-                        ff_parse_action_t           illformedAction =   ff_parse_action_t();
-
-                        ff_handler_response_t const hr              =   handlers.invoke(
-                                                                                code
-                                                                            ,   format
-                                                                            ,   defect
-                                                                            ,   &illformedAction
-                                                                            );
-
-                        FASTFORMAT_COVER_MARK_ENTRY();
-
-                        FASTFORMAT_CONTRACT_ENFORCE_POSTCONDITION_RETURN_API(FF_HANDLERRESPONSE_CONTINUE_PROCESSING == hr, "cannot reach her with FF_HANDLERRESPONSE_NEXT_HANDLER because the default handler will throw an exception");
-                        STLSOFT_SUPPRESS_UNUSED(hr);
-
-                        return process_illformed_action_(fmt, cchFmt, formatElements, numFormatElements, illformedAction);
-                }
                 break;
+            default:
+                FASTFORMAT_COVER_MARK_ENTRY();
+
+                // Handle "malformed"
+
+                size_t  len = 2; // TODO: find '}' in [p1, end), and use that distance; assume '{'
+
+                { for (ff_char_t const* p2 = p1; end != p2; ++p2)
+                {
+                    FASTFORMAT_COVER_MARK_ENTRY();
+
+                    if ('}' == *p2) // '{'
+                    {
+                        FASTFORMAT_COVER_MARK_ENTRY();
+
+                        len = size_t(p2 - p0) + 2;
+                        break;
+                    }
+                }}
+
+                FASTFORMAT_COVER_MARK_ENTRY();
+
+                ff_parse_code_t const       code            =   FF_PARSECODE_INVALIDINDEX;
+                ff_string_slice_t const     format          =   { cchFmt, fmt };
+                ff_string_slice_t const     defect          =   { len, p0 };
+                ff_parse_action_t           illformedAction =   ff_parse_action_t();
+
+                ff_handler_response_t const hr              =   handlers.invoke(
+                                                                        code
+                                                                    ,   format
+                                                                    ,   defect
+                                                                    ,   &illformedAction
+                                                                    );
+
+                FASTFORMAT_COVER_MARK_ENTRY();
+
+                FASTFORMAT_CONTRACT_ENFORCE_POSTCONDITION_RETURN_API(FF_HANDLERRESPONSE_CONTINUE_PROCESSING == hr, "cannot reach her with FF_HANDLERRESPONSE_NEXT_HANDLER because the default handler will throw an exception");
+                STLSOFT_SUPPRESS_UNUSED(hr);
+
+                return process_illformed_action_(fmt, cchFmt, formatElements, numFormatElements, illformedAction);
+            }
+            break;
         }
     }}
 
-    if(p1 != p0)
+    if (p1 != p0)
     {
         FASTFORMAT_COVER_MARK_ENTRY();
 
-        if(state != literal)
+        if (state != literal)
         {
             FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -1278,13 +1315,13 @@ FASTFORMAT_CALL(size_t) fastformat_fillReplacements(
     //  - if literal, copy over
     //  - if replacement, lookup argument and copy over/report mismatch
     //  - if spacer, evaluate whether spacing needed, and then
-    { for(size_t i = 0; i != numFormatElements; ++i, ++resultElements)
+    { for (size_t i = 0; i != numFormatElements; ++i, ++resultElements)
     {
         FASTFORMAT_COVER_MARK_ENTRY();
 
         ff_format_element_t const& pattern_element = formatElements[i];
 
-        if(FASTFORMAT_INTERNAL_FORMAT_ELEMENT_INDEX_LITERAL_ == pattern_element.index)
+        if (FASTFORMAT_INTERNAL_FORMAT_ELEMENT_INDEX_LITERAL_ == pattern_element.index)
         {
             // A literal fragment, so just copy into destination
 
@@ -1315,7 +1352,7 @@ FASTFORMAT_CALL(size_t) fastformat_fillReplacements(
             //    source slice as-is
 
             // But, first, we need to validate the index
-            if(pattern_element.index >= static_cast<int>(numArguments))
+            if (pattern_element.index >= static_cast<int>(numArguments))
             {
                 // Pattern element index is out of range, e.g. fmtln(sink, "val0={2}", v0, v1);
 
@@ -1340,33 +1377,33 @@ FASTFORMAT_CALL(size_t) fastformat_fillReplacements(
 
                 // Handler has returned, so no exception has been thrown
 
-                switch(missingArgumentAction)
+                switch (missingArgumentAction)
                 {
-                    case    FF_REPLACEMENTACTION_USE_SLICE_VALUE:
+                case FF_REPLACEMENTACTION_USE_SLICE_VALUE:
 
-                        resultElements->len =   defaultSlice.len;
-                        resultElements->ptr =   defaultSlice.ptr;
+                    resultElements->len =   defaultSlice.len;
+                    resultElements->ptr =   defaultSlice.ptr;
 
-                        successCallRequired =   true;
+                    successCallRequired =   true;
 
-                        FASTFORMAT_COVER_MARK_ENTRY();
-                        break;
+                    FASTFORMAT_COVER_MARK_ENTRY();
+                    break;
 
-                    default:
-                        FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("invalid value for missing argument action");
-                        // fall through
-                    case    FF_REPLACEMENTACTION_USE_BLANK:
-                        --resultElements;
+                default:
+                    FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("invalid value for missing argument action");
+                    // fall through
+                case FF_REPLACEMENTACTION_USE_BLANK:
+                    --resultElements;
 
-                        FASTFORMAT_COVER_MARK_ENTRY();
-                        break;
+                    FASTFORMAT_COVER_MARK_ENTRY();
+                    break;
 
-                    case    FF_REPLACEMENTACTION_RETAIN_PARAMETER_LITERAL:
-                        resultElements->len =   pattern_element.len;
-                        resultElements->ptr =   pattern_element.ptr;
+                case FF_REPLACEMENTACTION_RETAIN_PARAMETER_LITERAL:
+                    resultElements->len =   pattern_element.len;
+                    resultElements->ptr =   pattern_element.ptr;
 
-                        FASTFORMAT_COVER_MARK_ENTRY();
-                        break;
+                    FASTFORMAT_COVER_MARK_ENTRY();
+                    break;
                 }
             }
             else
@@ -1374,76 +1411,86 @@ FASTFORMAT_CALL(size_t) fastformat_fillReplacements(
                 string_slice_t const&   src_slice = arguments[pattern_element.index];
                 ff_char_t const*        (FASTFORMAT_CALLCONV* pfnFill)(size_t) = ('#' == pattern_element.fill) ? fastformat_getHashesSlice : fastformat_getSpacesSlice;
 
-                if( pattern_element.maxWidth >= 0 &&
+                if (pattern_element.maxWidth >= 0 &&
                     size_t(pattern_element.maxWidth) < src_slice.len)
                 {
                     // Truncating, so see if we're truncating left/centre/right
 
                     resultElements->len = pattern_element.maxWidth;
 
-                    switch(pattern_element.alignment)
+                    switch (pattern_element.alignment)
                     {
-                        default:
-                            FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("invalid enumerator");
-                            // fall through
-                        case    FASTFORMAT_ALIGNMENT_NONE:
-                        case    FASTFORMAT_ALIGNMENT_RIGHT:
-                            resultElements->ptr = src_slice.ptr + (src_slice.len - pattern_element.maxWidth);
-                            break;
-                        case    FASTFORMAT_ALIGNMENT_CENTRE:
-                            resultElements->ptr = src_slice.ptr + (src_slice.len - pattern_element.maxWidth) / 2;
-                            break;
-                        case    FASTFORMAT_ALIGNMENT_LEFT:
-                            resultElements->ptr = src_slice.ptr;
-                            break;
+                    default:
+
+                        FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("invalid enumerator");
+
+                        // fall through
+                    case FASTFORMAT_ALIGNMENT_NONE:
+                    case FASTFORMAT_ALIGNMENT_RIGHT:
+
+                        resultElements->ptr = src_slice.ptr + (src_slice.len - pattern_element.maxWidth);
+                        break;
+                    case FASTFORMAT_ALIGNMENT_CENTRE:
+
+                        resultElements->ptr = src_slice.ptr + (src_slice.len - pattern_element.maxWidth) / 2;
+                        break;
+                    case FASTFORMAT_ALIGNMENT_LEFT:
+
+                        resultElements->ptr = src_slice.ptr;
+                        break;
                     }
 
                     cchTotal += pattern_element.maxWidth;
                 }
-                else if(0 != pattern_element.minWidth &&
+                else if (0 != pattern_element.minWidth &&
                         size_t(pattern_element.minWidth) > src_slice.len)
                 {
-                    switch(pattern_element.alignment)
+                    switch (pattern_element.alignment)
                     {
-                        default:
-                            FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("invalid enumerator");
-                            // fall through
-                        case    FASTFORMAT_ALIGNMENT_NONE:
-                        case    FASTFORMAT_ALIGNMENT_RIGHT:
-                            // insert a spaces slice before the source slice
-                            resultElements->len = size_t(pattern_element.minWidth) - src_slice.len;
-                            resultElements->ptr = pfnFill(resultElements->len);
+                    default:
 
-                            ++resultElements;
+                        FASTFORMAT_CONTRACT_ENFORCE_UNEXPECTED_CONDITION_INTERNAL("invalid enumerator");
 
-                            resultElements->len = src_slice.len;
-                            resultElements->ptr = src_slice.ptr;
-                            break;
-                        case    FASTFORMAT_ALIGNMENT_CENTRE:
-                            // insert a spaces slice before and after the source slice
-                            resultElements->len = (size_t(pattern_element.minWidth) - src_slice.len) / 2;
-                            resultElements->ptr = pfnFill(resultElements->len);
+                        // fall through
+                    case FASTFORMAT_ALIGNMENT_NONE:
+                    case FASTFORMAT_ALIGNMENT_RIGHT:
 
-                            ++resultElements;
+                        // insert a spaces slice before the source slice
+                        resultElements->len = size_t(pattern_element.minWidth) - src_slice.len;
+                        resultElements->ptr = pfnFill(resultElements->len);
 
-                            resultElements->len = src_slice.len;
-                            resultElements->ptr = src_slice.ptr;
+                        ++resultElements;
 
-                            ++resultElements;
+                        resultElements->len = src_slice.len;
+                        resultElements->ptr = src_slice.ptr;
+                        break;
+                    case FASTFORMAT_ALIGNMENT_CENTRE:
 
-                            resultElements->len = size_t(pattern_element.minWidth) - (resultElements[-1].len + resultElements[-2].len);
-                            resultElements->ptr = pfnFill(resultElements->len);
-                            break;
-                        case    FASTFORMAT_ALIGNMENT_LEFT:
-                            // insert a spaces slice after the source slice
-                            resultElements->len = src_slice.len;
-                            resultElements->ptr = src_slice.ptr;
+                        // insert a spaces slice before and after the source slice
+                        resultElements->len = (size_t(pattern_element.minWidth) - src_slice.len) / 2;
+                        resultElements->ptr = pfnFill(resultElements->len);
 
-                            ++resultElements;
+                        ++resultElements;
 
-                            resultElements->len = size_t(pattern_element.minWidth) - src_slice.len;
-                            resultElements->ptr = pfnFill(resultElements->len);
-                            break;
+                        resultElements->len = src_slice.len;
+                        resultElements->ptr = src_slice.ptr;
+
+                        ++resultElements;
+
+                        resultElements->len = size_t(pattern_element.minWidth) - (resultElements[-1].len + resultElements[-2].len);
+                        resultElements->ptr = pfnFill(resultElements->len);
+                        break;
+                    case FASTFORMAT_ALIGNMENT_LEFT:
+
+                        // insert a spaces slice after the source slice
+                        resultElements->len = src_slice.len;
+                        resultElements->ptr = src_slice.ptr;
+
+                        ++resultElements;
+
+                        resultElements->len = size_t(pattern_element.minWidth) - src_slice.len;
+                        resultElements->ptr = pfnFill(resultElements->len);
+                        break;
                     }
 
                     cchTotal += pattern_element.minWidth;
@@ -1463,7 +1510,7 @@ FASTFORMAT_CALL(size_t) fastformat_fillReplacements(
             // Have to do a runtime test here, in case where additional
             // arguments are specified (and exception suppressed by use of
             // fastformat::ignore_missing_arguments_scope).
-            if(size_t(pattern_element.index) < argumentReferenceFlags.size())
+            if (size_t(pattern_element.index) < argumentReferenceFlags.size())
             {
                 argumentReferenceFlags[size_t(pattern_element.index)] = 1;
             }
@@ -1474,7 +1521,7 @@ FASTFORMAT_CALL(size_t) fastformat_fillReplacements(
 #ifndef FASTFORMAT_DO_NOT_DETECT_UNREFERENCED_ARGUMENTS
     stlsoft::auto_buffer<unreferenced_argument_flag_t>::iterator it;
 
-    if(argumentReferenceFlags.end() != (it = std::find(argumentReferenceFlags.begin(), argumentReferenceFlags.end(), 0)))
+    if (argumentReferenceFlags.end() != (it = std::find(argumentReferenceFlags.begin(), argumentReferenceFlags.end(), 0)))
     {
         int firstMismatchedReplacementIndex = static_cast<int>(it - argumentReferenceFlags.begin());
 
@@ -1493,7 +1540,7 @@ FASTFORMAT_CALL(size_t) fastformat_fillReplacements(
     }
 #endif /* !FASTFORMAT_DO_NOT_DETECT_UNREFERENCED_ARGUMENTS */
 
-    if(successCallRequired)
+    if (successCallRequired)
     {
         FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -1535,7 +1582,7 @@ FASTFORMAT_CALL(size_t) fastformat_accumulateSliceLengths(
     // The crappy way, for less-than compilers
     size_t  total = 0;
 
-    { for(size_t i = 0; i != numSlices; ++i)
+    { for (size_t i = 0; i != numSlices; ++i)
     {
         total += slices[i].len;
     }}
@@ -1543,6 +1590,7 @@ FASTFORMAT_CALL(size_t) fastformat_accumulateSliceLengths(
     return total;
 #endif /* compiler */
 }
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * implementation functions
@@ -1560,7 +1608,7 @@ int ximpl_core::fastformat_impl_replacements_init(void** ptoken)
 
         replacements_context_t_* ctxt = new replacements_context_t_();
 
-        if(NULL == ctxt)
+        if (NULL == ctxt)
         {
             FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -1571,19 +1619,19 @@ int ximpl_core::fastformat_impl_replacements_init(void** ptoken)
 
         return FASTFORMAT_INIT_RC_SUCCESS;
     }
-    catch(std::bad_alloc&)
+    catch (std::bad_alloc&)
     {
         FASTFORMAT_COVER_MARK_ENTRY();
 
         return FASTFORMAT_INIT_RC_OUT_OF_MEMORY;
     }
-    catch(std::exception&)
+    catch (std::exception&)
     {
         FASTFORMAT_COVER_MARK_ENTRY();
 
         return FASTFORMAT_INIT_RC_UNSPECIFIED_EXCEPTION;
     }
-    catch(...)
+    catch (...)
     {
         FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -1680,6 +1728,7 @@ ff_char_t const* ximpl_core::fastformat_impl_replacements_getHashes(void* token,
     return ctxt->hashes;
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -1688,4 +1737,6 @@ ff_char_t const* ximpl_core::fastformat_impl_replacements_getHashes(void* token,
 } /* namespace fastformat */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

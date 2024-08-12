@@ -14,7 +14,7 @@ int main()
 
     // Write non-empty string to pad of various lengths
 
-    { for(size_t i = 1; i != 32; i *= 2)
+    { for (size_t i = 1; i != 32; i *= 2)
     {
         std::string format_space;
         std::string format_hash;
@@ -33,3 +33,7 @@ int main()
 
     return 0;
 }
+
+
+/* ///////////////////////////// end of file //////////////////////////// */
+

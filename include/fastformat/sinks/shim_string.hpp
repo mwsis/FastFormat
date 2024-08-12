@@ -1,14 +1,15 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/sinks/shim_string.hpp
+ * File:    fastformat/sinks/shim_string.hpp
  *
- * Purpose:     A FastFormat sink for STLSoft's shim_string class template.
+ * Purpose: A FastFormat sink for STLSoft's shim_string class template.
  *
- * Created:     12th November 2008
- * Updated:     10th January 2017
+ * Created: 12th November 2008
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
- * Copyright (c) 2008-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_SHIM_STRING
 #define FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_SHIM_STRING
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_SHIM_STRING_SINK_MAJOR      1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_SHIM_STRING_SINK_MINOR      0
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_SHIM_STRING_SINK_REVISION   5
-# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_SHIM_STRING_SINK_EDIT       13
+# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_SHIM_STRING_SINK_EDIT       16
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -65,6 +68,7 @@
 #ifndef __cplusplus
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -78,6 +82,7 @@
 #include <stlsoft/shims/access/string/std/c_string.h>
 #include <stlsoft/string/shim_string.hpp>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -89,6 +94,7 @@ namespace sinks
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * compatibility
  */
@@ -99,6 +105,7 @@ namespace sinks
 #  error This file cannot be used with STLSoft 1.10.1 alpha 1 - STLSoft 1.10.1 alpha 8, and is not necessary with STLSoft 1.10.1 alpha 9+ (for which it is not necessary)
 # endif /* _STLSOFT_1_10_VER */
 #endif /* _STLSOFT_VER */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * classes
@@ -176,7 +183,7 @@ public: // Operations
 
         parent_class_type::buffer_type& buffer = parent_class_type::get_buffer();
 
-        if(buffer.resize(n + 1))
+        if (buffer.resize(n + 1))
         {
             buffer[n] = '\0';
         }
@@ -194,9 +201,9 @@ public: // Operations
 
         parent_class_type::buffer_type& buffer = parent_class_type::get_buffer();
 
-        if(m_len + n + 1 > buffer.size())
+        if (m_len + n + 1 > buffer.size())
         {
-            if(!buffer.resize(m_len + n + 1))
+            if (!buffer.resize(m_len + n + 1))
             {
                 buffer[0] = '\0';
                 m_len = 0;
@@ -242,7 +249,7 @@ public: // Operations
 
 public: // Accessors
 
-    /// The string size 
+    /// The string size
     size_type size() const
     {
         STLSOFT_ASSERT(m_len < const_cast<class_type*>(this)->parent_class_type::get_buffer().size());
@@ -261,9 +268,11 @@ private:
 #endif
 };
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * action shims
  */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * shims
@@ -318,6 +327,7 @@ c_str_len(
     return size_t(sink.size());
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -332,3 +342,4 @@ c_str_len(
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_SHIM_STRING_SINK */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

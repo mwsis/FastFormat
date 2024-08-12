@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.inserters.integer.cpp
+ * File:    test.unit.inserters.integer.cpp
  *
- * Purpose:     Implementation file for the test.unit.inserters.integer project.
+ * Purpose: Implementation file for the test.unit.inserters.integer project.
  *
- * Created:     11th December 2010
- * Updated:     6th February 2024
+ * Created: 11th December 2010
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -49,18 +49,20 @@
  */
 
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-# define XTESTS_TEST_STRING_EQUAL_(x, a)    XTESTS_TEST_WIDE_STRING_EQUAL(x, a)
-# define XTESTS_TEST_STRING_EQUAL(x, a)     XTESTS_TEST_WIDE_STRING_EQUAL(FASTFORMAT_LITERAL_STRING(x), a)
-# define std_string                         std::wstring
-# define XTESTS_TEST_FIIS_EXPR_t2s(x)       stlsoft::w2a(x).c_str()
+
+# define XTESTS_TEST_STRING_EQUAL_(x, a)                    XTESTS_TEST_WIDE_STRING_EQUAL(x, a)
+# define XTESTS_TEST_STRING_EQUAL(x, a)                     XTESTS_TEST_WIDE_STRING_EQUAL(FASTFORMAT_LITERAL_STRING(x), a)
+# define std_string                                         std::wstring
+# define XTESTS_TEST_FIIS_EXPR_t2s(x)                       stlsoft::w2a(x).c_str()
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
-# define XTESTS_TEST_STRING_EQUAL_          XTESTS_TEST_MULTIBYTE_STRING_EQUAL
-# define XTESTS_TEST_STRING_EQUAL           XTESTS_TEST_MULTIBYTE_STRING_EQUAL
-# define std_string                         std::string
-# define XTESTS_TEST_FIIS_EXPR_t2s(x)       x
+
+# define XTESTS_TEST_STRING_EQUAL_                          XTESTS_TEST_MULTIBYTE_STRING_EQUAL
+# define XTESTS_TEST_STRING_EQUAL                           XTESTS_TEST_MULTIBYTE_STRING_EQUAL
+# define std_string                                         std::string
+# define XTESTS_TEST_FIIS_EXPR_t2s(x)                       x
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
 
-#define FF_STR                              FASTFORMAT_LITERAL_STRING
+#define FF_STR                                              FASTFORMAT_LITERAL_STRING
 
 
 
@@ -85,7 +87,7 @@
 
 #define XTESTS_TEST_FIIS_EQUAL(expected, actual)    XTESTS_TEST_FIIS_EQUAL_(FF_STR(expected), actual)
 
-    
+
 /* std::string(stlsoft::a2t"" #actual */
 
 
@@ -120,6 +122,7 @@ namespace
 } /* anonymous namespace */
 
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * main()
  */
@@ -131,7 +134,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.unit.inserters.integer", verbosity))
+    if (XTESTS_START_RUNNER("test.unit.inserters.integer", verbosity))
     {
         XTESTS_RUN_CASE(test_1_0);
         XTESTS_RUN_CASE(test_1_1);
@@ -198,19 +201,19 @@ namespace
         STLSOFT_ASSERT(xtestsComparisonEqual == comp);
         STLSOFT_SUPPRESS_UNUSED(comp);
 
-        if(cchExpected == cchActual)
+        if (cchExpected == cchActual)
         {
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-            if(0 == wcsncmp(expected, actual, cchExpected))
+            if (0 == wcsncmp(expected, actual, cchExpected))
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
-            if(0 == strncmp(expected, actual, cchExpected))
+            if (0 == strncmp(expected, actual, cchExpected))
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
             {
                 equal = true;
             }
         }
 
-        if(equal)
+        if (equal)
         {
             stlsoft_static_cast(void, xtests_testPassed(file, line, function, expr));
         }
@@ -530,7 +533,7 @@ static void test_1_11()
 static void test_1_12()
 {
 #if 0
-    { for(ff_char_t ch = 'a'; ch != 'z'; ++ch)
+    { for (ff_char_t ch = 'a'; ch != 'z'; ++ch)
     {
         ff_char_t sz[2] = { ch, '\0' };
 
@@ -569,6 +572,7 @@ static void test_1_19()
 
 
 } /* anonymous namespace */
+
 
 
 /* ///////////////////////////// end of file //////////////////////////// */

@@ -1,19 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.scratch.sink.exceptions.cpp
+ * File:    test.scratch.sink.exceptions.cpp
  *
- * Purpose:     Implementation file for the test.scratch.sink.exceptions project.
+ * Purpose: Implementation file for the test.scratch.sink.exceptions project.
  *
- * Created:     12th November 2012
- * Updated:     10th January 2017
- *
- * Status:      Wizard-generated
- *
- * License:     (Licensed under the Synesis Software Open License)
- *
- *              Copyright (c) 2012-2017, Synesis Software Pty Ltd.
- *              All rights reserved.
- *
- *              www:        http://www.synesis.com.au/software
+ * Created: 12th November 2012
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -65,7 +56,7 @@ int main(int argc, char** argv)
     {
         return program_main(argc, argv);
     }
-    catch(application_exception& x)
+    catch (application_exception& x)
     {
         ff::fmtln(
             ff::to_sink(stdout)
@@ -81,13 +72,13 @@ int main(int argc, char** argv)
 
         return EXIT_SUCCESS;
     }
-    catch(std::bad_alloc&)
+    catch (std::bad_alloc&)
     {
         fputs("out of memory\n", stderr);
 
         return EXIT_FAILURE;
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         ff::fmtln(
             ff::to_sink(stdout)
@@ -106,3 +97,4 @@ int main(int argc, char** argv)
 }
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

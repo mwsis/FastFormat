@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.bundle.util.cpp
+ * File:    test.unit.bundle.util.cpp
  *
- * Purpose:     Implementation file for the test.unit.bundle.util project.
+ * Purpose: Implementation file for the test.unit.bundle.util project.
  *
- * Created:     30th November 2016
- * Updated:     6th February 2024
+ * Created: 30th November 2016
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -39,18 +39,18 @@
 #include <fastformat/test/util/compiler_warnings_suppression.last_include.h>
 
 
-/* /////////////////////////////////////////////////////////////////////////////
+/* /////////////////////////////////////////////////////////////////////////
  * macros and definitions
  */
 
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-# define XTESTS_TEST_STRING_EQUAL           XTESTS_TEST_WIDE_STRING_EQUAL
+# define XTESTS_TEST_STRING_EQUAL                           XTESTS_TEST_WIDE_STRING_EQUAL
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
-# define XTESTS_TEST_STRING_EQUAL           XTESTS_TEST_MULTIBYTE_STRING_EQUAL
+# define XTESTS_TEST_STRING_EQUAL                           XTESTS_TEST_MULTIBYTE_STRING_EQUAL
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
 
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-# define t2m        stlsoft::w2m
+# define t2m                                                stlsoft::w2m
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
 # define t2m(x)     x
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
@@ -131,7 +131,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.unit.bundle.util", verbosity))
+    if (XTESTS_START_RUNNER("test.unit.bundle.util", verbosity))
     {
         XTESTS_RUN_CASE(calculate_number_of_windows_replacement_parameters_1);
         XTESTS_RUN_CASE(calculate_number_of_windows_replacement_parameters_2);

@@ -1,11 +1,11 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        example.overload.3.floatingpoint_columns.cpp
+ * File:    example.overload.3.floatingpoint_columns.cpp
  *
- * Purpose:     Implementation file for the example.overload.3.floatingpoint_columns
- *              project.
+ * Purpose: Implementation file for the example.overload.3.floatingpoint_columns
+ *          project.
  *
- * Created:     30th April 2009
- * Updated:     6th February 2024
+ * Created: 30th April 2009
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -42,7 +42,7 @@ int main()
     platformstl::performance_counter::interval_type t_ff_fmt_2  =   0;
     platformstl::performance_counter::interval_type t_ff_fmt_3  =   0;
 
-    { for(int WARMUPS = 3; 0 != WARMUPS; --WARMUPS)
+    { for (int WARMUPS = 3; 0 != WARMUPS; --WARMUPS)
     {
 #ifdef _DEBUG
         const int ITERATIONS = 1;
@@ -53,7 +53,7 @@ int main()
 
         puts("Streams:");
         counter.start();
-        { for(int j = 0; j != ITERATIONS; ++j)
+        { for (int j = 0; j != ITERATIONS; ++j)
         {
             output_by_streams();
         }}
@@ -63,7 +63,7 @@ int main()
 
         puts("IOStreams:");
         counter.start();
-        { for(int j = 0; j != ITERATIONS; ++j)
+        { for (int j = 0; j != ITERATIONS; ++j)
         {
             output_by_iostreams();
         }}
@@ -74,7 +74,7 @@ int main()
 #ifdef FASTFORMAT_PERFTEST_USE_BOOST
         puts("Boost:");
         counter.start();
-        { for(int j = 0; j != ITERATIONS; ++j)
+        { for (int j = 0; j != ITERATIONS; ++j)
         {
             output_by_boost_1();
         }}
@@ -84,7 +84,7 @@ int main()
 
         puts("Boost (N):");
         counter.start();
-        { for(int j = 0; j != ITERATIONS; ++j)
+        { for (int j = 0; j != ITERATIONS; ++j)
         {
             output_by_boost_2();
         }}
@@ -95,7 +95,7 @@ int main()
 
         puts("FastFormat.Format (1):");
         counter.start();
-        { for(int j = 0; j != ITERATIONS; ++j)
+        { for (int j = 0; j != ITERATIONS; ++j)
         {
             output_by_ff_fmt_1();
         }}
@@ -105,7 +105,7 @@ int main()
 
         puts("FastFormat.Format (2):");
         counter.start();
-        { for(int j = 0; j != ITERATIONS; ++j)
+        { for (int j = 0; j != ITERATIONS; ++j)
         {
             output_by_ff_fmt_2();
         }}
@@ -115,7 +115,7 @@ int main()
 
         puts("FastFormat.Format (3):");
         counter.start();
-        { for(int j = 0; j != ITERATIONS; ++j)
+        { for (int j = 0; j != ITERATIONS; ++j)
         {
             output_by_ff_fmt_3();
         }}
@@ -169,7 +169,7 @@ int output_by_streams()
 
 int output_by_iostreams()
 {
-    std::cout 
+    std::cout
         << '['
         << std::setiosflags(std::ios::fixed)
         << std::left
@@ -195,7 +195,7 @@ int output_by_iostreams()
 
 FILE* FILE_stm = stdout;
 //#define ff_stm    FILE_stm
-#define ff_stm  std::cout
+#define ff_stm                                              std::cout
 
 int output_by_ff_fmt_1()
 {

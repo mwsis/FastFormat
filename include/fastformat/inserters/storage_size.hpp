@@ -1,14 +1,15 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/inserters/storage_size.hpp
+ * File:    fastformat/inserters/storage_size.hpp
  *
- * Purpose:     Inserter functions for storage sizes.
+ * Purpose: Inserter functions for storage sizes.
  *
- * Created:     16th August 2010
- * Updated:     21st January 2017
+ * Created: 16th August 2010
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
- * Copyright (c) 2010-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2010-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_STORAGE_SIZE
 #define FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_STORAGE_SIZE
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_STORAGE_SIZE_MAJOR     1
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_STORAGE_SIZE_MINOR     0
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_STORAGE_SIZE_REVISION  7
-# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_STORAGE_SIZE_EDIT      11
+# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_STORAGE_SIZE_EDIT      16
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -79,6 +82,7 @@
 # include <stlsoft/util/limit_traits.h>
 #endif /* STLSOFT_LEAD_VER */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -89,6 +93,7 @@ namespace fastformat
 namespace inserters
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * implementation
@@ -111,18 +116,18 @@ struct storage_size_constants
     typedef stlsoft::ss_uint64_t        uint64_type;
 
     /*
-     * 
+     *
      * 1000    -   KiloByte
      * 1024    -   KibiByte
-     * 
+     *
      * kilobyte  (kB)  10^3     2^10     0.9766  kibibyte (KiB)  2^10   int16
      * megabyte (MB)   10^6     2^20     0.9537  mebibyte (MiB)  2^20   int32
      * gigabyte (GB)   10^9     2^30     0.9313  gibibyte (GiB)  2^30   int32
      * terabyte (TB)   10^12    2^40     0.9095  tebibyte (TiB)  2^40   int64
      * petabyte (PB)   10^15    2^50     0.8882  pebibyte (PiB)  2^50   int64
      * exabyte (EB)    10^18    2^60     0.8674  exbibyte (EiB)  2^60   int64
-     * zettabyte (ZB)  10^21    2^70     0.8470  zebibyte (ZiB)  2^70   
-     * yottabyte (YB)  10^24    2^80     0.8272  yobibyte (YiB)  2^80   
+     * zettabyte (ZB)  10^21    2^70     0.8470  zebibyte (ZiB)  2^70
+     * yottabyte (YB)  10^24    2^80     0.8272  yobibyte (YiB)  2^80
      *
      *
      * Max OOMs:
@@ -216,7 +221,7 @@ static
 size_t
 lookup_suffix_(
     size_t              oom
-,   ff_char_t const**   pps 
+,   ff_char_t const**   pps
 )
 {
     // Do x [4] in case want to change/borrow for Kibbi, etc.
@@ -260,25 +265,28 @@ lookup_suffix_(
 
     };
 
-    switch(oom)
+    switch (oom)
     {
-        case  0:
-            *pps = symbols[0];
-            return 1;
-        case     3:
-        case     6:
-        case     9:
-        case    12:
-        case    15:
-        case    18:
-        case    21:
-        case    24:
-            *pps = symbols[oom];
-            return 2;
-        default:
-            STLSOFT_ASSERT(false);
-            *pps = NULL;
-            return 0;
+    case  0:
+
+        *pps = symbols[0];
+        return 1;
+    case  3:
+    case  6:
+    case  9:
+    case 12:
+    case 15:
+    case 18:
+    case 21:
+    case 24:
+
+        *pps = symbols[oom];
+        return 2;
+    default:
+
+        STLSOFT_ASSERT(false);
+        *pps = NULL;
+        return 0;
     }
 }
 
@@ -296,7 +304,7 @@ storage_size_with_suffix_(
     ff_char_t const*    s       =   stlsoft::integer_to_string(&buffer[0], STLSOFT_NUM_ELEMENTS(buffer) - 2u, i, &cch1);
 
     ff_char_t* t = &buffer[0] + STLSOFT_NUM_ELEMENTS(buffer) - (1u + 2u);
-    for(; '\0' != *suffix; ++t, ++suffix)
+    for (; '\0' != *suffix; ++t, ++suffix)
     {
         *t = *suffix;
     }
@@ -327,7 +335,7 @@ storage_size_(
 {
     size_t              oom         =   0;
 
-    for(; i >= 1000; )
+    for (; i >= 1000; )
     {
         i   /=  1000;
         oom +=   3;
@@ -347,7 +355,7 @@ storage_size_(
 {
     size_t              oom         =   0;
 
-    if(i >= 1000)
+    if (i >= 1000)
     {
         i   /=  1000;
         oom +=  3;
@@ -366,7 +374,7 @@ storage_size_(
 {
     size_t              oom         =   0;
 
-    for(; i >= 1000; )
+    for (; i >= 1000; )
     {
         i   /=  1000;
         oom +=   3;
@@ -387,7 +395,7 @@ storage_size_(
 #if 0 ||\
     defined(PLATFORMSTL_ARCH_IS_X86) ||\
     0
-    if(0 == (STLSOFT_GEN_UINT64_SUFFIX(0xFFFFFFFF00000000) & i))
+    if (0 == (STLSOFT_GEN_UINT64_SUFFIX(0xFFFFFFFF00000000) & i))
     {
         return storage_size_(static_cast<stlsoft::uint32_t>(i));
     }
@@ -395,7 +403,7 @@ storage_size_(
 
     size_t              oom         =   0;
 
-    for(; i >= 1000; )
+    for (; i >= 1000; )
     {
         i   /=  1000;
         oom +=   3;
@@ -409,6 +417,7 @@ storage_size_(
 
 } /* namespace ximpl_storage_size */
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * inserter functions
@@ -437,6 +446,7 @@ ximpl_storage_size::ff_stg_size_r_t_
     return ximpl_storage_size::storage_size_(i);
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -447,6 +457,7 @@ using ::fastformat::inserters::storage_size;
 } // namespace fastformat
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -455,8 +466,8 @@ using ::fastformat::inserters::storage_size;
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_STORAGE_SIZE */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

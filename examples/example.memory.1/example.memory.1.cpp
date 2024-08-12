@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        example.memory.1.cpp
+ * File:    example.memory.1.cpp
  *
- * Purpose:     Implementation file for the example.memory.1 project.
+ * Purpose: Implementation file for the example.memory.1 project.
  *
- * Created:     20th September 2008
- * Updated:     6th February 2024
+ * Created: 20th September 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -92,7 +92,7 @@ static void test_1()
         long    s = -1;
         long    v = -1;
 
-        { for(size_t i = 0; i != 2; ++i)
+        { for (size_t i = 0; i != 2; ++i)
         {
             const platformstl::atomic_int_t spre = scalar_count;
             const platformstl::atomic_int_t vpre = vector_count;
@@ -114,7 +114,7 @@ static void test_1()
         long    s = -1;
         long    v = -1;
 
-        { for(size_t i = 0; i != 2; ++i)
+        { for (size_t i = 0; i != 2; ++i)
         {
             const platformstl::atomic_int_t spre = scalar_count;
             const platformstl::atomic_int_t vpre = vector_count;
@@ -140,7 +140,7 @@ static void test_1()
         long    s = -1;
         long    v = -1;
 
-        { for(size_t i = 0; i != 2; ++i)
+        { for (size_t i = 0; i != 2; ++i)
         {
             const platformstl::atomic_int_t spre = scalar_count;
             const platformstl::atomic_int_t vpre = vector_count;
@@ -238,7 +238,7 @@ int main(int argc, char** argv)
 #endif /* _MSC_VER && _MSC_VER */
 
 #if 0
-    { for(size_t i = 0; i < 0xffffffff; ++i){} }
+    { for (size_t i = 0; i < 0xffffffff; ++i){} }
 #endif /* 0 */
 
     try
@@ -250,13 +250,13 @@ int main(int argc, char** argv)
 
         res = main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         fprintf(stderr, "Unhandled error: %s\n", x.what());
 
         res = EXIT_FAILURE;
     }
-    catch(...)
+    catch (...)
     {
         fprintf(stderr, "Unhandled unknown error\n");
 

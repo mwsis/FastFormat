@@ -4,11 +4,12 @@
  * Purpose:     Inserter functions for integral types in hex format
  *
  * Created:     19th December 2009
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2009-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2009-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_TO_X
 #define FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_TO_X
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,14 +57,16 @@
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_TO_X_MAJOR     1
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_TO_X_MINOR     0
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_TO_X_REVISION  4
-# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_TO_X_EDIT      10
+# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_TO_X_EDIT      14
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
  */
 
 #include <fastformat/inserters/integer.hpp>
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -74,6 +78,7 @@ namespace fastformat
 namespace inserters
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * inserter functions
@@ -98,7 +103,7 @@ inline ximpl_integer::ff_to_i_r_t_ to_x(
 {
     STLSOFT_STATIC_ASSERT(stlsoft::is_integral_type<I>::value);
 
-    return 
+    return
 #if !defined(FASTFORMAT_NO_NAMESPACE)
       ::fastformat::inserters::
 #endif /* !FASTFORMAT_NO_NAMESPACE */
@@ -129,7 +134,7 @@ inline ximpl_integer::ff_to_i_r_t_ to_X(
 {
     STLSOFT_STATIC_ASSERT(stlsoft::is_integral_type<I>::value);
 
-    return 
+    return
 #if !defined(FASTFORMAT_NO_NAMESPACE)
       ::fastformat::inserters::
 #endif /* !FASTFORMAT_NO_NAMESPACE */
@@ -164,7 +169,7 @@ inline ximpl_integer::ff_to_i_r_t_ to_x(
 {
     STLSOFT_STATIC_ASSERT(stlsoft::is_integral_type<I>::value);
 
-    return 
+    return
 #if !defined(FASTFORMAT_NO_NAMESPACE)
       ::fastformat::inserters::
 #endif /* !FASTFORMAT_NO_NAMESPACE */
@@ -199,7 +204,7 @@ inline ximpl_integer::ff_to_i_r_t_ to_X(
 {
     STLSOFT_STATIC_ASSERT(stlsoft::is_integral_type<I>::value);
 
-    return 
+    return
 #if !defined(FASTFORMAT_NO_NAMESPACE)
       ::fastformat::inserters::
 #endif /* !FASTFORMAT_NO_NAMESPACE */
@@ -238,7 +243,7 @@ inline ximpl_integer::ff_to_i_r_t_ to_x(
 {
     STLSOFT_STATIC_ASSERT(stlsoft::is_integral_type<I>::value);
 
-    return 
+    return
 #if !defined(FASTFORMAT_NO_NAMESPACE)
       ::fastformat::inserters::
 #endif /* !FASTFORMAT_NO_NAMESPACE */
@@ -277,7 +282,7 @@ inline ximpl_integer::ff_to_i_r_t_ to_X(
 {
     STLSOFT_STATIC_ASSERT(stlsoft::is_integral_type<I>::value);
 
-    return 
+    return
 #if !defined(FASTFORMAT_NO_NAMESPACE)
       ::fastformat::inserters::
 #endif /* !FASTFORMAT_NO_NAMESPACE */
@@ -288,6 +293,7 @@ inline ximpl_integer::ff_to_i_r_t_ to_X(
             ,   ximpl_integer::FF_ximpl_REQUIRE_UPPERCASE
             );
 }
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -300,6 +306,7 @@ using ::fastformat::inserters::to_X;
 } // namespace fastformat
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -308,8 +315,8 @@ using ::fastformat::inserters::to_X;
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_TO_X */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

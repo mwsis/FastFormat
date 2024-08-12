@@ -4,11 +4,12 @@
  * Purpose:     Defines string access shims for ff_string_slice_t
  *
  * Created:     11th November 2013
- * Updated:     10th January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2006-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2006-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_SHIMS_ACCESS_STRING_HPP_STRING_SLICE
 #define FASTFORMAT_INCL_FASTFORMAT_SHIMS_ACCESS_STRING_HPP_STRING_SLICE
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_SHIMS_ACCESS_STRING_HPP_STRING_SLICE_MAJOR       1
 # define FASTFORMAT_VER_FASTFORMAT_SHIMS_ACCESS_STRING_HPP_STRING_SLICE_MINOR       0
 # define FASTFORMAT_VER_FASTFORMAT_SHIMS_ACCESS_STRING_HPP_STRING_SLICE_REVISION    3
-# define FASTFORMAT_VER_FASTFORMAT_SHIMS_ACCESS_STRING_HPP_STRING_SLICE_EDIT        6
+# define FASTFORMAT_VER_FASTFORMAT_SHIMS_ACCESS_STRING_HPP_STRING_SLICE_EDIT        9
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -65,6 +68,7 @@
 #ifndef FASTFORMAT_DOCUMENTATION_SKIP_SECTION
 # include <fastformat/fastformat.h>
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -163,6 +167,7 @@ c_str_len(
 #endif /* !FASTFORMAT_USE_WIDE_STRINGS */
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -173,6 +178,7 @@ c_str_len(
 # if !defined(FASTFORMAT_NO_NAMESPACE)
 } /* namespace fastformat */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * Introduction of shim overloads into appropriate namespace, ...
@@ -257,6 +263,7 @@ namespace stlsoft
 # endif /* _STLSOFT_NO_NAMESPACE */
 #endif /* !STLSOFT_CF_ADL_SUPPORT */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -265,8 +272,8 @@ namespace stlsoft
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_SHIMS_ACCESS_STRING_HPP_STRING_SLICE */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

@@ -1,14 +1,15 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/inserters/real.hpp
+ * File:    fastformat/inserters/real.hpp
  *
- * Purpose:     Inserter functions for floating-point types
+ * Purpose: Inserter functions for floating-point types
  *
- * Created:     1st March 2009
- * Updated:     5th February 2017
+ * Created: 1st March 2009
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
- * Copyright (c) 2009-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2009-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_REAL
 #define FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_REAL
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_REAL_MAJOR     1
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_REAL_MINOR     2
 # define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_REAL_REVISION  1
-# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_REAL_EDIT      16
+# define FASTFORMAT_VER_FASTFORMAT_INSERTERS_HPP_REAL_EDIT      20
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -78,6 +81,7 @@
 
 #include <stdlib.h> /* for abs() */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -88,6 +92,7 @@ namespace fastformat
 namespace inserters
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * implementation
@@ -138,7 +143,7 @@ inline stlsoft::basic_shim_string<ff_char_t, 64> real_helper_2(
     result_t result(64);
 
 # ifndef STLSOFT_CF_THROW_BAD_ALLOC
-    if(!result.empty())
+    if (!result.empty())
 # endif /* !STLSOFT_CF_THROW_BAD_ALLOC */
     {
         // Unlike integral types, the string representation of floating
@@ -150,11 +155,11 @@ inline stlsoft::basic_shim_string<ff_char_t, 64> real_helper_2(
         // indicates error. To handle this, we double the size of the buffer
         // up to four times, at which point we admit defeat.
 
-        { for(int i = 0;; )
+        { for (int i = 0;; )
         {
             int n = fastformat_util_snprintf(result.data(), result.size() - 1, fmt, value);
 
-            if(n > int(result.size()))
+            if (n > int(result.size()))
             {
                 // An implementation that does it correctly, so just resize
                 // to the desired size and go again
@@ -162,15 +167,15 @@ inline stlsoft::basic_shim_string<ff_char_t, 64> real_helper_2(
                 // This'll only return false when exception-handling is
                 // suppressed, but the code is correct without preprocessor
                 // logic in either case, so leave as is
-                if(!result.resize(n))
+                if (!result.resize(n))
                 {
                     result.truncate(0);
                     break;
                 }
             }
-            else if(n < 0)
+            else if (n < 0)
             {
-                if(maxRepeats == ++i)
+                if (maxRepeats == ++i)
                 {
                     result.truncate(0);
                     break;
@@ -180,7 +185,7 @@ inline stlsoft::basic_shim_string<ff_char_t, 64> real_helper_2(
                     // This'll only return false when exception-handling is
                     // suppressed, but the code is correct without preprocessor
                     // logic in either case, so leave as is
-                    if(!result.resize(1u + result.size() * 2))
+                    if (!result.resize(1u + result.size() * 2))
                     {
                         result.truncate(0);
                         break;
@@ -214,7 +219,7 @@ inline stlsoft::basic_shim_string<ff_char_t, 64> real_helper_2(
     result_t::buffer_type&  buffer = result.get_buffer();
 
 # ifndef STLSOFT_CF_THROW_BAD_ALLOC
-    if(!buffer.empty())
+    if (!buffer.empty())
 # endif /* !STLSOFT_CF_THROW_BAD_ALLOC */
     {
         // Unlike integral types, the string representation of floating
@@ -226,11 +231,11 @@ inline stlsoft::basic_shim_string<ff_char_t, 64> real_helper_2(
         // indicates error. To handle this, we double the size of the buffer
         // up to four times, at which point we admit defeat.
 
-        { for(int i = 0;; )
+        { for (int i = 0;; )
         {
             int n = fastformat_util_snprintf(&buffer[0], buffer.size() - 1, fmt, value);
 
-            if(n > int(buffer.size() - 1))
+            if (n > int(buffer.size() - 1))
             {
                 // An implementation that does it correctly, so just resize
                 // to the desired size and go again
@@ -238,15 +243,15 @@ inline stlsoft::basic_shim_string<ff_char_t, 64> real_helper_2(
                 // This'll only return false when exception-handling is
                 // suppressed, but the code is correct without preprocessor
                 // logic in either case, so leave as is
-                if(!buffer.resize(size_t(n) + 1u))
+                if (!buffer.resize(size_t(n) + 1u))
                 {
                     buffer.resize(1u);
                     break;
                 }
             }
-            else if(n < 0)
+            else if (n < 0)
             {
-                if(maxRepeats == ++i)
+                if (maxRepeats == ++i)
                 {
                     break;
                 }
@@ -255,7 +260,7 @@ inline stlsoft::basic_shim_string<ff_char_t, 64> real_helper_2(
                     // This'll only return false when exception-handling is
                     // suppressed, but the code is correct without preprocessor
                     // logic in either case, so leave as is
-                    if(!buffer.resize(1u + buffer.size() * 2))
+                    if (!buffer.resize(1u + buffer.size() * 2))
                     {
                         buffer.resize(1u);
                         break;
@@ -292,12 +297,12 @@ inline stlsoft::basic_shim_string<ff_char_t, 64> real_helper_4(
     ff_char_t   fmt_[]  =   FASTFORMAT_LITERAL_STRING("%-01234567890123456789.01234567890123456789f");
     ff_char_t*  fmt     =   fmt_;
 
-    if(NULL != specifier)
+    if (NULL != specifier)
     {
         type = *specifier;
     }
 
-    if( default_width_sentinel_() == minimumWidth &&
+    if (default_width_sentinel_() == minimumWidth &&
         precision < 0)
     {
         fmt[1] = type;
@@ -305,11 +310,11 @@ inline stlsoft::basic_shim_string<ff_char_t, 64> real_helper_4(
     }
     else
     {
-        if(default_width_sentinel_() == minimumWidth)
+        if (default_width_sentinel_() == minimumWidth)
         {
             minimumWidth = 0;
         }
-        if(precision < 0)
+        if (precision < 0)
         {
             precision = 0;
         }
@@ -357,6 +362,7 @@ inline stlsoft::basic_shim_string<ff_char_t, 64> real_helper_4(
 
 } /* namespace ximpl_real */
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * inserter functions
@@ -433,6 +439,7 @@ inline stlsoft::basic_shim_string<ff_char_t, 64> real(
     return ximpl_real::real_helper_4(value, minimumWidth, decimalPlaces, &type);
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -443,6 +450,7 @@ using ::fastformat::inserters::real;
 } // namespace fastformat
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -451,8 +459,8 @@ using ::fastformat::inserters::real;
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* !FASTFORMAT_INCL_FASTFORMAT_INSERTERS_HPP_REAL */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

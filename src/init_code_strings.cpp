@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        src/init_code_strings.cpp
+ * File:    src/init_code_strings.cpp
  *
- * Purpose:     Initialisation code strings for FastFormat API
+ * Purpose: Initialisation code strings for FastFormat API
  *
- * Created:     27th May 2008
- * Updated:     6th February 2024
+ * Created: 27th May 2008
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
@@ -67,7 +67,7 @@ namespace fastformat
 #ifdef FASTFORMAT_DOCUMENTATION_SKIP_SECTION
 struct InitCodeString
 #else /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
-# define InitCodeString        fastformat_src_util_InitCodeString
+# define InitCodeString                                     fastformat_src_util_InitCodeString
 typedef struct InitCodeString  InitCodeString;
 struct InitCodeString
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
@@ -100,7 +100,7 @@ static ff_char_t const* fastformat_LookupCodeA_(int code, InitCodeString const**
      */
     size_t  len_;
 
-    if(NULL == len)
+    if (NULL == len)
     {
         FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -108,11 +108,11 @@ static ff_char_t const* fastformat_LookupCodeA_(int code, InitCodeString const**
     }
 
     /* Linear search. */
-    { size_t i; for(i = 0; i < cMappings; ++i)
+    { size_t i; for (i = 0; i < cMappings; ++i)
     {
         FASTFORMAT_COVER_MARK_ENTRY();
 
-        if(code == mappings[i]->code)
+        if (code == mappings[i]->code)
         {
             FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -178,3 +178,4 @@ FASTFORMAT_CALL(size_t) fastformat_getInitCodeStringLength(int code)
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

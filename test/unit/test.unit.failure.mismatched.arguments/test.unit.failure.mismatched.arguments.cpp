@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.failure.mismatched.arguments.cpp
+ * File:    test.unit.failure.mismatched.arguments.cpp
  *
- * Purpose:     Implementation file for the test.unit.failure.mismatched.arguments project.
+ * Purpose: Implementation file for the test.unit.failure.mismatched.arguments project.
  *
- * Created:     28th October 2013
- * Updated:     6th February 2024
+ * Created: 28th October 2013
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -62,6 +62,7 @@ namespace
 } /* anonymous namespace */
 
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * main()
  */
@@ -73,7 +74,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.unit.failure.mismatched.arguments", verbosity))
+    if (XTESTS_START_RUNNER("test.unit.failure.mismatched.arguments", verbosity))
     {
         XTESTS_RUN_CASE(test_that_single_used_argument_succeeds);
         XTESTS_RUN_CASE_THAT_THROWS(test_that_single_unused_argument_fails, ff::unreferenced_argument_exception);
@@ -265,6 +266,7 @@ static void test_1_19()
 
 
 } /* anonymous namespace */
+
 
 
 /* ///////////////////////////// end of file //////////////////////////// */

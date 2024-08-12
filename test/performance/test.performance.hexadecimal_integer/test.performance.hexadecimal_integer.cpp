@@ -13,11 +13,23 @@
 
 #include <stdio.h>
 
+#ifndef INT_MAX
+# define INT_MAX                                            std::numeric_limits<int>::max()
+#endif
+#ifndef INT_MIN
+# define INT_MIN                                            std::numeric_limits<int>::min()
+#endif
+
+
+
 #ifdef _DEBUG
+
 const size_t NUM_ITERATIONS =   1;
 #else
+
 const size_t NUM_ITERATIONS =   10000000;
 #endif
+
 
 int main()
 {
@@ -28,11 +40,11 @@ int main()
     ff::fmtln(std::cout, "_STLSOFT_VER={0}", ff::to_x(_STLSOFT_VER));
 
     {
-        { for(int WARMUPS = 2; 0 != WARMUPS--; )
+        { for (int WARMUPS = 2; 0 != WARMUPS--; )
         {
             counter.start();
 
-            { for(size_t i = 0; i != NUM_ITERATIONS; ++i)
+            { for (size_t i = 0; i != NUM_ITERATIONS; ++i)
             {
                 char                        sz[21];
                 ff::sinks::char_buffer_sink sink(sz);
@@ -49,11 +61,11 @@ int main()
     }
 
     {
-        { for(int WARMUPS = 2; 0 != WARMUPS--; )
+        { for (int WARMUPS = 2; 0 != WARMUPS--; )
         {
             counter.start();
 
-            { for(int i = INT_MIN / 16; i != INT_MAX / 16; ++i)
+            { for (int i = INT_MIN / 16; i != INT_MAX / 16; ++i)
             {
                 char                        sz[21];
                 ff::sinks::char_buffer_sink sink(sz);
@@ -69,10 +81,14 @@ int main()
         ff::fmtln(std::cout, "{0} incremental (int) numbers in {1}us", static_cast<unsigned long>(INT_MAX) * 2, counter.get_microseconds());
     }
 
-    if(std::numeric_limits<unsigned>::max() == x)
+    if (std::numeric_limits<unsigned>::max() == x)
     {
         fputs("", stdin);
     }
 
     return 0;
 }
+
+
+/* ///////////////////////////// end of file //////////////////////////// */
+

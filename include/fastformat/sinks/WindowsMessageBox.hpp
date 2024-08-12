@@ -1,14 +1,15 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/sinks/WindowsMessageBox.hpp
+ * File:    fastformat/sinks/WindowsMessageBox.hpp
  *
- * Purpose:     A FastFormat sink for Windows message boxes.
+ * Purpose: A FastFormat sink for Windows message boxes.
  *
- * Created:     4th January 2009
- * Updated:     10th January 2017
+ * Created: 4th January 2009
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
- * Copyright (c) 2009-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2009-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_WINDOWSMESSAGEBOX
 #define FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_WINDOWSMESSAGEBOX
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_WINDOWSMESSAGEBOX_MAJOR     1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_WINDOWSMESSAGEBOX_MINOR     1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_WINDOWSMESSAGEBOX_REVISION  1
-# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_WINDOWSMESSAGEBOX_EDIT      12
+# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_WINDOWSMESSAGEBOX_EDIT      16
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -65,6 +68,7 @@
 #ifndef __cplusplus
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -79,6 +83,7 @@
 
 #include <windows.h>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -89,6 +94,7 @@ namespace fastformat
 namespace sinks
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * classes
@@ -136,7 +142,7 @@ public:
         stlsoft::auto_buffer<ff_char_t> text(cchTotal + 1u);
 
 #ifndef STLSOFT_CF_THROW_BAD_ALLOC
-        if(text.empty())
+        if (text.empty())
         {
             m_result = -1;
         }
@@ -163,11 +169,11 @@ private:
     static string_type_ get_caption_(HWND hwnd, ff_char_t const* caption)
     {
         // If no caption is specified, then ...
-        if( NULL == caption &&
+        if (NULL == caption &&
             NULL != hwnd)
         {
             // ... attempt to read it from the top-most parent
-            { for(HWND hwndParent; (NULL != (hwndParent = ::GetWindow(hwnd, GW_OWNER))); )
+            { for (HWND hwndParent; (NULL != (hwndParent = ::GetWindow(hwnd, GW_OWNER))); )
             {
                 hwnd = hwndParent;
             }}
@@ -196,6 +202,7 @@ private:
     int                 m_result;
 };
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * creator functions
  */
@@ -218,6 +225,7 @@ inline WindowsMessageBox_sink MessageBox(LPCTSTR caption, UINT type)
     return WindowsMessageBox_sink(NULL, caption, type);
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * action shims
  */
@@ -233,6 +241,7 @@ inline WindowsMessageBox_sink& fmt_slices(WindowsMessageBox_sink& sink, int flag
     return sink.write(flags, cchTotal, numResults, results);
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -242,6 +251,7 @@ inline WindowsMessageBox_sink& fmt_slices(WindowsMessageBox_sink& sink, int flag
 } /* namespace fastformat */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -250,8 +260,8 @@ inline WindowsMessageBox_sink& fmt_slices(WindowsMessageBox_sink& sink, int flag
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_WINDOWSMESSAGEBOX */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

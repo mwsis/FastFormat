@@ -1,12 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        src/enum_strings.cpp
+ * File:    src/enum_strings.cpp
  *
- * Purpose:     Parse code strings for FastFormat API
+ * Purpose: Parse code strings for FastFormat API
  *
- * Created:     11th November 2013
- * Updated:     6th February 2024
+ * Created: 11th November 2013
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
  * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
  * Copyright (c) 2013-2019, Matthew Wilson and Synesis Software
@@ -107,7 +107,7 @@ fastformat_LookupCodeA_(
      */
     size_t  len_;
 
-    if(NULL == len)
+    if (NULL == len)
     {
         FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -115,11 +115,11 @@ fastformat_LookupCodeA_(
     }
 
     /* Linear search. */
-    { size_t i; for(i = 0; i < cMappings; ++i)
+    { size_t i; for (i = 0; i < cMappings; ++i)
     {
         FASTFORMAT_COVER_MARK_ENTRY();
 
-        if(code == mappings[i]->code)
+        if (code == mappings[i]->code)
         {
             FASTFORMAT_COVER_MARK_ENTRY();
 
@@ -227,3 +227,4 @@ FASTFORMAT_CALL(size_t) fastformat_getReplacementCodeStringLength(ff_replacement
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

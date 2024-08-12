@@ -4,11 +4,12 @@
  * Purpose:     Implementation file for snprintf() utility functions.
  *
  * Created:     1st June 2008
- * Updated:     21st January 2017
+ * Updated:     16th July 2024
  *
  * Home:        http://www.fastformat.org/
  *
- * Copyright (c) 2008-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -188,3 +189,4 @@ FASTFORMAT_CALL(int) fastformat_util_snprintf(
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

@@ -1,14 +1,15 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/bundles/winini_bundle.hpp
+ * File:    fastformat/bundles/winini_bundle.hpp
  *
- * Purpose:     Windows INI file bundle.
+ * Purpose: Windows INI file bundle.
  *
- * Created:     19th September 2006
- * Updated:     21st January 2017
+ * Created: 19th September 2006
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
- * Copyright (c) 2006-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2006-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_BUNDLES_HPP_WININI_BUNDLE
 #define FASTFORMAT_INCL_FASTFORMAT_BUNDLES_HPP_WININI_BUNDLE
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_WININI_BUNDLE_MAJOR      1
 # define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_WININI_BUNDLE_MINOR      1
 # define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_WININI_BUNDLE_REVISION   5
-# define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_WININI_BUNDLE_EDIT       18
+# define FASTFORMAT_VER_FASTFORMAT_BUNDLES_HPP_WININI_BUNDLE_EDIT       21
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -65,6 +68,7 @@
 #ifndef __cplusplus
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -84,6 +88,7 @@
 #include <stdexcept>
 #include <string>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -92,6 +97,7 @@
 namespace fastformat
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * classes
@@ -161,6 +167,7 @@ private:
 /// @}
 };
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -200,9 +207,9 @@ winini_bundle::operator [](
                         ,   m_iniFileName.c_str()
                         );
 
-    if(dw == STLSOFT_NUM_ELEMENTS(sentinel) - 1)    /* element not found */
+    if (dw == STLSOFT_NUM_ELEMENTS(sentinel) - 1)    /* element not found */
     {
-        if(0 == string_type::traits_type::compare(sentinel, result, stlsoft::minimum(size_t(dw), STLSOFT_NUM_ELEMENTS(sentinel) - 1)))
+        if (0 == string_type::traits_type::compare(sentinel, result, stlsoft::minimum(size_t(dw), STLSOFT_NUM_ELEMENTS(sentinel) - 1)))
         {
             throw std::out_of_range("section/key combination does not exist in the given INI file");
         }
@@ -214,6 +221,7 @@ winini_bundle::operator [](
 }
 
 #endif /* FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
@@ -228,3 +236,4 @@ winini_bundle::operator [](
 #endif /* FASTFORMAT_INCL_FASTFORMAT_BUNDLES_HPP_WININI_BUNDLE */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

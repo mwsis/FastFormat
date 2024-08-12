@@ -18,6 +18,7 @@ Updated:    6th February 2024
 6th February 2024 - 0.7.4 RC 6
 ==============================
 
+
 Summary:
 --------
 
@@ -1759,7 +1760,7 @@ Summary:
 --------
 
  * now fully supports '#' as fill character (in addition to ' ')
- * ensures all (format specification defect) exceptions are correctly propagated to the caller 
+ * ensures all (format specification defect) exceptions are correctly propagated to the caller
  * detects (and rejects) negative width elements
  * detects (and rejects) extra format specifier elements
  + added test.component.format_specification_defect_exceptions
@@ -1775,7 +1776,7 @@ General:
 Core:
 
  ~ src/fmt_cache.cpp:
-    ~ ensuring all (format specification defect) exceptions are correctly propagated to the caller 
+    ~ ensuring all (format specification defect) exceptions are correctly propagated to the caller
 
  ~ src/fmt_spec_defect_handlers.cpp:
  ~ src/memory_pool.cpp:

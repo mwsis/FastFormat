@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.api.parse_format.cpp
+ * File:    test.unit.api.parse_format.cpp
  *
- * Purpose:     Implementation file for the test.unit.api.parse_format project.
+ * Purpose: Implementation file for the test.unit.api.parse_format project.
  *
- * Created:     27th May 2008
- * Updated:     6th February 2024
+ * Created: 27th May 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -41,23 +41,27 @@
 #include <fastformat/test/util/compiler_warnings_suppression.last_include.h>
 
 
-/* /////////////////////////////////////////////////////////////////////////////
+/* /////////////////////////////////////////////////////////////////////////
  * macros and definitions
  */
 
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-# define XTESTS_TEST_STRING_EQUAL(x, a)     XTESTS_TEST_WIDE_STRING_EQUAL(x, a)
+
+# define XTESTS_TEST_STRING_EQUAL(x, a)                     XTESTS_TEST_WIDE_STRING_EQUAL(x, a)
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
-# define XTESTS_TEST_STRING_EQUAL           XTESTS_TEST_MULTIBYTE_STRING_EQUAL
+
+# define XTESTS_TEST_STRING_EQUAL                           XTESTS_TEST_MULTIBYTE_STRING_EQUAL
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
 
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-# define t2m        stlsoft::w2m
+
+# define t2m                                                stlsoft::w2m
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
-# define t2m(x)     x
+
+# define t2m(x)                                             x
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
 
-#define FF_STR                              FASTFORMAT_LITERAL_STRING
+#define FF_STR                                              FASTFORMAT_LITERAL_STRING
 
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -137,6 +141,7 @@ namespace
 } /* anonymous namespace */
 
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * helper functions
  */
@@ -167,7 +172,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if( XTESTS_START_RUNNER_WITH_REPORTER_AND_STREAM_AND_FLAGS_AND_SETUP_FNS(
+    if (XTESTS_START_RUNNER_WITH_REPORTER_AND_STREAM_AND_FLAGS_AND_SETUP_FNS(
             "test.unit.api.parse_format"
         ,   verbosity
         ,   NULL, NULL
@@ -345,7 +350,7 @@ namespace
     ,   int                 /* reserved3 */
     )
     {
-        if(NULL == param)
+        if (NULL == param)
         {
             XTESTS_TEST_FAIL("NULL param passed to handler");
 
@@ -380,7 +385,7 @@ namespace
     ,   int                 /* reserved3 */
     )
     {
-        if(NULL == param)
+        if (NULL == param)
         {
             XTESTS_TEST_FAIL("NULL param passed to handler");
 
@@ -564,7 +569,7 @@ static void test_good_7()
     XTESTS_TEST_INTEGER_EQUAL(0,  replacements[0].index);
     XTESTS_TEST_INTEGER_EQUAL(0,  int(replacements[0].minWidth));
     XTESTS_TEST_INTEGER_EQUAL(-1,  int(replacements[0].maxWidth));
-    { for(size_t i = 0; i != 26; ++i)
+    { for (size_t i = 0; i != 26; ++i)
     {
         XTESTS_TEST_INTEGER_EQUAL(1u,  replacements[2 * i + 1].len);
         XTESTS_TEST_INTEGER_EQUAL(-1, replacements[2 * i + 1].index);
@@ -593,11 +598,11 @@ static void test_good_8()
     XTESTS_TEST_INTEGER_EQUAL(0,  replacements[0].index);
     XTESTS_TEST_INTEGER_EQUAL(0,  int(replacements[0].minWidth));
     XTESTS_TEST_INTEGER_EQUAL(-1,  int(replacements[0].maxWidth));
-    { for(size_t i = 0; i != 26; ++i)
+    { for (size_t i = 0; i != 26; ++i)
     {
         XTESTS_TEST_INTEGER_EQUAL(1u,  replacements[2 * i + 1].len);
         XTESTS_TEST_INTEGER_EQUAL(-1, replacements[2 * i + 1].index);
-        if(i >= 9)
+        if (i >= 9)
         {
             XTESTS_TEST_INTEGER_EQUAL(4u, replacements[2 * i + 2].len);
         }
@@ -1445,6 +1450,7 @@ static void test_illformed_continue_with_format_as_literal_9()
 
 
 } /* anonymous namespace */
+
 
 
 /* ///////////////////////////// end of file //////////////////////////// */

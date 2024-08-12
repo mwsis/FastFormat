@@ -1,22 +1,12 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.component.illformed_handlers.cpp
+ * File:    test.component.illformed_handlers.cpp
  *
- * Purpose:     Implementation file for the test.component.illformed_handlers project.
+ * Purpose: Implementation file for the test.component.illformed_handlers project.
  *
- * Created:     11th November 2013
- * Updated:     10th January 2017
- *
- * Status:      Wizard-generated
- *
- * License:     (Licensed under the Synesis Software Open License)
- *
- *              Copyright (c) 2013-2017, Synesis Software Pty Ltd.
- *              All rights reserved.
- *
- *              www:        http://www.synesis.com.au/software
+ * Created: 11th November 2013
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
-
 
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -162,12 +152,12 @@ private: // Implementation
 
         handler_response_type hr = pThis->handle(code, format, defect, illformedAction);
 
-        if(fastformat::FF_HANDLERRESPONSE_CONTINUE_PROCESSING == hr)
+        if (fastformat::FF_HANDLERRESPONSE_CONTINUE_PROCESSING == hr)
         {
             return hr;
         }
 
-        if(NULL != pThis->m_previous.handler)
+        if (NULL != pThis->m_previous.handler)
         {
             return (*pThis->m_previous.handler)(pThis->m_previous.param, code, format, defect, illformedAction, reserved0, reserved1, reserved2, reserved3);
         }
@@ -283,7 +273,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if( XTESTS_START_RUNNER_WITH_REPORTER_AND_STREAM_AND_FLAGS_AND_SETUP_FNS(
+    if (XTESTS_START_RUNNER_WITH_REPORTER_AND_STREAM_AND_FLAGS_AND_SETUP_FNS(
             "test.component.illformed_handlers"
         ,   verbosity
         ,   NULL, NULL
@@ -367,7 +357,7 @@ static void test_scenario_1_configuration_2()
 
         XTESTS_TEST_FAIL("should not get here");
     }
-    catch(fastformat::illformed_format_exception& /* x */)
+    catch (fastformat::illformed_format_exception& /* x */)
     {
         XTESTS_TEST_INTEGER_EQUAL(1u, scoper1.get_num_calls());
     }
@@ -471,3 +461,4 @@ static void test_1_19()
 } /* anonymous namespace */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

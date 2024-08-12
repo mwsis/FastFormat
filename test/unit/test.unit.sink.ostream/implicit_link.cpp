@@ -1,3 +1,4 @@
+
 #include <fastformat/implicit_link.h>
 
 #include <platformstl/platformstl.h>

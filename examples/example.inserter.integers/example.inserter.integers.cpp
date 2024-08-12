@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        example.inserter.integers.cpp
+ * File:    example.inserter.integers.cpp
  *
- * Purpose:     Implementation file for the example.inserter.integers project.
+ * Purpose: Implementation file for the example.inserter.integers project.
  *
- * Created:     26th May 2009
- * Updated:     6th February 2024
+ * Created: 26th May 2009
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -41,14 +41,14 @@ static int main_(int /* argc */, char** /*argv*/)
 {
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
 
-# define    stm     std::wcout
+# define    stm                                             std::wcout
 
     ff::fmtln(stm, L"i={0}; j={1}; k={2};", ff::to_i(123456), ff::to_i(123456, -10), ff::to_i(123456, 10));
     ff::writeln(stm, L"i=", ff::to_i(-123456), L"; j=", ff::to_i(-123456, -10), L"; k=", ff::to_i(-123456, 10), L";");
 
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
 
-# define    stm     std::cout
+# define    stm                                             std::cout
 
     ff::fmtln(stm, "i={0}", ff::to_i(123456));
     ff::fmtln(stm, "i={0}", ff::to_i(123456, 0, 10));
@@ -68,11 +68,11 @@ int main(int argc, char** argv)
     {
         return main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         cerr << "Unhandled error: " << x.what() << endl;
     }
-    catch(...)
+    catch (...)
     {
         cerr << "Unhandled unknown error" << endl;
     }

@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.scratch.format_alignment.cpp
+ * File:    test.scratch.format_alignment.cpp
  *
- * Purpose:     Implementation file for the test.scratch.format_alignment project.
+ * Purpose: Implementation file for the test.scratch.format_alignment project.
  *
- * Created:     1st June 2008
- * Updated:     6th February 2024
+ * Created: 1st June 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -111,13 +111,13 @@ int main(int argc, char** argv)
 
         res = main_(argc, argv);
     }
-    catch(std::exception& x)
+    catch (std::exception& x)
     {
         fprintf(stderr, "Unhandled error: %s\n", x.what());
 
         res = EXIT_FAILURE;
     }
-    catch(...)
+    catch (...)
     {
         fprintf(stderr, "Unhandled unknown error\n");
 

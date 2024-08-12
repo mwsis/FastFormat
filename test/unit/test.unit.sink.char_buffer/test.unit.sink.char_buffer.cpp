@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.sink.char_buffer.cpp
+ * File:    test.unit.sink.char_buffer.cpp
  *
- * Purpose:     Implementation file for the test.unit.sink.char_buffer project.
+ * Purpose: Implementation file for the test.unit.sink.char_buffer project.
  *
- * Created:     28th May 2008
- * Updated:     6th February 2024
+ * Created: 28th May 2008
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -49,14 +49,16 @@
  */
 
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-# define XTESTS_TEST_STRING_EQUAL_(x, a)    XTESTS_TEST_WIDE_STRING_EQUAL(x, a)
-# define XTESTS_TEST_STRING_EQUAL(x, a)     XTESTS_TEST_STRING_EQUAL_(FASTFORMAT_LITERAL_STRING(x), a)
+
+# define XTESTS_TEST_STRING_EQUAL_(x, a)                    XTESTS_TEST_WIDE_STRING_EQUAL(x, a)
+# define XTESTS_TEST_STRING_EQUAL(x, a)                     XTESTS_TEST_STRING_EQUAL_(FASTFORMAT_LITERAL_STRING(x), a)
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
-# define XTESTS_TEST_STRING_EQUAL_(x, a)    XTESTS_TEST_MULTIBYTE_STRING_EQUAL(x, a)
-# define XTESTS_TEST_STRING_EQUAL           XTESTS_TEST_STRING_EQUAL_
+
+# define XTESTS_TEST_STRING_EQUAL_(x, a)                    XTESTS_TEST_MULTIBYTE_STRING_EQUAL(x, a)
+# define XTESTS_TEST_STRING_EQUAL                           XTESTS_TEST_STRING_EQUAL_
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
 
-#define FF_STR                              FASTFORMAT_LITERAL_STRING
+#define FF_STR                                              FASTFORMAT_LITERAL_STRING
 
 
 /* /////////////////////////////////////////////////////////////////////////
@@ -111,6 +113,7 @@ namespace
 } /* anonymous namespace */
 
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * main()
  */
@@ -122,7 +125,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.unit.sink.char_buffer", verbosity))
+    if (XTESTS_START_RUNNER("test.unit.sink.char_buffer", verbosity))
     {
         XTESTS_RUN_CASE(test_1_0);
         XTESTS_RUN_CASE(test_1_1);
@@ -217,7 +220,7 @@ static void test_1_0()
 {
     ff_char_t                           buff[1] = { '~' };
     char_buffer_sink                    sink(STLSOFT_NUM_ELEMENTS(buff), &buff[0]);
-    const fastformat::string_slice_t    slices[] = 
+    const fastformat::string_slice_t    slices[] =
     {
         {   0,  NULL    },
     };
@@ -240,7 +243,7 @@ static void test_1_1()
 {
     ff_char_t                           buff[1] = { '~' };
     char_buffer_sink                    sink(STLSOFT_NUM_ELEMENTS(buff), &buff[0]);
-    const fastformat::string_slice_t    slices[] = 
+    const fastformat::string_slice_t    slices[] =
     {
         {   1,  FF_STR("a") },
     };
@@ -263,7 +266,7 @@ static void test_1_2()
 {
     ff_char_t                           buff[1] = { '~' };
     char_buffer_sink                    sink(STLSOFT_NUM_ELEMENTS(buff), &buff[0]);
-    const fastformat::string_slice_t    slices[] = 
+    const fastformat::string_slice_t    slices[] =
     {
         {   1,  FF_STR("abcdefghijklmnopqrstuvwxyz")    },
     };
@@ -286,7 +289,7 @@ static void test_1_3()
 {
     ff_char_t                           buff[26];
     char_buffer_sink                    sink(STLSOFT_NUM_ELEMENTS(buff), &buff[0]);
-    const fastformat::string_slice_t    slices[] = 
+    const fastformat::string_slice_t    slices[] =
     {
         {   26, FF_STR("abcdefghijklmnopqrstuvwxyz")    },
     };
@@ -310,7 +313,7 @@ static void test_1_4()
 {
     ff_char_t                           buff[26];
     char_buffer_sink                    sink(STLSOFT_NUM_ELEMENTS(buff), &buff[0]);
-    const fastformat::string_slice_t    slices[] = 
+    const fastformat::string_slice_t    slices[] =
     {
         {   1,  FF_STR("abcdefghijklmnopqrstuvwxyz")        },
         {   25, FF_STR("abcdefghijklmnopqrstuvwxyz") + 1    },
@@ -335,7 +338,7 @@ static void test_1_5()
 {
     ff_char_t                           buff[26];
     char_buffer_sink                    sink(STLSOFT_NUM_ELEMENTS(buff), &buff[0]);
-    const fastformat::string_slice_t    slices[] = 
+    const fastformat::string_slice_t    slices[] =
     {
         {   1,  FF_STR("abcdefghijklmnopqrstuvwxyz")        },
         {   1,  FF_STR("abcdefghijklmnopqrstuvwxyz") + 1    },
@@ -385,7 +388,7 @@ static void test_1_6()
 {
     ff_char_t                           buff[26];
     char_buffer_sink                    sink(STLSOFT_NUM_ELEMENTS(buff), &buff[0]);
-    const fastformat::string_slice_t    slices[] = 
+    const fastformat::string_slice_t    slices[] =
     {
         {   1,  FF_STR("abcdefghijklmnopqrstuvwxyz")        },
         {   0,  NULL                                },
@@ -463,17 +466,17 @@ static void test_1_9()
 static void test_1_10()
 {
     // Both Borland and CodeWarrior seem to think that there's a conversion
-    // from size_t to long somewhere in the invocation of accumulate. 
+    // from size_t to long somewhere in the invocation of accumulate.
 #if !defined(STLSOFT_COMPILER_IS_BORLAND) && \
     !defined(STLSOFT_COMPILER_IS_MWERKS)
 
     ff_char_t    buff[1024];
 
     // For all buffer sizes ...
-    { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(buff); ++i)
+    { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(buff); ++i)
     {
         // For all slices ...
-        { for(size_t j = 0; j != STLSOFT_NUM_ELEMENTS(s_slices); ++j)
+        { for (size_t j = 0; j != STLSOFT_NUM_ELEMENTS(s_slices); ++j)
         {
             const size_t cchTotal = std::accumulate(stlsoft::member_selector(s_slices, &string_slice_t::len)
                                                 ,   stlsoft::member_selector(s_slices, &string_slice_t::len) + j
@@ -485,7 +488,7 @@ static void test_1_10()
 
                 fastformat::sinks::fmt_slices(sink, 0, cchTotal, j, s_slices);
 
-                if(cchTotal > i)
+                if (cchTotal > i)
                 {
                     XTESTS_TEST_FAIL("char_buff_sink() failed to detect insufficient space");
                 }
@@ -494,9 +497,9 @@ static void test_1_10()
                     XTESTS_TEST_INTEGER_EQUAL(0, ::memcmp(s_source, buff, cchTotal * sizeof(ff_char_t)));
                 }
             }
-            catch(std::out_of_range&)
+            catch (std::out_of_range&)
             {
-                if(cchTotal > i)
+                if (cchTotal > i)
                 {
                     XTESTS_TEST_PASSED();
                 }
@@ -557,7 +560,7 @@ static void test_2_0()
 #else /* ? STLSOFT_CF_STATIC_ARRAY_SIZE_DETERMINATION_SUPPORT */
     char_buffer_sink                    sink(STLSOFT_NUM_ELEMENTS(buff), &buff[0]);
 #endif /* STLSOFT_CF_STATIC_ARRAY_SIZE_DETERMINATION_SUPPORT */
-    const fastformat::string_slice_t    slices[] = 
+    const fastformat::string_slice_t    slices[] =
     {
         {   0,  NULL    },
     };
@@ -567,7 +570,7 @@ static void test_2_0()
     fastformat::sinks::fmt_slices(sink, flags, len, STLSOFT_NUM_ELEMENTS(slices), &slices[0]);
 
     XTESTS_TEST_INTEGER_EQUAL(0u + getNewlineForPlatform().len, sink.size());
-    { for(size_t i = 0; i != getNewlineForPlatform().len; ++i)
+    { for (size_t i = 0; i != getNewlineForPlatform().len; ++i)
     {
         XTESTS_TEST_CHARACTER_EQUAL(getNewlineForPlatform().ptr[i], buff[i]);
     }}
@@ -584,7 +587,7 @@ static void test_2_1()
 {
     ff_char_t                           buff[4] = { '~', '~', '~', '~' };
     char_buffer_sink                    sink(STLSOFT_NUM_ELEMENTS(buff), &buff[0]);
-    const fastformat::string_slice_t    slices[] = 
+    const fastformat::string_slice_t    slices[] =
     {
         {   1,  FF_STR("a") },
     };
@@ -595,7 +598,7 @@ static void test_2_1()
 
     XTESTS_TEST_INTEGER_EQUAL(1u + getNewlineForPlatform().len, sink.size());
     XTESTS_TEST_CHARACTER_EQUAL(ff_char_t('a'),  buff[0]);
-    { for(size_t i = 0; i != getNewlineForPlatform().len; ++i)
+    { for (size_t i = 0; i != getNewlineForPlatform().len; ++i)
     {
         XTESTS_TEST_CHARACTER_EQUAL(getNewlineForPlatform().ptr[i], buff[1 + i]);
     }}
@@ -612,7 +615,7 @@ static void test_2_2()
 {
     ff_char_t                           buff[4] = { '~', '~', '~', '~' };
     char_buffer_sink                    sink(STLSOFT_NUM_ELEMENTS(buff), &buff[0]);
-    const fastformat::string_slice_t    slices[] = 
+    const fastformat::string_slice_t    slices[] =
     {
         {   1,  FF_STR("abcdefghijklmnopqrstuvwxyz")    },
     };
@@ -622,7 +625,7 @@ static void test_2_2()
     fastformat::sinks::fmt_slices(sink, flags, len, STLSOFT_NUM_ELEMENTS(slices), &slices[0]);
 
     XTESTS_TEST_INTEGER_EQUAL(1u + getNewlineForPlatform().len, sink.size());
-    { for(size_t i = 0; i != getNewlineForPlatform().len; ++i)
+    { for (size_t i = 0; i != getNewlineForPlatform().len; ++i)
     {
         XTESTS_TEST_CHARACTER_EQUAL(getNewlineForPlatform().ptr[i], buff[1 + i]);
     }}
@@ -639,7 +642,7 @@ static void test_2_3()
 {
     ff_char_t                           buff[28];
     char_buffer_sink                    sink(STLSOFT_NUM_ELEMENTS(buff), &buff[0]);
-    const fastformat::string_slice_t    slices[] = 
+    const fastformat::string_slice_t    slices[] =
     {
         {   26, FF_STR("abcdefghijklmnopqrstuvwxyz")    },
     };
@@ -663,7 +666,7 @@ static void test_2_4()
 {
     ff_char_t                           buff[28];
     char_buffer_sink                    sink(STLSOFT_NUM_ELEMENTS(buff), &buff[0]);
-    const fastformat::string_slice_t    slices[] = 
+    const fastformat::string_slice_t    slices[] =
     {
         {   1,  FF_STR("abcdefghijklmnopqrstuvwxyz")        },
         {   25, FF_STR("abcdefghijklmnopqrstuvwxyz") + 1    },
@@ -688,7 +691,7 @@ static void test_2_5()
 {
     ff_char_t                           buff[28];
     char_buffer_sink                    sink(STLSOFT_NUM_ELEMENTS(buff), &buff[0]);
-    const fastformat::string_slice_t    slices[] = 
+    const fastformat::string_slice_t    slices[] =
     {
         {   1,  FF_STR("abcdefghijklmnopqrstuvwxyz")        },
         {   1,  FF_STR("abcdefghijklmnopqrstuvwxyz") + 1    },
@@ -738,7 +741,7 @@ static void test_2_6()
 {
     ff_char_t                           buff[28];
     char_buffer_sink                    sink(STLSOFT_NUM_ELEMENTS(buff), &buff[0]);
-    const fastformat::string_slice_t    slices[] = 
+    const fastformat::string_slice_t    slices[] =
     {
         {   1,  FF_STR("abcdefghijklmnopqrstuvwxyz")        },
         {   0,  NULL                                },
@@ -816,17 +819,17 @@ static void test_2_9()
 static void test_2_10()
 {
     // Both Borland and CodeWarrior seem to think that there's a conversion
-    // from size_t to long somewhere in the invocation of accumulate. 
+    // from size_t to long somewhere in the invocation of accumulate.
 #if !defined(STLSOFT_COMPILER_IS_BORLAND) && \
     !defined(STLSOFT_COMPILER_IS_MWERKS)
 
     ff_char_t    buff[1024];
 
     // For all buffer sizes ...
-    { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(buff); ++i)
+    { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(buff); ++i)
     {
         // For all slices ...
-        { for(size_t j = 0; j != STLSOFT_NUM_ELEMENTS(s_slices); ++j)
+        { for (size_t j = 0; j != STLSOFT_NUM_ELEMENTS(s_slices); ++j)
         {
             const size_t cchTotal = std::accumulate(stlsoft::member_selector(s_slices, &string_slice_t::len)
                                                 ,   stlsoft::member_selector(s_slices, &string_slice_t::len) + j
@@ -838,7 +841,7 @@ static void test_2_10()
 
                 fastformat::sinks::fmt_slices(sink, 0, cchTotal, j, s_slices);
 
-                if(cchTotal > i)
+                if (cchTotal > i)
                 {
                     XTESTS_TEST_FAIL("char_buff_sink() failed to detect insufficient space");
                 }
@@ -847,9 +850,9 @@ static void test_2_10()
                     XTESTS_TEST_INTEGER_EQUAL(0, ::memcmp(s_source, buff, cchTotal * sizeof(ff_char_t)));
                 }
             }
-            catch(std::out_of_range&)
+            catch (std::out_of_range&)
             {
-                if(cchTotal > i)
+                if (cchTotal > i)
                 {
                     XTESTS_TEST_PASSED();
                 }
@@ -869,7 +872,7 @@ static void test_2_11()
 {
     ff_char_t                           buff[1] = { '~' };
     char_buffer_sink                    sink(STLSOFT_NUM_ELEMENTS(buff), &buff[0]);
-    const fastformat::string_slice_t    slices[] = 
+    const fastformat::string_slice_t    slices[] =
     {
         {   1,  FF_STR("abcdefghijklmnopqrstuvwxyz")    },
     };
@@ -915,6 +918,7 @@ static void test_2_19()
 
 
 } /* anonymous namespace */
+
 
 
 /* ///////////////////////////// end of file //////////////////////////// */

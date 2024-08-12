@@ -1,11 +1,11 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        example.overload.3.tabulations.cpp
+ * File:    example.overload.3.tabulations.cpp
  *
- * Purpose:     Implementation file for the example.overload.3.tabulations
- *              project.
+ * Purpose: Implementation file for the example.overload.3.tabulations
+ *          project.
  *
- * Created:     29th April 2009
- * Updated:     6th February 2024
+ * Created: 29th April 2009
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -55,24 +55,24 @@ std::vector<std::string>    tels_;
 
 static void setup()
 {
-    { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(forenames); ++i)
+    { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(forenames); ++i)
     {
         forenames_.push_back(forenames[i]);
     }}
 
-    { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(surnames); ++i)
+    { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(surnames); ++i)
     {
         surnames_.push_back(surnames[i]);
     }}
 
-    { for(size_t i = 0; i != STLSOFT_NUM_ELEMENTS(tels); ++i)
+    { for (size_t i = 0; i != STLSOFT_NUM_ELEMENTS(tels); ++i)
     {
         tels_.push_back(tels[i]);
     }}
 
-#define forenames   forenames_
-#define surnames    surnames_
-#define tels        tels_
+#define forenames                                           forenames_
+#define surnames                                            surnames_
+#define tels                                                tels_
 }
 
 #ifdef FASTFORMAT_PERFTEST_USE_BOOST
@@ -90,7 +90,7 @@ int main()
 #endif /* FASTFORMAT_PERFTEST_USE_BOOST */
     platformstl::performance_counter::interval_type t_ff_fmt    =   0;
 
-    { for(int WARMUPS = 3; 0 != WARMUPS; --WARMUPS)
+    { for (int WARMUPS = 3; 0 != WARMUPS; --WARMUPS)
     {
 #ifdef _DEBUG
         const int ITERATIONS = 1;
@@ -102,7 +102,7 @@ int main()
 #ifdef FASTFORMAT_PERFTEST_USE_BOOST
         puts("Boost:");
         counter.start();
-        { for(int j = 0; j != ITERATIONS; ++j)
+        { for (int j = 0; j != ITERATIONS; ++j)
         {
             output_by_boost();
         }}
@@ -113,7 +113,7 @@ int main()
 
         puts("FastFormat.Format:");
         counter.start();
-        { for(int j = 0; j != ITERATIONS; ++j)
+        { for (int j = 0; j != ITERATIONS; ++j)
         {
             output_by_ff();
         }}
@@ -145,14 +145,14 @@ int main()
 
 FILE* FILE_stm = stdout;
 //#define ff_stm    FILE_stm
-#define ff_stm  std::cout
+#define ff_stm                                              std::cout
 
 int output_by_ff()
 {
 #ifdef forenames
-    for(unsigned int i = 0; i < forenames.size(); ++i)
+    for (unsigned int i = 0; i < forenames.size(); ++i)
 #else /* forenames */
-    for(unsigned int i = 0; i < STLSOFT_NUM_ELEMENTS(forenames); ++i)
+    for (unsigned int i = 0; i < STLSOFT_NUM_ELEMENTS(forenames); ++i)
 #endif /* forenames */
     {
 #if 1
@@ -190,9 +190,9 @@ int output_by_ff()
 int output_by_boost()
 {
 # ifdef forenames
-    for(unsigned int i = 0; i < forenames.size(); ++i)
+    for (unsigned int i = 0; i < forenames.size(); ++i)
 # else /* forenames */
-    for(unsigned int i = 0; i < STLSOFT_NUM_ELEMENTS(forenames); ++i)
+    for (unsigned int i = 0; i < STLSOFT_NUM_ELEMENTS(forenames); ++i)
 # endif /* forenames */
     {
         std::cout << boost::format("%1%, %2%, %|40t|%3%\n") % forenames[i] % surnames[i] % tels[i];

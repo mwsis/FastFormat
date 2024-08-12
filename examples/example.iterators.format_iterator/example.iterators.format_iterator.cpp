@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        examples/example.iterators.format_iterator/example.iterators.format_iterator.cpp
+ * File:    examples/example.iterators.format_iterator/example.iterators.format_iterator.cpp
  *
- * Purpose:     Implementation file for the example.iterators.format_iterator project.
+ * Purpose: Implementation file for the example.iterators.format_iterator project.
  *
- * Created:     26th March 2010
- * Updated:     6th February 2024
+ * Created: 26th March 2010
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -56,10 +56,10 @@ static int main_(int /* argc */, char** /*argv*/)
 {
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
   typedef std::wstring            string_t;
-# define    stm                   std::wcout
+# define    stm                                             std::wcout
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
   typedef std::string             string_t;
-# define    stm                   std::cout
+# define    stm                                             std::cout
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
   typedef std::vector<string_t>   strings_t;
 
@@ -104,11 +104,11 @@ int main(int argc, char** argv)
   {
     return main_(argc, argv);
   }
-  catch(std::exception& x)
+  catch (std::exception& x)
   {
     std::cerr << "Unhandled error: " << x.what() << std::endl;
   }
-  catch(...)
+  catch (...)
   {
     std::cerr << "Unhandled unknown error" << std::endl;
   }

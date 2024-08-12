@@ -1,14 +1,15 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/sinks/speech.hpp
+ * File:    fastformat/sinks/speech.hpp
  *
- * Purpose:     A FastFormat sink for the Windows Speech API.
+ * Purpose: A FastFormat sink for the Windows Speech API.
  *
- * Created:     27th November 2007
- * Updated:     10th January 2017
+ * Created: 27th November 2007
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
- * Copyright (c) 2007-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2007-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_SPEECH
 #define FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_SPEECH
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_SPEECH_MAJOR    1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_SPEECH_MINOR    3
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_SPEECH_REVISION 1
-# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_SPEECH_EDIT     22
+# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_SPEECH_EDIT     26
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -70,6 +73,7 @@
     !defined(WIN64)
 # error The speech_sink component is currently implemented only on Windows, using SAPI; contributions for Mac, Linux and others are welcomed
 #endif /* OS */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -86,6 +90,7 @@
 #include <stlsoft/smartptr/ref_ptr.hpp>
 #include <stlsoft/memory/auto_buffer.hpp>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -96,6 +101,7 @@ namespace fastformat
 namespace sinks
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * classes
@@ -139,7 +145,7 @@ public: // Shim Operations
         stlsoft::auto_buffer<ff_char_t> buff(1 + cchTotal);
 
 #ifndef STLSOFT_CF_THROW_BAD_ALLOC
-        if( !m_voice.empty() &&
+        if (!m_voice.empty() &&
             !buff.empty())
 #endif /* !STLSOFT_CF_THROW_BAD_ALLOC */
         {
@@ -153,7 +159,7 @@ public: // Shim Operations
             HRESULT hr = comstl::sapi_speak(m_voice, buff.data(), static_cast<DWORD>(m_flags));
 
 #ifdef STLSOFT_CF_EXCEPTION_SUPPORT
-            if(FAILED(hr))
+            if (FAILED(hr))
             {
                 // TODO: Use more-derived exception and capture hr
                 throw sink_output_exception("Failed to write statement");
@@ -178,9 +184,9 @@ private: // Implementation
         HRESULT     hr = comstl::sapi_create(voice);
 
 #ifdef STLSOFT_CF_EXCEPTION_SUPPORT
-        if(FAILED(hr))
+        if (FAILED(hr))
         {
-// TODO:            throw 
+// TODO:            throw
         }
 #else /* STLSOFT_CF_EXCEPTION_SUPPORT */
         STLSOFT_SUPPRESS_UNUSED(hr);
@@ -194,6 +200,7 @@ private: // Member Variables
     voice_type              m_voice;
     const int               m_flags;
 };
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * action shims
@@ -209,6 +216,7 @@ inline speech_sink& fmt_slices(speech_sink& sink, int flags, size_t cchTotal, si
     return sink.write(flags, cchTotal, numResults, results);
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -223,3 +231,4 @@ inline speech_sink& fmt_slices(speech_sink& sink, int flags, size_t cchTotal, si
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_SPEECH */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+

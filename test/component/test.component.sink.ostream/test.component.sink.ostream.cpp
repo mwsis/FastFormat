@@ -1,10 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.component.sink.ostream.cpp
+ * File:    test.component.sink.ostream.cpp
  *
- * Purpose:     Implementation file for the test.component.sink.ostream project.
+ * Purpose: Implementation file for the test.component.sink.ostream project.
  *
- * Created:     14th September 2010
- * Updated:     6th February 2024
+ * Created: 14th September 2010
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -70,7 +70,7 @@ int main(int argc, char** argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.component.sink.ostream", verbosity))
+    if (XTESTS_START_RUNNER("test.component.sink.ostream", verbosity))
     {
         XTESTS_RUN_CASE(test_1_1);
         XTESTS_RUN_CASE(test_1_2);
@@ -99,12 +99,12 @@ typedef std::basic_ostream<ff_char_t>   ostream_t;
 typedef std::basic_ofstream<ff_char_t>  ofstream_t;
 
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-# define XTESTS_TEST_STRING_EQUAL           XTESTS_TEST_WIDE_STRING_EQUAL
+# define XTESTS_TEST_STRING_EQUAL                           XTESTS_TEST_WIDE_STRING_EQUAL
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
-# define XTESTS_TEST_STRING_EQUAL           XTESTS_TEST_MULTIBYTE_STRING_EQUAL
+# define XTESTS_TEST_STRING_EQUAL                           XTESTS_TEST_MULTIBYTE_STRING_EQUAL
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
 
-#define FF_STR                              FASTFORMAT_LITERAL_STRING
+#define FF_STR                                              FASTFORMAT_LITERAL_STRING
 
 static void open_or_throw(
     char const* fileName
@@ -134,7 +134,7 @@ static void test_1_1()
 
         ::remove(FILE_NAME);
     }
-    catch(...)
+    catch (...)
     {
         ::remove(FILE_NAME);
 
@@ -164,7 +164,7 @@ static void test_1_2()
 
         ::remove(FILE_NAME);
     }
-    catch(...)
+    catch (...)
     {
         ::remove(FILE_NAME);
 
@@ -195,7 +195,7 @@ static void test_1_3()
 
         ::remove(FILE_NAME);
     }
-    catch(...)
+    catch (...)
     {
         ::remove(FILE_NAME);
 
@@ -227,7 +227,7 @@ static void test_1_4()
 
         ::remove(FILE_NAME);
     }
-    catch(...)
+    catch (...)
     {
         ::remove(FILE_NAME);
 
@@ -257,7 +257,7 @@ static void test_1_5()
 
         ::remove(FILE_NAME);
     }
-    catch(...)
+    catch (...)
     {
         ::remove(FILE_NAME);
 
@@ -287,7 +287,7 @@ static void test_1_6()
 
         ::remove(FILE_NAME);
     }
-    catch(...)
+    catch (...)
     {
         ::remove(FILE_NAME);
 
@@ -318,7 +318,7 @@ static void test_1_7()
 
         ::remove(FILE_NAME);
     }
-    catch(...)
+    catch (...)
     {
         ::remove(FILE_NAME);
 
@@ -350,7 +350,7 @@ static void test_1_8()
 
         ::remove(FILE_NAME);
     }
-    catch(...)
+    catch (...)
     {
         ::remove(FILE_NAME);
 

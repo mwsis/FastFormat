@@ -1,14 +1,15 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        fastformat/sinks/FILE.hpp
+ * File:    fastformat/sinks/FILE.hpp
  *
- * Purpose:     A FastFormat sink for FILE*.
+ * Purpose: A FastFormat sink for FILE*.
  *
- * Created:     3rd January 2008
- * Updated:     5th February 2017
+ * Created: 3rd January 2008
+ * Updated: 11th August 2024
  *
- * Home:        http://www.fastformat.org/
+ * Home:    http://www.fastformat.org/
  *
- * Copyright (c) 2008-2017, Matthew Wilson and Synesis Software
+ * Copyright (c) 2019-2024, Matthew Wilson and Synesis Information Systems
+ * Copyright (c) 2008-2019, Matthew Wilson and Synesis Software
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -47,6 +48,7 @@
 #ifndef FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_FILE
 #define FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_FILE
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * version information
  */
@@ -55,8 +57,9 @@
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_FILE_MAJOR      1
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_FILE_MINOR      3
 # define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_FILE_REVISION   7
-# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_FILE_EDIT       33
+# define FASTFORMAT_VER_FASTFORMAT_SINK_HPP_FILE_EDIT       37
 #endif /* !FASTFORMAT_DOCUMENTATION_SKIP_SECTION */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * language
@@ -65,6 +68,7 @@
 #ifndef __cplusplus
 # error This file can only be included in C++ compilation units
 #endif /* !__cplusplus */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * includes
@@ -84,6 +88,7 @@
 
 #include <stdio.h>
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -94,6 +99,7 @@ namespace fastformat
 namespace sinks
 {
 #endif /* !FASTFORMAT_NO_NAMESPACE */
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * classes
@@ -125,6 +131,7 @@ public: // Fields
     FILE* const stream;
 };
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * creator functions
  */
@@ -144,6 +151,7 @@ to_sink(FILE* stm)
 {
     return ff_FILE_sink(stm);
 }
+
 
 /* /////////////////////////////////////////////////////////////////////////
  * action shims
@@ -178,7 +186,7 @@ fmt_slices(
 ,   ff_string_slice_t const*    results
 )
 {
-    if(NULL == sink)
+    if (NULL == sink)
     {
         return sink;
     }
@@ -191,7 +199,7 @@ fmt_slices(
     int                             n = 0;
 
 # ifndef STLSOFT_CF_THROW_BAD_ALLOC
-    if(!buff.empty())
+    if (!buff.empty())
 # endif /* !STLSOFT_CF_THROW_BAD_ALLOC */
     {
 # if !defined(FASTFORMAT_NO_NAMESPACE)
@@ -201,7 +209,7 @@ fmt_slices(
 #ifndef FASTFORMAT_FILE_SINK_OLD_IMPLEMENTATION
 
         size_t n2 = concat_slices(buff, numResults, results);
-        if(flags::ff_newLine & flags)
+        if (flags::ff_newLine & flags)
         {
             buff[n2++] = '\n';
         }
@@ -233,16 +241,16 @@ fmt_slices(
 #endif /* !FASTFORMAT_FILE_SINK_OLD_IMPLEMENTATION */
     }
 
-    if( n >= 0 &&
+    if (n >= 0 &&
         0 != (flags::ff_flush & flags))
     {
-        if(0 != ::fflush(sink))
+        if (0 != ::fflush(sink))
         {
             n = -1;
         }
     }
 
-    if(n < 0)
+    if (n < 0)
     {
 #ifdef STLSOFT_CF_EXCEPTION_SUPPORT
         // TODO: Use more-derived exception and capture errno
@@ -275,6 +283,7 @@ fmt_slices(
     return sink;
 }
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * namespace
  */
@@ -285,6 +294,7 @@ using sinks::to_sink;
 } /* namespace fastformat */
 #endif /* !FASTFORMAT_NO_NAMESPACE */
 
+
 /* /////////////////////////////////////////////////////////////////////////
  * inclusion control
  */
@@ -293,8 +303,8 @@ using sinks::to_sink;
 # pragma once
 #endif /* STLSOFT_PPF_pragma_once_SUPPORT */
 
-/* ////////////////////////////////////////////////////////////////////// */
-
 #endif /* FASTFORMAT_INCL_FASTFORMAT_SINK_HPP_FILE */
 
+
 /* ///////////////////////////// end of file //////////////////////////// */
+

@@ -1,19 +1,10 @@
 /* /////////////////////////////////////////////////////////////////////////
- * File:        test.unit.sink.ribbon.cpp
+ * File:    test.unit.sink.ribbon.cpp
  *
- * Purpose:     Implementation file for the test.unit.sink.ribbon project.
+ * Purpose: Implementation file for the test.unit.sink.ribbon project.
  *
- * Created:     6th September 2014
- * Updated:     10th January 2017
- *
- * Status:      Wizard-generated
- *
- * License:     (Licensed under the Synesis Software Open License)
- *
- *              Copyright (c) 2008-2017, Synesis Software Pty Ltd.
- *              All rights reserved.
- *
- *              www:        http://www.synesis.com.au/software
+ * Created: 6th September 2014
+ * Updated: 11th August 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -55,12 +46,14 @@
  */
 
 #ifdef FASTFORMAT_USE_WIDE_STRINGS
-# define XTESTS_TEST_STRING_EQUAL(x, a)     XTESTS_TEST_WIDE_STRING_EQUAL(FASTFORMAT_LITERAL_STRING(x), a)
+
+# define XTESTS_TEST_STRING_EQUAL(x, a)                     XTESTS_TEST_WIDE_STRING_EQUAL(FASTFORMAT_LITERAL_STRING(x), a)
 #else /* ? FASTFORMAT_USE_WIDE_STRINGS */
-# define XTESTS_TEST_STRING_EQUAL           XTESTS_TEST_MULTIBYTE_STRING_EQUAL
+
+# define XTESTS_TEST_STRING_EQUAL                           XTESTS_TEST_MULTIBYTE_STRING_EQUAL
 #endif /* FASTFORMAT_USE_WIDE_STRINGS */
 
-#define FF_STR                              FASTFORMAT_LITERAL_STRING
+#define FF_STR                                              FASTFORMAT_LITERAL_STRING
 
 /* /////////////////////////////////////////////////////////////////////////
  * forward declarations
@@ -104,7 +97,7 @@ int main(int argc, char **argv)
 
     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
 
-    if(XTESTS_START_RUNNER("test.unit.sink.ribbon", verbosity))
+    if (XTESTS_START_RUNNER("test.unit.sink.ribbon", verbosity))
     {
         XTESTS_RUN_CASE(test_types_exist);
         XTESTS_RUN_CASE(test_string_ribbon_1);
@@ -145,7 +138,7 @@ namespace
     using ::xtests::cpp::temp_file;
 
     typedef fastformat::ff_char_t           char_t;
- 
+
     typedef std::basic_string<char_t>       string_t;
 
 
@@ -186,7 +179,7 @@ static void test_string_ribbon_3()
 {
     string_t s;
 
-    { for(size_t i = 0; i != 10; ++i)
+    { for (size_t i = 0; i != 10; ++i)
     {
         string_t t(i, '~');
 
@@ -195,7 +188,7 @@ static void test_string_ribbon_3()
         XTESTS_TEST_MULTIBYTE_STRING_EQUAL(t, s);
     }}
 
-    { for(size_t i = 10; i != 100; ++i)
+    { for (size_t i = 10; i != 100; ++i)
     {
         string_t e(10, '~');
         string_t t(i, '~');
@@ -210,7 +203,7 @@ static void test_string_ribbon_4()
 {
     string_t s;
 
-    { for(size_t i = 0; i != 10; ++i)
+    { for (size_t i = 0; i != 10; ++i)
     {
         string_t t(i, '~');
 
@@ -219,7 +212,7 @@ static void test_string_ribbon_4()
         XTESTS_TEST_MULTIBYTE_STRING_EQUAL(t, s);
     }}
 
-    { for(size_t i = 10; i != 100; ++i)
+    { for (size_t i = 10; i != 100; ++i)
     {
         string_t e(10, '~');
         string_t t(i, '~');
@@ -234,7 +227,7 @@ static void test_string_ribbon_5()
 {
     string_t s;
 
-    { for(size_t i = 0; i != 10; ++i)
+    { for (size_t i = 0; i != 10; ++i)
     {
         string_t t(i, '~');
 
@@ -243,7 +236,7 @@ static void test_string_ribbon_5()
         XTESTS_TEST_MULTIBYTE_STRING_EQUAL(t, s);
     }}
 
-    { for(size_t i = 11; i != 100; ++i)
+    { for (size_t i = 11; i != 100; ++i)
     {
         string_t t(i, '~');
 
@@ -341,3 +334,4 @@ static void test_1_19()
 } /* anonymous namespace */
 
 /* ///////////////////////////// end of file //////////////////////////// */
+
