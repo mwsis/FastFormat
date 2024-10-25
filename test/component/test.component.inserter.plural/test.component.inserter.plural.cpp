@@ -131,7 +131,7 @@ static int teardown(void* param)
 static void test_1_0()
 {
 #if 0
-	fastformat::plural instance;
+	core::plural instance;
 
 	STLSOFT_SUPPRESS_UNUSED(instance);
 

@@ -5,7 +5,7 @@
 # Purpose:  Top-level CMake lists file for FastFormat
 #
 # Created:  6th February 2024
-# Updated:  10th August 2024
+# Updated:  25th October 2024
 #
 # ######################################################################## #
 
@@ -55,9 +55,6 @@ set(PROJECT_VERSION_MINOR ${_VERSION_MINOR})
 set(PROJECT_VERSION_PATCH ${_VERSION_PATCH})
 set(PROJECT_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
 
-message(NOTICE "Generating CMake build scripts for ${PROJECT_NAME} ${PROJECT_VERSION}")
-
-
 # adhere strictly to C and C++ standards plus extensions. These are actually
 # useless since we do not compile anything; they merely state our intention.
 set(CMAKE_C_STANDARD 17)
@@ -67,23 +64,95 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS ON)
 
+if(MSVC)
+
+	if(MSVC_VERSION LESS 1930)
+
+		set(CMAKE_C_STANDARD 90)
+		set(CMAKE_CXX_STANDARD 98)
+	endif()
+endif(MSVC)
+
 
 # ##########################################################
-# install
+# dependencies, includes, options
 
-# provides install directory variables as defined by the GNU Coding Standards.
-include(GNUInstallDirs)
+# ################################################
+# includes - 1
+
+include(BuildType)
+include(LanguageFullVersion)
+include(TargetMacros)
 
 
-# ##########################################################
+# ################################################
+# dependencies and options
+
+option(BUILD_EXAMPLES "Build examples" ON)
+
+option(BUILD_TESTING "Build tests" ON)
+
+
+# ######################################
 # dependencies
+#
+# required:
+# - STLSoft - required, both for implementation and interface;
+# - xTests - required for testing;
+#
+# optional:
+# - shwild - for enhanced match constructs
 
-set(STLSoft_REQUIRED_VERSION_ 0.11)
+# ############################
+# STLSoft (required)
+#
+# We provide flexibility here, as in:
+# 1. if a CMake variable STLSOFT is provided then it is used; otherwise
+# 2. if an environment variable STLSOFT is provided then it then it is used; otherwise
+# 3. if the package STLSoft (via find_package()) is found then it is used; otherwise
+# 4. we abort
 
-find_package(STLSoft ${STLSoft_REQUIRED_VERSION_} REQUIRED)
+if(NOT DEFINED STLSOFT AND NOT DEFINED ENV{STLSOFT})
 
-message("-- CMake package STLSoft found (version ${STLSoft_VERSION}; ${STLSoft_REQUIRED_VERSION_} requested)")
+	set(STLSoft_REQUIRED_VERSION_ 1.11)
 
+	find_package(STLSoft ${STLSoft_REQUIRED_VERSION_} REQUIRED)
+
+	message("-- CMake package STLSoft found (version ${STLSoft_VERSION}; ${STLSoft_REQUIRED_VERSION_} requested)")
+else()
+
+	if(DEFINED STLSOFT)
+
+		message("-- STLSOFT provided as CMake variable with value '${STLSOFT}'")
+
+		set(STLSOFT_INCLUDE_DIR ${STLSOFT}/include)
+	else()
+
+		message("-- STLSOFT provided as environment variable with value '$ENV{STLSOFT}'")
+
+		set(STLSOFT_INCLUDE_DIR $ENV{STLSOFT}/include)
+	endif()
+
+	include_directories(${STLSOFT_INCLUDE_DIR})
+endif()
+
+
+# ############################
+# shwild
+
+if(BUILD_TESTING)
+
+	find_package(shwild QUIET)
+
+	if(shwild_FOUND)
+
+		message("-- CMake package shwild found (version ${shwild_VERSION})")
+	endif(shwild_FOUND)
+endif(BUILD_TESTING)
+
+
+# ############################
+# xTests
 
 if(BUILD_TESTING)
 
@@ -92,14 +161,11 @@ if(BUILD_TESTING)
 	find_package(xTests ${xTests_REQUIRED_VERSION_} REQUIRED)
 
 	message("-- CMake package xTests found (version ${xTests_VERSION}; ${xTests_REQUIRED_VERSION_} requested)")
-
-
-	set(shwild_REQUIRED_VERSION_ 0.12)
-
-	find_package(shwild ${shwild_REQUIRED_VERSION_} REQUIRED)
-
-	message("-- CMake package shwild found (version ${shwild_VERSION}; ${shwild_REQUIRED_VERSION_} requested)")
 endif(BUILD_TESTING)
+
+
+# ##########################################################
+# dependencies
 
 if(BUILD_EXAMPLES OR BUILD_TESTING)
 
@@ -116,47 +182,52 @@ if(BUILD_EXAMPLES OR BUILD_TESTING)
 	endif(WIN32)
 endif()
 
+# ################################################
+# includes - 2
+
+include(CMakePackageConfigHelpers)
+if(BUILD_TESTING)
+
+	include(CTest)
+endif(BUILD_TESTING)
+include(GNUInstallDirs)
+
+
 # ##########################################################
-# STLSoft
+# targets
 
-if(DEFINED STLSOFT_INCLUDE_DIR)
-
-	include_directories(${STLSOFT_INCLUDE_DIR})
-endif()
-
-
-# ##########################################################
-# build
-
-# load/default `CMAKE_BUILD_TYPE`
-include(BuildType)
+# ################################################
+# main library
 
 add_subdirectory(src)
 
 
-# ##########################################################
-# test
+# ################################################
+# examples
 
-include(CTest)
+if(BUILD_EXAMPLES)
+
+	message("-- enabled building of examples ...")
+
+	add_subdirectory(examples)
+else(BUILD_EXAMPLES)
+
+	message("-- disabled building of examples - define BUILD_EXAMPLES to enable")
+endif(BUILD_EXAMPLES)
+
+
+# ################################################
+# tests
 
 if(BUILD_TESTING)
 
 	message("-- enabled building of tests ...")
 
 	add_subdirectory(test)
+else(BUILD_TESTING)
+
+	message("-- disabled building of tests - define BUILD_TESTING to enable")
 endif(BUILD_TESTING)
-
-
-# ##########################################################
-# examples
-
-option(BUILD_EXAMPLES "Build examples" ON)
-if(BUILD_EXAMPLES)
-
-	message("-- enabled building of examples ...")
-
-	add_subdirectory(examples)
-endif(BUILD_EXAMPLES)
 
 
 # ##########################################################
@@ -165,8 +236,6 @@ endif(BUILD_EXAMPLES)
 
 # ##########################################################
 # export
-
-include(CMakePackageConfigHelpers)
 
 set(EXPORT_NAME ${PROJECT_NAME_LOWER})
 
@@ -198,6 +267,12 @@ install( FILES
 	"${CMAKE_CURRENT_BINARY_DIR}/cmake/${EXPORT_NAME}-config-version.cmake"
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${EXPORT_NAME}
 )
+
+
+# ##########################################################
+# completion
+
+message(NOTICE "Generating CMake build scripts for ${PROJECT_NAME} ${PROJECT_VERSION}, for C${CMAKE_C_STANDARD} C++${CMAKE_CXX_STANDARD}")
 
 
 # ############################## end of file ############################# #

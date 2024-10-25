@@ -1,18 +1,14 @@
 
-set(CORE_SRCS
-	api.cpp
-	enum_strings.cpp
-	fmt_cache.cpp
-	fmt_spec_defect_handlers.cpp
-	init_code_strings.cpp
-	memory_pool.cpp
-	replacements.cpp
-	snprintf.cpp
-)
+# ######################################################################## #
+# File:     /src/CMakeLists.txt
+#
+# Purpose:  CMake lists file for FastFormat core library
+#
+# Created:  ...
+# Updated:  25th October 2024
+#
+# ######################################################################## #
 
-add_library(fastformat
-	${CORE_SRCS}
-)
 
 if(UNIX)
 
@@ -45,6 +41,22 @@ if ((MSVC) AND (MSVC_VERSION GREATER_EQUAL 1914))
 endif()
 
 
+
+set(CORE_SRCS
+	api.cpp
+	enum_strings.cpp
+	fmt_cache.cpp
+	fmt_spec_defect_handlers.cpp
+	init_code_strings.cpp
+	memory_pool.cpp
+	replacements.cpp
+	snprintf.cpp
+)
+
+add_library(core
+	${CORE_SRCS}
+)
+
 # specify the primary public headers for the library, which controls whether
 # they'll be installed
 #
@@ -53,44 +65,39 @@ endif()
 # `install()` step
 set(CORE_PUBLIC_HEADERS
 	"${CMAKE_SOURCE_DIR}/include/${PROJECT_NAME_LOWER}/${PROJECT_NAME_LOWER}.h"
-	"${CMAKE_SOURCE_DIR}/include/${PROJECT_NAME_LOWER}/fastformat.hpp"
+	"${CMAKE_SOURCE_DIR}/include/${PROJECT_NAME_LOWER}/${PROJECT_NAME_LOWER}.hpp"
 )
 
-set_target_properties(fastformat PROPERTIES
+set_target_properties(core PROPERTIES
 	OUTPUT_NAME "fastformat"
 	PUBLIC_HEADER "${CORE_PUBLIC_HEADERS}"
 )
 
-target_include_directories(fastformat PUBLIC
+target_include_directories(core PUBLIC
 	$<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
 	$<INSTALL_INTERFACE:include>
 )
 
-target_link_libraries(fastformat
-	PRIVATE
-		$<$<BOOL:${STLSoft_FOUND}>:STLSoft::STLSoft>
+target_link_libraries(core
+	PUBLIC
+		$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 )
 
-target_compile_options(fastformat PRIVATE
-	$<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:
-		-Werror -Wall -Wextra -pedantic
-
-		-Wno-deprecated-copy-with-user-provided-copy
-		# -Wno-missing-braces
-		# -Wno-missing-field-initializers
-		# -Wno-unused-parameter
-		# -Wno-unused-value
-	>
-	$<$<CXX_COMPILER_ID:MSVC>:
-		/WX /W4
-	>
+target_compile_options(core
+	PRIVATE
+		$<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:
+			-Werror -Wall -Wextra -pedantic
+		>
+		$<$<CXX_COMPILER_ID:MSVC>:
+			/WX /W4
+		>
 )
 
 
 # ##########################################################
 # install
 
-install(TARGETS fastformat
+install(TARGETS core
 	EXPORT project-targets
 	ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
 	LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}

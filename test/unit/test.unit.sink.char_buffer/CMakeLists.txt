@@ -1,26 +1,2 @@
-
-add_executable(test.unit.sink.char_buffer
-	test.unit.sink.char_buffer.cpp
-)
-
-target_link_libraries(test.unit.sink.char_buffer
-	fastformat
-	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
-	xTests::core
-)
-
-target_compile_options(test.unit.sink.char_buffer PRIVATE
-	$<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:
-		-Werror -Wall -Wextra -pedantic
-
-		-Wno-deprecated-copy-with-user-provided-copy
-		-Wno-string-plus-int
-	>
-	$<$<CXX_COMPILER_ID:MSVC>:
-		/WX /W4
-	>
-)
-
-
-# ############################## end of file ############################# #
-
+list(APPEND X_GCC_CUSTOM_WARNINGS_TO_BE_SUPPRESSED string-plus-int)
+define_automated_test_program(test.unit.sink.char_buffer test.unit.sink.char_buffer.cpp)

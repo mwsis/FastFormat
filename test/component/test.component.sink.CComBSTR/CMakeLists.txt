@@ -1,25 +1,4 @@
+# SIS:AUTO_GENERATED: Remove this line if you edit the file, otherwise it will be overwritten
+define_automated_test_program(test.component.sink.CComBSTR test.component.sink.CComBSTR.cpp)
 
-add_executable(test.component.sink.CComBSTR
-	test.component.sink.CComBSTR.cpp
-)
-
-target_link_libraries(test.component.sink.CComBSTR
-	fastformat
-	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
-	xTests::core
-)
-
-target_compile_options(test.component.sink.CComBSTR PRIVATE
-	$<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:
-		-Werror -Wall -Wextra -pedantic
-
-		-Wno-deprecated-copy-with-user-provided-copy
-	>
-	$<$<CXX_COMPILER_ID:MSVC>:
-		/WX /W4
-	>
-)
-
-
-# ############################## end of file ############################# #
-
+		# -Wno-deprecated-copy-with-user-provided-copy
