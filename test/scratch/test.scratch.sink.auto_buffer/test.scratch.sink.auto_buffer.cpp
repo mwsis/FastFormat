@@ -4,7 +4,7 @@
  * Purpose: Implementation file for the test.component.sink.auto_buffer project.
  *
  * Created: 21st April 2008
- * Updated: 12th August 2024
+ * Updated: 26th October 2024
  *
  * ////////////////////////////////////////////////////////////////////// */
 
@@ -17,19 +17,6 @@
 #define FASTFORMAT_NO_IMPLICIT_ACTION_SHIMS // VC++ 6 can't distinguish the auto_buffer action shim from the generic string one
 #include <fastformat/sinks/auto_buffer.hpp>
 #include <fastformat/ff.hpp>
-
-/* shwild Header Files */
-#include <shwild/shwild.hpp>
-
-/* xTests Header Files */
-#include <xtests/xtests.h>
-
-/* STLSoft Header Files */
-#include <stlsoft/stlsoft.h>
-
-/* PlatformSTL Header Files */
-#include <platformstl/platformstl.hpp>
-
 
 /* Standard C++ Header Files */
 #include <exception>
@@ -71,7 +58,9 @@ typedef std::string                                         string_t;
 #endif /* 0 */
 
 
-/* ////////////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////////////////////////////////////
+ * main()
+ */
 
 static int main_(int /* argc */, char** /*argv*/)
 {
